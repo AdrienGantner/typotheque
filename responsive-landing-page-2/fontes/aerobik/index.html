@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Typotes Club</title>
+
+</head>
+<body>
+    <!-------------------------------------------- menu------------------------------------------------>
+<section id="fixed">
+    <div id="landing">
+        <header class="header">
+            <a href="../../index.html" class="logo">Typotes Club</a>
+            <div id="white-bkgd"></div>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+            <li><a href="#fontes">Fontes</a></li>
+            <li><a href="#licences">Licences</a></li>
+            <li><a href="#auhasard">À Propos</a></li>
+            </ul>
+        </header>
+    </div>
+
+<!--   FONT NAME   -->
+<p id="font-name">Aerobik</p>
+
+
+<div id="editable-container">
+    
+    <div class="setting-flex">
+        <div class="flex box1">
+            <div id="fontSizeDisplay"><span id="fontSizeValue">90</span>px</div>
+            <input type="range" min="10" max="150" value="87" class="slider" id="fontSlider">
+        </div>
+
+        <div class="container flex box2">
+            <label for="lineHeightSlider">Espacement</label><br>
+            <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+        </div>
+
+        <div id="font-dropdown" class="container flex box3" >
+            <div class="custom-dropdown-container">
+                <select name="fonts">
+                    <option value="font1" style="width: 300px;">Regular</option>
+                </select>
+                <div class="dropdown-icon">&#9660;</div>
+            </div>
+        </div>
+    </div>
+    <div id="textContainer">
+        <div class="editabletxt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+    </div>
+</div>
+
+
+<div id="processus">
+<!--     <h1>Processus</h1> -->
+    <p id="processus-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi minima numquam aspernatur delectus cupiditate, possimus autem debitis ad quod ducimus veniam ab quia expedita! Iste odit nostrum sequi eligendi at dolore voluptatibus modi? Et, nostrum. Ut, magni recusandae! Et dolor officiis pariatur animi corrupti ducimus deserunt illo? Veniam, facere obcaecati?</p>
+</div>
+</section>
+
+<!-- <section id="img-section">
+    <div id="container-img">
+        <img src="images/insolente1.jpg">
+        <img src="images/insolente2.jpg">
+        <img src="images/insolente3.jpg">
+        <img src="images/insolente4.jpg">
+        <img src="images/insolente5.jpg">
+        <img src="images/insolente6.jpg">
+    </div> -->
+</section>
+<!--collapsible glyphset-->
+<div id="button">
+    <h1>Glyphset</h1>
+    </div> 
+</div>
+
+<!-- <h1>En usage</h1>
+<div id="container-en-usage">
+</div> -->
+
+<h1>Détails</h1>
+<div id="container-container">
+    <div class="details-container">
+        <p id="detail-designer">Designeur·euse</p>
+        <p id="detail-name">Astrid Etienne</p>
+        <p id="detail-publication">Publication</p>
+        <p id="detail-date">2021</p>
+        <p id="detail-licence">Licence</p>
+        <p id="detail-licencename"><u>OFL</u></p>
+    </div>
+</div>
+
+
+<div id="links">
+    <a href="specimen" class="links">Specimen</a><br>
+    <!-- <a id="telecharger" class="links" href="../../../fonts/Zenith5.ttf" download="Zenith"></a> -->
+
+    <button type="button" class="collapsible links">Télécharger</button>
+    <div class="content">
+      <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
+        Avec ce fichier, j'ai le droit:<br>
+        d'utiliser la fonte pour un projet personnel.<br>
+        Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Astrid&nbsp;Etienne:<br>
+        astride.etienne@lacambre.be</p>
+
+        <div id="dl-container">
+            <label>
+                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+            </label><br>
+            <button id="downloadButton" disabled>Télécharger</button>
+        </div> 
+    </div> 
+</div>
+
+<!-- <div id="container-bottom">
+    <a id="retour" href="../../index.html">retour</a>
+    <a id="telecharger" href="../fonts/Zenith5.ttf" download="Zenith">Télécharger</a>
+
+    <a id="next-font" href="../font-page/wildflower/index.html">wildflower regular</a>
+</div> -->
+
+
+<section id="footer">
+</section>
+
+
+<!--script for image slider-->
+<script>
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+let i;
+let slides = document.getElementsByClassName("mySlides");
+let dots = document.getElementsByClassName("dot");
+if (n > slides.length) {slideIndex = 1}
+if (n < 1) {slideIndex = slides.length}
+for (i = 0; i < slides.length; i++) {
+slides[i].style.display = "none";
+}
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace(" active", "");
+}
+slides[slideIndex-1].style.display = "block";
+dots[slideIndex-1].className += " active";
+} 
+</script>
+<!-- script for collapsible button-->
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+} 
+</script>
+
+<!-- slider for text size -->
+<script>
+    // Get the elements
+    const editableText = document.getElementById('editableText');
+    const fontSlider = document.getElementById('fontSlider');
+    const fontSizeDisplay = document.getElementById('fontSizeValue');
+
+    // Add event listener to the slider
+    fontSlider.addEventListener('input', function () {
+        // Update the font size of the editable text
+        editableText.style.fontSize = this.value + 'px';
+
+        // Update the font size display
+        fontSizeDisplay.textContent = this.value;
+    });
+</script>
+
+<!-- script for line height slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const lineHeightSlider = document.getElementById('lineHeightSlider');
+    const textContainer = document.getElementById('textContainer');
+
+    // Update line height on slider change
+    lineHeightSlider.addEventListener('input', function () {
+        const newLineHeight = lineHeightSlider.value;
+        textContainer.style.lineHeight = newLineHeight;
+    });
+});
+</script>
+
+<!-- script for download button -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const agreeCheckbox = document.getElementById('agreeCheckbox');
+    const downloadButton = document.getElementById('downloadButton');
+
+    // Enable download button only when checkbox is checked
+    agreeCheckbox.addEventListener('change', function () {
+        downloadButton.disabled = !agreeCheckbox.checked;
+    });
+
+    // Handle download button click
+    downloadButton.addEventListener('click', function () {
+        if (agreeCheckbox.checked) {
+            // Implement download logic here
+            alert('En téléchargement...');
+        } else {
+            alert('Veuillez accepter les conditions d\'utilisation avant de télécharger.');
+        }
+    });
+});
+
+</script>
+</body>
+</html>

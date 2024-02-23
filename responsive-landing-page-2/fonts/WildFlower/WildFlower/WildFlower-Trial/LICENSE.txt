@@ -1,0 +1,34 @@
+Cette version de la fonte Wildflower est actuellement sous license amicale : 
+
+Termes de la licence
+
+1. Définitions
+1.a — Auteur·e·s désigne le, la ou les créateur·ice·s, ou tout autre personne ayant contribué à l’élaboration des fichiers de création.
+
+1.b — Ami·e·s désigne toute personne ayant hérité des fichiers de création sous Licence Amicale, par l’intermédiaire d’un·e autre précédent·e ami·e.
+
+1.c — Fichiers de Création désigne l’ensemble des documents numériques mis à disposition par le·s titulaire·s du copyright sous cette licence et clairement identifiés comme tels. Cela peut inclure des images, des sources logicielles, des scripts de génération, des polices de caractères, ainsi que de la documentation.
+
+1.d — Usage désigne l'utilisation physique ou numérique des fichiers de création en une œuvre consultable et/ou utilisable pour elle-même, qu’il s’agisse d’une création artistique, logicielle ou autre.
+
+2. Conditions d’utilisation
+2.a — Les fichiers de création distribuées sous Licence Amicale peuvent être utilisés librement par chaque ami·e, pour toute usage, dans un cadre commercial ou non.
+
+2.b — Si vous partagez une création sous Licence Amicale à un de vos contacts, celui ou celle-ci devient conséquemment titulaire de la licence, peut en faire usage, et est considéré·e comme nouvel·le ami·e·s.
+
+2.c — Les fichiers de création distribués sous Licence Amicale ne peuvent être utilisés que par des ami·es, c’est à dire, toutes personnes ayant reçu la création par un·e précédent·e ami·e.
+
+2.d — L’ami·e et utilisateur·ice est prié de créditer l’auteur·e et le nom des fichiers de création lorsqu’il est possible de le faire. (l’auteur·e des fichiers de création est indiqué dans un fichier texte dans le dossier).
+
+3. Diffusion
+3.a — Les fichiers de création sous Licence Amicale peuvent être redistribuées librement à de nouveaux ou nouvelles ami·e·s, via toute forme d’échange privé entre individu·es : par e-mail, ou périphérique usb par exemple.
+
+3.b — Les fichiers de création sous Licence Amicale NE DOIVENT EN AUCUN CAS être rendus publiques. Il est donc strictement interdit de diffuser ces fichiers sur des plateformes de téléchargement, sur des blogs, des réseaux sociaux, ou un quelconque catalogue de créations numériques en ligne.
+
+3.c — Les fichiers de création sous Licence Amicale NE DOIVENT être vendus d’aucune manière, sauf et seulement par l’auteur·e, si il ou elle le décide. Si un·e de vos client·es doit utiliser les fichiers de création lui-même, ils doivent lui être livrés sans frais et accompagnés de la licence.
+
+4. Modification
+4.a — Si un·e ami·e souhaite modifier les fichiers de création pour satisfaire des besoins particuliers, il ou elle est prié·e d’en notifier l’auteur·e en amont pour obtenir son accord écrit. Les fichiers de création, doivent être distribués tels quels ou accompagnés des versions modifiées, le cas échéant avec exactement la même licence.
+
+FIN DE CONTRAT
+Attention : Cette licence devient nulle et sans objet si l’une quelconque des conditions ci-dessus n’est pas remplie. Elle s’applique uniquement et seulement à la création informatique jointe à ce contrat. l’auteur reste libre de distribuer cette création sous une autre licence à l’avenir.

@@ -1,0 +1,543 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Karrik;
+
+  background: #f4f4f4;
+}
+
+/* Importer les fontes */
+@font-face {
+    font-family: "Karrik";
+    src: url(fonts/Karrik-Regular.ttf);
+}
+@font-face {
+  font-family: "L10";
+  src: url(fonts/L10-Regular.ttf);
+}
+@font-face {
+  font-family: "L10-Italic";
+  src: url(fonts/L10-RegularItalic.ttf);
+}
+@font-face {
+  font-family: "Calice-serif1";
+  src: url(fonts/calice/Calice-serif1.ttf);
+}
+@font-face {
+  font-family: "Calice-sans";
+  src: url(fonts/calice/Calice-sans.ttf);
+}
+@font-face {
+  font-family: "ouvrieres";
+  src: url(fonts/LesOuvrieres-normales.ttf);
+}
+@font-face {
+    font-family: "woven";
+    src: url(fonts/Woven.ttf);
+}
+@font-face {
+  font-family: "wildflower";
+  src: url(fonts/wildflower-semibold.ttf);
+}
+@font-face {
+  font-family: "insolente";
+  src: url(fonts/Insolente-Regular.ttf);
+}
+@font-face {
+  font-family: "oswald";
+  src: url(fonts/Oswald-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "banana";
+  src: url(fonts/Banana-Outline-liga-2023_12_19.otf/Banana-Outline-liga-2023_12_19.otf);
+}
+@font-face {
+  font-family: "Zenith2";
+  src: url(fonts/Zenith3.ttf);
+}
+@font-face {
+    font-family: "Superformula";
+    src: url(fonts/superformula-mono.ttf);
+}
+@font-face {
+    font-family: "Wildflower";
+    src: url(fonts/wildflower-semibold.ttf);
+}
+@font-face {
+    font-family: "Aerobik";
+    src: url(fonts/aerobik-regular.ttf);
+}
+@font-face {
+    font-family: "Aguirre";
+    src: url(fonts/aguirre-demibold.ttf);
+}
+#superformula{
+  font-family: oswald;
+}
+#superformula{
+    font-family: Superformula;
+}
+#aerobik{
+    font-family: Aerobik;
+}
+#aguirre{
+    font-family: Aguirre;
+}
+#zenith{
+    font-family: Zenith2;
+}
+#woven{
+  font-family: woven;
+}
+#calice{
+  font-family: Calice-serif1;
+}
+#ouvrieres{
+  font-family: ouvrieres;
+}
+#insolente{
+  font-family: insolente;
+}
+#wildflower{
+  font-family: Wildflower;
+}
+#banana{
+  font-family: banana;
+}
+a{
+    text-decoration: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+#landing{
+  z-index: 0;
+}
+#landing-container{
+  
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+/********************************************** landing page **********************************************/
+.logo{
+    font-family: "Karrik";
+    font-size: 30px;
+    padding: 30px, 0, 30px, 20px;
+}
+
+#landing-img{
+    position: relative;
+    width: 80vw;
+
+    /* 
+    /* The image used 
+    background-image: url("images/landing-large.png");
+    /* Set a specific height 
+    min-height: 500px; 
+    /* Create the parallax scrolling effect 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  
+}
+#welcome-text{
+  font-size: 50px;
+  padding: 30px;
+}
+#link{
+  text-decoration: underline 3px solid blue;
+}
+/*     
+#welcome-txt{
+    border-radius: 25px;
+    background: #f4f4f4;
+    padding: 20px; 
+    width: 200px;
+    height: 100px;
+
+    font-size: 20px;
+    text-align: center;
+    line-height: 25px;
+    width: 300px;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 5px 5px #dcdcdc;
+} */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #d4d4d4;
+  margin: 0;
+}
+
+
+
+
+/***************** header, responsive hamburger menu *******************/
+a {
+    color: #000;
+  }
+  
+  /* header */
+  
+  .header {
+    background-color: #fff;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    font-size: 18px;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+  }
+
+
+/********************************************** fontes **********************************************/
+#moveable{
+  
+  margin-top: 30vh; /* Offset to make space for the fixed section */
+  z-index: 1000;
+  background-color: white;
+/*   top: -100px; */
+}
+
+.font-panel{
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-top-left-radius: 8vh;
+  border-top-right-radius: 8vh;
+  text-align: center;
+  padding-top: 30px;
+  border-bottom: 1px solid black;
+  z-index: 100;
+  border: 1.5px solid black;
+  position: sticky;
+
+  max-height: 700px; /* Example max height */
+}
+#trierpar{
+  width: 100%;
+  overflow-y: auto; /* Allows scrolling within the container */
+  padding: 10px;
+  box-sizing: border-box;
+
+  
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.filtresList {
+  /*   padding: 0 18px; */
+    display: none;
+    overflow: hidden;
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
+    }
+
+
+/* styling of buttons*/
+.filtres{
+  background: none;
+  border-radius: 25px;
+  font: inherit;
+	cursor: pointer;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+  font-size: 17px;
+}
+
+.filtres.active,.filtres:hover, .filtres:focus,.filtres:visited {
+  background-color: #ffe8e8;
+}
+
+
+.font-list{
+  height: 300px;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Adjust the z-index as needed */
+  text-align: center;
+  padding-top: 10px; 
+  border-top: 1.5px solid black;
+  background-color: rgb(255, 142, 85);
+
+  overflow: hidden;
+/*   margin-bottom: -50px; *//* 
+  padding-top: 15vh; */
+
+  width: 100vw;
+  border-left: 5vw;
+  border-right: 5vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 50px;
+  transition: background-color 0.5s ease;
+   /* Compensate for the pseudo-element */
+}
+
+.font-list:hover{
+  background-color:rgb(255, 255, 255);
+}
+
+.font-list.active,.font-list:hover, .font-list.active:focus,.font-list.active:visited {
+  background-color: #ffffff;
+}
+.font-list>h3:active, .font-list>h3:hover,  .font-list>h3.active:focus.font-list>h3.active:visited{
+  color:rgb(0, 38, 255);
+}
+
+/* .weightbutton{
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  cursor: pointer;
+}
+.weightbutton:hover, .weightbutton:active{
+  text-decoration: 1px solid black;
+}
+
+ */
+.weightbutton {
+  display: inline-block;
+
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 17px;
+  background-color: transparent;
+  color: black;
+  border: 0;
+  cursor: pointer;
+}
+
+.weightbutton:hover {
+  color: black;
+  border-color: black;
+}
+
+.weightbutton:active, .weightbutton:focus  {
+  color: black;
+  text-decoration: underline 1px solid black;
+}
+
+ /* Style the button that is used to open and close the collapsible content */
+ .collapsible {
+  text-align: center;
+}
+
+
+/*Buttons to change fonts*/
+#changeableDiv {
+  font-family: Zenith, sans-serif;
+  font-size: 16px;
+}
+
+.fontButtons {
+  background: none;
+  font: inherit;
+	cursor: pointer;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+  font-weight: normal;
+}
+
+.fontButtons.active {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+/*   background-color: #f1f1f1; */
+
+#fixed {
+  position: fixed;
+  width: 100%;
+  height: 50vh; /* Set the fixed section to cover the entire viewport height */
+   /* Set the background color of your fixed section */
+  /* Adjust the z-index to ensure it appears above other content */
+  top: 0; /* Adjust padding as needed */
+  background-color: white;
+}
+#welcome-text{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.filtres-list {
+  /*   padding: 0 18px; */
+  height: 400px;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Adjust the z-index as needed */
+    }
+  
+.editabletxt{
+  font-size: 150px;
+  margin-top: 8px;
+  line-height: 250px;
+}
+#idname1{
+  border-bottom: -50px;
+}
+
+.fontflex{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.font-name, .font-designer{
+  flex-grow: 1;
+  text-decoration:none;
+  cursor:pointer;  
+}
+.font-name{
+  text-align: left;
+  padding-left: 5vw;
+}
+.font-designer{
+  text-align: right;
+  padding-right: 5vw;
+}
+
+.fontflex2{
+  display: flex;
+  justify-content:flex-start;
+  gap:10px;
+  padding-left: 5vw;
+  padding-top: 1vh;
+}

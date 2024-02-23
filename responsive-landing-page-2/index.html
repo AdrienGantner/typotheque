@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Typothèque</title>
+
+</head>
+<body>
+    <!-------------------------------------------- landing page ------------------------------------------------>
+<section id="fixed">
+    <div id="landing">
+        <header class="header">
+            <a href="" class="logo">Typothèque</a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+            <li><a href="#moveable">Fontes</a></li>
+            <li><a href="#licences">Licences</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+</section>
+     <!-------------------------------------------- fontes ------------------------------------------------>
+<section id="moveable">
+    <div class="font-panel" class="sticky top">
+        <h2>Fontes</h2>
+        <div id="trierpar">
+            <p>Trier par: <button type="button" class="filtres">Plus récent</button> <button type="button" class="filtres">A-Z</button> </p>
+            
+           
+            <button type="button" class="filtres collapsible">Filtres</button>
+
+            <div class="filtresList">
+                <button type="button" class="filtres">display</button>
+                <button type="button" class="filtres">serif</button>
+                <button type="button" class="filtres">sans serif</button>
+                <button type="button" class="filtres">mono</button>
+                <button type="button" class="filtres">slab</button> <br>
+                
+                <button type="button" class="filtres">1 style</button>
+                <button type="button" class="filtres">2 styles</button>
+                <button type="button" class="filtres">3+ styles</button>
+                <button type="button" class="filtres">variable</button><br>
+                <button type="button" class="filtres">minuscules</button>
+                <button type="button" class="filtres">majuscules</button>
+                <button type="button" class="filtres">chiffres</button>
+                <button type="button" class="filtres">caractères spéciaux</button>
+                <button type="button" class="filtres">glyphes inclusifs (QUNI)</button>
+            </div>
+        </div>
+    </div> 
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/insolente/index.html"><div class="font-name">Insolente</div></a>
+            <div class="font-designer">Marie Godefroy</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+            </div>
+        </div>
+        <a href="fontes/insolente/index.html">
+        <h3 id="insolente" id="idname1" class="editabletxt" >révolution&nbsp;queer</h3>
+        </a>
+    </div>
+    
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/ouvrieres/index.html"><div class="font-name">Osvwald Variable</div></a>
+            <div class="font-designer">Prénom Nom</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+            </div>
+        </div>
+        
+        <a href="fontes/oswaldd/index.html">
+        <h3 id="oswald" id="idname1" class="editabletxt" >xerox, fax, scanner</h3>
+        </a>
+    </div>
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/ouvrieres/index.html"><div class="font-name">Ouvrières</div></a>
+            <div class="font-designer">Laure Azizi</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Affamées</button>
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Normales</button>
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Rassasiées</button>
+            </div>
+        </div>
+        
+        <a href="fontes/ouvrieres/index.html">
+        <h3 id="ouvrieres" id="idname1" class="editabletxt" >ouvrières&nbsp;fourmilières</h3>
+        </a>
+    </div>
+
+   
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/woven/index.html"><div class="font-name">Woven</div></a>
+            <div class="font-designer">Anna Le Bec</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button>
+            </div>
+        </div>
+        <a href="fontes/woven/index.html">
+        <h3 id="woven" id="idname1" class="editabletxt" >cordes&nbsp;textiles&nbsp;soie</h3>
+        </a>
+    </div>
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/wildflower/index.html"><div class="font-name">Wildflower</div></a>
+            <div class="font-designer">Clara Bougon</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button>
+            </div>
+        </div>
+        <a href="fontes/wildflower/index.html">
+        <h3 id="wildflower" id="idname1" class="editabletxt" >Let&nbsp;us&nbsp;propagate, please! Let us propagate, please! </h3>
+        </a>
+    </div>
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/zenith/index.html"><div class="font-name">Zénith</div></a>
+            <div class="font-designer">Adrien Gantner</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button>
+            </div>
+        </div>
+        <a href="fontes/zenith/index.html">
+        <h3 id="zenith" id="idname1" class="editabletxt" >Pénombre&nbsp;et&nbsp;crépuscule</h3>
+        </a>
+    </div>
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/banana/index.html"><div class="font-name">Banana Single Line</div></a>
+            <div class="font-designer">Clara Bougon</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+
+            </div>
+        </div>
+        <a href="fontes/banana/index.html">
+        <h3 id="banana" id="idname1" class="editabletxt" >Let us propagate, please! Let us propagate, please! </h3>
+        </a>
+    </div>
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/aerobik/index.html"><div class="font-name">Aerobik</div></a>
+            <div class="font-designer">Astride Etienne</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+            </div>
+        </div>
+        <a href="fontes/aerobik/index.html">
+        <h3 id="aerobik" id="idname1" class="editabletxt" >Aerobik, Waltz, Boxe, Kajukenbo et Mokomoko</h3>
+        </a>
+    </div>
+
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/calice/index.html"><div class="font-name">Calice</div></a>
+            <div class="font-designer">Adrien Gantner</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Sans</button>
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Serif</button>
+            </div>
+        </div>
+        
+        <a href="fontes/calice/index.html">
+        <h3 id="calice" id="idname1" class="editabletxt" >hémisphère&nbsp;cylindre</h3>
+        </a>
+    </div>
+
+    <div class="font-list" class="sticky" >
+        <div class="fontflex">
+            <a href="fontes/superformula/index.html"><div class="font-name">Superformula Mono</div></a>
+            <div class="font-designer">Jérémie Claes</div>
+        </div>
+        <div class="fontflex2">
+            <div id="fontButtons">
+                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+            </div>
+        </div>
+        <a href="fontes/superformula/index.html">
+        <h3 id="superformula" id="idname1" class="editabletxt" >Pizza&nbsp;Margahrita et Arancini alla Parmigiana</h3>
+        </a>
+    </div>
+</section>
+
+<!-- collapsible v2-->
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var filtresList = this.nextElementSibling;
+        if (filtresList.style.display === "block") {
+            filtresList.style.display = "none";
+        } else {
+            filtresList.style.display = "block";
+        }
+    });
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+<!--                         <button type="button" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
+                        <button type="button" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+                        <button type="button" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button> -->
