@@ -4,7 +4,7 @@ title: Fonte
 # More about page sorting: https://getkirby.com/docs/reference/panel/blueprints/page#sorting
 num: date
 # Each page can have an icon that is shown in page listings when no preview image is available.
-icon: 📖
+icon: 🗚
 # Custom descriptions for each page status depending on use case
 # More about page status: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
 status:
@@ -38,15 +38,16 @@ columns:
           # If you need the same field in multiple locations, you can define them once and reuse whereever needed.
           # Here we use a files field defined in `/site/blueprints/field/cover.yml`
           # cover: fields/cover
-          date:
-            type: date
-            time: true
-            default: now
           author:
             type: users
           # Fields types can be added using the shortcut `fieldname: true`
           # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
           tags: true
+          date:
+            type: date
+            time: true
+            default: now
       files:
+        label: Fontes
         type: files
-        # template: blocks/image
+        template: blocks/font

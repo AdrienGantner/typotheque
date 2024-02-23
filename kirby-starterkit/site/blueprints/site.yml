@@ -16,6 +16,5 @@ sections:
     type: pages
     create: default
     templates:
-      - about
       - home
       - default

@@ -1,0 +1,23 @@
+# Each file blueprint must have a title, the title may be different from the file name
+title: Font
+# Like page blueprints, file blueprints can define a layout with tabs, columns, sections and fields
+# File blueprints define what sort of information should get stored in a file's meta data file
+# In addition to the fields defined in this example blueprint, you can also set what type of file is acceptable
+# when this blueprint is used, which allows you to control what users can upload.
+# More about file blueprints: https://getkirby.com/docs/reference/panel/blueprints/file
+icon: 🗚
+accept:
+  mime: font/*
+  type: document
+# sections:
+#   meta:
+#     type: fields
+#     fields:
+#       license:
+#         label: License
+#         type: select
+#         width: 1/3
+#         options:
+#           - OFL
+#           - CC BY 4.0
+#           - CC BY-SA 4.0
