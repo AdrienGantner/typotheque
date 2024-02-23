@@ -1,0 +1,14 @@
+#glyphset ul {
+  font-family: var(--local-font);
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#glyphset li {
+  width: 1.5em;
+  height: 1.5em;
+
+  border: solid black 1px;
+  text-align: center;
+  vertical-align: middle;
+}

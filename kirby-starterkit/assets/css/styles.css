@@ -6,6 +6,10 @@
     url("../fonts/Karrik-Regular.woff2") format("woff2");
 }
 
+:root {
+  --local-font: "locale"; /* Sera remplacée par les fontes du site aux endroits correspondants */
+}
+
 body {
   margin: 0;
   padding: 0;
