@@ -43,6 +43,8 @@
   <?php if ($page->parent() == "home") : ?>
     <style>
       @font-face {
+      /* TODO : take font name and slugify it */
+      /* TODO : find a way to optimise things */
         font-family: "locale";
         src: url(<?= $page->files()->first() ?>);
       }
@@ -66,15 +68,19 @@
 </head>
 <body>
 
-<header class="header">
-    <a href="" class="logo">Typothèque</a>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
-    <li><a href="#moveable">Fontes</a></li>
-    <li><a href="#licences">Licences</a></li>
-    <li><a href="#apropos">À Propos</a></li>
-    </ul>
-  </header>
+<section id="fixed">
+    <div id="landing">
+        <header class="header">
+            <a href="" class="logo">Typothèque</a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+            <li><a href="#moveable">Fontes</a></li>
+            <li><a href="#licences">Licences</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            </ul>
+        </header>
+    </div>
 
-  <main class="main">
+    <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+</section>

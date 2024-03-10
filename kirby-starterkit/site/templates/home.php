@@ -1,21 +1,6 @@
 <?php
 /*
-  Templates render the content of your pages.
-
-  They contain the markup together with some control structures
-  like loops or if-statements. The `$page` variable always
-  refers to the currently active page.
-
-  To fetch the content from each field we call the field name as a
-  method on the `$page` object, e.g. `$page->title()`.
-
-  This home template renders content from others pages, the children of
-  the `photography` page to display a nice gallery grid.
-
-  Snippets like the header and footer contain markup used in
-  multiple templates. They also help to keep templates clean.
-
-  More about templates: https://getkirby.com/docs/guide/templates/basics
+Renders all the fonts on the website. The homepage acts as an archive page for fonts, the only content type.
 */
 
 ?>
@@ -28,15 +13,63 @@
     we call a method like `children()` in this case
   */
 ?>
-  <ul class="home-grid">
-    <?php foreach ($page->children()->listed() as $font): ?>
-    <li>
-      <p>
-        <?= print_r($font) ?>
-      </p>
-      <a href="<?= $font->url(); ?>"><?= $font->title() ?></a>
-    </li>
+
+<section id="moveable">
+    <div class="font-panel" class="sticky top">
+        <h2>Fontes</h2>
+        <div id="trierpar">
+            <p>Trier par: <button type="button" class="filtres">Plus récent</button> <button type="button" class="filtres">A-Z</button> </p>
+
+
+            <button type="button" class="filtres collapsible">Filtres</button>
+
+            <div class="filtresList">
+                <button type="button" class="filtres">display</button>
+                <button type="button" class="filtres">serif</button>
+                <button type="button" class="filtres">sans serif</button>
+                <button type="button" class="filtres">mono</button>
+                <button type="button" class="filtres">slab</button> <br>
+
+                <button type="button" class="filtres">1 style</button>
+                <button type="button" class="filtres">2 styles</button>
+                <button type="button" class="filtres">3+ styles</button>
+                <button type="button" class="filtres">variable</button><br>
+                <button type="button" class="filtres">minuscules</button>
+                <button type="button" class="filtres">majuscules</button>
+                <button type="button" class="filtres">chiffres</button>
+                <button type="button" class="filtres">caractères spéciaux</button>
+                <button type="button" class="filtres">glyphes inclusifs (QUNI)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loop to display each font -->
+    <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
+    <?php foreach ($page->children()->listed() as $i => $font): ?>
+
+      <!-- <p> -->
+      <!--   <?= print_r($font) ?> -->
+      <!-- </p> -->
+
+      <div class="font-list" class="sticky" >
+          <div class="fontflex">
+              <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
+              <div class="font-designer"><?= $font->author(); ?></div>
+          </div>
+
+          <div class="fontflex2">
+              <div id="fontButtons">
+                <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
+                <button type="button" class="weightbutton weightbutton-active" onclick="<?= "changeWeight(idname".$i.". ".$font->title().")" ?>">Regular</button>
+              </div>
+          </div>
+
+          <a href="<?= $font->url(); ?>">
+          <!-- TODO : Maybe the base text is also defined in the font info ? -->
+          <h3 id="insolente" id="idname1" class="editabletxt" >révolution&nbsp;queer</h3>
+          </a>
+      </div>
+
     <?php endforeach ?>
 
-  </ul>
 <?php snippet('footer') ?>
