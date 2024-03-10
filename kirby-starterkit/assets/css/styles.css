@@ -1,13 +1,10 @@
 /* Importer les fontes */
 @font-face {
   font-family: "Karrik";
-  src:
-    url("../fonts/Karrik-Regular.woff") format("woff"),
-    url("../fonts/Karrik-Regular.woff2") format("woff2");
+  src: url("../fonts/Karrik-Regular.woff2") format("woff2");
 }
 
 :root {
-  --local-font: "locale"; /* Sera remplacée par les fontes du site aux endroits correspondants */
   --background: #f4f4f4;
 }
 

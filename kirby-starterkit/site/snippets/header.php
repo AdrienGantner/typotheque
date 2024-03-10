@@ -45,7 +45,11 @@ More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
       /* TODO : take font name and slugify it */
       /* TODO : find a way to optimise things */
       font-family: "locale";
-      src: url(<?= $page->files()->first() ?>);
+      src: url(<?= $page->files()->filterBy("type", "!=", "image")->first() ?>);
+    }
+
+   #glyphset li {
+      font-family: "locale";
     }
 
     </style>
