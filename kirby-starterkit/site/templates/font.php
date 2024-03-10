@@ -42,32 +42,18 @@
     </section>
 
 <div id="imageSection">
-    <?php foreach ($page->files() as $image) : ?>
+    <?php foreach ($page->images() as $image) : ?>
       <?= $image ?>
     <?php endforeach ?>
 
 </div>
 
   <div class="font text">
-
     <ul>
-      <?php foreach ($page->files() as $font_url): ?>
 
-      <?php
-      // Divise l'url en array à partir des caractères "/", et récupère le dernier élément de cette array
-      $url_array = explode("/", $font_url);
-          $font_filename = end($url_array);
-
-          // Récupère juste l'extension du fichier pour pouvoir récupérer le glyphset
-          $font_extension = explode(".", $font_filename)[1];
-
-          ?>
-
-      <li>
-        <a class="font-url <?php if ($font_extension != "woff2") {
-            echo "good";
-        }   ?>" href="<?= $font_url ?>"><?= $font_filename ?></a>
-      </li>
+      <!-- tri pour  -->
+      <?php foreach ($page->files()->filterBy("type", "!=", "image") as $font_url) : ?>
+        <li><?= $font_url->filename() ?></li>
       <?php endforeach ?>
     </ul>
 

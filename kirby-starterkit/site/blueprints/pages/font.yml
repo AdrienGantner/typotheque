@@ -58,9 +58,11 @@ columns:
         type: textarea
         autofocus: true
         label: Description de la fonte
-        #fichier de fonte
-        files:
-          type: files
+      #fichier de fonte
+      # IMPORTANT : renommer le champ ≠ de "files" pour éviter le nameclash avec $page->files()
+      fonts:
+        type: files
+        query: page.documents
       #fonte variable ou non
       toggle:
         label: fonte variable
@@ -116,10 +118,11 @@ columns:
           # Fields types can be added using the shortcut `fieldname: true`
           # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
           #images: up to 5 images. Description: Largeur minimum: 1200px
-          downloads:
+          images:
             type: files
             label: "Images format paysage, largeur minimum 1200 pixels. 5 images max"
             description: "Sélectionnez des images, PNG/JPG, largeur minimum 1200px. 5 images maximum"
+            query: page.images
             min: 0
             max: 5
           name:
