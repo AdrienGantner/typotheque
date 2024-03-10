@@ -47,9 +47,9 @@
           ?>
 
         <li>
-        <a class="font-url <?php if ($font_extension != "woff2") {
-            echo "good";
-        }   ?>" href="<?= $font_url ?>"><?= $font_filename ?></a>
+          <a class="font-url <?php if ($font_extension != "woff2") {
+              echo "good";
+          }   ?>" href="<?= $font_url ?>"><?= $font_filename ?></a>
         </li>
       <?php endforeach ?>
     </ul>
