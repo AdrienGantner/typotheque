@@ -8,26 +8,64 @@
 
 </head>
 <body>
+
     <!-------------------------------------------- menu------------------------------------------------>
 <section id="fixed">
     <div id="landing">
         <header class="header">
-            <a href="../../index.html" class="logo">Typothèque</a>
+            <a href="../../index.html"></a>
             <div id="white-bkgd"></div>
             <input class="menu-btn" type="checkbox" id="menu-btn" />
             <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
             <ul class="menu">
-            <li><a href="#fontes">Fontes</a></li>
-            <li><a href="#licences">Licences</a></li>
+            <li><a href="../../index.html#moveable">Fontes</a></li>
+            <li><a href="../../licences/index.html">Licences</a></li>
             <li><a href="#auhasard">À Propos</a></li>
             </ul>
         </header>
     </div>
 
+
+    <div class="image-container">
+        <a href="../../index.html"><img id="logo" src="../../logo-circle-stroke.svg"f></a>
+    </div>
+    
+    
+   
+<!-- <a href="../../index.html" class="logo"><img id="logo" src="../../logo-circle-stroke.svg"></a> -->
 <!--   FONT NAME   -->
 <div id="container-titre">
-    <p id="font-name">Insolente</p>
+    <p id="font-name">insolente</p>
     <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
+</div>
+
+
+
+<div id="editable-container">
+    
+    <div class="setting-flex">
+        <div class="flex box1">
+            <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
+            <input type="range" min="10" max="150" value="87" class="slider txt" id="fontSlider">
+        </div>
+
+        <div class="container flex box2">
+            <label for="lineHeightSlider" class="txt">Espacement</label><br>
+            <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+        </div>
+
+        <div id="font-dropdown" class="container flex box3" >
+            <div class="custom-dropdown-container">
+                <select name="fonts" class="txt">
+                    <option value="font1" style="width: 300px;">Regular</option>
+                </select>
+                <div class="dropdown-icon" class="txt">&#9660;</div>
+            </div>
+        </div>
+    </div>
+    <div id="textContainer">
+        <div class="editabletxt" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+    </div>
 </div>
 
 <!--buttons for color change-->
@@ -65,65 +103,41 @@
 
 
 
-<div id="editable-container">
-    
-    <div class="setting-flex">
-        <div class="flex box1">
-            <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
-            <input type="range" min="10" max="150" value="87" class="slider txt" id="fontSlider">
-        </div>
-
-        <div class="container flex box2">
-            <label for="lineHeightSlider" class="txt">Espacement</label><br>
-            <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
-        </div>
-
-        <div id="font-dropdown" class="container flex box3" >
-            <div class="custom-dropdown-container">
-                <select name="fonts" class="txt">
-                    <option value="font1" style="width: 300px;">Regular</option>
-                </select>
-                <div class="dropdown-icon" class="txt">&#9660;</div>
-            </div>
-        </div>
-    </div>
-    <div id="textContainer">
-        <div class="editabletxt" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
-    </div>
-</div>
-
 <!-- <h1>En usage</h1>
 
 <div id="container-en-usage">
 </div> -->
 
 <!-- <h1>Détails</h1> -->
-<h1 id="details">Insolente est sous licence OFL.<br>
-    Elle a été créée par <u>Marie&nbsp;Godefroy</u> en <u>2023</u>. </h1>
+<h1 id="details">Insolente est sous licence&nbsp;<u><a target="_blank" href="../../licences/index.html#licence-ofl">OFL.</a></u><br>
+    Elle a été créée par <u>Marie&nbsp;Godefroy</u> en 2023. </h1>
 
 <!-- <div id="button">
     <h1>Glyphset</h1>
 </div> -->
-    
+
+
+<!----------functionning link blocks!------------>
 <div id="links">
     <a href="glyphset">Glyphset</a><br>
     <a href="specimen" class="links specimen">Specimen</a><br>
 
-    <button type="button" class="collapsible links">Télécharger</button>
-    <div class="content">
-      <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
-        Avec ce fichier, j'ai le droit:<br>
-        d'utiliser la fonte pour un projet personnel.<br>
-        Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy:<br>
-        marie.godefroy@lacambre.be</p>
+    <button type="button" class="collapsible links">Télécharger...</button>
+<div class="content">
+  <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="../../licences/index.html"><u>OFL</u></a>.<br>
+    Avec ce fichier, j'ai le droit:<br>
+    d'utiliser la fonte pour un projet personnel.<br>
+    Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy:<br>
+    marie.godefroy@lacambre.be</p>
 
-        <div id="dl-container">
-            <label>
-                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
-            </label><br>
-            <button id="downloadButton" disabled>Télécharger</button>
-        </div> 
-    </div> 
+  <div id="dl-container">
+    <label>
+      <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+    </label><br>
+    <button id="downloadButton" disabled>Télécharger</button>
+  </div> 
+</div>
+
 </div>
 
 <!-- <div id="container-bottom">
@@ -134,93 +148,38 @@
 </div> -->
 
 
-<section id="footer">
-</section>
+<footer>
+    <p id="footer-title"><a href="../../index.html"><u>Typotes Club</u></a></p>
+<li>
+    <ul>
+        <a href="../../index.html#moveable">Fontes</a>
+    </ul>
+    <ul>
+        <a href="../../licences/index.html">Licences</a>
+    </ul>
+    <ul>
+        <a href="">À propos</a>
+    </ul>
+    <ul>
+        <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;typographie&nbsp;La&nbsp;Cambre</a>
+    </ul>
+</li>
+</footer>
 
-
-<!--script for buttons-->
+<!--animation collapsible-->
 <script>
-    const buttonStates = [
-        { text: '#40302A', background: 'white' },
-        { text: '#1B472A', background: '#F4E676' },
-        { text: '#37E676', background: '#FFFFE7' },
-        { text: '#680000', background: '#FFFFE7' },
-        { text: '#131313', background: '#f0f0f0' }
-    ];
-    
-    function changeContrast(buttonIndex) {
-        const txtElements = document.getElementsByClassName('setting-flex');
-        const bkgdElement = document.getElementById('editable-container');
-    
-        // Get the current button state
-        const currentState = buttonStates[buttonIndex];
-    
-        // Change text color with transition
-        for (let i = 0; i < txtElements.length; i++) {
-        
-        txtElements[i].style.color = currentState.text;
-        }
-    
-        // Change background color with transition
-        
-        bkgdElement.style.backgroundColor = currentState.background;
-    
-        // Toggle between two colors for the current button
-        buttonStates[buttonIndex] = {
-        text: currentState.background,
-        background: currentState.text
-        };
-    }
+document.addEventListener('DOMContentLoaded', function() {
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+    });
+  }
+});
 </script>
 
-<!--script for image slider-->
-<script>
-    let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-let i;
-let slides = document.getElementsByClassName("mySlides");
-let dots = document.getElementsByClassName("dot");
-if (n > slides.length) {slideIndex = 1}
-if (n < 1) {slideIndex = slides.length}
-for (i = 0; i < slides.length; i++) {
-slides[i].style.display = "none";
-}
-for (i = 0; i < dots.length; i++) {
-dots[i].className = dots[i].className.replace(" active", "");
-}
-slides[slideIndex-1].style.display = "block";
-dots[slideIndex-1].className += " active";
-} 
-</script>
-<!-- script for collapsible button-->
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-} 
-</script>
 
 <!-- slider for text size -->
 <script>
@@ -268,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
     downloadButton.addEventListener('click', function () {
         if (agreeCheckbox.checked) {
             // Implement download logic here
-            alert('En téléchargement...');
+            /* alert('En téléchargement...'); */
         } else {
             alert('Veuillez accepter les conditions d\'utilisation avant de télécharger.');
         }
