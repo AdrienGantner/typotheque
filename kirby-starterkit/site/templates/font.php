@@ -37,19 +37,19 @@
 
         <div id="processus">
           <!--     <h1>Processus</h1> -->
-          <p id="processus-description">Insolente a été réalisée au cours d'un workshop avec Eugénie Bidaut. J'ai commencé par imiter le tracé de typographies gothiques à la plume. Ensuite, en utilisant du calque, j'ai complexifié les formes en repassant au feutre. </p>
+      <p id="processus-description"><?= $page->description() ?></p>
         </div>
     </section>
 
 <div id="imageSection">
-    <img src="images/insolente1.jpg">
-    <img src="images/insolente2.jpg">
-    <img src="images/insolente3.jpg">
-    <img src="images/insolente4.jpg">
-    <img src="images/insolente5.jpg">
+    <?php foreach ($page->files() as $image) : ?>
+      <?= $image ?>
+    <?php endforeach ?>
+
 </div>
 
   <div class="font text">
+
     <ul>
       <?php foreach ($page->files() as $font_url): ?>
 
@@ -101,7 +101,7 @@
 </div>
 
 <!-- <h1>Détails</h1> -->
-<p id="details">Insolente est sous licence OFL.<br>
+  <p id="details"><?= $page->title() ?> est sous licence OFL.<br>
     Elle a été créée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
 
 <div id="links">
