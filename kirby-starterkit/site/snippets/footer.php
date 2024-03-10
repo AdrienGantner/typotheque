@@ -9,7 +9,6 @@
   https://getkirby.com/docs/guide/templates/snippets
 */
 ?>
-  </main>
 
   <?= js([
     'assets/js/prism.js',

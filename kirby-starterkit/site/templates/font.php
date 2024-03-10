@@ -77,50 +77,15 @@
     <h2>Glyphset</h2>
   </div>
 
-  <footer class="font-footer">
-    <?php if (!empty($tags)): ?>
-    <ul class="font-tags">
-      <?php foreach ($tags as $tag): ?>
-      <li>
-        <a  href="<?= $page->parent()->url(['params' => ['tag' => $tag]]) ?>"><?= esc($tag) ?></a>
-      </li>
-      <?php endforeach ?>
-    </ul>
-    <?php endif ?>
-
-    <time class="font-date" datetime="<?= $page->date()->toDate('c') ?>">Published on <?= $page->date()->esc() ?></time>
-  </footer>
-
   <!-- Snippet pour afficher les fontes suivantes ou précédentes -->
   <!-- <?php snippet('prevnext') ?> -->
 </article>
 
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
-<script>
-// Récupère l'url de la fonte seulement si c'est un woff, pour pouvoir en extraire le glyphset et le rajouter dans la page
-const font = document.querySelector(".font-url.good");
-const fontUrl = font.href;
-const fontName = font.innerText;
 
-const buffer = fetch(fontUrl).then(res => res.arrayBuffer());
-
-// Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
-buffer.then(data => {
-  const glyphs = opentype.parse(data).glyphs.glyphs;
-
-  const glyphset = document.getElementById("glyphset");
-  const ul = document.createElement("ul");
-
-  Object.values(glyphs).forEach(glyph => {
-    const li = document.createElement("li");
-    li.innerText = String.fromCharCode(glyph.unicode);
-    ul.appendChild(li);
-  });
-
-  glyphset.appendChild(ul);
-
-});
-
-</script>
+<!-- Load js only on font template -->
+  <?= js([
+  'assets/js/fonte.js',
+  ]) ?>
 
 <?php snippet('footer') ?>

@@ -4,6 +4,11 @@
   flex-flow: row wrap;
 }
 
+#glyphset,
+#glyphset li {
+  font-family: "locale";
+}
+
 #glyphset li {
   list-style: none;
 }
