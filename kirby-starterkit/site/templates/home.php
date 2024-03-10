@@ -5,6 +5,8 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
 ?>
 <?php snippet('header') ?>
+
+
   <!-- <?php snippet('intro') ?> -->
   <?php
   /*
@@ -20,6 +22,16 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         <div id="trierpar">
             <p>Trier par: <button type="button" class="filtres">Plus récent</button> <button type="button" class="filtres">A-Z</button> </p>
 
+        <pre>
+          <?php print_r($page->categories()->split());  ?>
+        </pre>
+
+
+            <!-- <ul> -->
+            <!--   <?php foreach ($page->categories()->split() as $category): ?> -->
+            <!--   <li><?= $category ?></li> -->
+            <!--   <?php endforeach ?> -->
+            <!-- </ul> -->
 
             <button type="button" class="filtres collapsible">Filtres</button>
 

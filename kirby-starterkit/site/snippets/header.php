@@ -71,7 +71,7 @@
 <section id="fixed">
     <div id="landing">
         <header class="header">
-            <a href="" class="logo">Typothèque</a>
+            <a href="/" class="logo">Typothèque</a>
             <input class="menu-btn" type="checkbox" id="menu-btn" />
             <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
             <ul class="menu">
@@ -80,7 +80,11 @@
             <li><a href="#apropos">À Propos</a></li>
             </ul>
         </header>
-    </div>
 
-    <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+        <!-- Displays greeting only on homepage-->
+        <?php if ($page == "home") : ?>
+            <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+        <?php endif ?>
+
+    </div>
 </section>
