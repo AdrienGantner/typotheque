@@ -48,16 +48,19 @@
 
 </div>
 
-  <div class="font text">
-    <ul>
+  <ul class="font text">
+    <!-- tri pour  -->
+    <?php foreach ($page->files()->filterBy("type", "!=", "image") as $font_url) : ?>
+    <!-- Ajoute une classe "good" aux fontes uploadées qui ont la bonne extension (woff ou ttf) -->
+    <li class="font
+      <?php if ($font_url->extension() != "woff2") : ?>
+          <?= "good" ?>
+      <?php endif ?>"
+      data-font-url="<?= $font_url ?>"><?= $font_url->filename() ?>
+    </li>
+    <?php endforeach ?>
 
-      <!-- tri pour  -->
-      <?php foreach ($page->files()->filterBy("type", "!=", "image") as $font_url) : ?>
-        <li><?= $font_url->filename() ?></li>
-      <?php endforeach ?>
-    </ul>
-
-  </div>
+  </ul>
 
 <div id="editable-container">
 
@@ -91,11 +94,12 @@
     Elle a été créée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
 
 <div id="links">
+  <a href="/glyphset" class="links" onclick="getGlyphset(event)">Glyphset</a>
   <div id="glyphset">
-    <h2>Glyphset</h2>
+
   </div>
 
-    <a href="specimen" class="links specimen">Specimen</a><br>
+    <a href='<?php print_r($page->files()->filterBy("filename", "==", "specimen")) ?>' class="links specimen">Specimen</a><br>
 
     <button type="button" class="collapsible links">Télécharger</button>
     <div class="content">

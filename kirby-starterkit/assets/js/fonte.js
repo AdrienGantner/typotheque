@@ -25,6 +25,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// On peut faire ça + simplement (et + accesible) en HTML avec l'élément <form>
+// et une <input type="checkbox">, puis juste ajouter la condition pour que cocher
+// la checkbox soit obligatoire ↓
+
 // script for download button
 document.addEventListener("DOMContentLoaded", function () {
   const agreeCheckbox = document.getElementById("agreeCheckbox");
@@ -39,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
   downloadButton.addEventListener("click", function () {
     if (agreeCheckbox.checked) {
       // Implement download logic here
+      // juste un élément <a> avec l'attribut download
       alert("En téléchargement...");
     } else {
       alert(
@@ -50,24 +55,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Displays glyphset
 // Récupère l'url de la fonte seulement si c'est un woff, pour pouvoir en extraire le glyphset et le rajouter dans la page
-const font = document.querySelector(".font-url.good");
-const fontUrl = font.href;
-const fontName = font.innerText;
-
-const buffer = fetch(fontUrl).then((res) => res.arrayBuffer());
-
-// Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
-buffer.then((data) => {
-  const glyphs = opentype.parse(data).glyphs.glyphs;
+function getGlyphset(event) {
+  event.preventDefault(); // Empêche que le lien ouvre une fenêtre.
 
   const glyphset = document.getElementById("glyphset");
-  const ul = document.createElement("ul");
+  const font = document.querySelector(".good");
 
-  Object.values(glyphs).forEach((glyph) => {
-    const li = document.createElement("li");
-    li.innerText = String.fromCharCode(glyph.unicode);
-    ul.appendChild(li);
-  });
+  // Check s'il y a une fonte dont on peut récupérer le glyphset
+  if (font) {
+    const fontUrl = font.dataset.fontUrl;
+    const buffer = fetch(fontUrl).then((res) => res.arrayBuffer());
 
-  glyphset.appendChild(ul);
-});
+    // Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
+    buffer.then((data) => {
+      const glyphs = opentype.parse(data).glyphs.glyphs;
+
+      const ul = document.createElement("ul");
+
+      Object.values(glyphs).forEach((glyph) => {
+        const li = document.createElement("li");
+        li.innerText = String.fromCharCode(glyph.unicode);
+        ul.appendChild(li);
+      });
+
+      glyphset.appendChild(ul);
+    });
+  } else {
+    const error = document.createElement("p");
+    error.innerText = "Pas de glyphset disponible pour cette fonte";
+    glyphset.appendChild(error);
+  }
+}
