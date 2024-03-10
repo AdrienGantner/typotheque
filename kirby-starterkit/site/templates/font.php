@@ -41,6 +41,14 @@
         </div>
     </section>
 
+<div id="imageSection">
+    <img src="images/insolente1.jpg">
+    <img src="images/insolente2.jpg">
+    <img src="images/insolente3.jpg">
+    <img src="images/insolente4.jpg">
+    <img src="images/insolente5.jpg">
+</div>
+
   <div class="font text">
     <ul>
       <?php foreach ($page->files() as $font_url): ?>
