@@ -7,14 +7,13 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 <?php snippet('header') ?>
 
 
-  <!-- <?php snippet('intro') ?> -->
-  <?php
-  /*
-    We always use an if-statement to check if a page exists to
-    prevent errors in case the page was deleted or renamed before
-    we call a method like `children()` in this case
-  */
-?>
+    <section>
+      <div id="landing">
+        <!-- Displays greeting only on homepage-->
+        <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+      </div>
+    </section>
+
 
 <section id="moveable">
     <div class="font-panel" class="sticky top">
@@ -27,11 +26,11 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         </pre>
 
 
-            <!-- <ul> -->
-            <!--   <?php foreach ($page->categories()->split() as $category): ?> -->
-            <!--   <li><?= $category ?></li> -->
-            <!--   <?php endforeach ?> -->
-            <!-- </ul> -->
+            <ul>
+              <?php foreach ($page->tags()->split() as $category): ?>
+              <li><?= $category ?></li>
+              <?php endforeach ?>
+            </ul>
 
             <button type="button" class="filtres collapsible">Filtres</button>
 

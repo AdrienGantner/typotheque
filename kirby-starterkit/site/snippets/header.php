@@ -12,79 +12,69 @@
 */
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="fr">
+  <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <?php
-  /*
+    <?php
+    /*
     In the title tag we show the title of our
     site and the title of the current page
-  */
+    */
 ?>
 
-  <?php
+    <?php
 /*
-  Stylesheets can be included using the `css()` helper.
-  Kirby also provides the `js()` helper to include script file.
-  More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
+Stylesheets can be included using the `css()` helper.
+Kirby also provides the `js()` helper to include script file.
+More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
 */
 ?>
-  <?= css([
-  'assets/css/index.css',
-  'assets/css/styles.css',
-  'assets/css/font.css',
-  '@auto'
+    <?= css([
+'assets/css/index.css',
+'assets/css/styles.css',
+'assets/css/font.css',
+'@auto'
 ]) ?>
 
-  <!-- ajout de css pour charger la bonne fonte sur la page de la fonte -->
-  <?php if ($page->parent() == "home") : ?>
+    <!-- ajout de css pour charger la bonne fonte sur la page de la fonte -->
+    <?php if ($page->parent() == "home") : ?>
     <style>
-      @font-face {
+    @font-face {
       /* TODO : take font name and slugify it */
       /* TODO : find a way to optimise things */
-        font-family: "locale";
-        src: url(<?= $page->files()->first() ?>);
-      }
+      font-family: "locale";
+      src: url(<?= $page->files()->first() ?>);
+    }
 
-      #glyphset,
-      #glyphset li {
-        font-family: "locale";
-      }
+    #glyphset,
+    #glyphset li {
+      font-family: "locale";
+    }
 
     </style>
-  <?php endif ?>
+    <?php endif ?>
 
-  <?php
+    <?php
 /*
-  The `url()` helper is a great way to create reliable
-  absolute URLs in Kirby that always start with the
-  base URL of your site.
+The `url()` helper is a great way to create reliable
+absolute URLs in Kirby that always start with the
+base URL of your site.
 */
 ?>
-  <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
-</head>
-<body>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
+  </head>
+  <body>
 
-<section id="fixed">
-    <div id="landing">
-        <header class="header">
-            <a href="/" class="logo">Typothèque</a>
-            <input class="menu-btn" type="checkbox" id="menu-btn" />
-            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-            <ul class="menu">
-            <li><a href="#moveable">Fontes</a></li>
-            <li><a href="#licences">Licences</a></li>
-            <li><a href="#apropos">À Propos</a></li>
-            </ul>
-        </header>
-
-        <!-- Displays greeting only on homepage-->
-        <?php if ($page == "home") : ?>
-            <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
-        <?php endif ?>
-
-    </div>
-</section>
+    <header class="header">
+      <a href="/" class="logo">Typothèque</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <li><a href="#moveable">Fontes</a></li>
+        <li><a href="#licences">Licences</a></li>
+        <li><a href="#apropos">À Propos</a></li>
+      </ul>
+    </header>

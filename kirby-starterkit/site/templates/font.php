@@ -23,22 +23,34 @@
 ?>
 <?php snippet('header') ?>
 
-<article class="font">
-  <header class="font-header h1">
-    <h1 class="font-title"><?= $page->title()->esc() ?></h1>
-  </header>
+    <section>
+      <div id="landing">
+
+        <!--   FONT NAME   -->
+        <div id="container-titre">
+          <h1 id="font-name"><?= $page->title()->esc() ?></h1>
+          <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
+          <?php foreach ($page->tags()->split() as $category) : ?>
+          <button class="tags" type="button"><?= explode("/", $category)[1] ?></button>
+          <?php endforeach ?>
+
+        </div>
+
+        <div id="processus">
+          <!--     <h1>Processus</h1> -->
+          <p id="processus-description">Insolente a été réalisée au cours d'un workshop avec Eugénie Bidaut. J'ai commencé par imiter le tracé de typographies gothiques à la plume. Ensuite, en utilisant du calque, j'ai complexifié les formes en repassant au feutre. </p>
+        </div>
+
+      </div>
+    </section>
 
   <div class="font text">
-    <!-- <pre> -->
-    <!--   <?= print_r($page) ?> -->
-    <!-- </pre> -->
-
     <ul>
       <?php foreach ($page->files() as $font_url): ?>
 
-        <?php
-          // Divise l'url en array à partir des caractères "/", et récupère le dernier élément de cette array
-          $url_array = explode("/", $font_url);
+      <?php
+      // Divise l'url en array à partir des caractères "/", et récupère le dernier élément de cette array
+      $url_array = explode("/", $font_url);
           $font_filename = end($url_array);
 
           // Récupère juste l'extension du fichier pour pouvoir récupérer le glyphset
@@ -46,11 +58,11 @@
 
           ?>
 
-        <li>
-          <a class="font-url <?php if ($font_extension != "woff2") {
-              echo "good";
-          }   ?>" href="<?= $font_url ?>"><?= $font_filename ?></a>
-        </li>
+      <li>
+        <a class="font-url <?php if ($font_extension != "woff2") {
+            echo "good";
+        }   ?>" href="<?= $font_url ?>"><?= $font_filename ?></a>
+      </li>
       <?php endforeach ?>
     </ul>
 
@@ -75,32 +87,31 @@
   </footer>
 
   <?php snippet('prevnext') ?>
-</article>
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
 <script>
-  // Récupère l'url de la fonte seulement si c'est un woff, pour pouvoir en extraire le glyphset et le rajouter dans la page
-  const font = document.querySelector(".font-url.good");
-  const fontUrl = font.href;
-  const fontName = font.innerText;
+// Récupère l'url de la fonte seulement si c'est un woff, pour pouvoir en extraire le glyphset et le rajouter dans la page
+const font = document.querySelector(".font-url.good");
+const fontUrl = font.href;
+const fontName = font.innerText;
 
-  const buffer = fetch(fontUrl).then(res => res.arrayBuffer());
+const buffer = fetch(fontUrl).then(res => res.arrayBuffer());
 
-  // Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
-  buffer.then(data => {
-    const glyphs = opentype.parse(data).glyphs.glyphs;
+// Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
+buffer.then(data => {
+  const glyphs = opentype.parse(data).glyphs.glyphs;
 
-    const glyphset = document.getElementById("glyphset");
-    const ul = document.createElement("ul");
+  const glyphset = document.getElementById("glyphset");
+  const ul = document.createElement("ul");
 
-    Object.values(glyphs).forEach(glyph => {
-      const li = document.createElement("li");
-      li.innerText = String.fromCharCode(glyph.unicode);
-      ul.appendChild(li);
-    });
-
-    glyphset.appendChild(ul);
-
+  Object.values(glyphs).forEach(glyph => {
+    const li = document.createElement("li");
+    li.innerText = String.fromCharCode(glyph.unicode);
+    ul.appendChild(li);
   });
+
+  glyphset.appendChild(ul);
+
+});
 
 </script>
 
