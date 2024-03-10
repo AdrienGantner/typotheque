@@ -3,10 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Typotes Club</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Typothèque</title>
+
 </head>
 <body>
-    
+    <!-------------------------------------------- landing page ------------------------------------------------>
+<section id="fixed">
+    <div id="landing">
+        <header class="header">
+            <a href="" class="logo"></a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+            <li><a href="../index.html">Fontes</a></li>
+            <li><a href="../licences/index.html">Licences</a></li>
+            <li><a href="#apropos">À Propos</a></li>
+            </ul>
+        </header>
+    </div>
+</section>
+
+<div class="image-container">
+    <a href="../index.html"><img id="logo" src="../logo-circle-stroke.svg"></a>
+</div>
+
+<p id="welcome-text">Licences</p>
+<!-- <p id="headtext">Les fontes de Typotes Club sont téléchargeables.<br>
+    Attention cher.e utilisateur.ice, télécharger une fonte vous engage à respecter ses conditions&nbsp;d'utilisation.</p> -->
+<p id="note">Certaines fontes sont uniquement consultables sur le site. <br>D'autres sont accessibles par un contact avec l'auteur.ice. </p>
+<div id="licence-section">
+    <div class="licences" id="licence-ofl">
+        <h2>Licence OFL</h2>
+    <p>Avec cette licence, vous pouvez:
+        <li>
+            <ul>
+                <p>utiliser la fonte</p>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <p>Pariatur voluptatibus illo dolorem iusto perspiciatis architecto laudantium.</p>
+            </ul>
+        </li>
+    </p>
+    <p>Vous ne pouvez pas:
+        <li>
+            <ul>
+                <p>Lorem, ipsum dolor sit (amet consectetur adipisicing elit. Eius?)</p>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </ul>
+        </li>
+    <a class="link-licence" target="_blank" href="https://openfontlicense.org/">Plus d'infos sur la licence OFL</a>
+    </div>
+
+
+    <div class="licences" id="licence-ccbysa">
+        <h2>Licence CC BY SA</h2>
+    <p>Avec cette licence, vous pouvez:
+        <li>
+            <ul>
+                <p>utiliser la fonte</p>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <p>Cconsectetur adipisicing elit. Fuga, soluta.</p>
+            </ul>
+        </li>
+    </p>
+    <p>Vous ne pouvez pas:
+        <li>
+            <ul>
+                <p>Lorem, ipsum dolor sit (amet consectetur adipisicing elit. Eius?)</p>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </ul>
+        </li>
+    <a class="link-licence" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/" >Plus d'infos sur la licence CC BY SA</a>
+    </div>
+
+
+    <div class="licences" id="licence-copyright">
+        <h2>Licence tous droits réservés</h2>
+    <p>Avec cette licence, vous pouvez:
+        <li>
+            <ul>
+                <p>utiliser la fonte</p>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <p>Lorem, ipsum dolor.</p>
+            </ul>
+        </li>
+    </p>
+    <p>Vous ne pouvez pas:
+        <li>
+            <ul>
+                <p>Lorem, ipsum dolor sit (amet consectetur adipisicing elit. Eius?)</p>
+            </ul>
+        </li>
+        <li>
+            <ul>
+                <p>Lorem ipsum dolor sit amet.</p>
+            </ul>
+        </li>
+    <a class="link-licence" target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/" >Plus d'infos sur la licence tous droits réservés</a>
+    </div>
+
+</div>
+
+<footer>
+    <p id="footer-title"><a href="../index.html"><u>Typotes Club</u></a></p>
+<li>
+    <ul>
+        <a href="../index.html#moveable">Fontes</a>
+    </ul>
+    <ul>
+        <a href="../licences/index.html">Licences</a>
+    </ul>
+    <ul>
+        <a href="">À propos</a>
+    </ul>
+    <ul>
+        <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;Typographie&nbsp;La&nbsp;Cambre</a>
+    </ul>
+
+    <ul>
+        <a target="_blank" href="https://www.instagram.com/atelier_de_typographie/">Instagram</a>
+    </ul>
+    <ul>
+        <button type="button" class="collapsible-credits">Crédits</button>
+        <div class="content-credits">
+<!--             <p>
+           Conception graphique et développement front-end: <a target="_blank" href="https://www.adriengantner.com">Adrien Gantner</a>
+           développement back-end: <a target="_blank" href="https://www.thomasbris.space/">Thomas Bris</a>
+            </p> -->
+        </div>
+    </ul>
+</li>
+</footer>
+
+
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var filtresList = this.nextElementSibling;
+        if (filtresList.style.display === "block") {
+            filtresList.style.display = "none";
+        } else {
+            filtresList.style.display = "block";
+        }
+    });
+}
+
+</script>
+
+
 </body>
 </html>
+
+
+<!--                         <button type="button" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
+                        <button type="button" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
+                        <button type="button" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button> -->
