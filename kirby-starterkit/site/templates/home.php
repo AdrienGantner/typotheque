@@ -5,14 +5,11 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
 ?>
 <?php snippet('header') ?>
-
-
-    <section>
-      <div id="landing">
-        <!-- Displays greeting only on homepage-->
-        <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
-      </div>
-    </section>
+<article id="main">
+<section id="landing">
+    <!-- Displays greeting only on homepage-->
+    <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+</section>
 
 
 <section id="moveable">
@@ -82,5 +79,5 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
       </div>
 
     <?php endforeach ?>
-
+</article>
 <?php snippet('footer') ?>

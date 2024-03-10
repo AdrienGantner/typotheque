@@ -11,6 +11,7 @@
   --background: #f4f4f4;
 }
 
+/********************************************** reset **********************************************/
 * {
   box-sizing: border-box;
 }
@@ -23,104 +24,11 @@ body {
   /* background: var(--background); */
 }
 
-/* Importer les fontes */
-@font-face {
-  font-family: "Karrik";
-  src: url(fonts/Karrik-Regular.ttf);
+#main {
+  /* Offset de la hauteur du header */
+  margin-top: 4rem;
 }
-@font-face {
-  font-family: "L10";
-  src: url(fonts/L10-Regular.ttf);
-}
-@font-face {
-  font-family: "L10-Italic";
-  src: url(fonts/L10-RegularItalic.ttf);
-}
-@font-face {
-  font-family: "Calice-serif1";
-  src: url(fonts/calice/Calice-serif1.ttf);
-}
-@font-face {
-  font-family: "Calice-sans";
-  src: url(fonts/calice/Calice-sans.ttf);
-}
-@font-face {
-  font-family: "ouvrieres";
-  src: url(fonts/LesOuvrieres-normales.ttf);
-}
-@font-face {
-  font-family: "woven";
-  src: url(fonts/Woven.ttf);
-}
-@font-face {
-  font-family: "wildflower";
-  src: url(fonts/wildflower-semibold.ttf);
-}
-@font-face {
-  font-family: "insolente";
-  src: url(fonts/Insolente-Regular.ttf);
-}
-@font-face {
-  font-family: "oswald";
-  src: url(fonts/Oswald-VariableFont_wght.ttf);
-}
-@font-face {
-  font-family: "banana";
-  src: url(fonts/Banana-Outline-liga-2023_12_19.otf/Banana-Outline-liga-2023_12_19.otf);
-}
-@font-face {
-  font-family: "Zenith2";
-  src: url(fonts/Zenith3.ttf);
-}
-@font-face {
-  font-family: "Superformula";
-  src: url(fonts/superformula-mono.ttf);
-}
-@font-face {
-  font-family: "Wildflower";
-  src: url(fonts/wildflower-semibold.ttf);
-}
-@font-face {
-  font-family: "Aerobik";
-  src: url(fonts/aerobik-regular.ttf);
-}
-@font-face {
-  font-family: "Aguirre";
-  src: url(fonts/aguirre-demibold.ttf);
-}
-#superformula {
-  font-family: oswald;
-}
-#superformula {
-  font-family: Superformula;
-}
-#aerobik {
-  font-family: Aerobik;
-}
-#aguirre {
-  font-family: Aguirre;
-}
-#zenith {
-  font-family: Zenith2;
-}
-#woven {
-  font-family: woven;
-}
-#calice {
-  font-family: Calice-serif1;
-}
-#ouvrieres {
-  font-family: ouvrieres;
-}
-#insolente {
-  font-family: insolente;
-}
-#wildflower {
-  font-family: Wildflower;
-}
-#banana {
-  font-family: banana;
-}
+
 a {
   text-decoration: none;
   background-color: none;
@@ -201,6 +109,7 @@ a {
   border-bottom: 1px solid black;
   position: fixed;
   top: 0;
+  height: 4rem;
   width: 100%;
   z-index: 50;
 }

@@ -22,16 +22,15 @@
 */
 ?>
 <?php snippet('header') ?>
-
-    <section>
-      <div id="landing">
-
+<article id="main">
+    <section id="landing">
         <!--   FONT NAME   -->
         <div id="container-titre">
           <h1 id="font-name"><?= $page->title()->esc() ?></h1>
           <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
+
           <?php foreach ($page->tags()->split() as $category) : ?>
-          <button class="tags" type="button"><?= explode("/", $category)[1] ?></button>
+            <button type="button" class="tags" ><?= explode("/", $category)[1] ?></button>
           <?php endforeach ?>
 
         </div>
@@ -40,8 +39,6 @@
           <!--     <h1>Processus</h1> -->
           <p id="processus-description">Insolente a été réalisée au cours d'un workshop avec Eugénie Bidaut. J'ai commencé par imiter le tracé de typographies gothiques à la plume. Ensuite, en utilisant du calque, j'ai complexifié les formes en repassant au feutre. </p>
         </div>
-
-      </div>
     </section>
 
   <div class="font text">
@@ -87,6 +84,8 @@
   </footer>
 
   <?php snippet('prevnext') ?>
+</article>
+
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
 <script>
 // Récupère l'url de la fonte seulement si c'est un woff, pour pouvoir en extraire le glyphset et le rajouter dans la page

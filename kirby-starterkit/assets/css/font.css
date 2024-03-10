@@ -1,7 +1,11 @@
 #glyphset ul {
-  font-family: var(--local-font);
+  font-family: var(--localfont);
   display: flex;
   flex-flow: row wrap;
+}
+
+#glyphset li {
+  list-style: none;
 }
 
 #glyphset li {
