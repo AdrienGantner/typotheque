@@ -73,9 +73,60 @@
 
   </div>
 
+<div id="editable-container">
+
+    <div class="setting-flex">
+        <div class="flex box1">
+            <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
+            <input type="range" min="10" max="150" value="87" class="slider txt" id="fontSlider">
+        </div>
+
+        <div class="container flex box2">
+            <label for="lineHeightSlider" class="txt">Espacement</label><br>
+            <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+        </div>
+
+        <div id="font-dropdown" class="container flex box3" >
+            <div class="custom-dropdown-container">
+                <select name="fonts" class="txt">
+                    <option value="font1" style="width: 300px;">Regular</option>
+                </select>
+                <div class="dropdown-icon" class="txt">&#9660;</div>
+            </div>
+        </div>
+    </div>
+    <div id="textContainer">
+        <div class="editabletxt" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+    </div>
+</div>
+
+<!-- <h1>Détails</h1> -->
+<h1 id="details">Insolente est sous licence OFL.<br>
+    Elle a été créée par <u>Marie&nbsp;Godefroy</u> en <u>2023</u>. </h1>
+
+<div id="links">
   <div id="glyphset">
     <h2>Glyphset</h2>
   </div>
+
+    <a href="specimen" class="links specimen">Specimen</a><br>
+
+    <button type="button" class="collapsible links">Télécharger</button>
+    <div class="content">
+      <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
+        Avec ce fichier, j'ai le droit:<br>
+        d'utiliser la fonte pour un projet personnel.<br>
+        Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy:<br>
+        marie.godefroy@lacambre.be</p>
+
+        <div id="dl-container">
+            <label>
+                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+            </label><br>
+            <button id="downloadButton" disabled>Télécharger</button>
+        </div>
+    </div>
+</div>
 
   <!-- Snippet pour afficher les fontes suivantes ou précédentes -->
   <!-- <?php snippet('prevnext') ?> -->
