@@ -1,9 +1,13 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: Karrik;
+    font-family: L10;
 
   background: #f4f4f4;
+  overflow-x: hidden;
+}
+html{
+  scroll-behavior:smooth;
 }
 
 /* Importer les fontes */
@@ -120,11 +124,35 @@ a{
   z-index: 0;
 }
 /********************************************** landing page **********************************************/
-.logo{
-    font-family: "Karrik";
-    font-size: 30px;
-    padding: 30px, 0, 30px, 20px;
+#logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 190px;
+
+    margin: 80px 0 0 50px;
+    animation: rotation 20s infinite linear;
 }
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@media (max-width: 1450px) {
+  #logo{
+    height: 120px;
+    margin: auto;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 10px;
+  }
+}
+
 
 #landing-img{
     position: relative;
@@ -143,11 +171,20 @@ a{
   
 }
 #welcome-text{
-  font-size: 50px;
-  padding: 30px;
+  font-size: 30px;
+  padding: 75px 50px 40px 50px;
+  text-align: center;
+  margin-top: 65px;
 }
+@media (max-width: 768px) {
+  #welcome-text{
+    font-size: 25px;
+    line-height: 40px;
+  }
+}
+
 #link{
-  text-decoration: underline 3px solid blue;
+  text-decoration: underline 2px solid blue;
 }
 /*     
 #welcome-txt{
@@ -311,18 +348,23 @@ a {
     .header .menu-icon {
       display: none;
     }
+
   }
 
 
 /********************************************** fontes **********************************************/
 #moveable{
-  
-  margin-top: 30vh; /* Offset to make space for the fixed section */
+  width: 100%;
+  margin-top: 35vh; /* Offset to make space for the fixed section */
   z-index: 1000;
   background-color: white;
 /*   top: -100px; */
 }
-
+/* @media (min-width: 48em) {
+  #moveable {
+    
+  }
+} */
 .font-panel{
   width: 100%;
   background: rgb(255, 255, 255);
@@ -330,9 +372,9 @@ a {
   border-top-right-radius: 8vh;
   text-align: center;
   padding-top: 30px;
-  border-bottom: 1px solid black;
   z-index: 100;
   border: 1.5px solid black;
+  border-bottom: transparent;
   position: sticky;
 
   max-height: 700px; /* Example max height */
@@ -340,8 +382,10 @@ a {
 #trierpar{
   width: 100%;
   overflow-y: auto; /* Allows scrolling within the container */
-  padding: 10px;
+  /* padding: 10px; */
   box-sizing: border-box;
+  text-align: left;
+  padding-left: 30px;
 
   
 }
@@ -360,7 +404,7 @@ a {
 
 
 /* styling of buttons*/
-.filtres{
+.filtres, #variableButton{
   background: none;
   border-radius: 25px;
   font: inherit;
@@ -371,11 +415,75 @@ a {
   color: inherit;
   font-size: 17px;
 }
-
-.filtres.active,.filtres:hover, .filtres:focus,.filtres:visited {
-  background-color: #ffe8e8;
+#variableButton{
+  background: none;
+  border-radius: 20px;
+  font: inherit;
+	cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
+  margin: -5px 5px -4px 10px;
+  font-size: 16px;
 }
 
+/* collapsible filters pannel*/
+.content {
+  min-width: 350px;
+  max-width: 500px;
+  margin: auto;
+  display: none;
+  overflow: hidden;
+}
+
+.collapsible.active + .content {
+  display: block; /* Display content when active */
+  animation: slideDown 0.5s ease-in-out forwards; /* Apply slide-down animation */
+}
+
+.collapsible:not(.active) + .content {
+  animation: slideUp 0.5s ease-in-out forwards; /* Apply slide-up animation */
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+
+.filtres:hover{
+  background-color: #fff0f0;
+}
+.filtres.active, .filtres:visited, .filtres:focus{
+  background-color: #ffd6d6;
+}
+
+/* animate variable fonts on hover */
+#variableTxt {
+  font-weight: 500;
+  transition: font-weight 0.5s;
+}
+
+.variableHover:hover #variableTxt {
+  animation: animate-text 2s infinite;
+}
+
+@keyframes animate-text {
+  0% {
+      font-weight: 200;
+  }
+  50% {
+      font-weight: 700;
+  }
+  100% {
+      font-weight: 200;
+  }
+}
 
 .font-list{
   height: 300px;
@@ -453,6 +561,22 @@ a {
  .collapsible {
   text-align: center;
 }
+/* #variable{
+    background: none;
+    border-radius: 25px;
+    font: inherit;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 8px;
+    margin: 5px;
+    color: inherit;
+    font-size: 17px;
+}
+ */
+
+#variableTxt:hover{
+
+}
 
 
 /*Buttons to change fonts*/
@@ -488,10 +612,7 @@ a {
   top: 0; /* Adjust padding as needed */
   background-color: white;
 }
-#welcome-text{
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
+
 
 .filtres-list {
   /*   padding: 0 18px; */
