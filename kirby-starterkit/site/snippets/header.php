@@ -33,7 +33,6 @@ More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
 */
 ?>
     <?= css([
-'assets/css/index.css',
 'assets/css/styles.css',
 'assets/css/font.css',
 '@auto'
