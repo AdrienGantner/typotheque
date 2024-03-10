@@ -20,7 +20,7 @@ body {
   padding: 0;
   font-family: "Karrik", sans-serif;
 
-  background: var(--background);
+  /* background: var(--background); */
 }
 
 /* Importer les fontes */
@@ -200,6 +200,7 @@ a {
   background-color: #fff;
   border-bottom: 1px solid black;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 50;
 }
