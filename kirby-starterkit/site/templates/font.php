@@ -85,7 +85,7 @@
         </div>
     </div>
     <div id="textContainer">
-        <div class="editabletxt" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+        <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
     </div>
 </div>
 

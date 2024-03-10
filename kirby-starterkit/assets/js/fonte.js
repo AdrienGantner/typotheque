@@ -74,7 +74,10 @@ function getGlyphset(event) {
 
       Object.values(glyphs).forEach((glyph) => {
         const li = document.createElement("li");
-        li.innerText = String.fromCharCode(glyph.unicode);
+        li.classList.add("locale-font");
+        const glyphContent = String.fromCharCode(glyph.unicode);
+        li.innerText = glyphContent;
+
         ul.appendChild(li);
       });
 

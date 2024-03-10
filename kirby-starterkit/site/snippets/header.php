@@ -48,10 +48,6 @@ More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
       src: url(<?= $page->files()->filterBy("type", "!=", "image")->first() ?>);
     }
 
-   #glyphset li {
-      font-family: "locale";
-    }
-
     </style>
     <?php endif ?>
 
