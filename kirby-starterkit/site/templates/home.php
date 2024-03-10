@@ -18,11 +18,6 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         <div id="trierpar">
             <p>Trier par: <button type="button" class="filtres">Plus récent</button> <button type="button" class="filtres">A-Z</button> </p>
 
-        <pre>
-          <?php print_r($page->categories()->split());  ?>
-        </pre>
-
-
             <ul>
               <?php foreach ($page->tags()->split() as $category): ?>
               <li><?= $category ?></li>
@@ -31,33 +26,23 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
             <button type="button" class="filtres collapsible">Filtres</button>
 
-            <div class="filtresList">
-                <button type="button" class="filtres">display</button>
-                <button type="button" class="filtres">serif</button>
-                <button type="button" class="filtres">sans serif</button>
-                <button type="button" class="filtres">mono</button>
-                <button type="button" class="filtres">slab</button> <br>
+        <!-- Liste les tags trouvés dans toutes les pages fontes -->
+          <div class="filtresList">
+            <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
+                <button type="button" class="filtres"><?= $tag ?></button>
+            <?php endforeach; ?>
+          </div>
 
-                <button type="button" class="filtres">1 style</button>
-                <button type="button" class="filtres">2 styles</button>
-                <button type="button" class="filtres">3+ styles</button>
-                <button type="button" class="filtres">variable</button><br>
-                <button type="button" class="filtres">minuscules</button>
-                <button type="button" class="filtres">majuscules</button>
-                <button type="button" class="filtres">chiffres</button>
-                <button type="button" class="filtres">caractères spéciaux</button>
-                <button type="button" class="filtres">glyphes inclusifs (QUNI)</button>
-            </div>
         </div>
     </div>
 
     <!-- Loop to display each font -->
     <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
-    <?php foreach ($page->children()->listed() as $i => $font): ?>
+    <?php foreach ($page->children()->listed() as $i => $font) : ?>
 
-      <!-- <p> -->
+      <!-- <pre> -->
       <!--   <?= print_r($font) ?> -->
-      <!-- </p> -->
+      <!-- </pre> -->
 
       <div class="font-list" class="sticky" >
           <div class="fontflex">

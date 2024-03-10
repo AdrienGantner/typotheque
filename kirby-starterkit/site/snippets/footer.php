@@ -11,9 +11,6 @@
 ?>
   </main>
 
-  <footer id="footer">
-</footer>
-
   <?= js([
     'assets/js/prism.js',
     'assets/js/lightbox.js',

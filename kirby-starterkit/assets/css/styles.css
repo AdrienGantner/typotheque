@@ -27,6 +27,7 @@ body {
 #main {
   /* Offset de la hauteur du header */
   margin-top: 4rem;
+  padding-top: 1rem;
 }
 
 a {
@@ -447,8 +448,9 @@ a {
 
 h1 {
   font-size: 30px;
-  padding-left: 6vw;
+  /* padding-left: 6vw; */
 }
+
 #font-name {
   font-size: 35px;
   text-align: center;

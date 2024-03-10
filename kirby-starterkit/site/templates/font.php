@@ -91,7 +91,8 @@
     <time class="font-date" datetime="<?= $page->date()->toDate('c') ?>">Published on <?= $page->date()->esc() ?></time>
   </footer>
 
-  <?php snippet('prevnext') ?>
+  <!-- Snippet pour afficher les fontes suivantes ou précédentes -->
+  <!-- <?php snippet('prevnext') ?> -->
 </article>
 
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
