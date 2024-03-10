@@ -119,8 +119,6 @@ columns:
         when:
           toggleVariable: true
 
-
-
       nom de l'axe variable 2:
         type: text
         width: 1/3
@@ -143,9 +141,6 @@ columns:
         when:
           toggleVariable: true
           axesVariable: 2axes
-
-
-
 
       #specimen ou non
       Specimen:
@@ -214,7 +209,6 @@ columns:
       Dossier fonte:
         label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
         type: files
-        
 
   - width: 1/3
     # This second column holds a fields section with multiple fields
@@ -243,9 +237,6 @@ columns:
 
           # Fields types can be added using the shortcut `fieldname: true`
           # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
-
-
-
               
           DownloadType:
             label: Ma fonte est
@@ -260,15 +251,10 @@ columns:
             type: text
             required: true
 
-          insta:
+          socials:
             label: Médias sociaux
             type: url
 
           site:
             label: site personnel
             type: url
-                    
-
-
-
-
