@@ -36,43 +36,37 @@ columns:
             text: sans serif
           - value: category/mono
             text: mono
-
           - value: category/1style
             text: 1 style
           - value: category/2styles
             text: 2 styles
           - value: category/3stylesetplus
-            text: 3 styles et +                
+            text: 3 styles et +
           - value: category/variable
             text: variable
-
           - value: category/minuscules
             text: minuscules
           - value: category/majuscules
             text: majuscules
           - value: category/chiffres
-            text: chiffres               
+            text: chiffres
           - value: category/chspeciaux
             text: charactères spéciaux
           - value: category/inclusif
             text: glyphes inclusifs (QUNI)
-
       description:
         type: textarea
         autofocus: true
         label: Description de la fonte
-      
-      #fichier de fonte
+        #fichier de fonte
         files:
           type: files
-
       #fonte variable ou non
       toggle:
         label: fonte variable
         type: toggle
         required: true
         width: 1/5
-
       nom de l'axe variable 1:
         type: text
         width: 1/4
@@ -92,10 +86,8 @@ columns:
         width: 1/4
         when:
           toggle: true
-        
-
-#si oui -> axe 1: nom de l'axe, valeur min, valeur max
-#       -> axe 2: nom de l'axe, valeur min, valeur max
+          #si oui -> axe 1: nom de l'axe, valeur min, valeur max
+          #       -> axe 2: nom de l'axe, valeur min, valeur max
       category:
         label: Licence
         type: radio
@@ -118,9 +110,9 @@ columns:
           date:
             type: date
             display: YYYY
-            time: true
+            step: year
+            # time: true
             default: now
-
           # Fields types can be added using the shortcut `fieldname: true`
           # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
           #images: up to 5 images. Description: Largeur minimum: 1200px
@@ -128,42 +120,28 @@ columns:
             type: files
             label: "Images format paysage, largeur minimum 1200 pixels. 5 images max"
             description: "Sélectionnez des images, PNG/JPG, largeur minimum 1200px. 5 images maximum"
-            
             min: 0
             max: 5
-
           name:
             label: Prénom Nom
             type: text
             minlength: 10
             maxlength: 40
             required: true
-              
           toggle2:
             label: Fonte téléchargeable directement depuis la typothèque
-            required: true
+            # required: true
             type: toggle
-            text: 
+            text:
               - "non"
               - "oui"
-
           email:
             label: adresse email
             type: text
             required: true
-
-
-          
           insta:
             label: instagram
             type: url
-
           site:
             label: site personnel
             type: url
-          
-                    
-
-
-
-

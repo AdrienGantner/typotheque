@@ -101,8 +101,8 @@
 </div>
 
 <!-- <h1>Détails</h1> -->
-<h1 id="details">Insolente est sous licence OFL.<br>
-    Elle a été créée par <u>Marie&nbsp;Godefroy</u> en <u>2023</u>. </h1>
+<p id="details">Insolente est sous licence OFL.<br>
+    Elle a été créée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
 
 <div id="links">
   <div id="glyphset">
@@ -116,8 +116,8 @@
       <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
         Avec ce fichier, j'ai le droit:<br>
         d'utiliser la fonte pour un projet personnel.<br>
-        Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy:<br>
-        marie.godefroy@lacambre.be</p>
+          Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez <?= $page->name() ?> :<br>
+          <?= $page->email() ?> </p>
 
         <div id="dl-container">
             <label>
