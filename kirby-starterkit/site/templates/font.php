@@ -180,11 +180,16 @@
           <label>
             <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
           </label><br>
-          <button id="downloadButton" disabled><a href="<?= $page->fichiers_fonte() ?>" download>Télécharger</a></button>
+          <a id="downloadLink" class="disabled" href="<?php  echo (null !== $page->dossierfonte()) ? $page->dossierfonte()->toFile() : $page->fichierfonte()->toFile(); ?>"
+             download>
+            Télécharger
+          </a>
+
         </div>
       <?php endif  ?>
 
     </div>
+
   </div>
 
   <!-- Snippet pour afficher les fontes suivantes ou précédentes -->

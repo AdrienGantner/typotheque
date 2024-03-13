@@ -31,26 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // script for download button
 document.addEventListener("DOMContentLoaded", function () {
+  // on met un try/catch pour le cas où il n'y a pas de bouton "Télécharger"
   try {
     const agreeCheckbox = document.getElementById("agreeCheckbox");
-    const downloadButton = document.getElementById("downloadButton");
+    const downloadLink = document.getElementById("downloadLink");
 
     // Enable download button only when checkbox is checked
     agreeCheckbox.addEventListener("change", function () {
-      downloadButton.disabled = !agreeCheckbox.checked;
-    });
-
-    // Handle download button click
-    downloadButton.addEventListener("click", function () {
-      if (agreeCheckbox.checked) {
-        // Implement download logic here
-        // juste un élément <a> avec l'attribut download
-        alert("En téléchargement...");
-      } else {
-        alert(
-          "Veuillez accepter les conditions d'utilisation avant de télécharger.",
-        );
-      }
+      downloadLink.classList.toggle("disabled");
     });
   } catch (e) {
     console.log("Pas de fonte téléchargeable →", e);

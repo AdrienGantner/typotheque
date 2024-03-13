@@ -26,3 +26,8 @@
 .locale-font {
   font-family: "locale";
 }
+
+#downloadLink.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

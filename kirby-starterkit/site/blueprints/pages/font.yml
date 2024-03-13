@@ -190,16 +190,19 @@ columns:
         description: "Sélectionnez des images, PNG/JPG, largeur minimum 1200px. 5 images maximum"
         min: 0
         max: 5
+        query: page.images
       #fichier de fonte
       fichierFonte:
         label: Fichiers de fonte
         type: files
         template: blocks/font
+        query: page.documents
       #dossier de fonte
       dossierFonte:
         label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
         type: files
-        template: block/font
+        template: block/zip
+        query: page.files.filterBy('extension', 'zip')
   - width: 1/3
     # This second column holds a fields section with multiple fields
     # More about fields sections: https://getkirby.com/docs/reference/panel/sections/fields
