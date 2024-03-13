@@ -103,17 +103,19 @@
 
     <button type="button" class="collapsible links">Télécharger</button>
     <div class="content">
-      <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
+
+      <p>Cette fonte est téléchargeable sous la licence <u>OFL</u>.<br>
         Avec ce fichier, j'ai le droit:<br>
         d'utiliser la fonte pour un projet personnel.<br>
-          Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez <?= $page->name() ?> :<br>
-          <?= $page->email() ?> </p>
+          Je n'ai pas le droit de l'utiliser pour un usage commercial.</p>
+      <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
+       <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
 
         <div id="dl-container">
             <label>
                 <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
             </label><br>
-            <button id="downloadButton" disabled>Télécharger</button>
+            <button id="downloadButton" disabled><a href="file" download>Télécharger</a></button>
         </div>
     </div>
 </div>
