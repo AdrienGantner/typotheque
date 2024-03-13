@@ -25,9 +25,9 @@
 
 <article id="main">
 
-<pre>
-  <?php print_r($page) ?>
-</pre>
+<!-- <pre> -->
+<!--   <?php print_r($page) ?> -->
+<!-- </pre> -->
 
     <section id="landing">
         <!--   FONT NAME   -->
@@ -73,7 +73,7 @@
     <div class="setting-flex">
         <div class="flex box1">
             <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
-            <input type="range" min="10" max="150" value="87" class="slider txt" id="fontSlider">
+            <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider">
         </div>
 
         <div class="container flex box2">
@@ -91,13 +91,12 @@
         </div>
     </div>
     <div id="textContainer">
-        <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+      <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?= $page->text2() ?></div>
     </div>
 </div>
 
-<!-- <h1>Détails</h1> -->
   <p id="details"><?= $page->title() ?> est sous licence OFL.<br>
-    Elle a été créée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
+    Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
 
 <div id="links">
   <a href="/glyphset" class="links" onclick="getGlyphset(event)">Glyphset</a>
@@ -110,10 +109,12 @@
     <button type="button" class="collapsible links">Télécharger</button>
     <div class="content">
 
+      <!-- En vrai c'est mieux de mettre des <p> et de gérer l'espace entre les lignes avec des styles spécifiques -->
       <p>Cette fonte est téléchargeable sous la licence <u>OFL</u>.<br>
         Avec ce fichier, j'ai le droit:<br>
         d'utiliser la fonte pour un projet personnel.<br>
           Je n'ai pas le droit de l'utiliser pour un usage commercial.</p>
+
       <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
        <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
 
