@@ -22,7 +22,13 @@
 */
 ?>
 <?php snippet('header') ?>
+
 <article id="main">
+
+<pre>
+  <?php print_r($page) ?>
+</pre>
+
     <section id="landing">
         <!--   FONT NAME   -->
         <div id="container-titre">

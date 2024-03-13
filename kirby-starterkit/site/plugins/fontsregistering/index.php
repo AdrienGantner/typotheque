@@ -14,5 +14,8 @@ Kirby::plugin('fontsregistering/fontswow', [
       'mime' => 'fonts/sfnt',
       'type' => 'document',
     ],
+    'zip' => [
+      'type' => 'document',
+    ],
   ]
 ]);

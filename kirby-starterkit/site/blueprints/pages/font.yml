@@ -32,28 +32,28 @@ columns:
         label: Tags
         type: tags
         options:
-          - value: category/serif
-            text: serif
-          - value: category/sansserif
-            text: sans serif
-          - value: category/mono
-            text: mono
-          - value: category/1style
-            text: 1 style
-          - value: category/moreStyles
-            text: plusieurs styles
-          - value: category/variable
-            text: variable
-          - value: category/minuscules
-            text: minuscules
-          - value: category/majuscules
-            text: majuscules
-          - value: category/chiffres
-            text: chiffres
-          - value: category/chspeciaux
-            text: charactères spéciaux
-          - value: category/inclusif
-            text: glyphes inclusifs (QUNI)
+          - text: category/serif
+            value: serif
+          - text: category/sansserif
+            value: sans serif
+          - text: category/mono
+            value: mono
+          - text: category/1style
+            value: 1 style
+          - text: category/moreStyles
+            value: plusieurs styles
+          - text: category/variable
+            value: variable
+          - text: category/minuscules
+            value: minuscules
+          - text: category/majuscules
+            value: majuscules
+          - text: category/chiffres
+            value: chiffres
+          - text: category/chspeciaux
+            value: charactères spéciaux
+          - text: category/inclusif
+            value: glyphes inclusifs (QUNI)
       description:
         type: textarea
         autofocus: true
@@ -191,12 +191,14 @@ columns:
         min: 0
         max: 5
       #fichier de fonte
-      Fichier fonte:
+      fichiers-fonte:
         type: files
+        template: blocks/font
       #fichier de fonte
-      Dossier fonte:
+      dossier-fonte:
         label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
         type: files
+        template: block/font
   - width: 1/3
     # This second column holds a fields section with multiple fields
     # More about fields sections: https://getkirby.com/docs/reference/panel/sections/fields
