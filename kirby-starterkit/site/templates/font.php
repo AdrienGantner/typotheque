@@ -81,6 +81,43 @@
         <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
       </div>
 
+      <!-- Check variable -->
+      <?php if ($page->toggleVariable()) : ?>
+
+        <div class="container flex box2">
+        <label for="var1-slider" class="txt">
+          Axe <?= $page->variableAxis1() ?>
+
+        </label>
+          <input type="range"
+            id="var1-slider"
+            class="slider"
+            min="<?= $page->var1Min() ?>"
+            max="<?= $page->var1Max() ?>"
+            step="1"
+            value="<?= $page->var1Min() ?>">
+        </div>
+
+
+        <?php if ($page->axesVariable() == "2axes") : ?>
+
+          <div class="container flex box2">
+          <label for="var2-slider" class="txt">
+            Axe <?= $page->variableAxis2() ?>
+          </label>
+              <input type="range"
+                id="var2-slider"
+                class="slider"
+                min="<?= $page->var2Min() ?>"
+                max="<?= $page->var2Max() ?>"
+                step="1"
+                value="<?= $page->var2Min() ?>">
+            </div>
+
+        <?php endif ?>
+
+      <?php endif ?>
+
       <div id="font-dropdown" class="container flex box3" >
         <div class="custom-dropdown-container">
           <select name="fonts" class="txt">
@@ -91,7 +128,11 @@
       </div>
     </div>
     <div id="textContainer">
-      <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?= $page->text2() ?></div>
+
+      <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <?= $page->text2() ?>
+      </div>
+
     </div>
   </div>
 
@@ -104,6 +145,7 @@
 
     </div>
 
+    <!-- Check specimen -->
     <?php if ($page->specimen() == "SpecimenPDF") :  ?>
       <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links specimen">Specimen</a><br>
 
