@@ -25,34 +25,34 @@
 
 <article id="main">
 
-<!-- <pre> -->
-<!--   <?php print_r($page) ?> -->
-<!-- </pre> -->
+  <pre>
+    <?php print_r($page) ?>
+  </pre>
 
-    <section id="landing">
-        <!--   FONT NAME   -->
-        <div id="container-titre">
-          <h1 id="font-name"><?= $page->title()->esc() ?></h1>
-          <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
+  <section id="landing">
+    <!--   FONT NAME   -->
+    <div id="container-titre">
+      <h1 id="font-name"><?= $page->title()->esc() ?></h1>
+      <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
 
-          <?php foreach ($page->tags()->split() as $category) : ?>
-            <button type="button" class="tags" ><?= explode("/", $category)[1] ?></button>
-          <?php endforeach ?>
+      <?php foreach ($page->tags()->split() as $category) : ?>
+      <button type="button" class="tags" ><?= explode("/", $category)[1] ?></button>
+      <?php endforeach ?>
 
-        </div>
+    </div>
 
-        <div id="processus">
-          <!--     <h1>Processus</h1> -->
+    <div id="processus">
+      <!--     <h1>Processus</h1> -->
       <p id="processus-description"><?= $page->description() ?></p>
-        </div>
-    </section>
+    </div>
+  </section>
 
-<div id="imageSection">
+  <div id="imageSection">
     <?php foreach ($page->images() as $image) : ?>
-      <?= $image ?>
+    <?= $image ?>
     <?php endforeach ?>
 
-</div>
+  </div>
 
   <ul class="font text">
     <!-- tri pour  -->
@@ -60,51 +60,58 @@
     <!-- Ajoute une classe "good" aux fontes uploadées qui ont la bonne extension (woff ou ttf) -->
     <li class="font
       <?php if ($font_url->extension() != "woff2") : ?>
-          <?= "good" ?>
+      <?= "good" ?>
       <?php endif ?>"
-      data-font-url="<?= $font_url ?>"><?= $font_url->filename() ?>
+    data-font-url="<?= $font_url ?>"><?= $font_url->filename() ?>
     </li>
     <?php endforeach ?>
 
-  </ul>
+    </ul>
 
-<div id="editable-container">
+  <div id="editable-container">
 
     <div class="setting-flex">
-        <div class="flex box1">
-            <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
-            <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider">
-        </div>
+      <div class="flex box1">
+        <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
+        <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider">
+      </div>
 
-        <div class="container flex box2">
-            <label for="lineHeightSlider" class="txt">Espacement</label><br>
-            <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
-        </div>
+      <div class="container flex box2">
+        <label for="lineHeightSlider" class="txt">Espacement</label><br>
+        <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+      </div>
 
-        <div id="font-dropdown" class="container flex box3" >
-            <div class="custom-dropdown-container">
-                <select name="fonts" class="txt">
-                    <option value="font1" style="width: 300px;">Regular</option>
-                </select>
-                <div class="dropdown-icon" class="txt">&#9660;</div>
-            </div>
+      <div id="font-dropdown" class="container flex box3" >
+        <div class="custom-dropdown-container">
+          <select name="fonts" class="txt">
+            <option value="font1" style="width: 300px;">Regular</option>
+          </select>
+          <div class="dropdown-icon" class="txt">&#9660;</div>
         </div>
+      </div>
     </div>
     <div id="textContainer">
       <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><?= $page->text2() ?></div>
     </div>
-</div>
+  </div>
 
   <p id="details"><?= $page->title() ?> est sous licence OFL.<br>
     Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
 
-<div id="links">
-  <a href="/glyphset" class="links" onclick="getGlyphset(event)">Glyphset</a>
-  <div id="glyphset">
+  <div id="links">
+    <a href="/glyphset" class="links" onclick="getGlyphset(event)">Glyphset</a>
+    <div id="glyphset">
 
-  </div>
+    </div>
 
-    <a href='<?php print_r($page->files()->filterBy("filename", "==", "specimen")) ?>' class="links specimen">Specimen</a><br>
+    <?php if ($page->specimen() == "SpecimenPDF") :  ?>
+      <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links specimen">Specimen</a><br>
+
+    <?php elseif ($page->specimen() == "SpecimenURL") :  ?>
+      <a href='<?= $page->specimenURL() ?>' target="_blank" class="links specimen">Specimen</a><br>
+
+    <?php endif ?>
+
 
     <button type="button" class="collapsible links">Télécharger</button>
     <div class="content">
@@ -112,20 +119,20 @@
       <!-- En vrai c'est mieux de mettre des <p> et de gérer l'espace entre les lignes avec des styles spécifiques -->
       <p>Cette fonte est téléchargeable sous la licence <u>OFL</u>.<br>
         Avec ce fichier, j'ai le droit:<br>
-        d'utiliser la fonte pour un projet personnel.<br>
+          d'utiliser la fonte pour un projet personnel.<br>
           Je n'ai pas le droit de l'utiliser pour un usage commercial.</p>
 
       <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
-       <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
+        <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
 
-        <div id="dl-container">
-            <label>
-                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
-            </label><br>
-            <button id="downloadButton" disabled><a href="file" download>Télécharger</a></button>
-        </div>
+      <div id="dl-container">
+        <label>
+          <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+        </label><br>
+        <button id="downloadButton" disabled><a href="<?= $page->fichiers_fonte() ?>" download>Télécharger</a></button>
+      </div>
     </div>
-</div>
+  </div>
 
   <!-- Snippet pour afficher les fontes suivantes ou précédentes -->
   <!-- <?php snippet('prevnext') ?> -->
@@ -134,8 +141,8 @@
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
 
 <!-- Load js only on font template -->
-  <?= js([
+<?= js([
   'assets/js/fonte.js',
-  ]) ?>
+]) ?>
 
 <?php snippet('footer') ?>
