@@ -39,11 +39,6 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <!-- Loop to display each font -->
     <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
     <?php foreach ($page->children()->listed() as $i => $font) : ?>
-
-      <!-- <pre> -->
-      <!--   <?= print_r($font) ?> -->
-      <!-- </pre> -->
-
       <div class="font-list" class="sticky" >
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
@@ -53,13 +48,15 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
           <div class="fontflex2">
               <div id="fontButtons">
                 <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
-                <button type="button" class="weightbutton weightbutton-active" onclick="<?= "changeWeight(idname".$i.". ".$font->title().")" ?>">Regular</button>
+                <button type="button" class="weightbutton weightbutton-active" onclick="<?= "changeWeight(idname" . $i . ". " . $font->title() . ")" ?>">Regular</button>
               </div>
           </div>
 
           <a href="<?= $font->url(); ?>">
           <!-- TODO : Maybe the base text is also defined in the font info ? -->
-          <h3 id="insolente" id="idname1" class="editabletxt" >révolution&nbsp;queer</h3>
+        <h3 id="<?= $font->uid() ?>" class="editabletxt" >
+          <?= $font->content()->text1() ?>
+        </h3>
           </a>
       </div>
 

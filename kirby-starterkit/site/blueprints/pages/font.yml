@@ -58,7 +58,7 @@ columns:
         type: textarea
         autofocus: true
         label: Description de la fonte
-      text-accueil:
+      text1:
         label: texte sur page d'accueil
         type: text
         maxlength: 20
@@ -92,32 +92,32 @@ columns:
           2axes: 2 axes variables
         required: true
         width: 1/2
-      nom de l'axe variable 1:
+      variableAxis1:
         type: text
         width: 1/3
         when:
           toggleVariable: true
-      number:
+      var1Min:
         label: Valeur min axe variable 1
         type: number
         placeholder: 0
         width: 1/3
         when:
           toggleVariable: true
-      number2:
+      var1Max:
         label: Valeur max axe variable 1
         type: number
         placeholder: 1000
         width: 1/3
         when:
           toggleVariable: true
-      nom de l'axe variable 2:
+      variableAxis2:
         type: text
         width: 1/3
         when:
           toggleVariable: true
           axesVariable: 2axes
-      number3:
+      var2Min:
         label: Valeur min axe variable 2
         type: number
         placeholder: 0
@@ -125,7 +125,7 @@ columns:
         when:
           toggleVariable: true
           axesVariable: 2axes
-      number4:
+      var2Max:
         label: Valeur max axe variable 2
         type: number
         placeholder: 1000
@@ -134,7 +134,7 @@ columns:
           toggleVariable: true
           axesVariable: 2axes
       #specimen ou non
-      Specimen:
+      specimen:
         label: Spécimen
         type: radio
         width: 1/3
@@ -170,14 +170,14 @@ columns:
           ofl: OFL
           ccbysa: CC BY SA
           autre: autre
-      licence-autre:
+      licenceAutre:
         label: Nom de la licence
         type: text
         width: 1/3
         required: true
         when:
           licence: autre
-      lien-licence:
+      lienLicence:
         label: Lien de la licence
         type: url
         width: 1/3
@@ -191,12 +191,12 @@ columns:
         min: 0
         max: 5
       #fichier de fonte
-      fichiers-fonte:
+      fichierFonte:
         label: Fichiers de fonte
         type: files
         template: blocks/font
-      #fichier de fonte
-      dossier-fonte:
+      #dossier de fonte
+      dossierFonte:
         label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
         type: files
         template: block/font
@@ -226,8 +226,8 @@ columns:
             required: true
           # Fields types can be added using the shortcut `fieldname: true`
           # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
-          download-type:
-            label: Ma fonte est
+          downloadType:
+            label: "Ma fonte est :"
             required: true
             type: radio
             options:
