@@ -9,10 +9,6 @@
   https://getkirby.com/docs/guide/templates/snippets
 */
 ?>
-  </main>
-
-  <footer id="footer">
-</footer>
 
   <?= js([
     'assets/js/prism.js',

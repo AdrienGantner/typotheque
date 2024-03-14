@@ -12,52 +12,58 @@
 */
 ?>
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="fr">
+  <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-  <?php
-  /*
-    In the title tag we show the title of our
-    site and the title of the current page
-  */
-  ?>
+    <title>Typotes Club - <?= $page->title() ?></title>
 
-  <?php
-  /*
-    Stylesheets can be included using the `css()` helper.
-    Kirby also provides the `js()` helper to include script file.
-    More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
-  */
-  ?>
-  <?= css([
-    'assets/css/index.css',
-    'assets/css/styles.css',
-    '@auto'
-  ]) ?>
+    <?php
+/*
+Stylesheets can be included using the `css()` helper.
+Kirby also provides the `js()` helper to include script file.
+More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
+*/
+?>
+    <?= css([
+'assets/css/styles.css',
+'assets/css/font.css',
+'@auto'
+]) ?>
 
-  <?php
-  /*
-    The `url()` helper is a great way to create reliable
-    absolute URLs in Kirby that always start with the
-    base URL of your site.
-  */
-  ?>
-  <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
-</head>
-<body>
+    <!-- ajout de css pour charger la bonne fonte sur la page de la fonte -->
+    <?php if ($page->parent() == "home") : ?>
+    <style>
+    @font-face {
+      /* TODO : take font name and slugify it */
+      /* TODO : find a way to optimise things */
+      font-family: "locale";
+      src: url(<?= $page->files()->filterBy("type", "!=", "image")->first() ?>);
+    }
 
-<header class="header">
-    <a href="" class="logo">Typothèque</a>
-    <input class="menu-btn" type="checkbox" id="menu-btn" />
-    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-    <ul class="menu">
-    <li><a href="#moveable">Fontes</a></li>
-    <li><a href="#licences">Licences</a></li>
-    <li><a href="#apropos">À Propos</a></li>
-    </ul>
-  </header>
+    </style>
+    <?php endif ?>
 
-  <main class="main">
+    <?php
+/*
+The `url()` helper is a great way to create reliable
+absolute URLs in Kirby that always start with the
+base URL of your site.
+*/
+?>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
+  </head>
+  <body>
+
+    <header class="header">
+      <a href="/" class="logo">Typothèque</a>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <li><a href="#moveable">Fontes</a></li>
+        <li><a href="#licences">Licences</a></li>
+        <li><a href="#apropos">À Propos</a></li>
+      </ul>
+    </header>

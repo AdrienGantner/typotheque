@@ -1,17 +1,75 @@
 /* Importer les fontes */
 @font-face {
   font-family: "Karrik";
-  src:
-    url("../fonts/Karrik-Regular.woff") format("woff"),
-    url("../fonts/Karrik-Regular.woff2") format("woff2");
+  src: url("../fonts/Karrik-Regular.woff2") format("woff2");
 }
+
+:root {
+  --background: #f4f4f4;
+}
+
+/********************************************** reset **********************************************/
+
+/* * { */
+/*   box-sizing: border-box; */
+/* } */
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Karrik", sans-serif;
 
-  background: #f4f4f4;
+  /* background: var(--background); */
+}
+
+#main {
+  /* Offset de la hauteur du header */
+  margin-top: 4rem;
+  padding-top: 1rem;
+}
+
+a {
+  text-decoration: none;
+  background-color: none;
+  cursor: pointer;
+}
+
+#landing {
+  z-index: 0;
+}
+#landing-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/********************************************** landing page **********************************************/
+.logo {
+  font-family: "Karrik";
+  font-size: 30px;
+  padding: 30px, 0, 30px, 20px;
+}
+
+#landing-img {
+  position: relative;
+  width: 80vw;
+}
+
+#welcome-text {
+  font-size: 50px;
+  padding: 30px;
+}
+
+#link {
+  text-decoration: underline 3px solid blue;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #d4d4d4;
+  margin: 0;
 }
 
 /***************** header, responsive hamburger menu *******************/
@@ -25,6 +83,8 @@ a {
   background-color: #fff;
   border-bottom: 1px solid black;
   position: fixed;
+  top: 0;
+  height: 4rem;
   width: 100%;
   z-index: 50;
 }
@@ -40,13 +100,13 @@ a {
 .header li a {
   display: block;
   padding: 20px 20px;
-  border-right: 1px solid #f4f4f4;
+  border-right: 1px solid var(--background);
   text-decoration: none;
 }
 
 .header li a:hover,
 .header .menu-btn:hover {
-  background-color: #f4f4f4;
+  background-color: var(--background);
 }
 
 .header .logo {
@@ -150,7 +210,587 @@ a {
   }
 }
 
-/* footer */
+/********************************************** fontes **********************************************/
+#moveable {
+  z-index: 1000;
+  background-color: white;
+  /*   top: -100px; */
+}
+
+.font-panel {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-top-left-radius: 8vh;
+  border-top-right-radius: 8vh;
+  text-align: center;
+  padding-top: 30px;
+  border-bottom: 1px solid black;
+  z-index: 100;
+  border: 1.5px solid black;
+  position: sticky;
+
+  max-height: 700px; /* Example max height */
+}
+#trierpar {
+  width: 100%;
+  overflow-y: auto; /* Allows scrolling within the container */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.filtresList {
+  /*   padding: 0 18px; */
+  display: none;
+  overflow: hidden;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
+}
+
+/* styling of buttons*/
+.filtres {
+  background: none;
+  border-radius: 25px;
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+  font-size: 17px;
+}
+
+.filtres.active,
+.filtres:hover,
+.filtres:focus,
+.filtres:visited {
+  background-color: #ffe8e8;
+}
+
+.font-list {
+  height: 300px;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Adjust the z-index as needed */
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1.5px solid black;
+  background-color: rgb(255, 142, 85);
+
+  overflow: hidden;
+  /*   margin-bottom: -50px; */ /*
+  padding-top: 15vh; */
+
+  width: 100vw;
+  border-left: 5vw;
+  border-right: 5vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 50px;
+  transition: background-color 0.5s ease;
+  /* Compensate for the pseudo-element */
+}
+
+.font-list:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.font-list.active,
+.font-list:hover,
+.font-list.active:focus,
+.font-list.active:visited {
+  background-color: #ffffff;
+}
+.font-list > h3:active,
+.font-list > h3:hover,
+.font-list > h3.active:focus.font-list > h3.active:visited {
+  color: rgb(0, 38, 255);
+}
+
+/* .weightbutton{
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  cursor: pointer;
+}
+.weightbutton:hover, .weightbutton:active{
+  text-decoration: 1px solid black;
+}
+
+ */
+.weightbutton {
+  display: inline-block;
+
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 17px;
+  background-color: transparent;
+  color: black;
+  border: 0;
+  cursor: pointer;
+}
+
+.weightbutton:hover {
+  color: black;
+  border-color: black;
+}
+
+.weightbutton:active,
+.weightbutton:focus {
+  color: black;
+  text-decoration: underline 1px solid black;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  text-align: center;
+}
+
+/*Buttons to change fonts*/
+#changeableDiv {
+  font-family: Zenith, sans-serif;
+  font-size: 16px;
+}
+
+.fontButtons {
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+  font-weight: normal;
+}
+
+.fontButtons.active {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+/*   background-color: #f1f1f1; */
+
+#fixed {
+  position: fixed;
+  width: 100%;
+  height: auto; /* Set the fixed section to cover the entire viewport height */
+  /* Set the background color of your fixed section */
+  /* Adjust the z-index to ensure it appears above other content */
+  top: 0; /* Adjust padding as needed */
+  background-color: white;
+}
+
+#welcome-text {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.filtres-list {
+  /*   padding: 0 18px; */
+  height: 400px;
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  position: sticky;
+  top: 0;
+  z-index: 100; /* Adjust the z-index as needed */
+}
+
+.editabletxt {
+  font-size: 150px;
+  margin-top: 8px;
+  line-height: 250px;
+}
+#idname1 {
+  border-bottom: -50px;
+}
+
+.fontflex {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.font-name,
+.font-designer {
+  flex-grow: 1;
+  text-decoration: none;
+  cursor: pointer;
+}
+.font-name {
+  text-align: left;
+  padding-left: 5vw;
+}
+.font-designer {
+  text-align: right;
+  padding-right: 5vw;
+}
+
+.fontflex2 {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-left: 5vw;
+  padding-top: 1vh;
+}
+
+/***************************now everything in order of appearance ********************/
+
+h1 {
+  font-size: 30px;
+  /* padding-left: 6vw; */
+}
+
+#font-name {
+  font-size: 35px;
+  text-align: center;
+  padding-left: none;
+  /* padding-top: 100px; */
+}
+#container-titre {
+  text-align: center;
+}
+.tags {
+  background: none;
+  border-radius: 25px;
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+}
+.tags.active,
+.tags:hover,
+.tags:focus,
+.tags:visited {
+  background-color: #ffe8e8;
+}
+
+.editabletxt {
+  font-family: Zenith;
+  font-size: 86px;
+  text-align: center;
+
+  min-width: 90vw;
+  max-height: 50vh;
+  padding-top: 20 px;
+  padding: 10px;
+  padding-bottom: 20 px;
+  border-bottom: 1px solid black;
+
+  margin: auto;
+  overflow: hidden;
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+#editable-container {
+  border-top: 1px solid black;
+  padding-bottom: 40px;
+}
+/*font slider*/
+
+/*CSS responsive layout for font settings*/
+
+.setting-flex {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 10px;
+}
+
+.flex {
+  padding: 20px;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex: 1; /* Equal width for all boxes */
+  margin: 5px; /* Added margin for spacing between boxes */
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .flex {
+    flex: 100%; /* Full width for each box on smaller screens */
+  }
+}
+
+/* Selecting text styles */
+::selection {
+  background-color: black;
+  color: white;
+}
+
+input[type="range"] {
+  width: 400px;
+}
+/* style drop down menu to pick fonts*/
+
+#font-dropdown,
+#font-dropdown option {
+  min-width: 300px;
+  font-family: inherit;
+}
+/*styling of dropdown menu and lil arrow*/
+.container {
+  text-align: center;
+}
+
+/* Remove default styling of the dropdown */
+.custom-dropdown-container {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px;
+  font-size: 16px;
+  width: 400px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  z-index: 1; /* Ensure the select element is above the icon */
+}
+
+/* Style the dropdown arrow */
+.dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: black;
+  font-size: 14px;
+}
+
+/* Additional styles for the dropdown icon */
+select + .dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #555;
+  font-size: 14px;
+}
+
+/* */
+.slider {
+  width: 400px;
+  margin-top: 10px;
+  /* Customize the appearance of the slider track */
+  appearance: none;
+  height: 1px;
+  background-color: black;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+label,
+#fontSizeDisplay {
+  font-size: 15px;
+}
+
+#fontSlider::-webkit-slider-thumb {
+  /* Customize the appearance of the slider thumb for webkit browsers (Chrome, Safari) */
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -7px; /* Align the thumb with the slider track */
+}
+
+#fontSizeDisplay {
+  font-family: inherit;
+  font-weight: bold;
+}
+
+#processus-description {
+  max-width: 800px;
+  padding-left: 10vw;
+  padding-right: 5vw;
+  padding-top: 20px;
+
+  font-size: 25px;
+  line-height: 30px;
+}
+/****************** image section **************************/
+#imageSection {
+  text-align: center;
+}
+#imageSection > img {
+  width: 90%;
+  max-width: 1200px;
+  margin: 10px;
+}
+/******************************** glyphset ********************************/
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #f4f4f4;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* .active, .collapsible:hover {
+  background-color: #dfdfdf;
+} */
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  display: none;
+  overflow: hidden;
+}
+
+#button {
+  border-top: solid 1px black;
+  /*   padding-bottom: 20px; */
+  /*   border-bottom: solid 1px black; */
+}
+
+#container-en-usage,
+#container-img {
+  height: 400px;
+  background-color: #eaeaea;
+}
+#container-img {
+  margin-bottom: 20px;
+}
+#container-img > * {
+  width: 100%;
+}
+
+.content {
+  border-radius: 25px;
+  background-color: #e7e7e7;
+  border: 1px solid black;
+  padding: 30px;
+  min-width: 350px;
+  max-width: 500px;
+  margin: auto;
+}
+.content > p {
+  line-height: 29px;
+}
+
+/*details*/
+
+#details {
+  margin-bottom: 40px;
+}
+.details-container {
+  display: grid;
+
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  height: 200px;
+  width: 500px;
+  align-items: center;
+  margin: auto;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+  border-top: 1px solid black;
+}
+.details-container > p {
+  justify-self: start;
+  align-self: center;
+  padding-left: 50px;
+  width: 200px;
+  border-bottom: 1px solid black;
+  padding-bottom: 23px;
+}
+#detail-designer {
+  grid-column-start: 1 span 1;
+  grid-row: 2 span 1;
+}
+#detail-name {
+  grid-column: 1 span 1;
+  grid-row: 1 span 1;
+}
+#container-container {
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+#links {
+  text-align: center;
+  font-size: 24px;
+}
+.links {
+  margin: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-decoration: underline 1px solid black;
+  font-size: inherit;
+}
+
+.specimen {
+  margin-bottom: 20px;
+}
+#dl-container {
+  border: 1px solid black;
+}
+#agreeCheckbox {
+  cursor: pointer;
+}
+
+.dl-container > * {
+  padding: 30px;
+}
+#downloadButton {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 20px;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  appearance: none;
+}
+
+#downloadButton:hover {
+  text-decoration: underline 1px solid black;
+}
+/* #container-bottom{
+  font-size: 1.5em;
+  text-transform: capitalize;
+  height:10vh;
+  width: 100%;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  vertical-align: middle;
+} */
+
 #footer {
   margin-top: 20px;
   height: 350px;
