@@ -38,6 +38,36 @@ a{
   font-size: 30px;
 
 }
+
+
+/*styling of logo */
+#logo {
+  height: 80px;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
+}
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /***************** header, responsive hamburger menu *******************/
 a {
   color: #000;
@@ -344,6 +374,9 @@ select + .dropdown-icon {
 label, #fontSizeDisplay{
   font-size: 15px;
 }
+label{
+  text-align: center;
+}
 
 #fontSlider::-webkit-slider-thumb {
   /* Customize the appearance of the slider thumb for webkit browsers (Chrome, Safari) */
@@ -373,9 +406,9 @@ label, #fontSizeDisplay{
 }
 /****************** image section **************************/
 #imageSection{
-text-align: center;
-
-}
+  text-align: center;
+  padding-bottom: 20px;
+  }
 #imageSection>img{
   width:90%;
   max-width: 1200px;
@@ -534,8 +567,42 @@ text-decoration: underline 1px solid black;
   vertical-align: middle;
 } */
 
-#footer{
+
+footer{
+  background-color: #ff8e55;
   margin-top: 20px;
   height: 350px;
-  background-color: #EAEAEA;
+  line-height: 16px;
+  text-align: right;
+  padding: 20px 0 0px 0;
+}
+#footer-title{
+  padding-right: 40px;
+  font-size: 29px;
+}
+u{
+  text-decoration: underline 2px solid black;
+}
+/* #footer>p,#footer>a{
+  padding-right: 30px;
+} */
+footer>li{
+  padding-right: 40px;
+  font-size: 25px;
+}
+#link-footer{
+  margin-bottom: 20px;
+}
+#credits{
+  font-size: 20px;
+}
+
+/* footer credits */
+.collapsible-credits {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: inherit;
 }

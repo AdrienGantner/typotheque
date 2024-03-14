@@ -12,17 +12,23 @@
 <section id="fixed">
     <div id="landing">
         <header class="header">
-            <a href="../../index.html" class="logo">Typothèque</a>
+            <a href="../../index.html"></a>
             <div id="white-bkgd"></div>
             <input class="menu-btn" type="checkbox" id="menu-btn" />
             <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
             <ul class="menu">
-            <li><a href="#fontes">Fontes</a></li>
-            <li><a href="#licences">Licences</a></li>
+            <li><a href="../../index.html#moveable">Fontes</a></li>
+            <li><a href="../../licences/index.html">Licences</a></li>
             <li><a href="#auhasard">À Propos</a></li>
             </ul>
         </header>
     </div>
+
+
+    <div class="image-container">
+        <a href="../../index.html"><img id="logo" src="../../logo-circle-stroke.svg"f></a>
+    </div>
+        
 
 <!--   FONT NAME   -->
 <div id="container-titre">
@@ -103,8 +109,8 @@
 </div> -->
 
 <!-- <h1>Détails</h1> -->
-<h1 id="details">Oswald est sous licence OFL.<br>
-    Elle a été créée par <u>Prénom&nbsp;Nom</u> en <u>2023</u>. </h1>
+<h1 id="details">Oswald est sous licence <a href="../../licences/index.html#licence-ccbysa"><u>CC BY SA.</u></a><br>
+    Elle a été créée par <u>Prénom&nbsp;Nom</u> en 2023. </h1>
 
 <!-- <div id="button">
     <h1>Glyphset</h1>
@@ -116,7 +122,7 @@
 
     <button type="button" class="collapsible links">Télécharger</button>
     <div class="content">
-      <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
+      <p>Cette fonte est téléchargeable sous la licence <a href="../../licences/index.html#ccbysa"><u>OFL.</u></a><br>
         Avec ce fichier, j'ai le droit:<br>
         d'utiliser la fonte pour un projet personnel.<br>
         Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Prénom&nbsp;Nom:<br>
@@ -138,9 +144,36 @@
     <a id="next-font" href="../font-page/wildflower/index.html">wildflower regular</a>
 </div> -->
 
+<footer>
+    <p id="footer-title"><a href="../../index.html"><u>Typotes Club</u></a></p>
+<li>
+    <ul>
+        <a href="../../index.html#moveable">Fontes</a>
+    </ul>
+    <ul>
+        <a href="../../licences/index.html">Licences</a>
+    </ul>
+    <ul>
+        <a href="">À propos</a>
+    </ul>
+    <ul>
+        <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;Typographie&nbsp;La&nbsp;Cambre</a>
+    </ul>
 
-<section id="footer">
-</section>
+    <ul>
+        <a target="_blank" href="https://www.instagram.com/atelier_de_typographie/">Instagram</a>
+    </ul>
+    <ul>
+        <button type="button" class="collapsible-credits">Crédits</button>
+        <div class="content-credits">
+<!--             <p>
+           Conception graphique et développement front-end: <a target="_blank" href="https://www.adriengantner.com">Adrien Gantner</a>
+           développement back-end: <a target="_blank" href="https://www.thomasbris.space/">Thomas Bris</a>
+            </p> -->
+        </div>
+    </ul>
+</li>
+</footer>
 
 <!--slider for font weight-->
 <script>
@@ -153,98 +186,20 @@
     });
   </script>
 
-<!--background color changing on refresh-->
-<script>$(document).ready(function() {
-    var colors = ["#385c78", "#9d302f"],
-    selectedColor = colors[Math.floor(Math.random()*colors.length)]
-    header = $("#editable-container");
-    
-    header.css("background-color", selectedColor);
-});
-</script>
-<!--script for buttons-->
+
+<!--animation collapsible-->
 <script>
-    const buttonStates = [
-        { text: '#40302A', background: 'white' },
-        { text: '#1B472A', background: '#F4E676' },
-        { text: '#37E676', background: '#FFFFE7' },
-        { text: '#680000', background: '#FFFFE7' },
-        { text: '#131313', background: '#f0f0f0' }
-    ];
+    document.addEventListener('DOMContentLoaded', function() {
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
     
-    function changeContrast(buttonIndex) {
-        const txtElements = document.getElementsByClassName('setting-flex');
-        const bkgdElement = document.getElementById('editable-container');
-    
-        // Get the current button state
-        const currentState = buttonStates[buttonIndex];
-    
-        // Change text color with transition
-        for (let i = 0; i < txtElements.length; i++) {
-        
-        txtElements[i].style.color = currentState.text;
-        }
-    
-        // Change background color with transition
-        
-        bkgdElement.style.backgroundColor = currentState.background;
-    
-        // Toggle between two colors for the current button
-        buttonStates[buttonIndex] = {
-        text: currentState.background,
-        background: currentState.text
-        };
-    }
-</script>
-
-<!--script for image slider-->
-<script>
-    let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-let i;
-let slides = document.getElementsByClassName("mySlides");
-let dots = document.getElementsByClassName("dot");
-if (n > slides.length) {slideIndex = 1}
-if (n < 1) {slideIndex = slides.length}
-for (i = 0; i < slides.length; i++) {
-slides[i].style.display = "none";
-}
-for (i = 0; i < dots.length; i++) {
-dots[i].className = dots[i].className.replace(" active", "");
-}
-slides[slideIndex-1].style.display = "block";
-dots[slideIndex-1].className += " active";
-} 
-</script>
-<!-- script for collapsible button-->
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-} 
-</script>
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+        });
+      }
+    });
+    </script>
 
 <!-- slider for text size -->
 <script>

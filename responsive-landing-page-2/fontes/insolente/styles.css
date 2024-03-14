@@ -1,5 +1,5 @@
 body {
-  font-family: "Karrik", sans-serif;
+  font-family: "L10", sans-serif;
   background: rgb(245, 245, 245);
 }
 
@@ -29,15 +29,51 @@ body {
   font-family: insolente;
 }
 
-a{
+a:link, a:visited{
     text-decoration: none;
 }
-
-.logo{
-  font-family: "Karrik";
-  font-size: 30px;
-
+a:hover{
+  text-decoration: underline 1.5px solid black;
 }
+/* logo and logo animation*/
+/* 
+@keyframes rotation {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(359deg);
+}
+} */
+/*styling of logo */
+#logo {
+  height: 80px;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
+}
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 /***************** header, responsive hamburger menu *******************/
 a {
   color: #000;
@@ -191,6 +227,7 @@ h1{
   font-size: 35px;
   text-align: center;
   padding-left: none;
+  font-family: insolente;
   /* padding-top: 100px; */
 }
 #container-titre{
@@ -234,6 +271,7 @@ outline: 0px solid transparent;}
   border-top: 1px solid black;
   padding-bottom: 40px;
 }
+
 /*font slider*/
 
 
@@ -374,11 +412,11 @@ label, #fontSizeDisplay{
 /****************** image section **************************/
 #imageSection{
 text-align: center;
-
+padding-bottom: 20px;
 }
 #imageSection>img{
   width:90%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 10px;
 }
 /******************************** glyphset ********************************/
@@ -423,8 +461,8 @@ text-align: center;
   width: 100%;
 
 }
-
-.content{
+/*collapsible download page*/
+.content {
   border-radius: 25px;
   background-color: #e7e7e7;
   border: 1px solid black;
@@ -432,7 +470,32 @@ text-align: center;
   min-width: 350px;
   max-width: 500px;
   margin: auto;
+  display: none;
+  overflow: hidden;
 }
+
+.collapsible.active + .content {
+  display: block; /* Display content when active */
+  animation: slideDown 0.5s ease-in-out forwards; /* Apply slide-down animation */
+}
+
+.collapsible:not(.active) + .content {
+  animation: slideUp 0.5s ease-in-out forwards; /* Apply slide-up animation */
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+
+
 .content>p{
   line-height: 29px;
 }
@@ -534,8 +597,53 @@ text-decoration: underline 1px solid black;
   vertical-align: middle;
 } */
 
-#footer{
+footer{
+  background-color: #ff8e55;
   margin-top: 20px;
-  height: 350px;
-  background-color: #EAEAEA;
+  height: 200px;
+  line-height: 16px;
+  text-align: right;
+  padding: 20px 0 20px 0;
 }
+#footer-title{
+  padding-right: 40px;
+  font-size: 29px;
+}
+u{
+  text-decoration: underline 2px solid black;
+}
+/* #footer>p,#footer>a{
+  padding-right: 30px;
+} */
+footer>li{
+  padding-right: 40px;
+  font-size: 19px;
+  line-height: 14px;
+}
+#link-footer{
+  margin-bottom: 20px;
+}
+#credits{
+  font-size: 20px;
+}
+
+/* footer credits */
+.collapsible-credits {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: inherit;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* .active, .collapsible:hover {
+  background-color: #dfdfdf;
+} */
+
+/* Style the collapsible content. Note: hidden by default */
+.content-credits {
+  display: none;
+  overflow: hidden;
+} 

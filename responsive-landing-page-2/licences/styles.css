@@ -1,10 +1,9 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: L10;
+    font-family: "L10";
 
   background: #f4f4f4;
-  overflow-x: hidden;
 }
 html{
   scroll-behavior:smooth;
@@ -13,11 +12,11 @@ html{
 /* Importer les fontes */
 @font-face {
     font-family: "Karrik";
-    src: url(fonts/Karrik-Regular.ttf);
+    src: url(../fonts/Karrik-Regular.ttf);
 }
 @font-face {
   font-family: "L10";
-  src: url(fonts/L10-Regular.ttf);
+  src: url(../fonts/L10-Regular.ttf);
 }
 @font-face {
   font-family: "L10-Italic";
@@ -124,36 +123,34 @@ a{
   z-index: 0;
 }
 /********************************************** landing page **********************************************/
-#logo{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 190px;
-
-    margin: 80px 0 0 50px;
-    animation: rotation 20s infinite linear;
+#logo {
+  height: 80px;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
 }
+
+
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(359deg);
+    transform: rotate(360deg);
   }
 }
-@media (max-width: 1450px) {
-  #logo{
-    height: 120px;
-    margin: auto;
-    z-index: 1000;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 10px;
-  }
-}
-
-
 #landing-img{
     position: relative;
     width: 80vw;
@@ -171,20 +168,17 @@ a{
   
 }
 #welcome-text{
-  font-size: 30px;
-  padding: 75px 50px 40px 50px;
+  font-size: 35px;
+  padding: 30px 30px 0px 30px;
   text-align: center;
-  margin-top: 65px;
 }
-@media (max-width: 768px) {
+@media (max-width: 55em) {
   #welcome-text{
-    font-size: 25px;
-    line-height: 40px;
+    font-size: 40px;
   }
 }
-
 #link{
-  text-decoration: underline 2px solid blue;
+  text-decoration: underline 3px solid blue;
 }
 /*     
 #welcome-txt{
@@ -348,23 +342,18 @@ a {
     .header .menu-icon {
       display: none;
     }
-
   }
 
 
 /********************************************** fontes **********************************************/
 #moveable{
-  width: 100%;
+  
   margin-top: 35vh; /* Offset to make space for the fixed section */
   z-index: 1000;
   background-color: white;
 /*   top: -100px; */
 }
-/* @media (min-width: 48em) {
-  #moveable {
-    
-  }
-} */
+
 .font-panel{
   width: 100%;
   background: rgb(255, 255, 255);
@@ -372,9 +361,9 @@ a {
   border-top-right-radius: 8vh;
   text-align: center;
   padding-top: 30px;
+  border-bottom: 1px solid black;
   z-index: 100;
   border: 1.5px solid black;
-  border-bottom: transparent;
   position: sticky;
 
   max-height: 700px; /* Example max height */
@@ -382,10 +371,8 @@ a {
 #trierpar{
   width: 100%;
   overflow-y: auto; /* Allows scrolling within the container */
-  /* padding: 10px; */
+  padding: 10px;
   box-sizing: border-box;
-  text-align: left;
-  padding-left: 30px;
 
   
 }
@@ -426,41 +413,8 @@ a {
   font-size: 16px;
 }
 
-/* collapsible filters pannel*/
-.content {
-  min-width: 350px;
-  max-width: 500px;
-  margin: auto;
-  display: none;
-  overflow: hidden;
-}
-
-.collapsible.active + .content {
-  display: block; /* Display content when active */
-  animation: slideDown 0.5s ease-in-out forwards; /* Apply slide-down animation */
-}
-
-.collapsible:not(.active) + .content {
-  animation: slideUp 0.5s ease-in-out forwards; /* Apply slide-up animation */
-}
-
-@keyframes slideDown {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 500px;
-    opacity: 1;
-  }
-}
-
-
-.filtres:hover{
-  background-color: #fff0f0;
-}
-.filtres.active, .filtres:visited, .filtres:focus{
-  background-color: #ffd6d6;
+.filtres.active,.filtres:hover, .filtres:focus,.filtres:visited {
+  background-color: #ffe8e8;
 }
 
 /* animate variable fonts on hover */
@@ -574,10 +528,6 @@ a {
 }
  */
 
-#variableTxt:hover{
-
-}
-
 
 /*Buttons to change fonts*/
 #changeableDiv {
@@ -610,9 +560,11 @@ a {
    /* Set the background color of your fixed section */
   /* Adjust the z-index to ensure it appears above other content */
   top: 0; /* Adjust padding as needed */
-  background-color: white;
 }
-
+#welcome-text{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 
 .filtres-list {
   /*   padding: 0 18px; */
@@ -661,4 +613,115 @@ a {
   gap:10px;
   padding-left: 5vw;
   padding-top: 1vh;
+}
+
+
+#footer{
+  background-color: #ff8e55;
+  margin-top: 20px;
+  height: 300px;
+  font-size: 25px;
+  line-height: 16px;
+  text-align: right;
+  padding: 20px 0 0px 0;
+  z-index: 1000;
+}
+u, .link-licence{
+  text-decoration: underline 1.5px solid black;
+}
+
+.licences{
+  border-radius: 30px;
+  border: 1px solid black;
+  max-width: 600px;
+  text-align: left;
+  margin: 20px;
+  padding-bottom: 35px;
+}
+ul, li{
+  list-style: none;
+}
+/* ul{
+  margin-top: -15px;
+  margin-bottom: -15px;
+} */
+#headtext{
+  font-size: 35px;
+  text-align: center;
+  margin-top: -20px;
+  line-height: 45px;
+}
+#note{
+  font-size: 25px;
+  text-align: center;
+}
+#licence-section{
+  justify-content: center;
+  margin: 15px;
+}
+
+.licences{
+  font-size: 25px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 30px;
+  scroll-margin-top: 60px; 
+  
+}
+#licence-ofl{
+  background-color: #f8ef4f;
+  
+}
+#licence-ccbysa{
+  background-color: #b5f84f;
+}
+#licence-copyright{
+  background-color: #4ff8a9;
+}
+
+h2{
+  font-size: 35px;
+  text-decoration: underline 2px solid black;
+  text-align: center;
+}
+
+
+
+footer{
+  background-color: #ff8e55;
+  margin-top: 20px;
+  height: 350px;
+  line-height: 16px;
+  text-align: right;
+  padding: 20px 0 0px 0;
+}
+#footer-title{
+  padding-right: 40px;
+  font-size: 29px;
+}
+u{
+  text-decoration: underline 2px solid black;
+}
+/* #footer>p,#footer>a{
+  padding-right: 30px;
+} */
+footer>li{
+  padding-right: 40px;
+  font-size: 25px;
+}
+#link-footer{
+  margin-bottom: 20px;
+}
+#credits{
+  font-size: 20px;
+}
+
+/* footer credits */
+.collapsible-credits {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: inherit;
 }
