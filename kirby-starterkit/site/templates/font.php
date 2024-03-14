@@ -54,20 +54,6 @@
 
   </div>
 
-  <ul class="font text">
-    <!-- tri pour  -->
-    <?php foreach ($page->files()->filterBy("type", "!=", "image") as $font_url) : ?>
-    <!-- Ajoute une classe "good" aux fontes uploadées qui ont la bonne extension (woff ou ttf) -->
-    <li class="font
-      <?php if ($font_url->extension() != "woff2") : ?>
-      <?= "good" ?>
-      <?php endif ?>"
-    data-font-url="<?= $font_url ?>"><?= $font_url->filename() ?>
-    </li>
-    <?php endforeach ?>
-
-    </ul>
-
   <div id="editable-container">
 
     <div class="setting-flex">
@@ -121,7 +107,11 @@
       <div id="font-dropdown" class="container flex box3" >
         <div class="custom-dropdown-container">
           <select name="fonts" class="txt">
-            <option value="font1" style="width: 300px;">Regular</option>
+            <!-- <option value="font1" style="width: 300px;">Regular</option> -->
+            <?php foreach ($page->fontes()->yaml() as $font) : ?>
+              <option value="<?= $page->uid() . "-" . Str::slug($font['graisse']) ?>"><?= $font['graisse'] ?></option>
+            <?php endforeach ?>
+
           </select>
           <div class="dropdown-icon" class="txt">&#9660;</div>
         </div>
@@ -148,7 +138,7 @@
       <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links specimen">Specimen</a>
 
     <?php elseif ($page->specimen() == "SpecimenURL") :  ?>
-      <a href='<?= $page->specimenURL() ?>' target="_blank" class="links specimen">Specimen</a><
+      <a href='<?= $page->specimenURL() ?>' target="_blank" class="links specimen">Specimen</a>
 
     <?php endif ?>
 

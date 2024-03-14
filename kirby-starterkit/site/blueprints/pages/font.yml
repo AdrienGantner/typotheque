@@ -192,11 +192,19 @@ columns:
         max: 5
         query: page.images
       #fichier de fonte
-      fichierFonte:
+      fontes:
         label: Fichiers de fonte
-        type: files
-        template: blocks/font
-        query: page.documents
+        type: structure
+        fields:
+          fichier:
+            label: Le fichier de fonte (format woff ou ttf)
+            type: files
+            max: 1
+            template: blocks/font
+            query: page.documents
+          graisse:
+            label: Le nom de la "graisse"
+            type: text
       #dossier de fonte
       dossierFonte:
         label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
