@@ -597,6 +597,8 @@ a {
   font-size: 150px;
   margin-top: 8px;
   line-height: 250px;
+  white-space: nowrap;
+  overflow: auto;
 }
 #idname1{
   border-bottom: -50px;
