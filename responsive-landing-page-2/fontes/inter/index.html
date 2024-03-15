@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Typothèque - Inter</title>
+
+</head>
+<body>
+    <!-------------------------------------------- menu------------------------------------------------>
+<section id="fixed">
+    <div id="landing">
+        <header class="header">
+            <a href="../../index.html"></a>
+            <div id="white-bkgd"></div>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+            <ul class="menu">
+            <li><a href="../../index.html#moveable">Fontes</a></li>
+            <li><a href="../../licences/index.html">Licences</a></li>
+            <li><a href="#auhasard">À Propos</a></li>
+            </ul>
+        </header>
+    </div>
+
+
+    <div class="image-container">
+        <a href="../../index.html"><img id="logo" src="../../logo.svg"f></a>
+    </div>
+        
+
+<!--   FONT NAME   -->
+<div id="container-titre">
+    <p id="font-name">Inter</p>
+    <button type="button" class="tags">sans serif</button>
+    <button type="button" class="tags">variable</button>
+</div>
+
+<!--buttons for color change-->
+
+<!-- <div id="upper_left"><button onclick="changeContrast(0)">1</button></div>
+<div id="upper_right"><button onclick="changeContrast(1)">2</button></div>
+<div id="lower_left"><button onclick="changeContrast(2)">3</button></div>
+<div id="lower_right"><button onclick="changeContrast(3)">random</button></div>
+ -->
+
+<div id="processus">
+<!--     <h1>Processus</h1> -->
+    <p id="processus-description">Inter Lorem, ipsum dolor sit amet consectetur adipisicing elit. Temporibus id voluptate, ratione delectus necessitatibus deleniti. Quaerat, voluptates reiciendis. Nihil aliquid, reprehenderit quisquam rem nisi error? </p>
+</div>
+</section>
+
+<div id="imageSection">
+<!--     <img src="images/oswald1.jpg">
+    <img src="images/oswald2.png"> -->
+</div>
+
+<!--collapsible glyphset-->
+
+<!--     <div class="details-container">
+        <p id="detail-designer">Designeur·euse</p>
+        <p id="detail-name">Marie Godefroy</p>
+        <p id="detail-publication">Publication</p>
+        <p id="detail-date">2022</p>
+        <p id="detail-licence">Licence</p>
+        <p id="detail-licencename"><u>OFL</u></p>
+    </div> -->
+
+
+
+    <div id="editable-container">
+    
+        <div class="setting-flex">
+            <div class="flex box1">
+                <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
+                <input type="range" min="10" max="150" value="87" class="slider txt" id="fontSlider">
+            </div>
+    
+            <div class="container flex box2">
+                <label for="lineHeightSlider" class="txt">Espacement</label><br>
+                <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+            </div>
+            <!--chagpt, check variables-->
+            <div class="font-slider">
+                <label for="letterSpacingSlider">Letter Spacing:</label>
+                <input type="range" id="letterSpacingSlider" class="slider" min="-0.5" max="0.5" step="0.01" value="0">
+                <p id="letterSpacingLabel">Letter Spacing: 0</p>
+            </div>
+    
+    
+    
+            <div id="font-dropdown" class="container flex box3" >
+                <div class="custom-dropdown-container">
+                    <select name="fonts" class="txt">
+                        <option value="font1" style="width: 300px;">Regular</option>
+                    </select>
+                    <div class="dropdown-icon" class="txt">&#9660;</div>
+                </div>
+            </div><br>
+    
+            <!--chagpt, check variables-->
+            <div class="font-slider">
+                <label for="variable1Slider">Variable 1:</label>
+                <input type="range" id="variable1Slider" class="slider" min="0" max="1000" step="1" value="500">
+                <p id="variable1Label">Variable 1: 50</p>
+            </div>
+            <div class="font-slider">
+                <label for="variable2Slider">Variable 2:</label>
+                <input type="range" id="variable2Slider" class="slider" min="-10" max="0" step="1" value="0">
+                <p id="variable2Label">Variable 2: 50</p>
+            </div>
+            <div class="text-container">
+              <!--   <p id="variableText">This is a sample text with variable font.</p> -->
+            </div>
+<!--             <div>
+                <label for="weightSlider">Variable</label>
+                <input type="range" min="100" max="900" value="400" step="1" id="weightSlider" class="slider">
+            </div> -->
+        </div>
+        <div id="textContainer">
+            <div class="editabletxt" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+        </div>
+    </div>
+
+<!-- <h1>En usage</h1>
+
+<div id="container-en-usage">
+</div> -->
+
+<h1 id="details">Inter est sous licence <a href="../../licences/index.html#licence-ccbysa"><u>CC BY SA.</u></a><br>
+    Elle a été créée par <u>Prénom&nbsp;Nom</u> en 2023. </h1>
+    
+<div id="links">
+    <a href="glyphset">Glyphset</a><br>
+    <a href="specimen" class="links specimen">Specimen</a><br>
+
+    <button type="button" class="collapsible links">Télécharger</button>
+    <div class="content">
+      <p>Cette fonte est téléchargeable sous la licence <a href="../../licences/index.html#ccbysa"><u>OFL.</u></a><br>
+        Avec ce fichier, j'ai le droit:<br>
+        d'utiliser la fonte pour un projet personnel.<br>
+        Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Prénom&nbsp;Nom:<br>
+        adresseemail</p>
+
+        <div id="dl-container">
+            <label>
+                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+            </label><br>
+            <button id="downloadButton" disabled>Télécharger</button>
+        </div> 
+    </div> 
+</div>
+
+<!-- <div id="container-bottom">
+    <a id="retour" href="../../index.html">retour</a>
+    <a id="telecharger" href="../fonts/Zenith5.ttf" download="Zenith">Télécharger</a>
+
+    <a id="next-font" href="../font-page/wildflower/index.html">wildflower regular</a>
+</div> -->
+
+<!-- script for two variable sliders -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const variable1Slider = document.getElementById('variable1Slider');
+    const variable2Slider = document.getElementById('variable2Slider');
+    const letterSpacingSlider = document.getElementById('letterSpacingSlider');
+    const variable1Label = document.getElementById('variable1Label');
+    const variable2Label = document.getElementById('variable2Label');
+    const letterSpacingLabel = document.getElementById('letterSpacingLabel');
+    const editableText = document.getElementById('editableText');
+
+    variable1Slider.addEventListener('input', function () {
+        const value = variable1Slider.value;
+        variable1Label.textContent = 'Variable 1: ' + value;
+        updateFontVariation();
+    });
+
+    variable2Slider.addEventListener('input', function () {
+        const value = variable2Slider.value;
+        variable2Label.textContent = 'Variable 2: ' + value;
+        updateFontVariation();
+    });
+
+    letterSpacingSlider.addEventListener('input', function () {
+        const value = letterSpacingSlider.value;
+        letterSpacingLabel.textContent = 'Letter Spacing: ' + value;
+        updateFontVariation();
+    });
+
+    function updateFontVariation() {
+        const variable1Value = variable1Slider.value;
+        const variable2Value = variable2Slider.value;
+        const letterSpacingValue = letterSpacingSlider.value;
+        editableText.style.fontVariationSettings = `'wght' ${variable1Value}, 'slnt' ${variable2Value}`;
+        editableText.style.letterSpacing = letterSpacingValue + 'em';
+    }
+});
+
+
+
+</script>
+
+<!--slider for font weight
+<script>
+    const weightSlider = document.getElementById('weightSlider');
+    const text = document.getElementById('editableText');
+
+    weightSlider.addEventListener('input', function() {
+      const fontWeight = this.value;
+      text.style.fontWeight = fontWeight;
+    });
+  </script>
+-->
+
+<!--animation collapsible-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+    
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+        });
+      }
+    });
+    </script>
+
+<!-- slider for text size -->
+<script>
+    // Get the elements
+    const editableText = document.getElementById('editableText');
+    const fontSlider = document.getElementById('fontSlider');
+    const fontSizeDisplay = document.getElementById('fontSizeValue');
+
+    // Add event listener to the slider
+    fontSlider.addEventListener('input', function () {
+        // Update the font size of the editable text
+        editableText.style.fontSize = this.value + 'px';
+
+        // Update the font size display
+        fontSizeDisplay.textContent = this.value;
+    });
+</script>
+
+<!-- script for line height slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const lineHeightSlider = document.getElementById('lineHeightSlider');
+    const textContainer = document.getElementById('textContainer');
+
+    // Update line height on slider change
+    lineHeightSlider.addEventListener('input', function () {
+        const newLineHeight = lineHeightSlider.value;
+        textContainer.style.lineHeight = newLineHeight;
+    });
+});
+</script>
+
+<!-- script for download button -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const agreeCheckbox = document.getElementById('agreeCheckbox');
+    const downloadButton = document.getElementById('downloadButton');
+
+    // Enable download button only when checkbox is checked
+    agreeCheckbox.addEventListener('change', function () {
+        downloadButton.disabled = !agreeCheckbox.checked;
+    });
+
+    // Handle download button click
+    downloadButton.addEventListener('click', function () {
+        if (agreeCheckbox.checked) {
+            // Implement download logic here
+            alert('En téléchargement...');
+        } else {
+            alert('Veuillez accepter les conditions d\'utilisation avant de télécharger.');
+        }
+    });
+});
+
+</script>
+</body>
+</html>
