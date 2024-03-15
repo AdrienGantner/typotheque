@@ -124,15 +124,7 @@ a{
   z-index: 0;
 }
 /********************************************** landing page **********************************************/
-#logo{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 190px;
 
-    margin: 80px 0 0 50px;
-    animation: rotation 20s infinite linear;
-}
 @keyframes rotation {
   from {
     transform: rotate(0deg);
@@ -141,67 +133,35 @@ a{
     transform: rotate(359deg);
   }
 }
-@media (max-width: 1450px) {
-  #logo{
-    height: 120px;
-    margin: auto;
-    z-index: 1000;
-    left: 0;
-    right: 0;
-    margin: auto;
-    margin-top: 10px;
-  }
+
+#logo{
+  position: absolute;
+  height: 120px;
+  margin: auto;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
 }
 
-
-#landing-img{
-    position: relative;
-    width: 80vw;
-
-    /* 
-    /* The image used 
-    background-image: url("images/landing-large.png");
-    /* Set a specific height 
-    min-height: 500px; 
-    /* Create the parallax scrolling effect 
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-  
-}
 #welcome-text{
   font-size: 30px;
   padding: 75px 50px 40px 50px;
   text-align: center;
   margin-top: 65px;
+  line-height: 40px;
 }
-@media (max-width: 768px) {
+@media (max-width: 768px){
   #welcome-text{
-    font-size: 25px;
-    line-height: 40px;
+    font-size: 26px;
   }
 }
 
 #link{
   text-decoration: underline 2px solid blue;
 }
-/*     
-#welcome-txt{
-    border-radius: 25px;
-    background: #f4f4f4;
-    padding: 20px; 
-    width: 200px;
-    height: 100px;
-
-    font-size: 20px;
-    text-align: center;
-    line-height: 25px;
-    width: 300px;
-    overflow: hidden;
-    position: absolute;
-    box-shadow: 5px 5px #dcdcdc;
-} */
 
 .sticky {
   position: sticky;
@@ -210,9 +170,6 @@ a{
   border: 1px solid #d4d4d4;
   margin: 0;
 }
-
-
-
 
 /***************** header, responsive hamburger menu *******************/
 a {
@@ -350,15 +307,18 @@ a {
     }
 
   }
-
-
 /********************************************** fontes **********************************************/
 #moveable{
   width: 100%;
-  margin-top: 35vh; /* Offset to make space for the fixed section */
+  margin-top: 30vh; /* Offset to make space for the fixed section */
   z-index: 1000;
   background-color: white;
 /*   top: -100px; */
+}
+@media (max-width: 584px){
+  #moveable{
+    margin-top: 33vh;
+  }
 }
 /* @media (min-width: 48em) {
   #moveable {
@@ -392,16 +352,31 @@ a {
 
 /* Style the collapsible content. Note: hidden by default */
 .filtresList {
-  /*   padding: 0 18px; */
     display: none;
     overflow: hidden;
-    
+    justify-content: left;
     position: sticky;
     top: 0;
+    padding-left: 0;
+    width: 100%;
     z-index: 100;
     transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
-    }
+}
 
+/* collapsible filters pannel*/
+.content {
+  min-width: 350px;
+  max-width: 500px;
+  margin: left;
+  margin-left: 50px;
+  display: none;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .content{
+   margin-left: 0;
+  }
+}
 
 /* styling of buttons*/
 .filtres, #variableButton{
@@ -426,14 +401,7 @@ a {
   font-size: 16px;
 }
 
-/* collapsible filters pannel*/
-.content {
-  min-width: 350px;
-  max-width: 500px;
-  margin: auto;
-  display: none;
-  overflow: hidden;
-}
+
 
 .collapsible.active + .content {
   display: block; /* Display content when active */
