@@ -31,3 +31,28 @@
   opacity: 0.5;
   pointer-events: none;
 }
+
+
+footer{
+  background-color: #ff8e55;
+  margin-top: 20px;
+  height: 200px;
+  line-height: 16px;
+  text-align: right;
+  padding: 10px 0 20px 0;
+}
+#footer-title{
+  padding-right: 40px;
+  font-size: 29px;
+}
+footer>u{
+  text-decoration: underline 2px solid black;
+}
+footer>li{
+  padding-right: 40px;
+  font-size: 19px;
+  line-height: 14px;
+}
+#link-footer{
+  margin-bottom: 20px;
+}

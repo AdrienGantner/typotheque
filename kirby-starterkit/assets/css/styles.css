@@ -1,7 +1,7 @@
 /* Importer les fontes */
 @font-face {
-  font-family: "Karrik";
-  src: url("../fonts/Karrik-Regular.woff2") format("woff2");
+  font-family: "L10";
+  src: url("../fonts/L10-Regular.ttf") format("ttf");
 }
 
 :root {
@@ -17,7 +17,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Karrik", sans-serif;
+  font-family: "L10", sans-serif;
 
   /* background: var(--background); */
 }
@@ -791,8 +791,27 @@ label,
   vertical-align: middle;
 } */
 
-#footer {
+
+footer{
+  background-color: #ff8e55;
   margin-top: 20px;
-  height: 350px;
-  background-color: #eaeaea;
+  height: 200px;
+  line-height: 16px;
+  text-align: right;
+  padding: 10px 0 20px 0;
+}
+#footer-title{
+  padding-right: 40px;
+  font-size: 29px;
+}
+footer>u{
+  text-decoration: underline 2px solid black;
+}
+footer>li{
+  padding-right: 40px;
+  font-size: 19px;
+  line-height: 14px;
+}
+#link-footer{
+  margin-bottom: 20px;
 }

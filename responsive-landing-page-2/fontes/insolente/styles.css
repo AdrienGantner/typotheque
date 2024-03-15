@@ -603,18 +603,15 @@ footer{
   height: 200px;
   line-height: 16px;
   text-align: right;
-  padding: 20px 0 20px 0;
+  padding: 10px 0 20px 0;
 }
 #footer-title{
   padding-right: 40px;
   font-size: 29px;
 }
-u{
+footer>u{
   text-decoration: underline 2px solid black;
 }
-/* #footer>p,#footer>a{
-  padding-right: 30px;
-} */
 footer>li{
   padding-right: 40px;
   font-size: 19px;
@@ -623,27 +620,3 @@ footer>li{
 #link-footer{
   margin-bottom: 20px;
 }
-#credits{
-  font-size: 20px;
-}
-
-/* footer credits */
-.collapsible-credits {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  font-size: inherit;
-  font-family: inherit;
-  background-color: inherit;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-/* .active, .collapsible:hover {
-  background-color: #dfdfdf;
-} */
-
-/* Style the collapsible content. Note: hidden by default */
-.content-credits {
-  display: none;
-  overflow: hidden;
-} 
