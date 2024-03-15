@@ -25,9 +25,22 @@
 
 <article id="main">
 
-  <!-- <pre> -->
-  <!--   <?php print_r($page) ?> -->
-  <!-- </pre> -->
+  <!-- Récupère le nom de la 1e fonte pour l'affiher dans l'éditeur de texte -->
+  <?php $main_font = $page->uid() . "-" . Str::slug($page->fontes()->yaml()[0]['graisse']); ?>
+
+  <!-- Charge toutes les graisses de la fonte -->
+  <style>
+    <?php foreach ($page->fontes()->yaml() as $font) : ?>
+    @font-face {
+      font-family: "<?= $page->uid() . "-" . Str::slug($font['graisse']) ?>";
+      src: url("<?= url($font['fichier'][0]) ?>");
+    }
+    <?php endforeach ?>
+  </style>
+
+  <pre>
+    <!-- <?php print_r($page) ?> -->
+  </pre>
 
   <section id="landing">
     <!--   FONT NAME   -->
@@ -42,7 +55,6 @@
     </div>
 
     <div id="processus">
-      <!--     <h1>Processus</h1> -->
       <p id="processus-description"><?= $page->description() ?></p>
     </div>
   </section>
@@ -106,10 +118,14 @@
 
       <div id="font-dropdown" class="container flex box3" >
         <div class="custom-dropdown-container">
-          <select name="fonts" class="txt">
-            <!-- <option value="font1" style="width: 300px;">Regular</option> -->
+          <select name="fonts" class="txt" onclick="changeFont(this.value)">
             <?php foreach ($page->fontes()->yaml() as $font) : ?>
-              <option value="<?= $page->uid() . "-" . Str::slug($font['graisse']) ?>"><?= $font['graisse'] ?></option>
+              <option
+                value="<?= $page->uid() . "-" . Str::slug($font['graisse']) ?>" >
+
+                <?= $font['graisse'] ?>
+              </option>
+
             <?php endforeach ?>
 
           </select>
@@ -119,7 +135,16 @@
     </div>
     <div id="textContainer">
 
-      <div class="editabletxt locale-font" class="txt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+      <div
+        class="editabletxt txt"
+        id="editableText"
+        contenteditable="true"
+        style="font-family: <?= $main_font ?>"
+        tag
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false">
         <?= $page->text2() ?>
       </div>
 
@@ -131,17 +156,14 @@
 
   <div id="links">
     <a href="/glyphset" class="links" onclick="getGlyphset(event)">Glyphset</a>
-    <div id="glyphset"> </div>
+    <div id="glyphset" class="local-font"> </div>
 
     <!-- Check specimen -->
     <?php if ($page->specimen() == "SpecimenPDF") :  ?>
       <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links specimen">Specimen</a>
-
     <?php elseif ($page->specimen() == "SpecimenURL") :  ?>
       <a href='<?= $page->specimenURL() ?>' target="_blank" class="links specimen">Specimen</a>
-
     <?php endif ?>
-
 
     <button type="button" class="collapsible links">Télécharger</button>
 

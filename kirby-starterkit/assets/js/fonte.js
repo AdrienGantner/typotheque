@@ -3,6 +3,7 @@
 const editableText = document.getElementById("editableText");
 const fontSlider = document.getElementById("fontSlider");
 const fontSizeDisplay = document.getElementById("fontSizeValue");
+const editable = document.getElementById("editableText");
 
 // Add event listener to the slider
 fontSlider.addEventListener("input", function () {
@@ -80,4 +81,8 @@ function getGlyphset(event) {
     error.innerText = "Pas de glyphset disponible pour cette fonte";
     glyphset.appendChild(error);
   }
+}
+
+function changeFont(value) {
+  editable.style.fontFamily = value;
 }

@@ -33,20 +33,7 @@ More Kirby helpers: https://getkirby.com/docs/reference/templates/helpers
 '@auto'
 ]) ?>
 
-    <!-- ajout de css pour charger la bonne fonte sur la page de la fonte -->
-    <?php if ($page->parent() == "home") : ?>
-    <style>
-    @font-face {
-      /* TODO : take font name and slugify it */
-      /* TODO : find a way to optimise things */
-      font-family: "locale";
-      src: url(<?= $page->files()->filterBy("type", "!=", "image")->first() ?>);
-    }
-
-    </style>
-    <?php endif ?>
-
-    <?php
+<?php
 /*
 The `url()` helper is a great way to create reliable
 absolute URLs in Kirby that always start with the
