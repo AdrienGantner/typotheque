@@ -8,7 +8,6 @@
 }
 
 #glyphset ul {
-  font-family: var(--localfont);
   display: flex;
   flex-flow: row wrap;
 }
@@ -18,13 +17,9 @@
   width: 1.5em;
   height: 1.5em;
 
-  border: solid black 1px;
+  /* border: solid black 1px; */
   text-align: center;
   vertical-align: middle;
-}
-
-.locale-font {
-  font-family: "locale";
 }
 
 #downloadLink.disabled {
@@ -32,8 +27,7 @@
   pointer-events: none;
 }
 
-
-footer{
+footer {
   background-color: #ff8e55;
   margin-top: 20px;
   height: 200px;
@@ -41,18 +35,18 @@ footer{
   text-align: right;
   padding: 10px 0 20px 0;
 }
-#footer-title{
+#footer-title {
   padding-right: 40px;
   font-size: 29px;
 }
-footer>u{
+footer > u {
   text-decoration: underline 2px solid black;
 }
-footer>li{
+footer > li {
   padding-right: 40px;
   font-size: 19px;
   line-height: 14px;
 }
-#link-footer{
+#link-footer {
   margin-bottom: 20px;
 }

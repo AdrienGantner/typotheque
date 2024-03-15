@@ -155,8 +155,20 @@
     Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
 
   <div id="links">
-    <a href="/glyphset" class="links" onclick="getGlyphset(event)">Glyphset</a>
-    <div id="glyphset" class="local-font"> </div>
+    <a href="" class="links" onclick="event.preventDefault();">Glyphset</a>
+    <div id="glyphset">
+
+    <?php foreach ($page->fontes()->yaml() as $font) : ?>
+      <button
+        class="font-url"
+        data-font-url="<?= url($font["fichier"][0]) ?>"
+        data-font-name="<?= $page->uid(). "-" . Str::slug($font["graisse"]) ?>"
+        onclick="getGlyphset(this)">
+        <?= $font["graisse"] ?>
+      </button>
+    <?php endforeach ?>
+
+    </div>
 
     <!-- Check specimen -->
     <?php if ($page->specimen() == "SpecimenPDF") :  ?>
@@ -174,7 +186,7 @@
         <p>Cette fonte est téléchargeable sous la licence <a href="https://openfontlicence.org/open-font-licence-official-text/" target="_blank"><u>OFL</u></a>.</p>
           Avec ce fichier, j'ai le droit:<br>
             d'utiliser la fonte pour un projet personnel.<br>
-            Je n'ai pas le droit de l'utiliser pour un usage commercial.</p>
+            J'ai le droit de l'utiliser pour un usage commercial.</p>
 
         <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
           <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>

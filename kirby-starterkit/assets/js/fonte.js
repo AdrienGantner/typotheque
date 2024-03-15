@@ -47,16 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Displays glyphset
-// Récupère l'url de la fonte seulement si c'est un woff, pour pouvoir en extraire le glyphset et le rajouter dans la page
-function getGlyphset(event) {
-  event.preventDefault(); // Empêche que le lien ouvre une fenêtre.
+// Récupère l'url de la fonte seulement pour pouvoir en extraire le glyphset et le rajouter dans la page (fonctionne que avec woff ou ttf)
+function getGlyphset(el) {
+  const fontUrl = el.dataset.fontUrl;
+  const fontName = el.dataset.fontName;
 
-  const glyphset = document.getElementById("glyphset");
-  const font = document.querySelector(".good");
-
-  // Check s'il y a une fonte dont on peut récupérer le glyphset
-  if (font) {
-    const fontUrl = font.dataset.fontUrl;
+  // On vérifie si on n'a pas déjà ajouté le glyphset à la page
+  if (!document.getElementById(fontName)) {
     const buffer = fetch(fontUrl).then((res) => res.arrayBuffer());
 
     // Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
@@ -64,22 +61,19 @@ function getGlyphset(event) {
       const glyphs = opentype.parse(data).glyphs.glyphs;
 
       const ul = document.createElement("ul");
+      ul.id = fontName;
+      ul.style.fontFamily = fontName;
 
       Object.values(glyphs).forEach((glyph) => {
         const li = document.createElement("li");
-        li.classList.add("locale-font");
         const glyphContent = String.fromCharCode(glyph.unicode);
         li.innerText = glyphContent;
 
         ul.appendChild(li);
       });
 
-      glyphset.appendChild(ul);
+      el.insertAdjacentElement("afterend", ul);
     });
-  } else {
-    const error = document.createElement("p");
-    error.innerText = "Pas de glyphset disponible pour cette fonte";
-    glyphset.appendChild(error);
   }
 }
 
