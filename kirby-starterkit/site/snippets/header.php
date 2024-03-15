@@ -58,7 +58,6 @@ base URL of your site.
   <body>
 
     <header class="header">
-      <a href="/" class="logo">Typothèque</a>
       <input class="menu-btn" type="checkbox" id="menu-btn" />
       <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
       <ul class="menu">

@@ -1,7 +1,7 @@
 /* Importer les fontes */
 @font-face {
   font-family: "L10";
-  src: url("../fonts/L10-Regular.ttf") format("ttf");
+  src: url("../fonts/L10-Regular.ttf");
 }
 
 :root {
@@ -45,7 +45,7 @@ a {
 
 /********************************************** landing page **********************************************/
 .logo {
-  font-family: "Karrik";
+  font-family: "L10";
   font-size: 30px;
   padding: 30px, 0, 30px, 20px;
 }
