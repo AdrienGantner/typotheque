@@ -25,14 +25,14 @@
 
 <article id="main">
 
-  <!-- Récupère le nom de la 1e fonte pour l'affiher dans l'éditeur de texte -->
-  <?php $main_font = $page->uid() . "-" . Str::slug($page->fontes()->yaml()[0]['graisse']); ?>
+  <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
+  <?php $main_font = $page->title()->slug() . "-" . Str::slug($page->fontes()->yaml()[0]['graisse']); ?>
 
   <!-- Charge toutes les graisses de la fonte -->
   <style>
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
     @font-face {
-      font-family: "<?= $page->uid() . "-" . Str::slug($font['graisse']) ?>";
+      font-family: "<?= $page->title()->slug() . "-" . Str::slug($font['graisse']) ?>";
       src: url("<?= url($font['fichier'][0]) ?>");
     }
     <?php endforeach ?>
@@ -121,7 +121,7 @@
           <select name="fonts" class="txt" onclick="changeFont(this.value)">
             <?php foreach ($page->fontes()->yaml() as $font) : ?>
               <option
-                value="<?= $page->uid() . "-" . Str::slug($font['graisse']) ?>" >
+                value="<?= $page->title()->slug() . "-" . Str::slug($font['graisse']) ?>" >
 
                 <?= $font['graisse'] ?>
               </option>
@@ -162,7 +162,7 @@
       <button
         class="font-url"
         data-font-url="<?= url($font["fichier"][0]) ?>"
-        data-font-name="<?= $page->uid(). "-" . Str::slug($font["graisse"]) ?>"
+        data-font-name="<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"
         onclick="getGlyphset(this)">
         <?= $font["graisse"] ?>
       </button>

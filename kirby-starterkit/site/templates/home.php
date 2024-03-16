@@ -40,21 +40,56 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
     <?php foreach ($page->children()->listed() as $i => $font) : ?>
       <div class="font-list" class="sticky" >
+
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
               <div class="font-designer"><?= $font->author(); ?></div>
           </div>
 
+
+      <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
+        <?php
+        try {
+            $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+        } catch (Exception $ex) {
+            echo "Pas de fonte par ici";
+            $main_font = "nofont";
+        }
+        ?>
+
+        <!-- Ajout des styles de chaque graisse -->
+        <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
+          <style>
+          @font-face {
+            font-family: "<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>";
+            src: url("<?= url($font_file['fichier'][0]) ?>");
+          }
+        <?php endforeach ?>
+
+      </style>
+
           <div class="fontflex2">
-              <div id="fontButtons">
+                <div id="fontButtons">
+                  <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
                 <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
-                <button type="button" class="weightbutton weightbutton-active" onclick="<?= "changeWeight(idname" . $i . ". " . $font->title() . ")" ?>">Regular</button>
+                  <button
+                    type="button"
+                    class="weightbutton weightbutton-active"
+                    data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
+                    onclick="changeFont(this)">
+                      <?= $font_file["graisse"] ?>
+                  </button>
+                <?php endforeach ?>
+
               </div>
           </div>
 
           <a href="<?= $font->url(); ?>">
-          <!-- TODO : Maybe the base text is also defined in the font info ? -->
-        <h3 id="<?= $font->uid() ?>" class="editabletxt" >
+          <!-- TODO : Ajout des classes pour les filtres -->
+        <h3
+          id="<?= $main_font ?>"
+          class="editabletxt"
+          style="font-family: <?= $main_font ?>;">
           <?= $font->content()->text1() ?>
         </h3>
           </a>
