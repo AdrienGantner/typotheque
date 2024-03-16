@@ -6,8 +6,10 @@ Array.from(document.querySelectorAll("[data-lightbox]")).forEach((element) => {
   };
 });
 
-function changeWeight(index, fontStyle) {
-  document.getElementById(`idname${index}`).style.fontFamily = fontStyle;
+function changeFontHome(el) {
+  const fontName = el.dataset.fontName;
+  const text = document.getElementById(fontName.split("-")[0]);
+  text.style.fontFamily = fontName;
 }
 
 const coll = document.getElementsByClassName("collapsible");

@@ -58,8 +58,8 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         ?>
 
         <!-- Ajout des styles de chaque graisse -->
+      <style>
         <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
-          <style>
           @font-face {
             font-family: "<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>";
             src: url("<?= url($font_file['fichier'][0]) ?>");
@@ -76,7 +76,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
                     type="button"
                     class="weightbutton weightbutton-active"
                     data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
-                    onclick="changeFont(this)">
+                    onclick="changeFontHome(this)">
                       <?= $font_file["graisse"] ?>
                   </button>
                 <?php endforeach ?>
@@ -85,13 +85,13 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
           </div>
 
           <a href="<?= $font->url(); ?>">
-          <!-- TODO : Ajout des classes pour les filtres -->
-        <h3
-          id="<?= $main_font ?>"
-          class="editabletxt"
-          style="font-family: <?= $main_font ?>;">
-          <?= $font->content()->text1() ?>
-        </h3>
+            <!-- TODO : Ajout des classes pour les filtres -->
+            <h3
+              id="<?= $font->title()->slug() ?>"
+              class="editabletxt "
+              style="font-family: <?= $main_font ?>;">
+              <?= $font->content()->text1() ?>
+            </h3>
           </a>
       </div>
 
