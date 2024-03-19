@@ -25,8 +25,16 @@
 
 <article id="main">
 
-  <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
-  <?php $main_font = $page->title()->slug() . "-" . Str::slug($page->fontes()->yaml()[0]['graisse']); ?>
+        <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
+        <?php
+          try {
+              $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+          } catch (Exception $ex) {
+              echo "Pas de fonte par ici";
+              $main_font = "nofont";
+          }
+?>
+
 
   <!-- Charge toutes les graisses de la fonte -->
   <style>

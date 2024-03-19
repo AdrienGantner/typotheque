@@ -43,18 +43,22 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
-              <div class="font-designer"><?= $font->author(); ?></div>
+        <div class="font-designer">
+          <p><?php $font->uuid() ?></p>
+          <?= $font->name(); ?>
+        </div>
+
           </div>
 
 
       <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
         <?php
-        try {
-            $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
-        } catch (Exception $ex) {
-            echo "Pas de fonte par ici";
-            $main_font = "nofont";
-        }
+          try {
+              $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+          } catch (Exception $ex) {
+              echo "Pas de fonte par ici";
+              $main_font = "nofont";
+          }
         ?>
 
         <!-- Ajout des styles de chaque graisse -->
@@ -90,7 +94,13 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
               id="<?= $font->title()->slug() ?>"
               class="editabletxt "
               style="font-family: <?= $main_font ?>;">
-              <?= $font->content()->text1() ?>
+          <?php
+          if (null != $font->content()->text1() && $font->content()->text1() != "") {
+              echo $font->content()->text1();
+          } else {
+              echo "un deux un deux test";
+          }
+        ?>
             </h3>
           </a>
       </div>
