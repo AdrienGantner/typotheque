@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Typothèque - Inter</title>
+
+</head>
+<body>
+
+    <div id="editable-container">
+        <!--Menu fonts-->
+        <div id="font-dropdown" class="setting-flex flex" >
+            <div class="dropdown-container">
+                <select name="fonts">
+                    <option value="font1" style="width: 100px;">Regular</option>
+                </select>
+                <div class="dropdown-icon">&#9660;</div>
+            </div>
+        </div>
+
+        <!--Font size-->
+        <div class="setting-flex">
+            <div>
+                <div id="fontSizeDisplay"> <span id="fontSizeValue">90</span>px</div>
+                <input type="range" min="10" max="150" value="87" class="slider" id="fontSlider">
+            </div>
+
+        <!--Interlignage-->
+            <div class="slider-hide setting-flex">
+                <label for="lineHeightSlider">↕</label><br>
+                <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+            </div>
+
+
+        <!--Espacement-->
+            <div class="slider-hide setting-flex">
+                <label for="letterSpacingSlider">↔</label>
+                <input type="range" id="letterSpacingSlider" class="slider" min="-0.5" max="0.5" step="0.01" value="0">
+            </div>
+        <!------ VARIABLES ------->
+            <!--variable 1-->
+            <div class="setting-flex">
+                <label for="variable1Slider">Variable 1:</label>
+                <input type="range" id="variable1Slider" class="slider" min="0" max="1000" step="1" value="500">
+            </div>
+            <!--variable 2-->
+            <div class="setting-flex">
+                <label for="variable2Slider">Variable 2:</label>
+                <input type="range" id="variable2Slider" class="slider" min="-10" max="0" step="1" value="0">
+            </div>
+            <div class="text-container">
+            </div>
+        </div>
+        <div id="textContainer">
+            <div class="editabletxt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+        </div>
+    </div>
+
+<!------------------------------ scripts------------------------------>
+
+<!-- slider for text size -->
+<script>
+    // Get the elements
+    const editableText = document.getElementById('editableText');
+    const fontSlider = document.getElementById('fontSlider');
+    const fontSizeDisplay = document.getElementById('fontSizeValue');
+
+    // Add event listener to the slider
+    fontSlider.addEventListener('input', function () {
+        // Update the font size of the editable text
+        editableText.style.fontSize = this.value + 'px';
+
+        // Update the font size display
+        fontSizeDisplay.textContent = this.value;
+    });
+</script>
+
+<!-- script for two variable sliders -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const variable1Slider = document.getElementById('variable1Slider');
+    const variable2Slider = document.getElementById('variable2Slider');
+    const letterSpacingSlider = document.getElementById('letterSpacingSlider');
+    const editableText = document.getElementById('editableText');
+
+    variable1Slider.addEventListener('input', function () {
+        const value = variable1Slider.value;
+        updateFontVariation();
+    });
+
+    variable2Slider.addEventListener('input', function () {
+        const value = variable2Slider.value;
+        updateFontVariation();
+    });
+
+    letterSpacingSlider.addEventListener('input', function () {
+        const value = letterSpacingSlider.value;
+        updateFontVariation();
+    });
+
+    function updateFontVariation() {
+        const variable1Value = variable1Slider.value;
+        const variable2Value = variable2Slider.value;
+        const letterSpacingValue = letterSpacingSlider.value;
+        editableText.style.fontVariationSettings = `'wght' ${variable1Value}, 'slnt' ${variable2Value}`;
+        editableText.style.letterSpacing = letterSpacingValue + 'em';
+    }
+});
+</script>
+
+<!-- script for line height slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const lineHeightSlider = document.getElementById('lineHeightSlider');
+    const textContainer = document.getElementById('textContainer');
+
+    // Update line height on slider change
+    lineHeightSlider.addEventListener('input', function () {
+        const newLineHeight = lineHeightSlider.value;
+        textContainer.style.lineHeight = newLineHeight;
+    });
+});
+</script>
+</body>
+</html>

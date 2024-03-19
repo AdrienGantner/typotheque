@@ -1,0 +1,191 @@
+body {
+  font-family: "L10", sans-serif;
+  background: rgb(245, 245, 245);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+/* Importer les fontes */
+@font-face {
+    font-family: "Karrik";
+    src: url(../../fonts/Karrik-Regular.ttf);
+}
+@font-face {
+    font-family: "L10";
+    src: url(../../fonts/L10-Regular.ttf);
+}
+    @font-face {
+      font-family: "L10-italic";
+      src: url(../../fonts/L10-RegularItalic.ttf);
+}
+@font-face {
+    font-family: "inter";
+    src: url(../../fonts/Inter-VariableFont_slnt,wght.ttf);
+}
+
+#editableText{
+  font-family: inter;
+}
+
+a{
+    text-decoration: none;
+}
+/*************** SLIDERS ****************/
+
+.editabletxt{
+  font-family: Zenith;
+  font-size: 86px;
+  text-align: center;
+
+  min-width: 90vw;
+  max-height: 50vh;
+  padding-top: 20 px;
+  padding: 10px;
+  padding-bottom: 20 px;
+  border-bottom: 1px solid black;
+
+  margin: auto;
+  overflow: hidden;
+}
+
+[contenteditable] {
+outline: 0px solid transparent;}
+
+
+#editable-container{
+  border-top: 1px solid black;
+  padding-bottom: 40px;
+  height: 400px;
+}
+/*font slider*/
+
+
+/*CSS responsive layout for font settings*/
+
+.setting-flex {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 10px;;
+}
+
+.flex{
+  /* padding: 20px; */
+  color: black;
+  text-align: center;
+  font-size: 18px;
+  flex: 1; /* Equal width for all boxes */
+  margin: 5px; /* Added margin for spacing between boxes */
+}
+
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+  .flex {
+      flex: 100%; /* Full width for each box on smaller screens */
+  }
+}
+/* Selecting text styles */
+::selection {
+  background-color: black;
+  color: white;
+}
+
+
+input[type="range"] {
+  width:150px;
+}
+#fontSlider{
+  width: 210px;
+}
+
+/* style drop down menu to pick fonts*/
+#font-dropdown, #font-dropdown option{
+  min-width: 200px;
+  font-family: inherit;
+}
+/*styling of dropdown menu and lil arrow*/
+/* .container {
+  text-align: center;
+} */
+
+/* Remove default styling of the dropdown */
+.dropdown-container {
+  position: relative;
+  /* display: inline-block; */
+  font-family: inherit;
+  width: 200px;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  z-index: 1; /* Ensure the select element is above the icon */
+}
+
+/* Style the dropdown arrow */
+.dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: black;
+  font-size: 14px;
+}
+
+/* Additional styles for the dropdown icon */
+/* select + .dropdown-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #555;
+  font-size: 14px;
+} */
+
+.slider {
+  width: 200px;
+  margin-top: 10px;
+  /* Customize the appearance of the slider track */
+  appearance: none;
+  height: 1px;
+  background-color: black;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+label, #fontSizeDisplay{
+  font-size: 15px;
+  font-family: inherit;
+}
+
+#fontSlider::-webkit-slider-thumb {
+  /* Customize the appearance of the slider thumb for webkit browsers (Chrome, Safari) */
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -7px; /* Align the thumb with the slider track */
+}
+
+
+@media (max-width: 1000px) {
+  .slider-hide{
+    display: none;
+  }
+}
