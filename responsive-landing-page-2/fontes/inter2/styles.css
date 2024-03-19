@@ -9,16 +9,8 @@ body {
 }
 /* Importer les fontes */
 @font-face {
-    font-family: "Karrik";
-    src: url(../../fonts/Karrik-Regular.ttf);
-}
-@font-face {
     font-family: "L10";
     src: url(../../fonts/L10-Regular.ttf);
-}
-    @font-face {
-      font-family: "L10-italic";
-      src: url(../../fonts/L10-RegularItalic.ttf);
 }
 @font-face {
     font-family: "inter";
@@ -28,18 +20,12 @@ body {
 #editableText{
   font-family: inter;
 }
-
-a{
-    text-decoration: none;
-}
 /*************** SLIDERS ****************/
-
 .editabletxt{
-  font-family: Zenith;
   font-size: 86px;
   text-align: center;
-
   min-width: 90vw;
+  min-height: 200px;
   max-height: 50vh;
   padding-top: 20 px;
   padding: 10px;
@@ -52,7 +38,6 @@ a{
 
 [contenteditable] {
 outline: 0px solid transparent;}
-
 
 #editable-container{
   border-top: 1px solid black;
@@ -67,7 +52,8 @@ outline: 0px solid transparent;}
 .setting-flex {
   display: flex;
   flex-wrap: wrap;
-  font-size: 10px;;
+  font-size: 10px;
+  /* padding: 15px; */
 }
 
 .flex{
@@ -167,9 +153,40 @@ select {
   cursor: pointer;
 }
 
+/* Styles for the slider thumb */
+.slider::-webkit-slider-thumb {
+  width: 10px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+  border-radius: 50%;
+  background-color: black;
+  -webkit-appearance: none;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+  border-radius: 50%;
+  background-color: black;
+  border: none;
+}
+
+.slider::-ms-thumb {
+  width: 10px; /* Adjust the width as needed */
+  height: 10px; /* Adjust the height as needed */
+  border-radius: 50%;
+  background-color: black;
+  border: none;
+}
+
+
 label, #fontSizeDisplay{
-  font-size: 15px;
+  font-size: 18px;
   font-family: inherit;
+}
+
+#fontSizeValue{
+  width: 100px;
+  border: 1px solid black;
 }
 
 #fontSlider::-webkit-slider-thumb {

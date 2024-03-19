@@ -226,9 +226,10 @@ header{
 
 h2{
   font-size: 27px;
-  text-align: center;
+  /* text-align: center; */
   line-height: 45px;
-  padding: 25px 25px 0 25px;
+  padding: 25px 0 0 0;
+  padding-left: 6vw;
 }
 h3{
   font-size: 25px;
@@ -279,10 +280,11 @@ button{
   background-color: #ffe8e8;
 }
 #contact{
-  text-align: center;
+  text-align: left;
   font-size: 21px;
   margin-top: -20px;
   margin-bottom: 20px;
+  padding-left: 6vw;
 }
 
 .editabletxt{
@@ -506,7 +508,7 @@ padding-bottom: 20px;
   border: 1px solid black; */
   padding: 30px;
   min-width: 350px;
-  max-width: 800px;
+  max-width: 100vw;
   margin: auto;
   display: none;
   overflow: hidden;
@@ -539,6 +541,7 @@ padding-bottom: 20px;
 #links{
   text-align: center;
   font-size: 24px;
+  margin-top: 90px;
 }
 .links{
   margin: auto;
@@ -551,15 +554,27 @@ text-decoration: underline 1px solid black;
 .specimen{
   margin-bottom: 20px;
 }
-#dl-container{
-  border: 1px solid black;
-}
+
 #agreeCheckbox{
   cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  
 }
-
+#conditions{
+  font-size: 20px;
+}
+.dl-container{
+  font-size: 30px;
+}
 .dl-container>*{
   padding: 30px;
+ 
 }
 #downloadButton{
   cursor: pointer;
@@ -625,16 +640,20 @@ footer>li{
 .flex-item {
   flex: 1 1 50%; /* Equal width for both columns */
   /* Add any additional styling for your columns */
+  
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .flex-container {
     flex-direction: column; /* Stack columns vertically for smaller screens */
   }
   #button-container{
     text-align: center;
   }
-  #licence-txt{
+  #licence-txt,#contact{
     text-align: center;
+  }
+  #links{
+    margin-top: 0px;
   }
 }

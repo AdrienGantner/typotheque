@@ -11,20 +11,22 @@
 
     <div id="editable-container">
         <!--Menu fonts-->
-        <div id="font-dropdown" class="setting-flex flex" >
-            <div class="dropdown-container">
+        <div id="font-dropdown" class="flex dropdown-container setting-flex" >
                 <select name="fonts">
                     <option value="font1" style="width: 100px;">Regular</option>
                 </select>
                 <div class="dropdown-icon">&#9660;</div>
-            </div>
         </div>
 
         <!--Font size-->
         <div class="setting-flex">
             <div>
-                <div id="fontSizeDisplay"> <span id="fontSizeValue">90</span>px</div>
-                <input type="range" min="10" max="150" value="87" class="slider" id="fontSlider">
+               
+                    <label for="fontSizeSlider">
+                            <span id="fontSizeValue">90</span>px
+                    </label>
+               
+                <input type="range" min="10" max="150" value="87" class="slider" id="fontSizeSlider">
             </div>
 
         <!--Interlignage-->
@@ -37,7 +39,7 @@
         <!--Espacement-->
             <div class="slider-hide setting-flex">
                 <label for="letterSpacingSlider">↔</label>
-                <input type="range" id="letterSpacingSlider" class="slider" min="-0.5" max="0.5" step="0.01" value="0">
+                <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
             </div>
         <!------ VARIABLES ------->
             <!--variable 1-->
@@ -64,11 +66,11 @@
 <script>
     // Get the elements
     const editableText = document.getElementById('editableText');
-    const fontSlider = document.getElementById('fontSlider');
+    const fontSizeSlider = document.getElementById('fontSizeSlider');
     const fontSizeDisplay = document.getElementById('fontSizeValue');
 
     // Add event listener to the slider
-    fontSlider.addEventListener('input', function () {
+    fontSizeSlider.addEventListener('input', function () {
         // Update the font size of the editable text
         editableText.style.fontSize = this.value + 'px';
 
