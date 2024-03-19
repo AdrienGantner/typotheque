@@ -29,7 +29,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         <!-- Liste les tags trouvés dans toutes les pages fontes -->
           <div class="filtresList">
             <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
-                <button type="button" class="filtres"><?= $tag ?></button>
+          <button type="button" class="filtres" data-checked="false" data-filter="<?= Str::slug($tag) ?>" onclick="filterFonts(this)"><?= $tag ?></button>
             <?php endforeach; ?>
           </div>
 
@@ -39,12 +39,12 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <!-- Loop to display each font -->
     <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
     <?php foreach ($page->children()->listed() as $i => $font) : ?>
-      <div class="font-list" class="sticky" >
-
+    <div class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
+        echo Str::slug($tag) . ' ';
+    } ?>">
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
         <div class="font-designer">
-          <p><?php $font->uuid() ?></p>
           <?= $font->name(); ?>
         </div>
 
@@ -53,12 +53,12 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
       <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
         <?php
-          try {
-              $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
-          } catch (Exception $ex) {
-              echo "Pas de fonte par ici";
-              $main_font = "nofont";
-          }
+      try {
+          $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+      } catch (Exception $ex) {
+          echo "Pas de fonte par ici";
+          $main_font = "nofont";
+      }
         ?>
 
         <!-- Ajout des styles de chaque graisse -->

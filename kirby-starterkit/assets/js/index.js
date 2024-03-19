@@ -24,3 +24,31 @@ for (let i = 0; i < coll.length; i++) {
     }
   });
 }
+
+const fonts = document.getElementsByClassName("font-list");
+function hideAll() {
+  for (const font of fonts) {
+    font.style.display = "none";
+  }
+}
+
+function showAll() {
+  for (const font of fonts) {
+    font.style.display = "block";
+  }
+}
+
+function filterFonts(el) {
+  console.log("click");
+  if (el.dataset.checked == "false") {
+    hideAll();
+    const filteredFonts = document.getElementsByClassName(el.dataset.filter);
+    for (const filteredFont of filteredFonts) {
+      filteredFont.style.display = "block";
+    }
+    el.dataset.checked = "true";
+  } else {
+    el.dataset.checked = "false";
+    showAll();
+  }
+}
