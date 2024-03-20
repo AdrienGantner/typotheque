@@ -11,8 +11,9 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
 </section>
 
+<a href="index.html"><img id="logo" src="../../assets/icons/logo.svg"></a>
 
-<section id="moveable">
+<section id="fontes">
     <div class="font-panel" class="sticky top">
         <h2>Fontes</h2>
         <div id="trierpar">

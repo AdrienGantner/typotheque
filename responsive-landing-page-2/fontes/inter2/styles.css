@@ -53,6 +53,8 @@ outline: 0px solid transparent;}
   display: flex;
   flex-wrap: wrap;
   font-size: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   /* padding: 15px; */
 }
 
@@ -80,10 +82,7 @@ outline: 0px solid transparent;}
 
 
 input[type="range"] {
-  width:150px;
-}
-#fontSlider{
-  width: 210px;
+  width:100px;
 }
 
 /* style drop down menu to pick fonts*/
@@ -91,10 +90,6 @@ input[type="range"] {
   min-width: 200px;
   font-family: inherit;
 }
-/*styling of dropdown menu and lil arrow*/
-/* .container {
-  text-align: center;
-} */
 
 /* Remove default styling of the dropdown */
 .dropdown-container {
@@ -130,17 +125,6 @@ select {
   font-size: 14px;
 }
 
-/* Additional styles for the dropdown icon */
-/* select + .dropdown-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #555;
-  font-size: 14px;
-} */
-
 .slider {
   width: 200px;
   margin-top: 10px;
@@ -152,7 +136,9 @@ select {
   border: none;
   cursor: pointer;
 }
-
+#slider-size{
+  margin-top: -5px;
+}
 /* Styles for the slider thumb */
 .slider::-webkit-slider-thumb {
   width: 10px; /* Adjust the width as needed */
@@ -182,11 +168,13 @@ select {
 label, #fontSizeDisplay{
   font-size: 18px;
   font-family: inherit;
+  margin-right: 10px;
 }
 
 #fontSizeValue{
-  width: 100px;
-  border: 1px solid black;
+  width: 50px;
+  text-align: right;
+  display: inline-block;
 }
 
 #fontSlider::-webkit-slider-thumb {
@@ -201,7 +189,7 @@ label, #fontSizeDisplay{
 }
 
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
   .slider-hide{
     display: none;
   }

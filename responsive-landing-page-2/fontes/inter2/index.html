@@ -9,56 +9,55 @@
 </head>
 <body>
 
-    <div id="editable-container">
-        <!--Menu fonts-->
-        <div id="font-dropdown" class="flex dropdown-container setting-flex" >
-                <select name="fonts">
-                    <option value="font1" style="width: 100px;">Regular</option>
-                </select>
-                <div class="dropdown-icon">&#9660;</div>
+<div id="editable-container">
+    <!--Menu fonts-->
+    <div id="font-dropdown" class="flex dropdown-container" >
+            <select name="fonts">
+                <option value="font1" style="width: 100px;">Inter Regular</option>
+            </select>
+            <div class="dropdown-icon">&#9660;</div>
+    </div>
+
+    <!--Font size-->
+    <div class="setting-flex">
+        <div id="slider-size">
+                <label for="fontSizeSlider">
+                        <span id="fontSizeValue">90</span>px
+                </label>
+            <input type="range" min="20" max="350" value="90" class="slider" id="fontSizeSlider">
         </div>
 
-        <!--Font size-->
+    <!--Espacement-->
+    <div class="slider-hide setting-flex">
+        <label for="letterSpacingSlider">↔</label>
+        <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
+    </div>
+    
+    <!--Interlignage-->
+        <div class="slider-hide setting-flex">
+            <label for="lineHeightSlider">↕</label><br>
+            <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+        </div>
+
+
+    <!------ VARIABLES ------->
+        <!--variable 1-->
         <div class="setting-flex">
-            <div>
-               
-                    <label for="fontSizeSlider">
-                            <span id="fontSizeValue">90</span>px
-                    </label>
-               
-                <input type="range" min="10" max="150" value="87" class="slider" id="fontSizeSlider">
-            </div>
-
-        <!--Interlignage-->
-            <div class="slider-hide setting-flex">
-                <label for="lineHeightSlider">↕</label><br>
-                <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
-            </div>
-
-
-        <!--Espacement-->
-            <div class="slider-hide setting-flex">
-                <label for="letterSpacingSlider">↔</label>
-                <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
-            </div>
-        <!------ VARIABLES ------->
-            <!--variable 1-->
-            <div class="setting-flex">
-                <label for="variable1Slider">Variable 1:</label>
-                <input type="range" id="variable1Slider" class="slider" min="0" max="1000" step="1" value="500">
-            </div>
-            <!--variable 2-->
-            <div class="setting-flex">
-                <label for="variable2Slider">Variable 2:</label>
-                <input type="range" id="variable2Slider" class="slider" min="-10" max="0" step="1" value="0">
-            </div>
-            <div class="text-container">
-            </div>
+            <label for="variable1Slider">Variable 1:</label>
+            <input type="range" id="variable1Slider" class="slider" min="0" max="1000" step="1" value="500">
         </div>
-        <div id="textContainer">
-            <div class="editabletxt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+        <!--variable 2-->
+        <div class="setting-flex">
+            <label for="variable2Slider">Variable 2:</label>
+            <input type="range" id="variable2Slider" class="slider" min="-10" max="0" step="1" value="0">
+        </div>
+        <div class="text-container">
         </div>
     </div>
+    <div id="textContainer">
+        <div class="editabletxt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+    </div>
+</div>
 
 <!------------------------------ scripts------------------------------>
 
@@ -77,6 +76,21 @@
         // Update the font size display
         fontSizeDisplay.textContent = this.value;
     });
+</script>
+
+
+<!-- script for line height slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const lineHeightSlider = document.getElementById('lineHeightSlider');
+    const textContainer = document.getElementById('textContainer');
+
+    // Update line height on slider change
+    lineHeightSlider.addEventListener('input', function () {
+        const newLineHeight = lineHeightSlider.value;
+        textContainer.style.lineHeight = newLineHeight;
+    });
+});
 </script>
 
 <!-- script for two variable sliders -->
@@ -112,18 +126,5 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<!-- script for line height slider -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const lineHeightSlider = document.getElementById('lineHeightSlider');
-    const textContainer = document.getElementById('textContainer');
-
-    // Update line height on slider change
-    lineHeightSlider.addEventListener('input', function () {
-        const newLineHeight = lineHeightSlider.value;
-        textContainer.style.lineHeight = newLineHeight;
-    });
-});
-</script>
 </body>
 </html>

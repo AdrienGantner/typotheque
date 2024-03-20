@@ -1,10 +1,9 @@
 body{
     margin: 0;
     padding: 0;
-    font-family: L10;
+    font-family: "L10";
 
   background: #f4f4f4;
-  overflow-x: hidden;
 }
 html{
   scroll-behavior:smooth;
@@ -13,11 +12,11 @@ html{
 /* Importer les fontes */
 @font-face {
     font-family: "Karrik";
-    src: url(fonts/Karrik-Regular.ttf);
+    src: url(../fonts/Karrik-Regular.ttf);
 }
 @font-face {
   font-family: "L10";
-  src: url(fonts/L10-Regular.ttf);
+  src: url(../fonts/L10-Regular.ttf);
 }
 @font-face {
   font-family: "L10-Italic";
@@ -124,20 +123,8 @@ a{
   z-index: 0;
 }
 /********************************************** landing page **********************************************/
-
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(359deg);
-  }
-}
-
-#logo{
-  position: absolute;
-  height: 120px;
-  margin: auto;
+#logo {
+  height: 80px;
   z-index: 1000;
   left: 0;
   right: 0;
@@ -146,21 +133,54 @@ a{
   animation: rotation 20s infinite linear;
 }
 
-#welcome-text{
-  font-size: 30px;
-  padding: 75px 50px 40px 50px;
-  text-align: center;
-  margin-top: 65px;
-  line-height: 40px;
+
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+
+  z-index: 9999; /* Ensure it's on top of everything */
 }
-@media (max-width: 768px){
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+#landing-img{
+    position: relative;
+    width: 80vw;
+
+    /* 
+    /* The image used 
+    background-image: url("images/landing-large.png");
+    /* Set a specific height 
+    min-height: 500px; 
+    /* Create the parallax scrolling effect 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  
+}
+#welcome-text{
+  font-size: 35px;
+  padding: 30px 30px 0px 30px;
+  text-align: center;
+}
+@media (max-width: 55em) {
   #welcome-text{
-    font-size: 26px;
+    font-size: 40px;
   }
 }
 #link{
-  text-decoration: underline 2px solid blue;
+  text-decoration: underline 3px solid blue;
 }
+
 .sticky {
   position: sticky;
   top: 0;
@@ -168,6 +188,10 @@ a{
   border: 1px solid #d4d4d4;
   margin: 0;
 }
+
+
+
+
 /***************** header, responsive hamburger menu *******************/
 a {
     color: #000;
@@ -302,20 +326,16 @@ a {
     .header .menu-icon {
       display: none;
     }
-
   }
+
+
 /********************************************** fontes **********************************************/
-#fontes{
-  width: 100%;
-  margin-top: 30vh; /* Offset to make space for the fixed section */
+#moveable{
+  
+  margin-top: 35vh; /* Offset to make space for the fixed section */
   z-index: 1000;
   background-color: white;
 /*   top: -100px; */
-}
-@media (max-width: 584px){
-  #fontes{
-    margin-top: 33vh;
-  }
 }
 
 .font-panel{
@@ -325,48 +345,34 @@ a {
   border-top-right-radius: 8vh;
   text-align: center;
   padding-top: 30px;
+  border-bottom: 1px solid black;
   z-index: 100;
   border: 1.5px solid black;
-  border-bottom: transparent;
   position: sticky;
+
   max-height: 700px; /* Example max height */
 }
 #trierpar{
   width: 100%;
   overflow-y: auto; /* Allows scrolling within the container */
-  /* padding: 10px; */
+  padding: 10px;
   box-sizing: border-box;
-  text-align: left;
-  padding-left: 30px;  
+
+  
 }
 
 /* Style the collapsible content. Note: hidden by default */
 .filtresList {
+  /*   padding: 0 18px; */
     display: none;
     overflow: hidden;
-    justify-content: left;
+    
     position: sticky;
     top: 0;
-    padding-left: 0;
-    width: 100%;
     z-index: 100;
     transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
-}
+    }
 
-/* collapsible filters pannel*/
-.content{
-  min-width: 350px;
-  max-width: 500px;
-  margin: left;
-  margin-left: 50px;
-  display: none;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  .content{
-   margin-left: 0;
-  }
-}
 
 /* styling of buttons*/
 .filtres, #variableButton{
@@ -391,31 +397,8 @@ a {
   font-size: 16px;
 }
 
-.collapsible.active + .content {
-  display: block; /* Display content when active */
-  animation: slideDown 0.5s ease-in-out forwards; /* Apply slide-down animation */
-}
-
-.collapsible:not(.active) + .content {
-  animation: slideUp 0.5s ease-in-out forwards; /* Apply slide-up animation */
-}
-
-@keyframes slideDown {
-  from {
-    max-height: 0;
-    opacity: 0;
-  }
-  to {
-    max-height: 500px;
-    opacity: 1;
-  }
-}
-
-.filtres:hover{
-  background-color: #fff0f0;
-}
-.filtres.active, .filtres:visited, .filtres:focus{
-  background-color: #ffd6d6;
+.filtres.active,.filtres:hover, .filtres:focus,.filtres:visited {
+  background-color: #ffe8e8;
 }
 
 /* animate variable fonts on hover */
@@ -442,18 +425,24 @@ a {
 
 .font-list{
   height: 300px;
-  width: 100vw;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 100; /* Adjust the z-index as needed */
   text-align: center;
   padding-top: 10px; 
-  background-color: rgb(255, 142, 85);
-  overflow: hidden;
   border-top: 1.5px solid black;
-  border: 0  5vw 50px 5dvw;
+  background-color: rgb(255, 142, 85);
+
+  overflow: hidden;
+/*   margin-bottom: -50px; *//* 
+  padding-top: 15vh; */
+
+  width: 100vw;
+  border-left: 5vw;
+  border-right: 5vw;
   margin-left: auto;
   margin-right: auto;
+  border-bottom: 50px;
   transition: background-color 0.5s ease;
    /* Compensate for the pseudo-element */
 }
@@ -461,6 +450,7 @@ a {
 .font-list:hover{
   background-color:rgb(255, 255, 255);
 }
+
 .font-list.active,.font-list:hover, .font-list.active:focus,.font-list.active:visited {
   background-color: #ffffff;
 }
@@ -483,7 +473,6 @@ a {
 .weightbutton:hover {
   color: black;
   border-color: black;
-  text-decoration: underline 1px solid rgb(60, 60, 60);
 }
 
 .weightbutton:active, .weightbutton:focus  {
@@ -501,6 +490,7 @@ a {
   font-family: Zenith, sans-serif;
   font-size: 16px;
 }
+
 .fontButtons {
   background: none;
   font: inherit;
@@ -510,11 +500,14 @@ a {
   color: inherit;
   font-weight: normal;
 }
+
 .fontButtons.active {
   background-color: black;
   color: white;
   font-weight: bold;
 }
+
+/*   background-color: #f1f1f1; */
 
 #fixed {
   position: fixed;
@@ -523,25 +516,27 @@ a {
    /* Set the background color of your fixed section */
   /* Adjust the z-index to ensure it appears above other content */
   top: 0; /* Adjust padding as needed */
-  background-color: white;
+}
+#welcome-text{
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .filtres-list {
+  /*   padding: 0 18px; */
   height: 400px;
-  display: none;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Adjust the z-index as needed */
+    }
   
 .editabletxt{
   font-size: 150px;
   margin-top: 8px;
   line-height: 250px;
-  white-space: nowrap;
-  overflow: auto;
 }
 #idname1{
   border-bottom: -50px;
@@ -574,4 +569,114 @@ a {
   gap:10px;
   padding-left: 5vw;
   padding-top: 1vh;
+}
+
+
+#footer{
+  background-color: #ff8e55;
+  margin-top: 20px;
+  height: 300px;
+  font-size: 25px;
+  line-height: 16px;
+  text-align: right;
+  padding: 20px 0 0px 0;
+  z-index: 1000;
+}
+u, .link-licence{
+  text-decoration: underline 1.5px solid black;
+}
+
+.licences{
+  border-top: 1px solid black;
+  max-width: 600px;
+  text-align: left;
+  margin: 20px;
+  padding-bottom: 35px;
+}
+ul, li{
+  list-style: none;
+}
+/* ul{
+  margin-top: -15px;
+  margin-bottom: -15px;
+} */
+#headtext{
+  font-size: 35px;
+  text-align: center;
+  margin-top: -20px;
+  line-height: 45px;
+}
+#note{
+  font-size: 25px;
+  text-align: center;
+}
+#licence-section{
+  justify-content: center;
+  margin: 15px;
+}
+
+.licences{
+  font-size: 25px;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 30px;
+  scroll-margin-top: 60px; 
+  
+}
+/* #licence-ofl{
+  background-color: #f8ef4f;
+  
+}
+#licence-ccbysa{
+  background-color: #b5f84f;
+}
+#licence-copyright{
+  background-color: #4ff8a9;
+}
+ */
+h2{
+  font-size: 35px;
+  text-decoration: underline 2px solid black;
+  text-align: center;
+}
+
+
+
+footer{
+  background-color: #ff8e55;
+  margin-top: 20px;
+  height: 350px;
+  line-height: 16px;
+  text-align: right;
+  padding: 20px 0 0px 0;
+}
+#footer-title{
+  padding-right: 40px;
+  font-size: 29px;
+}
+u{
+  text-decoration: underline 2px solid black;
+}
+/* #footer>p,#footer>a{
+  padding-right: 30px;
+} */
+footer>li{
+  padding-right: 40px;
+  font-size: 25px;
+}
+#link-footer{
+  margin-bottom: 20px;
+}
+#credits{
+  font-size: 20px;
+}
+
+/* footer credits */
+.collapsible-credits {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: inherit;
 }
