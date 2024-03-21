@@ -39,10 +39,12 @@
   <!-- Charge toutes les graisses de la fonte -->
   <style>
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
+    <?php if (isset($font['fichier'][0])) : ?>
     @font-face {
       font-family: "<?= $page->title()->slug() . "-" . Str::slug($font['graisse']) ?>";
       src: url("<?= url($font['fichier'][0]) ?>");
     }
+    <?php endif ?>
     <?php endforeach ?>
   </style>
 
@@ -167,13 +169,15 @@
     <div id="glyphset">
 
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
-      <button
-        class="font-url"
-        data-font-url="<?= url($font["fichier"][0]) ?>"
-        data-font-name="<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"
-        onclick="getGlyphset(this)">
-        <?= $font["graisse"] ?>
-      </button>
+      <?php if(isset($font['fichier'][0])) :?>
+        <button
+          class="font-url"
+          data-font-url="<?= url($font["fichier"][0]) ?>"
+          data-font-name="<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"
+          onclick="getGlyphset(this)">
+          <?= $font["graisse"] ?>
+        </button>
+      <?php endif ?>
     <?php endforeach ?>
 
     </div>
@@ -212,7 +216,7 @@
           <label>
             <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
           </label><br>
-          <a id="downloadLink" class="disabled" href="<?php  echo (null !== $page->dossierfonte()) ? $page->dossierfonte()->toFile() : $page->fichierfonte()->toFile(); ?>"
+          <a id="downloadLink" class="disabled" href="<?php echo $page->dossierfonte()->toFile(); ?>"
              download>
             Télécharger
           </a>

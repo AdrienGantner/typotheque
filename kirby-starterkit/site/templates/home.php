@@ -39,7 +39,8 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
     <!-- Loop to display each font -->
     <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
-    <?php foreach ($page->children()->listed() as $i => $font) : ?>
+    <?php foreach ($page->children()->listed()->flip() as $i => $font) : ?>
+
     <div class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
         echo Str::slug($tag) . ' ';
     } ?>">
@@ -53,9 +54,16 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
 
       <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
-        <?php
+
+      <?php
       try {
           $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+
+          // echo '<pre>'
+          // print_r($font->fontes()->yaml()[0]['graisse']);
+          // echo '</pre>';
+
+
       } catch (Exception $ex) {
           echo "Pas de fonte par ici";
           $main_font = "nofont";
@@ -65,10 +73,12 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         <!-- Ajout des styles de chaque graisse -->
       <style>
         <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
-          @font-face {
-            font-family: "<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>";
-            src: url("<?= url($font_file['fichier'][0]) ?>");
-          }
+          <?php if(isset($font_file['fichier'][0])) :?>
+            @font-face {
+              font-family: "<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>";
+              src: url("<?= url($font_file['fichier'][0]) ?>");
+            }
+          <?php endif ?>
         <?php endforeach ?>
 
       </style>
@@ -77,13 +87,15 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
                 <div id="fontButtons">
                   <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
                 <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
-                  <button
-                    type="button"
-                    class="weightbutton weightbutton-active"
-                    data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
-                    onclick="changeFontHome(this)">
-                      <?= $font_file["graisse"] ?>
-                  </button>
+                  <?php if(isset($font_file['fichier'][0])) :?>
+                    <button
+                      type="button"
+                      class="weightbutton weightbutton-active"
+                      data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
+                      onclick="changeFontHome(this)">
+                        <?= $font_file["graisse"] ?>
+                    </button>
+                  <?php endif ?>
                 <?php endforeach ?>
 
               </div>

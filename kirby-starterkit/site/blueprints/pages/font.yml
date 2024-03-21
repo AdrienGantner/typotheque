@@ -190,7 +190,7 @@ columns:
         description: "Sélectionnez des images, PNG/JPG, largeur minimum 1200px. 5 images maximum"
         min: 0
         max: 5
-        query: page.images
+        query: page.images # Pour limiter la sélecion aux images
       #fichier de fonte
       fontes:
         label: Fichiers de fonte
