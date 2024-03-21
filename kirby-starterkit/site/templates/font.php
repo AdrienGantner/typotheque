@@ -28,7 +28,8 @@
         <!-- Récupère le nom de la première fonte pour l'afficher dans l'éditeur de texte -->
         <?php
           try {
-              $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+              $main_font = $page->title()->slug() . "-" . Str::slug($page->fontes()->yaml()[0]['graisse']);
+
           } catch (Exception $ex) {
               echo "Pas de fonte par ici";
               $main_font = "nofont";
@@ -212,9 +213,6 @@
             d'utiliser la fonte pour un projet personnel.<br>
             J'ai le droit de l'utiliser pour un usage commercial.</p>
 
-        <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
-          <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
-
       <?php elseif ($page->licence() == "ccbysa") :  ?>
         <p>Cette fonte est téléchargeable sous la licence <a href="https://creativecommons.org/licences/by-sa/4.0/" target="_blank"><u>CC-BY-SA</u></a>.</p>
 
@@ -224,6 +222,9 @@
         <p>Cette fonte est téléchargeable sous la licence <a href="<?= $page->lienlicence() ?>" target="_blank"><u><?= $page->licenceautre() ?></u></a>.</p>
 
       <?php endif  ?>
+
+        <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
+          <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
 
       <?php if ($page->downloadType() == "downloadable") :  ?>
         <div id="dl-container">
