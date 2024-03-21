@@ -91,7 +91,7 @@
       </div>
 
       <!-- Check variable -->
-      <?php if ($page->toggleVariable()) : ?>
+      <?php if ($page->toggleVariable() != "false") : ?>
 
         <div class="container flex box2">
         <label for="var1-slider" class="txt">
