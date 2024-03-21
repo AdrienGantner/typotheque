@@ -48,8 +48,7 @@ base URL of your site.
       <input class="menu-btn" type="checkbox" id="menu-btn" />
       <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
       <ul class="menu">
-        <li><a href="#moveable">Fontes</a></li>
-        <li><a href="#licences">Licences</a></li>
-        <li><a href="#apropos">À Propos</a></li>
+        <?php snippet('main-menu') ?>
+
       </ul>
     </header>
