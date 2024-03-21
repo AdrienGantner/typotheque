@@ -201,10 +201,12 @@ columns:
             type: files
             max: 1
             template: blocks/font
+            required: true
             query: page.documents
           graisse:
             label: Le nom de la "graisse"
             type: text
+            required: true
       #dossier de fonte
       dossierFonte:
         label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
