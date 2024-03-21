@@ -25,7 +25,7 @@
 
 <article id="main">
 
-        <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
+        <!-- Récupère le nom de la première fonte pour l'afficher dans l'éditeur de texte -->
         <?php
           try {
               $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
@@ -161,8 +161,20 @@
     </div>
   </div>
 
-  <p id="details"><?= $page->title() ?> est sous licence OFL.<br>
-    Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->date()->toDate('Y') ?></u>. </p>
+  <p id="details"><?= $page->title() ?> est sous licence <u>
+
+      <?php if ($page->licence() == "autre"): ?>
+        <?= $page->licenceAutre() ?>
+      <?php elseif ($page->licence() == "tous-droits") :  ?>
+          tous droits réservés
+      <?php elseif ($page->licence() == "OFL") :  ?>
+          OFL
+      <?php elseif ($page->licence() == "ccbysa") :  ?>
+        CC-BY-SA
+      <?php endif ?>
+
+  </u>.<br>
+    Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->year()->toDate('Y') ?></u>. </p>
 
   <div id="links">
     <a href="" class="links" onclick="event.preventDefault();">Glyphset</a>
@@ -206,6 +218,8 @@
       <?php elseif ($page->licence() == "ccbysa") :  ?>
         <p>Cette fonte est téléchargeable sous la licence <a href="https://creativecommons.org/licences/by-sa/4.0/" target="_blank"><u>CC-BY-SA</u></a>.</p>
 
+      <?php elseif ($page->licence() == "tous-droits") :  ?>
+        <p>Cette fonte n'est pas téléchargeable. Elle est sous la license <a href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html"><u>tous droits réservés</u></a> © </p>
       <?php else :  ?>
         <p>Cette fonte est téléchargeable sous la licence <a href="<?= $page->lienlicence() ?>" target="_blank"><u><?= $page->licenceautre() ?></u></a>.</p>
 
