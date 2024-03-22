@@ -57,17 +57,24 @@ variable1Slider.addEventListener("input", function (e) {
   updateFontVariation(e);
 });
 
-variable2Slider.addEventListener("input", function (e) {
-  updateFontVariation(e);
-});
+try {
+  variable2Slider.addEventListener("input", function (e) {
+    updateFontVariation(e);
+  });
+} catch (err) {
+  console.log(err);
+}
 
 function updateFontVariation(e) {
   const variable1Value = variable1Slider.value;
-  const variable2Value = variable2Slider.value;
   const axis1 = variable1Slider.dataset.axis;
-  const axis2 = variable2Slider.dataset.axis;
-
-  editable.style.fontVariationSettings = `'${axis1}' ${variable1Value}, '${axis2}' ${variable2Value}`;
+  try {
+    const variable2Value = variable2Slider.value;
+    const axis2 = variable2Slider.dataset.axis;
+    editable.style.fontVariationSettings = `'${axis1}' ${variable1Value}, '${axis2}' ${variable2Value}`;
+  } catch (err) {
+    editable.style.fontVariationSettings = `'${axis1}' ${variable1Value}`;
+  }
 }
 
 // Displays glyphset
