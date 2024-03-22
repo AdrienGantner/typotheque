@@ -99,7 +99,7 @@
     <!--Espacement-->
     <div class="container flex box2">
         <label for="letterSpacingSlider">↔</label>
-        <input type="range" id="letterSpacingSlider" class="slider" min="-3" max="3" step="0.1" value="0">
+        <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
     </div>
 
     <!--Interlignage-->
