@@ -1,0 +1,577 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: L10;
+
+  background: #f4f4f4;
+  overflow-x: hidden;
+}
+html{
+  scroll-behavior:smooth;
+}
+
+/* Importer les fontes */
+@font-face {
+    font-family: "Karrik";
+    src: url(fonts/Karrik-Regular.ttf);
+}
+@font-face {
+  font-family: "L10";
+  src: url(fonts/L10-Regular.ttf);
+}
+@font-face {
+  font-family: "L10-Italic";
+  src: url(fonts/L10-RegularItalic.ttf);
+}
+@font-face {
+  font-family: "Calice-serif1";
+  src: url(fonts/calice/Calice-serif1.ttf);
+}
+@font-face {
+  font-family: "Calice-sans";
+  src: url(fonts/calice/Calice-sans.ttf);
+}
+@font-face {
+  font-family: "ouvrieres";
+  src: url(fonts/LesOuvrieres-normales.ttf);
+}
+@font-face {
+    font-family: "woven";
+    src: url(fonts/Woven.ttf);
+}
+@font-face {
+  font-family: "wildflower";
+  src: url(fonts/wildflower-semibold.ttf);
+}
+@font-face {
+  font-family: "insolente";
+  src: url(fonts/Insolente-Regular.ttf);
+}
+@font-face {
+  font-family: "oswald";
+  src: url(fonts/Oswald-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "banana";
+  src: url(fonts/Banana-Outline-liga-2023_12_19.otf/Banana-Outline-liga-2023_12_19.otf);
+}
+@font-face {
+  font-family: "Zenith2";
+  src: url(fonts/Zenith3.ttf);
+}
+@font-face {
+    font-family: "Superformula";
+    src: url(fonts/superformula-mono.ttf);
+}
+@font-face {
+    font-family: "Wildflower";
+    src: url(fonts/wildflower-semibold.ttf);
+}
+@font-face {
+    font-family: "Aerobik";
+    src: url(fonts/aerobik-regular.ttf);
+}
+@font-face {
+    font-family: "Aguirre";
+    src: url(fonts/aguirre-demibold.ttf);
+}
+#superformula{
+  font-family: oswald;
+}
+#superformula{
+    font-family: Superformula;
+}
+#aerobik{
+    font-family: Aerobik;
+}
+#aguirre{
+    font-family: Aguirre;
+}
+#zenith{
+    font-family: Zenith2;
+}
+#woven{
+  font-family: woven;
+}
+#calice{
+  font-family: Calice-serif1;
+}
+#ouvrieres{
+  font-family: ouvrieres;
+}
+#insolente{
+  font-family: insolente;
+}
+#wildflower{
+  font-family: Wildflower;
+}
+#banana{
+  font-family: banana;
+}
+a{
+    text-decoration: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+#landing{
+  z-index: 0;
+}
+#landing-container{
+  
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+/********************************************** landing page **********************************************/
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+#logo{
+  position: absolute;
+  height: 120px;
+  margin: auto;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
+}
+
+#welcome-text{
+  font-size: 30px;
+  padding: 75px 50px 40px 50px;
+  text-align: center;
+  margin-top: 65px;
+  line-height: 40px;
+}
+@media (max-width: 768px){
+  #welcome-text{
+    font-size: 26px;
+  }
+}
+#link{
+  text-decoration: underline 2px solid blue;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: #f1f1f1;
+  border: 1px solid #d4d4d4;
+  margin: 0;
+}
+/***************** header, responsive hamburger menu *******************/
+a {
+    color: #000;
+  }
+  
+  /* header */
+  
+  .header {
+    background-color: #fff;
+    border-bottom: 1px solid black;
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid #f4f4f4;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+  
+  .header .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+  
+  /* menu */
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    font-size: 18px;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #333;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #333;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+  
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+
+  }
+/********************************************** fontes **********************************************/
+#fontes{
+  width: 100%;
+  margin-top: 30vh; /* Offset to make space for the fixed section */
+  z-index: 1000;
+  background-color: white;
+/*   top: -100px; */
+}
+@media (max-width: 584px){
+  #fontes{
+    margin-top: 33vh;
+  }
+}
+
+.font-panel{
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-top-left-radius: 8vh;
+  border-top-right-radius: 8vh;
+  text-align: center;
+  padding-top: 30px;
+  z-index: 100;
+  border: 1.5px solid black;
+  border-bottom: transparent;
+  position: sticky;
+  max-height: 700px; /* Example max height */
+}
+#trierpar{
+  width: 100%;
+  overflow-y: auto; /* Allows scrolling within the container */
+  /* padding: 10px; */
+  box-sizing: border-box;
+  text-align: left;
+  padding-left: 30px;  
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.filtresList {
+    display: none;
+    overflow: hidden;
+    justify-content: left;
+    position: sticky;
+    top: 0;
+    padding-left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
+}
+
+/* collapsible filters pannel*/
+.content{
+  min-width: 350px;
+  max-width: 500px;
+  margin: left;
+  margin-left: 50px;
+  display: none;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .content{
+   margin-left: 0;
+  }
+}
+
+/* styling of buttons*/
+.filtres, #variableButton{
+  background: none;
+  border-radius: 25px;
+  font: inherit;
+	cursor: pointer;
+  border: 1px solid black;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+  font-size: 17px;
+}
+#variableButton{
+  background: none;
+  border-radius: 20px;
+  font: inherit;
+	cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
+  margin: -5px 5px -4px 10px;
+  font-size: 16px;
+}
+
+.collapsible.active + .content {
+  display: block; /* Display content when active */
+  animation: slideDown 0.5s ease-in-out forwards; /* Apply slide-down animation */
+}
+
+.collapsible:not(.active) + .content {
+  animation: slideUp 0.5s ease-in-out forwards; /* Apply slide-up animation */
+}
+
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+.filtres:hover{
+  background-color: #fff0f0;
+}
+.filtres.active, .filtres:visited, .filtres:focus{
+  background-color: #ffd6d6;
+}
+
+/* animate variable fonts on hover */
+#variableTxt {
+  font-weight: 500;
+  transition: font-weight 0.5s;
+}
+
+.variableHover:hover #variableTxt {
+  animation: animate-text 2s infinite;
+}
+
+@keyframes animate-text {
+  0% {
+      font-weight: 200;
+  }
+  50% {
+      font-weight: 700;
+  }
+  100% {
+      font-weight: 200;
+  }
+}
+
+.font-list{
+  height: 300px;
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  text-align: center;
+  padding-top: 10px; 
+  background-color: rgb(255, 142, 85);
+  overflow: hidden;
+  border-top: 1.5px solid black;
+  border: 0  5vw 50px 5dvw;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.5s ease;
+   /* Compensate for the pseudo-element */
+}
+
+.font-list:hover{
+  background-color:rgb(255, 255, 255);
+}
+.font-list.active,.font-list:hover, .font-list.active:focus,.font-list.active:visited {
+  background-color: #ffffff;
+}
+.font-list>h3:active, .font-list>h3:hover,  .font-list>h3.active:focus.font-list>h3.active:visited{
+  color:rgb(0, 38, 255);
+}
+
+.weightbutton {
+  display: inline-block;
+
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 17px;
+  background-color: transparent;
+  color: black;
+  border: 0;
+  cursor: pointer;
+}
+
+.weightbutton:hover {
+  color: black;
+  border-color: black;
+  text-decoration: underline 1px solid rgb(60, 60, 60);
+}
+
+.weightbutton:active, .weightbutton:focus  {
+  color: black;
+  text-decoration: underline 1px solid black;
+}
+
+ /* Style the button that is used to open and close the collapsible content */
+ .collapsible {
+  text-align: center;
+}
+
+/*Buttons to change fonts*/
+#changeableDiv {
+  font-family: Zenith, sans-serif;
+  font-size: 16px;
+}
+.fontButtons {
+  background: none;
+  font: inherit;
+	cursor: pointer;
+  padding: 8px;
+  margin: 5px;
+  color: inherit;
+  font-weight: normal;
+}
+.fontButtons.active {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+#fixed {
+  position: fixed;
+  width: 100%;
+  height: 50vh; /* Set the fixed section to cover the entire viewport height */
+   /* Set the background color of your fixed section */
+  /* Adjust the z-index to ensure it appears above other content */
+  top: 0; /* Adjust padding as needed */
+  background-color: white;
+}
+
+.filtres-list {
+  height: 400px;
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+  
+.editabletxt{
+  font-size: 150px;
+  margin-top: 8px;
+  line-height: 250px;
+  white-space: nowrap;
+  overflow: auto;
+}
+#idname1{
+  border-bottom: -50px;
+}
+
+.fontflex{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.font-name, .font-designer{
+  flex-grow: 1;
+  text-decoration:none;
+  cursor:pointer;  
+}
+.font-name{
+  text-align: left;
+  padding-left: 5vw;
+}
+.font-designer{
+  text-align: right;
+  padding-right: 5vw;
+}
+
+.fontflex2{
+  display: flex;
+  justify-content:flex-start;
+  gap:10px;
+  padding-left: 5vw;
+  padding-top: 1vh;
+}

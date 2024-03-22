@@ -33,7 +33,7 @@
     </header>
   <!-- </section> -->
 
-<article>
+<article id="default">
   <h1 class="h1"><?= $page->title()->esc() ?></h1>
   <div class="text">
     <?= $page->text()->kt() ?>

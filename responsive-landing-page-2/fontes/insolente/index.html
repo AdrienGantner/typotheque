@@ -8,36 +8,65 @@
 
 </head>
 <body>
-
-<!-------------------------------------------- menu------------------------------------------------>
+    <!-------------------------------------------- menu------------------------------------------------>
 <section id="fixed">
     <div id="landing">
         <header class="header">
-            <a href="../../index.html"></a>
+            <a href="../../index.html" class="logo">Typothèque</a>
             <div id="white-bkgd"></div>
             <input class="menu-btn" type="checkbox" id="menu-btn" />
             <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
             <ul class="menu">
-            <li><a href="../../index.html#moveable">Fontes</a></li>
-            <li><a href="../../licences/index.html">Licences</a></li>
+            <li><a href="#fontes">Fontes</a></li>
+            <li><a href="#licences">Licences</a></li>
             <li><a href="#auhasard">À Propos</a></li>
             </ul>
         </header>
     </div>
 
-
-    <div class="image-container">
-        <a href="../../index.html"><img id="logo" src="../../logo.svg"f></a>
-    </div>
-
 <!--   FONT NAME   -->
 <div id="container-titre">
-    <p id="font-name">insolente</p>
+    <p id="font-name">Insolente</p>
     <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
 </div>
 
+<!--buttons for color change-->
+
+<!-- <div id="upper_left"><button onclick="changeContrast(0)">1</button></div>
+<div id="upper_right"><button onclick="changeContrast(1)">2</button></div>
+<div id="lower_left"><button onclick="changeContrast(2)">3</button></div>
+<div id="lower_right"><button onclick="changeContrast(3)">random</button></div>
+ -->
+
+<div id="processus">
+<!--     <h1>Processus</h1> -->
+    <p id="processus-description">Insolente a été réalisée au cours d'un workshop avec Eugénie Bidaut. J'ai commencé par imiter le tracé de typographies gothiques à la plume. Ensuite, en utilisant du calque, j'ai complexifié les formes en repassant au feutre. </p>
+</div>
+</section>
+
+<div id="imageSection">
+    <img src="images/insolente1.jpg">
+    <img src="images/insolente2.jpg">
+    <img src="images/insolente3.jpg">
+    <img src="images/insolente4.jpg">
+    <img src="images/insolente5.jpg">
+</div>
+
+<!--collapsible glyphset-->
+
+<!--     <div class="details-container">
+        <p id="detail-designer">Designeur·euse</p>
+        <p id="detail-name">Marie Godefroy</p>
+        <p id="detail-publication">Publication</p>
+        <p id="detail-date">2022</p>
+        <p id="detail-licence">Licence</p>
+        <p id="detail-licencename"><u>OFL</u></p>
+    </div> -->
+
+
+
 <div id="editable-container">
-    
+
     <div class="setting-flex">
         <div class="flex box1">
             <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
@@ -63,84 +92,128 @@
     </div>
 </div>
 
-<div id="processus">
+<!-- <h1>En usage</h1>
 
-    <p id="processus-description">Insolente a été réalisée au cours d'un workshop avec Eugénie Bidaut. J'ai commencé par imiter le tracé de typographies gothiques à la plume. Ensuite, en utilisant du calque, j'ai complexifié les formes en repassant au feutre. </p>
-</div>
-</section>
+<div id="container-en-usage">
+</div> -->
 
-<div id="imageSection">
-    <img src="images/insolente1.jpg">
-    <img src="images/insolente2.jpg">
-    <img src="images/insolente3.jpg">
-    <img src="images/insolente4.jpg">
-    <img src="images/insolente5.jpg">
-</div>
+<!-- <h1>Détails</h1> -->
+<h1 id="details">Insolente est sous licence OFL.<br>
+    Elle a été créée par <u>Marie&nbsp;Godefroy</u> en <u>2023</u>. </h1>
 
-<button type="button"><h3>Glyphset</h3></button><br>
-<button type="button"><h3>Spécimen</h3></button>
+<!-- <div id="button">
+    <h1>Glyphset</h1>
+</div> -->
 
-
-<h2 id="details">Insolente est sous licence&nbsp;<u><a target="_blank" href="../../licences/index.html#licence-ofl">OFL.</a></u><br>
-    Elle a été créée par <u>Marie&nbsp;Godefroy</u> en&nbsp;2023. </h2>
-<div id="contact">
-    <a target="_blank" href="https://www.adriengantner.com">site</a>, <a target="_blank" href="">e-mail</a>, <a target="_blank" href="">Instagram</a>
-</div>
-
-<!----------functionning link blocks!------------>
 <div id="links">
-    <button type="button" class="collapsible links">Télécharger...</button>
-<div class="content">
-  <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="../../licences/index.html"><u>OFL</u></a>.<br>
-    Avec ce fichier, j'ai le droit:<br>
-    d'utiliser la fonte pour un projet personnel.<br>
-    Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy.</p>
+    <a href="glyphset">Glyphset</a><br>
+    <a href="specimen" class="links specimen">Specimen</a><br>
 
-  <div id="dl-container">
-    <label>
-      <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
-    </label><br>
-    <button id="downloadButton" disabled>Télécharger</button>
-  </div> 
+    <button type="button" class="collapsible links">Télécharger</button>
+    <div class="content">
+      <p>Cette fonte est téléchargeable sous la licence <u>OFL </u>.<br>
+        Avec ce fichier, j'ai le droit:<br>
+        d'utiliser la fonte pour un projet personnel.<br>
+        Je n'ai pas le droit de l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy:<br>
+        marie.godefroy@lacambre.be</p>
+
+        <div id="dl-container">
+            <label>
+                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+            </label><br>
+            <button id="downloadButton" disabled>Télécharger</button>
+        </div>
+    </div>
 </div>
 
-</div>
+<!-- <div id="container-bottom">
+    <a id="retour" href="../../index.html">retour</a>
+    <a id="telecharger" href="../fonts/Zenith5.ttf" download="Zenith">Télécharger</a>
+    <a id="next-font" href="../font-page/wildflower/index.html">wildflower regular</a>
+</div> -->
 
-<footer>
-    <p id="footer-title"><a href="../../index.html"><u>Typotes Club</u></a></p>
-    <li>
-        <ul>
-            <a href="../../index.html#moveable">Fontes</a>
-        </ul>
-        <ul>
-            <a href="../../licences/index.html">Licences</a>
-        </ul>
-        <ul>
-            <a href="">À propos</a>
-        </ul>
-        <ul>
-            <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;typographie&nbsp;La&nbsp;Cambre</a>
-        </ul>
-    </li>
-</footer>
 
-<!--animation collapsible-->
+<!--script for buttons-->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var coll = document.getElementsByClassName("collapsible");
-  var i;
+    const buttonStates = [
+        { text: '#40302A', background: 'white' },
+        { text: '#1B472A', background: '#F4E676' },
+        { text: '#37E676', background: '#FFFFE7' },
+        { text: '#680000', background: '#FFFFE7' },
+        { text: '#131313', background: '#f0f0f0' }
+    ];
 
-  for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-    });
-  }
-});
-</script>
+    function changeContrast(buttonIndex) {
+        const txtElements = document.getElementsByClassName('setting-flex');
+        const bkgdElement = document.getElementById('editable-container');
 
+        // Get the current button state
+        const currentState = buttonStates[buttonIndex];
+
+        // Change text color with transition
+        for (let i = 0; i < txtElements.length; i++) {
+
+        txtElements[i].style.color = currentState.text;
+        }
+
+        // Change background color with transition
+
+        bkgdElement.style.backgroundColor = currentState.background;
+
+        // Toggle between two colors for the current button
+        buttonStates[buttonIndex] = {
+        text: currentState.background,
+        background: currentState.text
+        };
+    }
+
+// script for image slider
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+let i;
+let slides = document.getElementsByClassName("mySlides");
+let dots = document.getElementsByClassName("dot");
+if (n > slides.length) {slideIndex = 1}
+if (n < 1) {slideIndex = slides.length}
+for (i = 0; i < slides.length; i++) {
+slides[i].style.display = "none";
+}
+for (i = 0; i < dots.length; i++) {
+dots[i].className = dots[i].className.replace(" active", "");
+}
+slides[slideIndex-1].style.display = "block";
+dots[slideIndex-1].className += " active";
+}
+
+// script for collapsible button
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
 
 <!-- slider for text size -->
-<script>
     // Get the elements
     const editableText = document.getElementById('editableText');
     const fontSlider = document.getElementById('fontSlider');
@@ -154,10 +227,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update the font size display
         fontSizeDisplay.textContent = this.value;
     });
-</script>
 
 <!-- script for line height slider -->
-<script>
     document.addEventListener('DOMContentLoaded', function () {
     const lineHeightSlider = document.getElementById('lineHeightSlider');
     const textContainer = document.getElementById('textContainer');
@@ -168,10 +239,8 @@ document.addEventListener('DOMContentLoaded', function() {
         textContainer.style.lineHeight = newLineHeight;
     });
 });
-</script>
 
 <!-- script for download button -->
-<script>
 document.addEventListener('DOMContentLoaded', function () {
     const agreeCheckbox = document.getElementById('agreeCheckbox');
     const downloadButton = document.getElementById('downloadButton');
@@ -185,13 +254,15 @@ document.addEventListener('DOMContentLoaded', function () {
     downloadButton.addEventListener('click', function () {
         if (agreeCheckbox.checked) {
             // Implement download logic here
-            /* alert('En téléchargement...'); */
-        } else {
-            alert('Veuillez accepter les conditions d\'utilisation avant de télécharger.');
-        }
-    });
-});
-
-</script>
-</body>
+            alert("En téléchargement...");
+          } else {
+            alert(
+              "Veuillez accepter les conditions d'utilisation avant de télécharger.",
+            );
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
+

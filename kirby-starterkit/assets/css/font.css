@@ -1,10 +1,26 @@
-#main {
-  padding-bottom: 4rem;
+/*styling of logo */
+#logo {
+  height: 80px;
+  z-index: 1000;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
+}
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+
+  z-index: 9999; /* Ensure it's on top of everything */
 }
 
 #details {
   font-size: 35px;
   font-weight: bold;
+  padding: 0 10vw;
 }
 
 #glyphset ul {
@@ -49,4 +65,21 @@ footer > li {
 }
 #link-footer {
   margin-bottom: 20px;
+}
+
+/* Styles fixing */
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
+.header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
 }

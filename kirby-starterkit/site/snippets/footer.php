@@ -10,6 +10,7 @@
 */
 ?>
 
+<footer>
 <ul>
     <p id="footer-title"><a href="/"><u>Typotes Club</u></a></p>
     <ul>

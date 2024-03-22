@@ -47,18 +47,25 @@
     <?php endforeach ?>
   </style>
 
-  <section id="fixed">
+<!-- <section id="fixed"> -->
   <div id="landing">
     <header class="header">
-      <a href="/" class="logo">Typothèque</a>
+      <!-- <a href="/" class="logo">Typothèque</a> -->
       <div id="white-bkgd"></div>
       <input class="menu-btn" type="checkbox" id="menu-btn" />
       <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
       <ul class="menu">
         <?php snippet('main-menu') ?>
       </ul>
-    </header>
 
+    <div class="image-container">
+        <a href="/"><img id="logo" src="/assets/icons/logo.svg"></a>
+    </div>
+          </header>
+
+  </div>
+
+        <article id="main">
 
     <!--   FONT NAME   -->
     <div id="container-titre">
@@ -72,7 +79,7 @@
     <div id="processus">
       <p id="processus-description"><?= $page->description() ?></p>
     </div>
-  </section>
+  <!-- </section> -->
 
   <div id="imageSection">
     <?php foreach ($page->images() as $image) : ?>
@@ -166,7 +173,8 @@
     </div>
   </div>
 
-  <p id="details"><?= $page->title() ?> est sous licence <u>
+          <div id="details">
+            <?= $page->title() ?> est sous licence <u>
 
       <?php if ($page->licence() == "autre"): ?>
         <?= $page->licenceAutre() ?>
@@ -179,7 +187,9 @@
       <?php endif ?>
 
   </u>.<br>
-    Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->year()->toDate('Y') ?></u>. </p>
+              Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->year()->toDate('Y') ?></u>.
+      <?php if ($page->licence() == "autre"): ?>
+          </div>
 
   <div id="links">
     <a href="" class="links" onclick="event.preventDefault();">Glyphset</a>
@@ -212,13 +222,13 @@
     <div class="content">
       <?php if ($page->licence() == "ofl") :  ?>
         <!-- En vrai c'est mieux de mettre des <p> et de gérer l'espace entre les lignes avec des styles spécifiques -->
-        <p>Cette fonte est téléchargeable sous la licence <a href="https://openfontlicence.org/open-font-licence-official-text/" target="_blank"><u>OFL</u></a>.</p>
+        <p>Cette fonte est téléchargeable sous la licence <a href="https://openfontlicense.org/open-font-license-official-text/" target="_blank"><u>OFL</u></a>.</p>
           Avec ce fichier, j'ai le droit:<br>
             d'utiliser la fonte pour un projet personnel.<br>
             J'ai le droit de l'utiliser pour un usage commercial.</p>
 
-      <?php elseif ($page->licence() == "ccbysa") :  ?>
-        <p>Cette fonte est téléchargeable sous la licence <a href="https://creativecommons.org/licences/by-sa/4.0/" target="_blank"><u>CC-BY-SA</u></a>.</p>
+      <?php elseif ($page->licence() == "ccbyncsa") :  ?>
+      <p>Cette fonte est téléchargeable sous la licence <a href="https://creativecommons.org/licences/by-nc-sa/4.0/" target="_blank"><u>CC-BY-NC-SA</u></a>.</p>
 
       <?php elseif ($page->licence() == "tous-droits") :  ?>
         <p>Cette fonte n'est pas téléchargeable. Elle est sous la license <a href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html"><u>tous droits réservés</u></a> © </p>
@@ -246,7 +256,7 @@
     </div>
 
   </div>
-
+</article>
   <!-- Snippet pour afficher les fontes suivantes ou précédentes -->
   <!-- <?php snippet('prevnext') ?> -->
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>

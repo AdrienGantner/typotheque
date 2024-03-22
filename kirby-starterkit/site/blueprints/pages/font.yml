@@ -168,7 +168,7 @@ columns:
         required: true
         options:
           ofl: OFL
-          ccbysa: CC-BY-SA
+          ccbyncsa: CC-BY-NC-SA
           tous-droits: tous droits réservés
           autre: autre
       licenceAutre:
