@@ -1,6 +1,5 @@
 // slider for text size
 // Get the elements
-const editableText = document.getElementById("editableText");
 const fontSlider = document.getElementById("fontSlider");
 const fontSizeDisplay = document.getElementById("fontSizeValue");
 const editable = document.getElementById("editableText");
@@ -8,22 +7,10 @@ const editable = document.getElementById("editableText");
 // Add event listener to the slider
 fontSlider.addEventListener("input", function () {
   // Update the font size of the editable text
-  editableText.style.fontSize = this.value + "px";
+  editable.style.fontSize = this.value + "px";
 
   // Update the font size display
   fontSizeDisplay.textContent = this.value;
-});
-
-// script for line height slider
-document.addEventListener("DOMContentLoaded", function () {
-  const lineHeightSlider = document.getElementById("lineHeightSlider");
-  const textContainer = document.getElementById("textContainer");
-
-  // Update line height on slider change
-  lineHeightSlider.addEventListener("input", function () {
-    const newLineHeight = lineHeightSlider.value;
-    textContainer.style.lineHeight = newLineHeight;
-  });
 });
 
 // On peut faire ça + simplement (et + accesible) en HTML avec l'élément <form>
@@ -31,20 +18,57 @@ document.addEventListener("DOMContentLoaded", function () {
 // la checkbox soit obligatoire ↓
 
 // script for download button
-document.addEventListener("DOMContentLoaded", function () {
-  // on met un try/catch pour le cas où il n'y a pas de bouton "Télécharger"
-  try {
-    const agreeCheckbox = document.getElementById("agreeCheckbox");
-    const downloadLink = document.getElementById("downloadLink");
+// on met un try/catch pour le cas où il n'y a pas de bouton "Télécharger"
+try {
+  const agreeCheckbox = document.getElementById("agreeCheckbox");
+  const downloadLink = document.getElementById("downloadLink");
 
-    // Enable download button only when checkbox is checked
-    agreeCheckbox.addEventListener("change", function () {
-      downloadLink.classList.toggle("disabled");
-    });
-  } catch (e) {
-    console.log("Pas de fonte téléchargeable →", e);
-  }
+  // Enable download button only when checkbox is checked
+  agreeCheckbox.addEventListener("change", function () {
+    downloadLink.classList.toggle("disabled");
+  });
+} catch (e) {
+  console.log("Pas de fonte téléchargeable →", e);
+}
+
+// script for line height slider
+const letterSpacingSlider = document.getElementById("letterSpacingSlider");
+
+// Update line height on slider change
+letterSpacingSlider.addEventListener("input", function (e) {
+  console.log(e.target.value);
+  editable.style.letterSpacing = letterSpacingSlider.value + "em";
 });
+
+// script for line height slider
+const lineHeightSlider = document.getElementById("lineHeightSlider");
+
+// <!-- script for line height slider -->
+// Update line height on slider change
+lineHeightSlider.addEventListener("input", function (e) {
+  editable.style.lineHeight = lineHeightSlider.value;
+});
+
+// <!-- script for two variable sliders -->
+const variable1Slider = document.getElementById("variable1Slider");
+const variable2Slider = document.getElementById("variable2Slider");
+
+variable1Slider.addEventListener("input", function (e) {
+  updateFontVariation(e);
+});
+
+variable2Slider.addEventListener("input", function (e) {
+  updateFontVariation(e);
+});
+
+function updateFontVariation(e) {
+  const variable1Value = variable1Slider.value;
+  const variable2Value = variable2Slider.value;
+  const axis1 = variable1Slider.dataset.axis;
+  const axis2 = variable2Slider.dataset.axis;
+
+  editable.style.fontVariationSettings = `'${axis1}' ${variable1Value}, '${axis2}' ${variable2Value}`;
+}
 
 // Displays glyphset
 // Récupère l'url de la fonte seulement pour pouvoir en extraire le glyphset et le rajouter dans la page (fonctionne que avec woff ou ttf)

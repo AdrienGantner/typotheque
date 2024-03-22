@@ -96,21 +96,29 @@
         <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider">
       </div>
 
+    <!--Espacement-->
+    <div class="container flex box2">
+        <label for="letterSpacingSlider">↔</label>
+        <input type="range" id="letterSpacingSlider" class="slider" min="-3" max="3" step="0.1" value="0">
+    </div>
+
+    <!--Interlignage-->
       <div class="container flex box2">
-        <label for="lineHeightSlider" class="txt">Espacement</label><br>
-        <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+          <label for="lineHeightSlider">↕</label><br>
+          <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
       </div>
 
       <!-- Check variable -->
       <?php if ($page->toggleVariable() != "false") : ?>
 
         <div class="container flex box2">
-        <label for="var1-slider" class="txt">
+        <label for="variable1Slider" class="txt">
           Axe <?= $page->variableAxis1() ?>
 
         </label>
           <input type="range"
-            id="var1-slider"
+            id="variable1Slider"
+                  data-axis="<?= $page->variableAxis1() ?>"
             class="slider"
             min="<?= $page->var1Min() ?>"
             max="<?= $page->var1Max() ?>"
@@ -122,12 +130,13 @@
         <?php if ($page->axesVariable() == "2axes") : ?>
 
           <div class="container flex box2">
-          <label for="var2-slider" class="txt">
+          <label for="variable2Slider" class="txt">
             Axe <?= $page->variableAxis2() ?>
           </label>
               <input type="range"
-                id="var2-slider"
+                id="variable2Slider"
                 class="slider"
+                  data-axis="<?= $page->variableAxis2() ?>"
                 min="<?= $page->var2Min() ?>"
                 max="<?= $page->var2Max() ?>"
                 step="1"
@@ -188,8 +197,8 @@
 
   </u>.<br>
               Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->year()->toDate('Y') ?></u>.
-      <?php if ($page->licence() == "autre"): ?>
-          </div>
+
+      </div>
 
   <div id="links">
     <a href="" class="links" onclick="event.preventDefault();">Glyphset</a>
@@ -257,8 +266,6 @@
 
   </div>
 </article>
-  <!-- Snippet pour afficher les fontes suivantes ou précédentes -->
-  <!-- <?php snippet('prevnext') ?> -->
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
 
 <!-- Load js only on font template -->
