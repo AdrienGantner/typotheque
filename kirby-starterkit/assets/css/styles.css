@@ -880,3 +880,8 @@ footer > li {
 #link-footer {
   margin-bottom: 20px;
 }
+
+/* ADDED STYLES */
+article {
+  padding: 0 5vw;
+}

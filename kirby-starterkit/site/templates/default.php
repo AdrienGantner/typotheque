@@ -20,7 +20,7 @@
 ?>
 <?php snippet('header') ?>
 
-  <section id="fixed">
+  <!-- <section id="fixed"> -->
   <div id="landing">
     <header class="header">
       <a href="/" class="logo">Typothèque</a>
@@ -31,7 +31,7 @@
         <?php snippet('main-menu') ?>
       </ul>
     </header>
-  </section>
+  <!-- </section> -->
 
 <article>
   <h1 class="h1"><?= $page->title()->esc() ?></h1>
