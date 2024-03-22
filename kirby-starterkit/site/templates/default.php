@@ -20,6 +20,19 @@
 ?>
 <?php snippet('header') ?>
 
+  <section id="fixed">
+  <div id="landing">
+    <header class="header">
+      <a href="/" class="logo">Typothèque</a>
+      <div id="white-bkgd"></div>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <?php snippet('main-menu') ?>
+      </ul>
+    </header>
+  </section>
+
 <article>
   <h1 class="h1"><?= $page->title()->esc() ?></h1>
   <div class="text">

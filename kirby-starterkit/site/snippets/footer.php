@@ -10,22 +10,14 @@
 */
 ?>
 
-<footer>
-    <p id="footer-title"><a href="../../index.html"><u>Typotes Club</u></a></p>
-    <li>
-        <ul>
-            <a href="../../index.html#moveable">Fontes</a>
-        </ul>
-        <ul>
-            <a href="../../licences/index.html">Licences</a>
-        </ul>
-        <ul>
-            <a href="">À propos</a>
-        </ul>
-        <ul>
-            <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;typographie&nbsp;La&nbsp;Cambre</a>
-        </ul>
-    </li>
+<ul>
+    <p id="footer-title"><a href="/"><u>Typotes Club</u></a></p>
+    <ul>
+        <?php snippet('main-menu') ?>
+        <li>
+            <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;typographie La&nbsp;Cambre</a>
+        </li>
+    </ul>
 </footer>
 
   <?= js([

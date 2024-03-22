@@ -43,12 +43,3 @@ base URL of your site.
     <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
   </head>
   <body>
-
-    <header class="header">
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-      <ul class="menu">
-        <?php snippet('main-menu') ?>
-
-      </ul>
-    </header>

@@ -18,7 +18,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "L10", sans-serif;
-  overflow-x: hidden;
 
   /* background: var(--background); */
 }
@@ -55,7 +54,7 @@ a {
   }
 }
 
-#logo {
+#logo{
   position: absolute;
   height: 120px;
   margin: auto;
@@ -67,19 +66,19 @@ a {
   animation: rotation 20s infinite linear;
 }
 
-#welcome-text {
+#welcome-text{
   font-size: 30px;
   padding: 75px 50px 40px 50px;
   text-align: center;
   margin-top: 65px;
   line-height: 40px;
 }
-@media (max-width: 768px) {
-  #welcome-text {
+@media (max-width: 768px){
+  #welcome-text{
     font-size: 26px;
   }
 }
-#link {
+#link{
   text-decoration: underline 2px solid blue;
 }
 .sticky {
@@ -228,20 +227,20 @@ a {
 }
 
 /********************************************** fontes **********************************************/
-#fontes {
+#fontes{
   width: 100%;
   margin-top: 30vh; /* Offset to make space for the fixed section */
   z-index: 1000;
   background-color: white;
-  /*   top: -100px; */
+/*   top: -100px; */
 }
-@media (max-width: 584px) {
-  #fontes {
+@media (max-width: 584px){
+  #fontes{
     margin-top: 33vh;
   }
 }
 
-.font-panel {
+.font-panel{
   width: 100%;
   background: rgb(255, 255, 255);
   border-top-left-radius: 8vh;
@@ -254,30 +253,30 @@ a {
   position: sticky;
   max-height: 700px; /* Example max height */
 }
-#trierpar {
+#trierpar{
   width: 100%;
   overflow-y: auto; /* Allows scrolling within the container */
   /* padding: 10px; */
   box-sizing: border-box;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 30px;  
 }
 
 /* Style the collapsible content. Note: hidden by default */
 .filtresList {
-  display: none;
-  overflow: hidden;
-  justify-content: left;
-  position: sticky;
-  top: 0;
-  padding-left: 0;
-  width: 100%;
-  z-index: 100;
-  transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
+    display: none;
+    overflow: hidden;
+    justify-content: left;
+    position: sticky;
+    top: 0;
+    padding-left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
 }
 
 /* collapsible filters pannel*/
-.content {
+.content{
   min-width: 350px;
   max-width: 500px;
   margin: left;
@@ -286,29 +285,28 @@ a {
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  .content {
-    margin-left: 0;
+  .content{
+   margin-left: 0;
   }
 }
 
 /* styling of buttons*/
-.filtres,
-#variableButton {
+.filtres, #variableButton{
   background: none;
   border-radius: 25px;
   font: inherit;
-  cursor: pointer;
+	cursor: pointer;
   border: 1px solid black;
   padding: 8px;
   margin: 5px;
   color: inherit;
   font-size: 17px;
 }
-#variableButton {
+#variableButton{
   background: none;
   border-radius: 20px;
   font: inherit;
-  cursor: pointer;
+	cursor: pointer;
   border: 1px solid black;
   padding: 5px;
   margin: -5px 5px -4px 10px;
@@ -335,12 +333,10 @@ a {
   }
 }
 
-.filtres:hover {
+.filtres:hover{
   background-color: #fff0f0;
 }
-.filtres.active,
-.filtres:visited,
-.filtres:focus {
+.filtres.active, .filtres:visited, .filtres:focus{
   background-color: #ffd6d6;
 }
 
@@ -356,47 +352,42 @@ a {
 
 @keyframes animate-text {
   0% {
-    font-weight: 200;
+      font-weight: 200;
   }
   50% {
-    font-weight: 700;
+      font-weight: 700;
   }
   100% {
-    font-weight: 200;
+      font-weight: 200;
   }
 }
 
-.font-list {
+.font-list{
   height: 300px;
   width: 100vw;
   position: sticky;
   top: 0;
   z-index: 100;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 10px; 
   background-color: rgb(255, 142, 85);
   overflow: hidden;
   border-top: 1.5px solid black;
-  border: 0 5vw 50px 5dvw;
+  border: 0  5vw 50px 5dvw;
   margin-left: auto;
   margin-right: auto;
   transition: background-color 0.5s ease;
-  /* Compensate for the pseudo-element */
+   /* Compensate for the pseudo-element */
 }
 
-.font-list:hover {
-  background-color: rgb(255, 255, 255);
+.font-list:hover{
+  background-color:rgb(255, 255, 255);
 }
-.font-list.active,
-.font-list:hover,
-.font-list.active:focus,
-.font-list.active:visited {
+.font-list.active,.font-list:hover, .font-list.active:focus,.font-list.active:visited {
   background-color: #ffffff;
 }
-.font-list > h3:active,
-.font-list > h3:hover,
-.font-list > h3.active:focus.font-list > h3.active:visited {
-  color: rgb(0, 38, 255);
+.font-list>h3:active, .font-list>h3:hover,  .font-list>h3.active:focus.font-list>h3.active:visited{
+  color:rgb(0, 38, 255);
 }
 
 .weightbutton {
@@ -417,14 +408,13 @@ a {
   text-decoration: underline 1px solid rgb(60, 60, 60);
 }
 
-.weightbutton:active,
-.weightbutton:focus {
+.weightbutton:active, .weightbutton:focus  {
   color: black;
   text-decoration: underline 1px solid black;
 }
 
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
+ /* Style the button that is used to open and close the collapsible content */
+ .collapsible {
   text-align: center;
 }
 
@@ -436,7 +426,7 @@ a {
 .fontButtons {
   background: none;
   font: inherit;
-  cursor: pointer;
+	cursor: pointer;
   padding: 8px;
   margin: 5px;
   color: inherit;
@@ -452,7 +442,7 @@ a {
   position: fixed;
   width: 100%;
   height: 50vh; /* Set the fixed section to cover the entire viewport height */
-  /* Set the background color of your fixed section */
+   /* Set the background color of your fixed section */
   /* Adjust the z-index to ensure it appears above other content */
   top: 0; /* Adjust padding as needed */
   background-color: white;
@@ -467,44 +457,43 @@ a {
   top: 0;
   z-index: 100;
 }
-
-.editabletxt {
+  
+.editabletxt{
   font-size: 150px;
   margin-top: 8px;
   line-height: 250px;
   white-space: nowrap;
   overflow: auto;
 }
-#idname1 {
+#idname1{
   border-bottom: -50px;
 }
 
-.fontflex {
+.fontflex{
   width: 100vw;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
 }
 
-.font-name,
-.font-designer {
+.font-name, .font-designer{
   flex-grow: 1;
-  text-decoration: none;
-  cursor: pointer;
+  text-decoration:none;
+  cursor:pointer;  
 }
-.font-name {
+.font-name{
   text-align: left;
   padding-left: 5vw;
 }
-.font-designer {
+.font-designer{
   text-align: right;
   padding-right: 5vw;
 }
 
-.fontflex2 {
+.fontflex2{
   display: flex;
-  justify-content: flex-start;
-  gap: 10px;
+  justify-content:flex-start;
+  gap:10px;
   padding-left: 5vw;
   padding-top: 1vh;
 }
@@ -857,7 +846,8 @@ label,
   vertical-align: middle;
 } */
 
-footer {
+
+footer{
   background-color: #ff8e55;
   margin-top: 20px;
   height: 200px;
@@ -865,18 +855,18 @@ footer {
   text-align: right;
   padding: 10px 0 20px 0;
 }
-#footer-title {
+#footer-title{
   padding-right: 40px;
   font-size: 29px;
 }
-footer > u {
+footer>u{
   text-decoration: underline 2px solid black;
 }
-footer > li {
+footer>li{
   padding-right: 40px;
   font-size: 19px;
   line-height: 14px;
 }
-#link-footer {
+#link-footer{
   margin-bottom: 20px;
 }

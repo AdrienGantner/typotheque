@@ -49,11 +49,19 @@
     <?php endforeach ?>
   </style>
 
-  <pre>
-    <!-- <?php print_r($page) ?> -->
-  </pre>
+  <section id="fixed">
+  <div id="landing">
+    <header class="header">
+      <a href="/" class="logo">Typothèque</a>
+      <div id="white-bkgd"></div>
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+      <ul class="menu">
+        <?php snippet('main-menu') ?>
+      </ul>
+    </header>
 
-  <section id="landing">
+
     <!--   FONT NAME   -->
     <div id="container-titre">
       <h1 id="font-name"><?= $page->title()->esc() ?></h1>

@@ -5,13 +5,26 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
 ?>
 <?php snippet('header') ?>
-<article id="main">
-<section id="landing">
-    <!-- Displays greeting only on homepage-->
-    <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
+<!-- <article id="main"> -->
+<section id="fixed">
+    <div id="landing">
+
+    <header class="header">
+      <input class="menu-btn" type="checkbox" id="menu-btn" />
+      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+      <ul class="menu">
+        <?php snippet('main-menu') ?>
+      </ul>
+
+    </header>
+  </div>
+
+<a href="/"><img id="logo" src="../../assets/icons/logo.svg"></a>
+      <!-- Displays greeting only on homepage-->
+      <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
 </section>
 
-<a href="index.html"><img id="logo" src="../../assets/icons/logo.svg"></a>
 
 <section id="fontes">
     <div class="font-panel" class="sticky top">
@@ -119,5 +132,5 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
       </div>
 
     <?php endforeach ?>
-</article>
+<!-- </article> -->
 <?php snippet('footer') ?>
