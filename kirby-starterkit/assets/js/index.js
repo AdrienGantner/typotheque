@@ -38,6 +38,46 @@ function showAll() {
   }
 }
 
+function recentSort(el) {
+  // Changer le texte du bouton selon l'ordre affiché
+  if (el.innerText == "Plus récent") {
+    el.innerText = "Plus ancien";
+  } else {
+    el.innerText = "Plus récent";
+  }
+
+  const list = document.getElementsByClassName("font-list");
+
+  // Comparer les noms des fontes pour fair le tri.
+  [...list].reverse().forEach((node) => list[0].parentNode.appendChild(node));
+}
+
+function alphabeticSort(el) {
+  // Changer le texte du bouton selon l'ordre affiché
+  let toggle;
+
+  if (el.innerText == "A-Z") {
+    el.innerText = "Z-A";
+    toggle = 1;
+  } else {
+    el.innerText = "A-Z";
+    toggle = -1;
+  }
+
+  // Trier les éléments par leur nom
+  const list = document.getElementsByClassName("font-list");
+
+  // Comparer les noms des fontes pour fair le tri.
+  [...list]
+    .sort((a, b) =>
+      a.querySelector(".font-name").innerText >
+      b.querySelector(".font-name").innerText
+        ? 1 * toggle
+        : -1 * toggle,
+    )
+    .forEach((node) => list[0].parentNode.appendChild(node));
+}
+
 function filterFonts(el) {
   console.log("click");
   if (el.dataset.checked == "false") {

@@ -29,7 +29,12 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <div class="font-panel" class="sticky top">
         <h2>Fontes</h2>
         <div id="trierpar">
-            <p>Trier par: <button type="button" class="filtres">Plus récent</button> <button type="button" class="filtres">A-Z</button> </p>
+      <p>
+        Trier par:
+        <button type="button" onclick="recentSort(this)" class="filtres">Plus ancien d'abord</button>
+        <button type="button" onclick="alphabeticSort(this)" class="filtres">A-Z</button>
+
+      </p>
 
             <ul>
               <?php foreach ($page->tags()->split() as $category): ?>
