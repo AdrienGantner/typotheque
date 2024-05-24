@@ -88,7 +88,9 @@
 
   </div>
 
+            <?php foreach ($page->fontes()->yaml() as $font) : ?>
   <div id="editable-container">
+    <h3><?= Str::slug($font['graisse']) ?></h3>
 
     <div class="setting-flex">
       <div class="flex box1">
@@ -142,35 +144,17 @@
                 step="1"
                 value="<?= $page->var2Min() ?>">
             </div>
-
         <?php endif ?>
-
       <?php endif ?>
-
-      <div id="font-dropdown" class="container flex box3" >
-        <div class="custom-dropdown-container">
-          <select name="fonts" class="txt" onclick="changeFont(this.value)">
-            <?php foreach ($page->fontes()->yaml() as $font) : ?>
-              <option
-                value="<?= $page->title()->slug() . "-" . Str::slug($font['graisse']) ?>" >
-
-                <?= $font['graisse'] ?>
-              </option>
-
-            <?php endforeach ?>
-
-          </select>
-          <div class="dropdown-icon" class="txt">&#9660;</div>
-        </div>
       </div>
-    </div>
+
     <div id="textContainer">
 
       <div
         class="editabletxt txt"
         id="editableText"
         contenteditable="true"
-        style="font-family: <?= $main_font ?>"
+        style="font-family: <?= $page->title()->slug() . "-" . Str::slug($font['graisse']); ?>"
         tag
         autocomplete="off"
         autocorrect="off"
@@ -178,8 +162,10 @@
         spellcheck="false">
         <?= $page->text2() ?>
       </div>
-
     </div>
+
+      <?php endforeach ?>
+
   </div>
 
           <div id="details">
