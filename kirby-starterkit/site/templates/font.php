@@ -201,18 +201,20 @@
       </div>
 
   <div id="links">
-    <a href="" class="links" onclick="event.preventDefault();">Glyphset</a>
+    <h3>Glyphset</h3>
     <div id="glyphset">
 
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
       <?php if(isset($font['fichier'][0])) :?>
-        <button
-          class="font-url"
-          data-font-url="<?= url($font["fichier"][0]) ?>"
-          data-font-name="<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"
-          onclick="getGlyphset(this)">
-          <?= $font["graisse"] ?>
-        </button>
+        <details class="font-url">
+          <summary
+            data-font-url="<?= url($font["fichier"][0]) ?>"
+            data-font-name="<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"
+            onclick="getGlyphset(this)">
+            <?= $font["graisse"] ?>
+          </summary>
+            <ul class="font-<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"></ul>
+        </details>
       <?php endif ?>
     <?php endforeach ?>
 

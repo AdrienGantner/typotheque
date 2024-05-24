@@ -82,18 +82,16 @@ function updateFontVariation(e) {
 function getGlyphset(el) {
   const fontUrl = el.dataset.fontUrl;
   const fontName = el.dataset.fontName;
+  const ul = document.querySelector(`.font-${fontName}`);
+  ul.style.fontFamily = fontName;
 
   // On vérifie si on n'a pas déjà ajouté le glyphset à la page
-  if (!document.getElementById(fontName)) {
+  if (ul.childNodes.length == 0) {
     const buffer = fetch(fontUrl).then((res) => res.arrayBuffer());
 
     // Attend que la fonte soit chargée pour l'analyser grâce à opentypejs
     buffer.then((data) => {
       const glyphs = opentype.parse(data).glyphs.glyphs;
-
-      const ul = document.createElement("ul");
-      ul.id = fontName;
-      ul.style.fontFamily = fontName;
 
       Object.values(glyphs).forEach((glyph) => {
         const li = document.createElement("li");
@@ -103,7 +101,7 @@ function getGlyphset(el) {
         ul.appendChild(li);
       });
 
-      el.insertAdjacentElement("afterend", ul);
+      // el.insertAdjacentElement("afterend", ul);
     });
   }
 }
