@@ -53,16 +53,16 @@ lineHeightSlider.addEventListener("input", function (e) {
 const variable1Slider = document.getElementById("variable1Slider");
 const variable2Slider = document.getElementById("variable2Slider");
 
-variable1Slider.addEventListener("input", function (e) {
-  updateFontVariation(e);
-});
+if (variable1Slider) {
+  variable1Slider.addEventListener("input", function (e) {
+    updateFontVariation(e);
+  });
+}
 
-try {
+if (variable2Slider) {
   variable2Slider.addEventListener("input", function (e) {
     updateFontVariation(e);
   });
-} catch (err) {
-  console.log(err);
 }
 
 function updateFontVariation(e) {
