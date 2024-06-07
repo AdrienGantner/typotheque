@@ -9,10 +9,7 @@
   https://getkirby.com/docs/guide/templates/snippets
 */
 ?>
-
-<footer>
     <button onclick="topFunction()" id="upButton" title="Go to top">↑</button>
-</footer>
 
   <?= js([
     'assets/js/index.js',

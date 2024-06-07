@@ -24,7 +24,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 <section id="fontes">
     <div class="filter-flex">
         <div class="custom-select select1">
-          <select onchange="sortFonts(this)">
+          <select class="select-selected" onchange="sortFonts(this)">
               <option value="recent">Plus récente</option>
               <option value="ancient">Plus ancienne</option>
               <option value="alphabetic">A-Z</option>
@@ -33,7 +33,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         </div>
 
         <div class="custom-select select2">
-            <select onchange="filterFonts(event)">
+            <select class="select-selected" onchange="filterFonts(event)">
               <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
                 <option value="<?= Str::slug($tag) ?>"><?= $tag ?></option>
               <?php endforeach; ?>
@@ -42,7 +42,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         </div>
 
         <div class="custom-select select3">
-            <select>
+            <select class="select-selected">
               <option value="0">Projets</option>
               <option value="1">Fonte variable B3</option>
               <option value="3">Gothique revival</option>

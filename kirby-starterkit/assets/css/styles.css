@@ -356,16 +356,19 @@ li {
   /*   max-width: 30vw; */
 }
 
-/* .custom-select select { */
-/*   display: none; */
-/* } */
+.custom-select select {
+  /* display: none; */
+  font-family: "L10";
+  font-size: 20px;
+  width: 100%;
+}
 
 .select-selected {
   background-color: rgb(245, 245, 245);
   border-radius: 20px; /* Top rounded corners */
   padding: 8px 16px;
   cursor: pointer;
-  user-select: none;
+  /* user-select: none; */
   position: relative;
   z-index: 100;
   border: 1px solid black; /* Border for the selected item */
