@@ -1,50 +1,291 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: L10;
+  background: #f4f4f4;
+  overflow-x: hidden;
+  /* remove browser font-smoothing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+}
+html{
+  scroll-behavior:smooth;
+}
+
 /* Importer les fontes */
 @font-face {
+    font-family: "Karrik";
+    src: url(fonts/Karrik-Regular.ttf);
+}
+@font-face {
   font-family: "L10";
-  src: url("../fonts/L10-Regular.ttf");
+  src: url(fonts/L10-Regular.ttf);
+}
+@font-face {
+  font-family: "L10-Italic";
+  src: url(fonts/L10-RegularItalic.ttf);
+}
+@font-face {
+  font-family: "Calice-serif1";
+  src: url(fonts/calice/Calice-serif1.ttf);
+}
+@font-face {
+  font-family: "Calice-sans";
+  src: url(fonts/calice/Calice-sans.ttf);
+}
+@font-face {
+  font-family: "ouvrieres";
+  src: url(fonts/LesOuvrieres-normales.ttf);
+}
+@font-face {
+    font-family: "woven";
+    src: url(fonts/Woven.ttf);
+}
+@font-face {
+  font-family: "wildflower";
+  src: url(fonts/wildflower-semibold.ttf);
+}
+@font-face {
+  font-family: "insolente";
+  src: url(fonts/Insolente-Regular.ttf);
+}
+@font-face {
+  font-family: "oswald";
+  src: url(fonts/Oswald-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "banana";
+  src: url(fonts/Banana-Outline-liga-2023_12_19.otf/Banana-Outline-liga-2023_12_19.otf);
+}
+@font-face {
+  font-family: "Zenith2";
+  src: url(fonts/Zenith3.ttf);
+}
+@font-face {
+    font-family: "Superformula";
+    src: url(fonts/superformula-mono.ttf);
+}
+@font-face {
+    font-family: "Wildflower";
+    src: url(fonts/wildflower-semibold.ttf);
+}
+@font-face {
+    font-family: "Aerobik";
+    src: url(fonts/aerobik-regular.ttf);
+}
+@font-face {
+    font-family: "Aguirre";
+    src: url(fonts/aguirre-demibold.ttf);
+}
+#superformula{
+  font-family: oswald;
+}
+#superformula{
+    font-family: Superformula;
+}
+#aerobik{
+    font-family: Aerobik;
+}
+#aguirre{
+    font-family: Aguirre;
+}
+#zenith{
+    font-family: Zenith2;
+}
+#woven{
+  font-family: woven;
+}
+#calice{
+  font-family: Calice-serif1;
+}
+#ouvrieres{
+  font-family: ouvrieres;
+}
+#insolente{
+  font-family: insolente;
+}
+#wildflower{
+  font-family: Wildflower;
+}
+#banana{
+  font-family: banana;
+}
+a{
+    text-decoration: none;
+    background-color: none;
+    cursor: pointer;
+    color: black;
+}
+/******** header ********/
+
+/***************** header, responsive hamburger menu *******************/
+a {
+  color: #000;
+}
+/* header */
+header {
+  position: fixed;
+  display: block;
+  top: 0;
+  background: #f4f4f4;
+  width: 100%;
+  height: 100px;
+  padding-top: 10px;
+  z-index: 100000; /* Ensure the header is on top */
 }
 
-:root {
-  --background: #f4f4f4;
-}
-
-/********************************************** reset **********************************************/
-
-/* * { */
-/*   box-sizing: border-box; */
-/* } */
-
-body {
+header ul {
   margin: 0;
   padding: 0;
-  font-family: "L10", sans-serif;
-  overflow-x: hidden;
-
-  /* background: var(--background); */
+  list-style: none;
+  overflow: hidden;
+  background: #f4f4f4;
 }
 
-#main {
-  /* Offset de la hauteur du header */
-  margin-top: 4rem;
-  padding-top: 1rem;
-}
-
-a {
+header li a {
+  display: block;
+  padding-top: 22px;
+  border-right: 1px solid #f4f4f4;
+  font-size: 20px;
   text-decoration: none;
-  background-color: none;
-  cursor: pointer;
 }
 
-#landing {
-  z-index: 0;
+header li a:hover,
+header .menu-btn:hover {
+  text-decoration: 1px solid black;
 }
-#landing-container {
+
+header .logo {
+  display: block;
+  float: left;
+  font-size: 2em;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+/* menu */
+header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+  font-size: 18px;
+  position: absolute;
   width: 100%;
-  height: 100%;
-  z-index: 0;
+  top: 100px; /* Adjust this value to align with header height */
+  left: 0;
+  background: #f4f4f4;
+  z-index: 9999; /* Lower z-index to ensure menu is under header */
 }
 
-/********************************************** landing page **********************************************/
+/* menu icon */
+header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+  z-index: 10002; /* Ensure the menu icon is on top */
+}
+
+header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+
+header .menu-icon .navicon:before,
+header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+
+header .menu-icon .navicon:before {
+  top: 5px;
+}
+
+header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* menu btn */
+header .menu-btn {
+  display: none;
+}
+
+header .menu-btn:checked ~ .menu {
+  max-height: 100vh; /* Make the menu cover the whole screen height */
+  position: fixed; /* Ensure the menu is fixed */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10001; /* Ensure the menu is on top of other elements */
+  background: #f4f4f4;
+  overflow-y: auto; /* Allow scrolling if the menu is too tall */
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+
+header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+
+header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+
+}
+
+/* 48em = 768px */
+@media (min-width: 768px) {
+  header {
+    position: absolute;
+  }
+
+  header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+    position: relative;
+    top: auto;
+  }
+  header .menu-icon {
+    display: none;
+  }
+}
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+  z-index: 10002; /* Ensure it's on top of everything */
+}
+
+#logo {
+  height: 80px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: 10px;
+  animation: rotation 20s infinite linear;
+}
 
 @keyframes rotation {
   from {
@@ -55,229 +296,223 @@ a {
   }
 }
 
-#logo {
-  position: absolute;
-  height: 120px;
-  margin: auto;
-  z-index: 1000;
-  left: 0;
-  right: 0;
-  margin: auto;
-  margin-top: 10px;
-  animation: rotation 20s infinite linear;
-}
-
-#welcome-text {
-  font-size: 30px;
-  padding: 75px 50px 40px 50px;
-  text-align: center;
-  margin-top: 65px;
-  line-height: 40px;
-}
-@media (max-width: 768px) {
-  #welcome-text {
-    font-size: 26px;
-  }
-}
-#link {
-  text-decoration: underline 2px solid blue;
-}
-.sticky {
+#fixed {
   position: sticky;
   top: 0;
-  background-color: #f1f1f1;
-  border: 1px solid #d4d4d4;
-  margin: 0;
-}
-/***************** header, responsive hamburger menu *******************/
-a {
-  color: #000;
+  z-index: 99999; /*here*/
 }
 
-/* header */
-
-.header {
-  background-color: #fff;
-  border-bottom: 1px solid black;
-  position: fixed;
-  top: 0;
-  height: 4rem;
+header {
+  background: rgb(245, 245, 245);
+  position: relative;
+  z-index: 9999;
   width: 100%;
-  z-index: 50;
-}
-
-.header ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.header li a {
-  display: block;
-  padding: 20px 20px;
-  border-right: 1px solid var(--background);
+  height: 50px;
+  font-size: 22px;
   text-decoration: none;
+  text-align: right;
 }
 
-.header li a:hover,
-.header .menu-btn:hover {
-  background-color: var(--background);
+#menu {
+  margin-right: 30px;
 }
 
-.header .logo {
-  display: block;
-  float: left;
-  font-size: 2em;
-  padding: 10px 20px;
-  text-decoration: none;
-}
-
-/* menu */
-.header .menu {
-  clear: both;
-  max-height: 0;
-  transition: max-height 0.2s ease-out;
-  font-size: 18px;
-}
-
-/* menu icon */
-
-.header .menu-icon {
-  cursor: pointer;
+li {
+  padding: 0 10px 0 10px;
   display: inline-block;
-  float: right;
-  padding: 28px 20px;
-  position: relative;
-  user-select: none;
+  list-style: none;
+  text-decoration: none;
 }
 
-.header .menu-icon .navicon {
-  background: #333;
-  display: block;
-  height: 2px;
-  position: relative;
-  transition: background 0.2s ease-out;
-  width: 18px;
+@media(max-width: 768px) {
+  header {
+    text-align: center;
+    z-index: 10000; /* Ensure header is on top */
+  }
+  header li {
+    display: flex;
+    flex-direction: column;
+    padding-top: -20px;
+    background-color: #f4f4f4;
+    z-index: 10001; /* Ensure the list items are on top */
+  }
+  #menu {
+    margin-right: 0px;
+  }
+}
+@media(min-width: 768px) {
+  #fixed, header{
+    z-index: -10; 
+  }
+
 }
 
-.header .menu-icon .navicon:before,
-.header .menu-icon .navicon:after {
-  background: #333;
-  content: "";
-  display: block;
-  height: 100%;
+.image-container {
   position: absolute;
-  transition: all 0.2s ease-out;
-  width: 100%;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+  z-index: 10002; /* Ensure it's on top of everything */
 }
 
-.header .menu-icon .navicon:before {
-  top: 5px;
-}
 
-.header .menu-icon .navicon:after {
-  top: -5px;
-}
-
-/* menu btn */
-
-.header .menu-btn {
-  display: none;
-}
-
-.header .menu-btn:checked ~ .menu {
-  max-height: 240px;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon {
-  background: transparent;
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:before {
-  transform: rotate(-45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon .navicon:after {
-  transform: rotate(45deg);
-}
-
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
-.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
-  top: 0;
-}
-
-/* 48em = 768px */
-
-@media (min-width: 48em) {
-  .header li {
-    float: left;
-  }
-  .header li a {
-    padding: 20px 30px;
-  }
-  .header .menu {
-    clear: none;
-    float: right;
-    max-height: none;
-  }
-  .header .menu-icon {
-    display: none;
-  }
-}
 
 /********************************************** fontes **********************************************/
-#fontes {
-  width: 100%;
-  margin-top: 30vh; /* Offset to make space for the fixed section */
-  z-index: 1000;
-  background-color: white;
-  /*   top: -100px; */
+
+/* styling of dropdown menus*/ 
+
+#fontes{
+  margin-top: 50px; /* Offset to make space for the fixed section */
+  z-index: 0;
 }
-@media (max-width: 584px) {
-  #fontes {
-    margin-top: 33vh;
+
+
+.filter-flex{
+  width: 100%;
+ /*  background: rgb(255, 255, 255); */
+  background-color: #F4F4F4;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+
+  border-top-left-radius: 8vh;
+  border-top-right-radius: 8vh;
+  
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid rgb(119, 119, 119);
+  border-bottom: transparent;
+
+  position: relative;
+  top: 0;
+  max-height: 700px; /* Example max height */
+  z-index: 100;
+
+  gap: 20px;
+  font-size: 20px;
+  text-align: left;
+  margin: auto;
+  justify-content: center;
+}
+
+.select-items {
+  border-radius: 0 0 20px 20px; /* Add border radius for styling */
+  border: 1px solid black;
+  background-color: #F4F4F4;
+  border-top: none;
+  overflow: hidden;
+  position: absolute; /* Position absolutely */
+  left: 0;
+  right: 0;
+  top: 100%; /* Start below the selected item */
+  z-index: 99999;
+}
+
+/* Styling the individual options */
+.select-items div {
+  color: gray; /* Gray text color for options */
+  padding: 8px 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s; /* Smooth transition for text color */
+
+
+}
+
+/* Styling the individual options on hover */
+.select-items div:hover {
+  color: black; /* Black text color on hover */
+}
+
+@media (max-width: 1200px) {
+/*   .select1, .select2{
+    flex: 40%;
+  }
+  .select3{
+    flex: 100%;
+  } */
+
+}
+@media (max-width: 600px) {
+  .filter-flex {
+      flex-direction: column;
+      width: 100vw;
+      align-items: center;
+  }
+  .custom-select{
+    width: 80vw;
+
   }
 }
 
-.font-panel {
-  width: 100%;
-  background: rgb(255, 255, 255);
-  border-top-left-radius: 8vh;
-  border-top-right-radius: 8vh;
-  text-align: center;
-  padding-top: 30px;
+
+.custom-select {
+  position: relative;
+  border-radius: 20px; /* Rounded corners for the whole container */
+  min-width: 250px;
+  background-color: rgb(245, 245, 245);
+/*   max-width: 30vw; */
+}
+
+.custom-select select {
+  display: none;
+}
+
+.select-selected {
+  background-color: rgb(245, 245, 245);
+  border-radius: 20px; /* Top rounded corners */
+  padding: 8px 16px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
   z-index: 100;
-  border: 1.5px solid black;
-  border-bottom: transparent;
-  position: sticky;
-  max-height: 700px; /* Example max height */
+  border: 1px solid black; /* Border for the selected item */
 }
-#trierpar {
-  width: 100%;
-  overflow-y: auto; /* Allows scrolling within the container */
-  /* padding: 10px; */
-  box-sizing: border-box;
-  text-align: left;
-  padding-left: 30px;
+
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  margin-top: 2px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: rgb(44, 44, 44) transparent transparent transparent ;
 }
+
+.select-selected.select-arrow-active {
+  border-bottom-left-radius: 0; /* Remove bottom-left radius when active */
+  border-bottom-right-radius: 0; /* Remove bottom-right radius when active */
+}
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent black transparent;
+  top: 7px;
+}
+/* Styling the border class elements */
+.select-items .border {
+  border-bottom: 1px solid black; /* Underline for border elements */
+}
+.select-hide {
+  display: none;
+}
+
+/* end of dropdown menus*/
 
 /* Style the collapsible content. Note: hidden by default */
-.filtresList {
-  display: none;
-  overflow: hidden;
-  justify-content: left;
-  position: sticky;
-  top: 0;
-  padding-left: 0;
-  width: 100%;
-  z-index: 100;
-  transition: max-height 0.2s ease-out; /* Adjust the z-index as needed */
+/* .filtresList {
+    display: none;
+    overflow: hidden;
+    justify-content: left;
+    position: sticky;
+    top: 0;
+    padding-left: 0;
+    width: 100%;
+    transition: max-height 0.2s ease-out;
 }
-
+ */
 /* collapsible filters pannel*/
-.content {
+.content{
   min-width: 350px;
   max-width: 500px;
   margin: left;
@@ -286,29 +521,28 @@ a {
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  .content {
-    margin-left: 0;
+  .content{
+   margin-left: 0;
   }
 }
 
 /* styling of buttons*/
-.filtres,
-#variableButton {
+.filtres, #variableButton{
   background: none;
   border-radius: 25px;
   font: inherit;
-  cursor: pointer;
+	cursor: pointer;
   border: 1px solid black;
   padding: 8px;
   margin: 5px;
   color: inherit;
   font-size: 17px;
 }
-#variableButton {
+#variableButton{
   background: none;
   border-radius: 20px;
   font: inherit;
-  cursor: pointer;
+	cursor: pointer;
   border: 1px solid black;
   padding: 5px;
   margin: -5px 5px -4px 10px;
@@ -335,12 +569,10 @@ a {
   }
 }
 
-.filtres:hover {
+.filtres:hover{
   background-color: #fff0f0;
 }
-.filtres.active,
-.filtres:visited,
-.filtres:focus {
+.filtres.active, .filtres:visited, .filtres:focus{
   background-color: #ffd6d6;
 }
 
@@ -356,75 +588,81 @@ a {
 
 @keyframes animate-text {
   0% {
-    font-weight: 200;
+      font-weight: 200;
   }
   50% {
-    font-weight: 700;
+      font-weight: 700;
   }
   100% {
-    font-weight: 200;
+      font-weight: 200;
   }
 }
 
-.font-list {
-  height: 300px;
+.font-list{
+  height: 200px;
   width: 100vw;
   position: sticky;
   top: 0;
   z-index: 100;
   text-align: center;
-  padding-top: 10px;
-  background-color: rgb(255, 142, 85);
+  padding-top: 10px; 
+/*   background-color: rgba(0, 255, 242, 0.99); */
+/*   background-color: rgba(255, 241, 119, 0.985); */
+  /*first orange*/
+/*   background-color: rgba(255, 142, 85, 0.97); */
+  /*THE YUMMIEST YELLOW */
+  background-color: rgba(255, 227, 85, 0.97);
+/*   background-color: rgba(255, 221, 53, 0.97); */
+
+  
   overflow: hidden;
-  border-top: 1.5px solid black;
-  border: 0 5vw 50px 5dvw;
+/*   border-top: 1px solid black; */
+border: none;
   margin-left: auto;
   margin-right: auto;
   transition: background-color 0.5s ease;
-  /* Compensate for the pseudo-element */
+  filter: drop-shadow(0 -10px 10px rgba(0, 0, 0, 0.282));
+   /* Compensate for the pseudo-element */
+}
+/*enlever l'ombre de la première fonte sur le menu*/
+#no-shadow{
+filter: none;
+border-top: 1px solid rgba(0, 0, 0, 0.225);
+background-color: rgba(255, 227, 85);
 }
 
-.font-list:hover {
-  background-color: rgb(255, 255, 255);
+.font-list.active,.font-list:hover, .font-list.active:focus,.font-list.active:visited {
+ /*  background-color: #ffffff; */
 }
-.font-list.active,
-.font-list:hover,
-.font-list.active:focus,
-.font-list.active:visited {
-  background-color: #ffffff;
-}
-.font-list > h3:active,
-.font-list > h3:hover,
-.font-list > h3.active:focus.font-list > h3.active:visited {
-  color: rgb(0, 38, 255);
-}
+
 
 .weightbutton {
   display: inline-block;
-
   text-decoration: none;
   font-family: inherit;
   font-size: 17px;
+  margin-top: -1.5px;
+  margin-left: 4px;
   background-color: transparent;
-  color: black;
+  color: rgba(0, 0, 0, 0.528);
   border: 0;
   cursor: pointer;
+ 
 }
 
 .weightbutton:hover {
   color: black;
   border-color: black;
-  text-decoration: underline 1px solid rgb(60, 60, 60);
+/*   text-decoration: underline 1px solid rgb(60, 60, 60); */
 }
 
-.weightbutton:active,
-.weightbutton:focus {
+.weightbutton:active, .weightbutton:focus  {
   color: black;
-  text-decoration: underline 1px solid black;
+/*   text-decoration: underline 1px solid black; */
 }
 
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
+ /* Style the button that is used to open and close the collapsible content */
+ .collapsible {
   text-align: center;
 }
 
@@ -436,26 +674,17 @@ a {
 .fontButtons {
   background: none;
   font: inherit;
-  cursor: pointer;
-  padding: 8px;
-  margin: 5px;
+	cursor: pointer;
+  /* padding: 8px; */
+/*   margin: 5px; */
   color: inherit;
   font-weight: normal;
+  text-align: left;
 }
 .fontButtons.active {
   background-color: black;
   color: white;
   font-weight: bold;
-}
-
-#fixed {
-  position: fixed;
-  width: 100%;
-  height: 50vh; /* Set the fixed section to cover the entire viewport height */
-  /* Set the background color of your fixed section */
-  /* Adjust the z-index to ensure it appears above other content */
-  top: 0; /* Adjust padding as needed */
-  background-color: white;
 }
 
 .filtres-list {
@@ -467,421 +696,86 @@ a {
   top: 0;
   z-index: 100;
 }
-
-.editabletxt {
-  font-size: 150px;
-  margin-top: 8px;
+  
+.editabletxt{
+  font-size: 110px;
+  margin-top: -50px;
   line-height: 250px;
   white-space: nowrap;
   overflow: auto;
+  /*align text to the left or center*/
+  text-align: left;
+  padding-left: 5vw;
 }
-#idname1 {
+/* #idname1{
   border-bottom: -50px;
-}
+} */
 
-.fontflex {
+.fontflex{
   width: 100vw;
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  padding-top: 10px;
 }
 
-.font-name,
-.font-designer {
+.font-name, .font-designer{
   flex-grow: 1;
-  text-decoration: none;
-  cursor: pointer;
+  text-decoration:none;
+  cursor:pointer;  
 }
-.font-name {
+.font-name{
   text-align: left;
   padding-left: 5vw;
 }
-.font-designer {
+.font-designer{
   text-align: right;
   padding-right: 5vw;
 }
 
-.fontflex2 {
-  display: flex;
-  justify-content: flex-start;
-  gap: 10px;
-  padding-left: 5vw;
-  padding-top: 1vh;
-}
 
-/***************************now everything in order of appearance ********************/
 
-h1 {
-  font-size: 30px;
-  /* padding-left: 6vw; */
-}
-
-#font-name {
-  font-size: 35px;
-  text-align: center;
-  padding-left: none;
-  /* padding-top: 100px; */
-}
-#container-titre {
-  text-align: center;
-}
-.tags {
-  background: none;
-  border-radius: 25px;
-  font: inherit;
-  cursor: pointer;
-  border: 1px solid black;
-  padding: 8px;
-  margin: 5px;
-  color: inherit;
-}
-.tags.active,
-.tags:hover,
-.tags:focus,
-.tags:visited {
-  background-color: #ffe8e8;
-}
-
-.editabletxt {
-  font-size: 86px;
-  text-align: center;
-
-  min-width: 90vw;
-  max-height: 50vh;
-  padding-top: 20 px;
-  padding: 10px;
-  padding-bottom: 20 px;
-  border-bottom: 1px solid black;
-
-  margin: auto;
-  overflow: hidden;
-}
-
-[contenteditable] {
-  outline: 0px solid transparent;
-}
-
-#editable-container {
-  border-top: 1px solid black;
-  padding-bottom: 40px;
-}
-/*font slider*/
-
-/*CSS responsive layout for font settings*/
-
-.setting-flex {
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 10px;
-}
-
-.flex {
-  padding: 20px;
+.shadow{
+  height: 3vh;
+  background-color: black;
   color: black;
+  z-index: 100;
+}
+/*footer*/
+footer{
+/*   text-align: center; */
+}
+#upButton {
+  display: none;
+  position: fixed;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  flex: 1; /* Equal width for all boxes */
-  margin: 5px; /* Added margin for spacing between boxes */
-}
-
-/* Media query for smaller screens */
-@media only screen and (max-width: 768px) {
-  .flex {
-    flex: 100%; /* Full width for each box on smaller screens */
-  }
-}
-
-/* Selecting text styles */
-::selection {
+  bottom: 20px;
+  right: 30px;
+  z-index: 99999;
+  font-size: 25px;
+  border: none;
+  outline: none;
   background-color: black;
   color: white;
-}
-
-input[type="range"] {
-  width: 400px;
-}
-/* style drop down menu to pick fonts*/
-
-#font-dropdown,
-#font-dropdown option {
-  min-width: 300px;
-  font-family: inherit;
-}
-/*styling of dropdown menu and lil arrow*/
-.container {
-  text-align: center;
-}
-
-/* Remove default styling of the dropdown */
-.custom-dropdown-container {
-  position: relative;
-  display: inline-block;
-  font-family: inherit;
-}
-
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  padding: 8px;
-  font-size: 16px;
-  width: 400px;
-  box-sizing: border-box;
-  border: 1px solid black;
-  background-color: transparent;
   cursor: pointer;
-  font-family: inherit;
-  z-index: 1; /* Ensure the select element is above the icon */
-}
-
-/* Style the dropdown arrow */
-.dropdown-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: black;
-  font-size: 14px;
-}
-
-/* Additional styles for the dropdown icon */
-select + .dropdown-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: #555;
-  font-size: 14px;
-}
-
-/* */
-.slider {
-  width: 400px;
-  margin-top: 10px;
-  /* Customize the appearance of the slider track */
-  appearance: none;
-  height: 1px;
-  background-color: black;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-label,
-#fontSizeDisplay {
-  font-size: 15px;
-}
-
-#fontSlider::-webkit-slider-thumb {
-  /* Customize the appearance of the slider thumb for webkit browsers (Chrome, Safari) */
-  -webkit-appearance: none;
-  width: 10px;
-  height: 10px;
-  background-color: black;
+  /* padding: 15px; */
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  cursor: pointer;
-  margin-top: -7px; /* Align the thumb with the slider track */
 }
-
-#fontSizeDisplay {
-  font-family: inherit;
-  font-weight: bold;
+@media (max-width: 768px) {
+  #upButton {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 40px; /* 20% smaller */
+    height: 40px; /* 20% smaller */
+    font-size: 20px; /* Adjust font size if necessary */
+  }
 }
-
-#processus-description {
-  max-width: 800px;
-  padding-left: 10vw;
-  padding-right: 5vw;
-  padding-top: 20px;
-
-  font-size: 25px;
-  line-height: 30px;
-}
-/****************** image section **************************/
-#imageSection {
-  text-align: center;
-}
-#imageSection > img {
-  width: 90%;
-  max-width: 1200px;
-  margin: 10px;
-}
-/******************************** glyphset ********************************/
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  outline: none;
-  font-size: inherit;
-  font-family: inherit;
-  background-color: #f4f4f4;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-/* .active, .collapsible:hover {
-  background-color: #dfdfdf;
-} */
-
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  display: none;
-  overflow: hidden;
-}
-
-#button {
-  border-top: solid 1px black;
-  /*   padding-bottom: 20px; */
-  /*   border-bottom: solid 1px black; */
-}
-
-#container-en-usage,
-#container-img {
-  height: 400px;
-  background-color: #eaeaea;
-}
-#container-img {
-  margin-bottom: 20px;
-}
-#container-img > * {
-  width: 100%;
-}
-
-.content {
-  border-radius: 25px;
-  background-color: #e7e7e7;
-  border: 1px solid black;
-  padding: 30px;
-  min-width: 350px;
-  max-width: 500px;
-  margin: auto;
-}
-.content > p {
-  line-height: 29px;
-}
-
-/*details*/
-
-#details {
-  margin-bottom: 40px;
-}
-.details-container {
-  display: grid;
-
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  height: 200px;
-  width: 500px;
-  align-items: center;
-  margin: auto;
-  justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 50px;
-
-  border-top: 1px solid black;
-}
-.details-container > p {
-  justify-self: start;
-  align-self: center;
-  padding-left: 50px;
-  width: 200px;
-  border-bottom: 1px solid black;
-  padding-bottom: 23px;
-}
-#detail-designer {
-  grid-column-start: 1 span 1;
-  grid-row: 2 span 1;
-}
-#detail-name {
-  grid-column: 1 span 1;
-  grid-row: 1 span 1;
-}
-#container-container {
-  align-items: center;
-  justify-content: center;
-  margin: auto;
-}
-
-#links {
-  text-align: center;
-  font-size: 24px;
-}
-.links {
-  margin: auto;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  text-decoration: underline 1px solid black;
-  font-size: inherit;
-}
-
-.specimen {
-  margin-bottom: 20px;
-}
-#dl-container {
-  border: 1px solid black;
-}
-#agreeCheckbox {
-  cursor: pointer;
-}
-
-.dl-container > * {
-  padding: 30px;
-}
-#downloadButton {
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  margin: 0;
-  padding: 20px;
-  text-align: inherit;
-  font: inherit;
-  border-radius: 0;
-  appearance: none;
-}
-
-#downloadButton:hover {
-  text-decoration: underline 1px solid black;
-}
-/* #container-bottom{
-  font-size: 1.5em;
-  text-transform: capitalize;
-  height:10vh;
-  width: 100%;
-  border-top: solid black 1px;
-  border-bottom: solid black 1px;
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  text-align: center;
-  vertical-align: middle;
-} */
-
-footer {
-  background-color: #ff8e55;
-  margin-top: 20px;
-  height: 200px;
-  line-height: 16px;
-  text-align: right;
-  padding: 10px 0 20px 0;
-}
-#footer-title {
-  padding-right: 40px;
-  font-size: 29px;
-}
-footer > u {
-  text-decoration: underline 2px solid black;
-}
-footer > li {
-  padding-right: 40px;
-  font-size: 19px;
-  line-height: 14px;
-}
-#link-footer {
-  margin-bottom: 20px;
-}
-
-/* ADDED STYLES */
-article#default {
-  padding: 0 5vw;
+/*compenser pour afficher le menu*/
+@media (max-width: 768px) {
+  #fontes{
+    margin-top: 130px;
+  }
 }
