@@ -9,7 +9,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 <section id="fixed">
     <header class="header">
         <div class="image-container">
-            <a href="index.html"><img id="logo" src="/assets/icons/logo.svg"></a>
+            <a href="/"><img id="logo" src="/assets/icons/logo.svg"></a>
         </div>
       <input class="menu-btn" type="checkbox" id="menu-btn" />
       <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
@@ -25,17 +25,17 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <div class="filter-flex">
         <div class="custom-select select1">
           <select class="select-selected" onchange="sortFonts(this)">
-              <option value="recent">Plus récente</option>
-              <option value="ancient">Plus ancienne</option>
-              <option value="alphabetic">A-Z</option>
-              <option value="reverse-alphabetic">Z-A</option>
+              <option value="recent">plus récente</option>
+              <option value="ancient">plus ancienne</option>
+              <option value="alphabetic">a-z</option>
+              <option value="reverse-alphabetic">z-a</option>
           </select>
         </div>
 
         <div class="custom-select select2">
-            <select class="select-selected" onchange="filterFonts(event)">
+            <select class="select-selected" onchange="filterFonts(this)">
               <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
-                <option value="<?= Str::slug($tag) ?>"><?= $tag ?></option>
+                <option value="<?= Str::slug($tag) ?>"><?= Str::lower($tag) ?></option>
               <?php endforeach; ?>
             </select>
 
@@ -43,10 +43,10 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
         <div class="custom-select select3">
             <select class="select-selected">
-              <option value="0">Projets</option>
-              <option value="1">Fonte variable B3</option>
-              <option value="3">Gothique revival</option>
-              <option value="4">Infini moins 62</option>
+              <option value="0">projets</option>
+              <option value="1">fonte variable B3</option>
+              <option value="3">gothique revival</option>
+              <option value="4">infini moins 62</option>
             </select>
         </div>
     </div>

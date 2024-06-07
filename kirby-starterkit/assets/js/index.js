@@ -85,18 +85,12 @@ function alphabeticSort(list, toggle) {
     .forEach((node) => list[0].parentNode.appendChild(node));
 }
 
-function filterFonts(el) {
-  console.log("click");
-  if (el.dataset.checked == "false") {
-    hideAll();
-    const filteredFonts = document.getElementsByClassName(el.dataset.filter);
-    for (const filteredFont of filteredFonts) {
-      filteredFont.style.display = "block";
-    }
-    el.dataset.checked = "true";
-  } else {
-    el.dataset.checked = "false";
-    showAll();
+function filterFonts(e) {
+  hideAll();
+  const filteredFonts = document.getElementsByClassName(e.value);
+  console.log(e.value);
+  for (const filteredFont of filteredFonts) {
+    filteredFont.style.display = "block";
   }
 }
 
