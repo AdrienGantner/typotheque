@@ -33,7 +33,8 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         </div>
 
         <div class="custom-select select2">
-            <select class="select-selected" onchange="filterFonts(this)">
+            <select class="select-selected" onchange="filterFonts(this)" id="tags-filter">
+              <option value="reset">tous les tags</option>
               <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
                 <option value="<?= Str::slug($tag) ?>"><?= Str::lower($tag) ?></option>
               <?php endforeach; ?>
@@ -42,23 +43,25 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
         </div>
 
         <div class="custom-select select3">
-            <select class="select-selected">
-              <option value="0">projets</option>
-              <option value="1">fonte variable B3</option>
-              <option value="3">gothique revival</option>
-              <option value="4">infini moins 62</option>
+            <select class="select-selected" onchange="filterFontsByCategory(this)" id="categories-filter">
+              <option value="reset">toutes les catégories</option>
+              <?php foreach ($page->children()->listed()->pluck('categories', null, true) as $tag) : ?>
+                <option value="<?= Str::slug($tag) ?>"><?= Str::lower($tag) ?></option>
+              <?php endforeach; ?>
             </select>
         </div>
     </div>
 
     <!-- Loop to display each font -->
-    <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
+    <!-- $index is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
     <?php $index = 0 ?>
     <?php foreach ($page->children()->listed()->flip() as $i => $font) : ?>
     <?php $index++; ?>
 
   <div id="no-shadow" data-order="<?= $index ?>" class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
       echo Str::slug($tag) . ' ';
+  } ?>" data-category="<?php foreach (explode(",", $font->categories()) as $cat) {
+      echo Str::slug($cat);
   } ?>">
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>

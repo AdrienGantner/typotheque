@@ -26,15 +26,22 @@ for (let i = 0; i < coll.length; i++) {
 }
 
 const fonts = document.getElementsByClassName("font-list");
+
 function hideAll() {
   for (const font of fonts) {
     font.style.display = "none";
   }
 }
 
-function showAll() {
+function showAll(category) {
   for (const font of fonts) {
-    font.style.display = "block";
+    if (
+      font.classList.contains(category) ||
+      font.dataset.category == category ||
+      category == "reset"
+    ) {
+      font.style.display = "block";
+    }
   }
 }
 
@@ -86,11 +93,42 @@ function alphabeticSort(list, toggle) {
 }
 
 function filterFonts(e) {
-  hideAll();
-  const filteredFonts = document.getElementsByClassName(e.value);
-  console.log(e.value);
-  for (const filteredFont of filteredFonts) {
-    filteredFont.style.display = "block";
+  const category = document.getElementById("categories-filter");
+
+  if (e.value == "reset") {
+    showAll(category.value);
+  } else {
+    hideAll();
+    const filteredFonts = document.getElementsByClassName(e.value);
+    for (const filteredFont of filteredFonts) {
+      if (
+        filteredFont.dataset.category == category.value ||
+        category.value == "reset"
+      ) {
+        filteredFont.style.display = "block";
+      }
+    }
+  }
+}
+
+function filterFontsByCategory(e) {
+  const tag = document.getElementById("tags-filter");
+
+  if (e.value == "reset") {
+    showAll(tag.value);
+  } else {
+    hideAll();
+
+    if (tag.value == "reset") {
+      showAll(e.value);
+    } else {
+      const filteredFonts = document.getElementsByClassName(tag.value);
+      for (const filteredFont of filteredFonts) {
+        if (filteredFont.dataset.category == e.value || tag.value == "reset") {
+          filteredFont.style.display = "block";
+        }
+      }
+    }
   }
 }
 

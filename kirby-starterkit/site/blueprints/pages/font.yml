@@ -28,6 +28,22 @@ columns:
         label: Fonte(s)
         type: headline
         numbered: false
+      categories:
+        label: Catégories
+        type: tags
+        description: maximum 1 Catégorie
+        max: 1
+        default: projet
+        layout: list
+        options:
+          - text: type/projet
+            value: projet
+          - text: type/fonte-variable-b3
+            value: fonte variable b3
+          - text: type/gothique-revival
+            value: gothique revival
+          - text: type/infini-62
+            value: infini moins 62
       tags:
         label: Tags
         type: tags
