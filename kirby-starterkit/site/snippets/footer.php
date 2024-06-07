@@ -11,14 +11,7 @@
 ?>
 
 <footer>
-<ul>
-    <p id="footer-title"><a href="/"><u>Typotes Club</u></a></p>
-    <ul>
-        <?php snippet('main-menu') ?>
-        <li>
-            <a id="link-footer" target="_blank" href="https://lacambretypo.be/fr">Atelier&nbsp;de&nbsp;typographie La&nbsp;Cambre</a>
-        </li>
-    </ul>
+    <button onclick="topFunction()" id="upButton" title="Go to top">↑</button>
 </footer>
 
   <?= js([

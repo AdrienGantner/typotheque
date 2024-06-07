@@ -5,10 +5,12 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
 ?>
 <?php snippet('header') ?>
-<section id="fixed">
-    <div id="landing">
 
+<section id="fixed">
     <header class="header">
+        <div class="image-container">
+            <a href="index.html"><img id="logo" src="/assets/icons/logo.svg"></a>
+        </div>
       <input class="menu-btn" type="checkbox" id="menu-btn" />
       <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 
@@ -17,50 +19,47 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
       </ul>
 
     </header>
-  </div>
-
-<a href="/"><img id="logo" src="/assets/icons/logo.svg"></a>
-      <!-- Displays greeting only on homepage-->
-      <p id="welcome-text">Typothèque de l'<a id="link" target="_blank"  href="https://lacambretypo.be/fr">atelier Typographie</a><br>de l'ENSAV La Cambre</p>
 </section>
 
-
 <section id="fontes">
-    <div class="font-panel" class="sticky top">
-        <h2>Fontes</h2>
-        <div id="trierpar">
-      <p>
-        Trier par:
-        <button type="button" onclick="recentSort(this)" class="filtres">Plus ancien d'abord</button>
-        <button type="button" onclick="alphabeticSort(this)" class="filtres">A-Z</button>
+    <div class="filter-flex">
+        <div class="custom-select select1">
+          <select onchange="sortFonts(this)">
+              <option value="recent">Plus récente</option>
+              <option value="ancient">Plus ancienne</option>
+              <option value="alphabetic">A-Z</option>
+              <option value="reverse-alphabetic">Z-A</option>
+          </select>
+        </div>
 
-      </p>
+        <div class="custom-select select2">
+            <select onchange="filterFonts(event)">
+              <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
+                <option value="<?= Str::slug($tag) ?>"><?= $tag ?></option>
+              <?php endforeach; ?>
+            </select>
 
-            <ul>
-              <?php foreach ($page->tags()->split() as $category): ?>
-              <li><?= $category ?></li>
-              <?php endforeach ?>
-            </ul>
+        </div>
 
-            <button type="button" class="filtres collapsible">Filtres</button>
-
-        <!-- Liste les tags trouvés dans toutes les pages fontes -->
-          <div class="filtresList">
-            <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
-          <button type="button" class="filtres" data-checked="false" data-filter="<?= Str::slug($tag) ?>" onclick="filterFonts(this)"><?= $tag ?></button>
-            <?php endforeach; ?>
-          </div>
-
+        <div class="custom-select select3">
+            <select>
+              <option value="0">Projets</option>
+              <option value="1">Fonte variable B3</option>
+              <option value="3">Gothique revival</option>
+              <option value="4">Infini moins 62</option>
+            </select>
         </div>
     </div>
 
     <!-- Loop to display each font -->
     <!-- $i is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
+    <?php $index = 0 ?>
     <?php foreach ($page->children()->listed()->flip() as $i => $font) : ?>
+    <?php $index++; ?>
 
-    <div class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
-        echo Str::slug($tag) . ' ';
-    } ?>">
+  <div id="no-shadow" data-order="<?= $index ?>" class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
+      echo Str::slug($tag) . ' ';
+  } ?>">
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
         <div class="font-designer">
@@ -73,18 +72,18 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
       <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
 
       <?php
-      try {
-          $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
+    try {
+        $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
 
-          // echo '<pre>'
-          // print_r($font->fontes()->yaml()[0]['graisse']);
-          // echo '</pre>';
+        // echo '<pre>'
+        // print_r($font->fontes()->yaml()[0]['graisse']);
+        // echo '</pre>';
 
 
-      } catch (Exception $ex) {
-          echo "Pas de fonte par ici";
-          $main_font = "nofont";
-      }
+    } catch (Exception $ex) {
+        echo "Pas de fonte par ici";
+        $main_font = "nofont";
+    }
         ?>
 
         <!-- Ajout des styles de chaque graisse -->
@@ -134,6 +133,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
             </h3>
           </a>
       </div>
-
     <?php endforeach ?>
+</section>
+
 <?php snippet('footer') ?>

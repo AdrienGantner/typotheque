@@ -38,35 +38,42 @@ function showAll() {
   }
 }
 
-function recentSort(el) {
-  // Changer le texte du bouton selon l'ordre affiché
-  if (el.innerText == "Plus récent") {
-    el.innerText = "Plus ancien";
-  } else {
-    el.innerText = "Plus récent";
-  }
-
+function sortFonts(e) {
   const list = document.getElementsByClassName("font-list");
 
-  // Comparer les noms des fontes pour fair le tri.
-  [...list].reverse().forEach((node) => list[0].parentNode.appendChild(node));
+  switch (e.value) {
+    case "ancient":
+      recentSort(list, -1);
+      break;
+
+    case "recent":
+      recentSort(list, 1);
+      break;
+
+    case "alphabetic":
+      alphabeticSort(list, 1);
+      break;
+
+    case "reverse-alphabetic":
+      alphabeticSort(list, -1);
+      break;
+  }
 }
 
-function alphabeticSort(el) {
-  // Changer le texte du bouton selon l'ordre affiché
-  let toggle;
+// Changer le texte du bouton selon l'ordre affiché
+function recentSort(list, toggle) {
+  // Comparer l'ordre des fontes pour fair le tri.
+  // Par défaut, les fontes sont triées de la plus récente à la plus ancienne
 
-  if (el.innerText == "A-Z") {
-    el.innerText = "Z-A";
-    toggle = 1;
-  } else {
-    el.innerText = "A-Z";
-    toggle = -1;
-  }
+  [...list]
+    .sort((a, b) =>
+      a.dataset.order > b.dataset.order ? 1 * toggle : -1 * toggle,
+    )
+    .forEach((node) => list[0].parentNode.appendChild(node));
+}
 
-  // Trier les éléments par leur nom
-  const list = document.getElementsByClassName("font-list");
-
+// Trier les éléments par leur nom
+function alphabeticSort(list, toggle) {
   // Comparer les noms des fontes pour fair le tri.
   [...list]
     .sort((a, b) =>
@@ -91,4 +98,25 @@ function filterFonts(el) {
     el.dataset.checked = "false";
     showAll();
   }
+}
+
+// Get the button
+let mybutton = document.getElementById("upButton");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }

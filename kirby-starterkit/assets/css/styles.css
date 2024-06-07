@@ -1,7 +1,7 @@
-body{
-    margin: 0;
-    padding: 0;
-    font-family: L10;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: L10;
   background: #f4f4f4;
   overflow-x: hidden;
   /* remove browser font-smoothing */
@@ -9,113 +9,24 @@ body{
   -moz-osx-font-smoothing: grayscale;
   font-smooth: never;
 }
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 /* Importer les fontes */
 @font-face {
-    font-family: "Karrik";
-    src: url(fonts/Karrik-Regular.ttf);
+  font-family: "Karrik";
+  src: url("../fonts/Karrik-Regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "L10";
-  src: url(fonts/L10-Regular.ttf);
+  src: url("../fonts/L10-Regular.woff2") format("woff2");
 }
-@font-face {
-  font-family: "L10-Italic";
-  src: url(fonts/L10-RegularItalic.ttf);
-}
-@font-face {
-  font-family: "Calice-serif1";
-  src: url(fonts/calice/Calice-serif1.ttf);
-}
-@font-face {
-  font-family: "Calice-sans";
-  src: url(fonts/calice/Calice-sans.ttf);
-}
-@font-face {
-  font-family: "ouvrieres";
-  src: url(fonts/LesOuvrieres-normales.ttf);
-}
-@font-face {
-    font-family: "woven";
-    src: url(fonts/Woven.ttf);
-}
-@font-face {
-  font-family: "wildflower";
-  src: url(fonts/wildflower-semibold.ttf);
-}
-@font-face {
-  font-family: "insolente";
-  src: url(fonts/Insolente-Regular.ttf);
-}
-@font-face {
-  font-family: "oswald";
-  src: url(fonts/Oswald-VariableFont_wght.ttf);
-}
-@font-face {
-  font-family: "banana";
-  src: url(fonts/Banana-Outline-liga-2023_12_19.otf/Banana-Outline-liga-2023_12_19.otf);
-}
-@font-face {
-  font-family: "Zenith2";
-  src: url(fonts/Zenith3.ttf);
-}
-@font-face {
-    font-family: "Superformula";
-    src: url(fonts/superformula-mono.ttf);
-}
-@font-face {
-    font-family: "Wildflower";
-    src: url(fonts/wildflower-semibold.ttf);
-}
-@font-face {
-    font-family: "Aerobik";
-    src: url(fonts/aerobik-regular.ttf);
-}
-@font-face {
-    font-family: "Aguirre";
-    src: url(fonts/aguirre-demibold.ttf);
-}
-#superformula{
-  font-family: oswald;
-}
-#superformula{
-    font-family: Superformula;
-}
-#aerobik{
-    font-family: Aerobik;
-}
-#aguirre{
-    font-family: Aguirre;
-}
-#zenith{
-    font-family: Zenith2;
-}
-#woven{
-  font-family: woven;
-}
-#calice{
-  font-family: Calice-serif1;
-}
-#ouvrieres{
-  font-family: ouvrieres;
-}
-#insolente{
-  font-family: insolente;
-}
-#wildflower{
-  font-family: Wildflower;
-}
-#banana{
-  font-family: banana;
-}
-a{
-    text-decoration: none;
-    background-color: none;
-    cursor: pointer;
-    color: black;
+a {
+  text-decoration: none;
+  background-color: none;
+  cursor: pointer;
+  color: black;
 }
 /******** header ********/
 
@@ -168,7 +79,7 @@ header .logo {
 header .menu {
   clear: both;
   max-height: 0;
-  transition: max-height .2s ease-out;
+  transition: max-height 0.2s ease-out;
   font-size: 18px;
   position: absolute;
   width: 100%;
@@ -194,18 +105,18 @@ header .menu-icon .navicon {
   display: block;
   height: 2px;
   position: relative;
-  transition: background .2s ease-out;
+  transition: background 0.2s ease-out;
   width: 18px;
 }
 
 header .menu-icon .navicon:before,
 header .menu-icon .navicon:after {
   background: #333;
-  content: '';
+  content: "";
   display: block;
   height: 100%;
   position: absolute;
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
   width: 100%;
 }
 
@@ -250,7 +161,6 @@ header .menu-btn:checked ~ .menu-icon .navicon:after {
 header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
 header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
   top: 0;
-
 }
 
 /* 48em = 768px */
@@ -324,7 +234,7 @@ li {
   text-decoration: none;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   header {
     text-align: center;
     z-index: 10000; /* Ensure header is on top */
@@ -340,11 +250,11 @@ li {
     margin-right: 0px;
   }
 }
-@media(min-width: 768px) {
-  #fixed, header{
-    z-index: -10; 
+@media (min-width: 768px) {
+  #fixed,
+  header {
+    z-index: -10;
   }
-
 }
 
 .image-container {
@@ -354,22 +264,19 @@ li {
   z-index: 10002; /* Ensure it's on top of everything */
 }
 
-
-
 /********************************************** fontes **********************************************/
 
-/* styling of dropdown menus*/ 
+/* styling of dropdown menus*/
 
-#fontes{
+#fontes {
   margin-top: 50px; /* Offset to make space for the fixed section */
   z-index: 0;
 }
 
-
-.filter-flex{
+.filter-flex {
   width: 100%;
- /*  background: rgb(255, 255, 255); */
-  background-color: #F4F4F4;
+  /*  background: rgb(255, 255, 255); */
+  background-color: #f4f4f4;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -377,7 +284,7 @@ li {
 
   border-top-left-radius: 8vh;
   border-top-right-radius: 8vh;
-  
+
   padding-top: 20px;
   padding-bottom: 20px;
   border: 1px solid rgb(119, 119, 119);
@@ -398,7 +305,7 @@ li {
 .select-items {
   border-radius: 0 0 20px 20px; /* Add border radius for styling */
   border: 1px solid black;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   border-top: none;
   overflow: hidden;
   position: absolute; /* Position absolutely */
@@ -415,8 +322,6 @@ li {
   cursor: pointer;
   user-select: none;
   transition: color 0.3s; /* Smooth transition for text color */
-
-
 }
 
 /* Styling the individual options on hover */
@@ -425,38 +330,35 @@ li {
 }
 
 @media (max-width: 1200px) {
-/*   .select1, .select2{
+  /*   .select1, .select2{
     flex: 40%;
   }
   .select3{
     flex: 100%;
   } */
-
 }
 @media (max-width: 600px) {
   .filter-flex {
-      flex-direction: column;
-      width: 100vw;
-      align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
   }
-  .custom-select{
+  .custom-select {
     width: 80vw;
-
   }
 }
-
 
 .custom-select {
   position: relative;
   border-radius: 20px; /* Rounded corners for the whole container */
   min-width: 250px;
   background-color: rgb(245, 245, 245);
-/*   max-width: 30vw; */
+  /*   max-width: 30vw; */
 }
 
-.custom-select select {
-  display: none;
-}
+/* .custom-select select { */
+/*   display: none; */
+/* } */
 
 .select-selected {
   background-color: rgb(245, 245, 245);
@@ -478,7 +380,7 @@ li {
   width: 0;
   height: 0;
   border: 6px solid transparent;
-  border-color: rgb(44, 44, 44) transparent transparent transparent ;
+  border-color: rgb(44, 44, 44) transparent transparent transparent;
 }
 
 .select-selected.select-arrow-active {
@@ -512,7 +414,7 @@ li {
 }
  */
 /* collapsible filters pannel*/
-.content{
+.content {
   min-width: 350px;
   max-width: 500px;
   margin: left;
@@ -521,28 +423,29 @@ li {
   overflow: hidden;
 }
 @media (max-width: 768px) {
-  .content{
-   margin-left: 0;
+  .content {
+    margin-left: 0;
   }
 }
 
 /* styling of buttons*/
-.filtres, #variableButton{
+.filtres,
+#variableButton {
   background: none;
   border-radius: 25px;
   font: inherit;
-	cursor: pointer;
+  cursor: pointer;
   border: 1px solid black;
   padding: 8px;
   margin: 5px;
   color: inherit;
   font-size: 17px;
 }
-#variableButton{
+#variableButton {
   background: none;
   border-radius: 20px;
   font: inherit;
-	cursor: pointer;
+  cursor: pointer;
   border: 1px solid black;
   padding: 5px;
   margin: -5px 5px -4px 10px;
@@ -569,10 +472,12 @@ li {
   }
 }
 
-.filtres:hover{
+.filtres:hover {
   background-color: #fff0f0;
 }
-.filtres.active, .filtres:visited, .filtres:focus{
+.filtres.active,
+.filtres:visited,
+.filtres:focus {
   background-color: #ffd6d6;
 }
 
@@ -588,53 +493,54 @@ li {
 
 @keyframes animate-text {
   0% {
-      font-weight: 200;
+    font-weight: 200;
   }
   50% {
-      font-weight: 700;
+    font-weight: 700;
   }
   100% {
-      font-weight: 200;
+    font-weight: 200;
   }
 }
 
-.font-list{
+.font-list {
   height: 200px;
   width: 100vw;
   position: sticky;
   top: 0;
   z-index: 100;
   text-align: center;
-  padding-top: 10px; 
-/*   background-color: rgba(0, 255, 242, 0.99); */
-/*   background-color: rgba(255, 241, 119, 0.985); */
+  padding-top: 10px;
+  /*   background-color: rgba(0, 255, 242, 0.99); */
+  /*   background-color: rgba(255, 241, 119, 0.985); */
   /*first orange*/
-/*   background-color: rgba(255, 142, 85, 0.97); */
+  /*   background-color: rgba(255, 142, 85, 0.97); */
   /*THE YUMMIEST YELLOW */
   background-color: rgba(255, 227, 85, 0.97);
-/*   background-color: rgba(255, 221, 53, 0.97); */
+  /*   background-color: rgba(255, 221, 53, 0.97); */
 
-  
   overflow: hidden;
-/*   border-top: 1px solid black; */
-border: none;
+  /*   border-top: 1px solid black; */
+  border: none;
   margin-left: auto;
   margin-right: auto;
   transition: background-color 0.5s ease;
   filter: drop-shadow(0 -10px 10px rgba(0, 0, 0, 0.282));
-   /* Compensate for the pseudo-element */
+  /* Compensate for the pseudo-element */
 }
 /*enlever l'ombre de la première fonte sur le menu*/
-#no-shadow{
-filter: none;
-border-top: 1px solid rgba(0, 0, 0, 0.225);
-background-color: rgba(255, 227, 85);
+#no-shadow {
+  filter: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.225);
+  background-color: rgba(255, 227, 85);
 }
 
-.font-list.active,.font-list:hover, .font-list.active:focus,.font-list.active:visited {
- /*  background-color: #ffffff; */
+.font-list.active,
+.font-list:hover,
+.font-list.active:focus,
+.font-list.active:visited {
+  /*  background-color: #ffffff; */
 }
-
 
 .weightbutton {
   display: inline-block;
@@ -647,22 +553,22 @@ background-color: rgba(255, 227, 85);
   color: rgba(0, 0, 0, 0.528);
   border: 0;
   cursor: pointer;
- 
 }
 
 .weightbutton:hover {
   color: black;
   border-color: black;
-/*   text-decoration: underline 1px solid rgb(60, 60, 60); */
+  /*   text-decoration: underline 1px solid rgb(60, 60, 60); */
 }
 
-.weightbutton:active, .weightbutton:focus  {
+.weightbutton:active,
+.weightbutton:focus {
   color: black;
-/*   text-decoration: underline 1px solid black; */
+  /*   text-decoration: underline 1px solid black; */
 }
 
- /* Style the button that is used to open and close the collapsible content */
- .collapsible {
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
   text-align: center;
 }
 
@@ -674,9 +580,9 @@ background-color: rgba(255, 227, 85);
 .fontButtons {
   background: none;
   font: inherit;
-	cursor: pointer;
+  cursor: pointer;
   /* padding: 8px; */
-/*   margin: 5px; */
+  /*   margin: 5px; */
   color: inherit;
   font-weight: normal;
   text-align: left;
@@ -696,8 +602,8 @@ background-color: rgba(255, 227, 85);
   top: 0;
   z-index: 100;
 }
-  
-.editabletxt{
+
+.editabletxt {
   font-size: 110px;
   margin-top: -50px;
   line-height: 250px;
@@ -711,7 +617,7 @@ background-color: rgba(255, 227, 85);
   border-bottom: -50px;
 } */
 
-.fontflex{
+.fontflex {
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -719,32 +625,31 @@ background-color: rgba(255, 227, 85);
   padding-top: 10px;
 }
 
-.font-name, .font-designer{
+.font-name,
+.font-designer {
   flex-grow: 1;
-  text-decoration:none;
-  cursor:pointer;  
+  text-decoration: none;
+  cursor: pointer;
 }
-.font-name{
+
+.font-name {
   text-align: left;
   padding-left: 5vw;
 }
-.font-designer{
+
+.font-designer {
   text-align: right;
   padding-right: 5vw;
 }
 
-
-
-.shadow{
+.shadow {
   height: 3vh;
   background-color: black;
   color: black;
   z-index: 9999;
 }
+
 /*footer*/
-footer{
-/*   text-align: center; */
-}
 #upButton {
   display: none;
   position: fixed;
@@ -758,7 +663,6 @@ footer{
   background-color: black;
   color: white;
   cursor: pointer;
-  /* padding: 15px; */
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -775,7 +679,7 @@ footer{
 }
 /*compenser pour afficher le menu*/
 @media (max-width: 768px) {
-  #fontes{
+  #fontes {
     margin-top: 130px;
   }
 }
