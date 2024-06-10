@@ -47,25 +47,20 @@
     <?php endforeach ?>
   </style>
 
-<!-- <section id="fixed"> -->
-  <div id="landing">
-    <header class="header">
-      <!-- <a href="/" class="logo">Typothèque</a> -->
-      <div id="white-bkgd"></div>
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-      <ul class="menu">
-        <?php snippet('main-menu') ?>
-      </ul>
-
+<header class="header">
     <div class="image-container">
         <a href="/"><img id="logo" src="/assets/icons/logo.svg"></a>
     </div>
-          </header>
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
 
-  </div>
+  <ul class="menu">
+    <?php snippet('main-menu') ?>
+  </ul>
 
-        <article id="main">
+</header>
+
+  <!-- <article id="main"> -->
 
     <!--   FONT NAME   -->
     <div id="container-titre">
@@ -76,9 +71,8 @@
 
     </div>
 
-    <div id="processus">
-      <p id="processus-description"><?= $page->description() ?></p>
-    </div>
+    <p id="description"><?= $page->description() ?></p>
+
   <!-- </section> -->
 
   <div id="imageSection">
@@ -88,24 +82,26 @@
 
   </div>
 
-            <?php foreach ($page->fontes()->yaml() as $font) : ?>
-  <div id="editable-container">
-    <h3><?= Str::slug($font['graisse']) ?></h3>
+    <?php foreach ($page->fontes()->yaml() as $font) : ?>
 
-    <div class="setting-flex">
-      <div class="flex box1">
+        <div id="font-title">
+          <h2><?= Str::slug($font['graisse']) ?></h2>
+        </div>
+
+  <div class="editable-container">
+      <div id="slider-size" class="setting-flex">
         <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
         <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider">
       </div>
 
     <!--Espacement-->
-    <div class="container flex box2">
+    <div class="slider-hide setting-flex">
         <label for="letterSpacingSlider">↔</label>
         <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
     </div>
 
     <!--Interlignage-->
-      <div class="container flex box2">
+      <div class="slider-hide setting-flex">
           <label for="lineHeightSlider">↕</label><br>
           <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
       </div>
@@ -113,11 +109,11 @@
       <!-- Check variable -->
       <?php if ($page->toggleVariable() != "false") : ?>
 
-        <div class="container flex box2">
+        <div class="setting-flex">
         <label for="variable1Slider" class="txt">
           Axe <?= $page->variableAxis1() ?>
-
         </label>
+
           <input type="range"
             id="variable1Slider"
                   data-axis="<?= $page->variableAxis1() ?>"
@@ -131,7 +127,7 @@
 
         <?php if ($page->axesVariable() == "2axes") : ?>
 
-          <div class="container flex box2">
+          <div class="setting-flex">
           <label for="variable2Slider" class="txt">
             Axe <?= $page->variableAxis2() ?>
           </label>
@@ -146,13 +142,11 @@
             </div>
         <?php endif ?>
       <?php endif ?>
-      </div>
 
     <div id="textContainer">
 
       <div
-        class="editabletxt txt"
-        id="editableText"
+        class="editabletxt txt editableText"
         contenteditable="true"
         style="font-family: <?= $page->title()->slug() . "-" . Str::slug($font['graisse']); ?>"
         tag
@@ -165,34 +159,14 @@
     </div>
 
       <?php endforeach ?>
-
   </div>
 
-          <div id="details">
-            <?= $page->title() ?> est sous licence <u>
-
-      <?php if ($page->licence() == "autre"): ?>
-        <?= $page->licenceAutre() ?>
-      <?php elseif ($page->licence() == "tous-droits") :  ?>
-          tous droits réservés
-      <?php elseif ($page->licence() == "OFL") :  ?>
-          OFL
-      <?php elseif ($page->licence() == "ccbysa") :  ?>
-        CC-BY-SA
-      <?php endif ?>
-
-  </u>.<br>
-              Elle a été crée par <u><?= $page->name() ?></u> en <u><?= $page->year()->toDate('Y') ?></u>.
-
-      </div>
-
-  <div id="links">
-    <h3>Glyphset</h3>
-    <div id="glyphset">
+<div class="glyphset-container">
+    <!-- <h2 id="glyphset-button">Glyphset</h2> -->
 
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
       <?php if(isset($font['fichier'][0])) :?>
-        <details class="font-url">
+        <details class="font-url glyphset-button">
           <summary
             data-font-url="<?= url($font["fichier"][0]) ?>"
             data-font-name="<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"
@@ -204,56 +178,99 @@
       <?php endif ?>
     <?php endforeach ?>
 
+</div>
+
+  <div class="flex-container">
+
+    <div class="flex-item" id="license-txt">
+      <p>
+        <?= $page->title() ?> est sous licence&nbsp;<u>
+          <?php if ($page->licence() == "autre") : ?>
+                <a target="_blank" rel="noopener" href="<?= $page->lienLicence() ?>">
+                  <?= $page->licenceAutre() ?>
+                </a>
+          <?php elseif ($page->licence() == "tous-droits") :  ?>
+                <a target="_blank" rel="noopener" href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html">
+                  tous droits réservés
+                </a>
+          <?php elseif ($page->licence() == "OFL") :  ?>
+                <a target="_blank" rel="noopener" href="https://openfontlicense.org/open-font-license-official-text/">
+                  OFL
+                </a>
+          <?php elseif ($page->licence() == "ccbyncsa") :  ?>
+                <a target="_blank" rel="noopener" href="https://creativecommons.org/licences/by-nc-sa/4.0/">
+                  CC-BY-NC-SA
+                </a>
+          <?php endif ?>
+
+        </u>.<br>
+        Elle a été dessinée par <u><?= str_replace(" ", "&nbsp;", $page->name()) ?></u> en&nbsp;<u><?= $page->year()->toDate('Y') ?></u>.
+      </p>
+            <div id="contact">
+              <a target="_blank" rel="noopener" href="<?= $page->site() ?>">Site</a>,
+<a target="_blank" rel="noopener" href="<?= $page->email() ?>">E-mail</a>,
+              <a target="_blank" rel="noopener" href="<?= $page->socials() ?>">Médias sociaux</a>
+            </div>
     </div>
 
-    <!-- Check specimen -->
-    <?php if ($page->specimen() == "SpecimenPDF") :  ?>
-      <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links specimen">Specimen</a>
-    <?php elseif ($page->specimen() == "SpecimenURL") :  ?>
-      <a href='<?= $page->specimenURL() ?>' target="_blank" class="links specimen">Specimen</a>
-    <?php endif ?>
+    <div class="flex-item" id="links">
+      <!-- Check specimen -->
+      <?php if ($page->specimen() == "SpecimenPDF") :  ?>
+        <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links collapsible" id="specimen-button">Specimen</a>
 
-    <button type="button" class="collapsible links">Télécharger</button>
+      <?php elseif ($page->specimen() == "SpecimenURL") :  ?>
+        <a href='<?= $page->specimenURL() ?>' target="_blank" class="links collapsible" id="specimen-button">Specimen</a>
 
-    <!-- Check licence -->
-    <div class="content">
-      <?php if ($page->licence() == "ofl") :  ?>
-        <!-- En vrai c'est mieux de mettre des <p> et de gérer l'espace entre les lignes avec des styles spécifiques -->
-        <p>Cette fonte est téléchargeable sous la licence <a href="https://openfontlicense.org/open-font-license-official-text/" target="_blank"><u>OFL</u></a>.</p>
-          Avec ce fichier, j'ai le droit:<br>
-            d'utiliser la fonte pour un projet personnel.<br>
-            J'ai le droit de l'utiliser pour un usage commercial.</p>
+      <?php endif ?>
 
-      <?php elseif ($page->licence() == "ccbyncsa") :  ?>
-      <p>Cette fonte est téléchargeable sous la licence <a href="https://creativecommons.org/licences/by-nc-sa/4.0/" target="_blank"><u>CC-BY-NC-SA</u></a>.</p>
+      <button type="button" class="collapsible links" id="telecharger-button">Télécharger…</button>
 
-      <?php elseif ($page->licence() == "tous-droits") :  ?>
-        <p>Cette fonte n'est pas téléchargeable. Elle est sous la license <a href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html"><u>tous droits réservés</u></a> © </p>
-      <?php else :  ?>
-        <p>Cette fonte est téléchargeable sous la licence <a href="<?= $page->lienlicence() ?>" target="_blank"><u><?= $page->licenceautre() ?></u></a>.</p>
+      <!-- Check licence -->
+      <div class="content">
+        <?php if ($page->licence() == "ofl") :  ?>
+          <!-- En vrai c'est mieux de mettre des <p> et de gérer l'espace entre les lignes avec des styles spécifiques -->
+          <p>
+            Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="https://openfontlicense.org/open-font-license-official-text/" target="_blank"><u>OFL</u></a>.<br />
+            Vous pouvez utiliser la fonte pour un projet personnel.<br />
+            Vous ne pouvez pas l'utiliser pour un usage commercial. <br />Pour
+                plus d'informations, contactez <?= str_replace(" ", "&nbsp;", $page->name()) ?>.
+          </p>
 
-      <?php endif  ?>
+        <?php elseif ($page->licence() == "ccbyncsa") :  ?>
+        <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="https://creativecommons.org/licences/by-nc-sa/4.0/" target="_blank"><u>CC-BY-NC-SA</u></a>.</p>
 
-        <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
-          <a href="mailto://<?= $page->email() ?>"><?= $page->email() ?></a> </p>
+        <?php elseif ($page->licence() == "tous-droits") :  ?>
+          <p>Cette fonte n'est pas téléchargeable. Elle est sous&nbsp;la&nbsp;license&nbsp;<a href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html"><u>tous droits réservés</u></a> © </p>
+        <?php else :  ?>
+          <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="<?= $page->lienlicence() ?>" target="_blank"><u><?= $page->licenceautre() ?></u></a>.</p>
 
-      <?php if ($page->downloadType() == "downloadable") :  ?>
-        <div id="dl-container">
-          <label>
-            <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
-          </label><br>
-          <a id="downloadLink" class="disabled" href="<?php echo $page->dossierfonte()->toFile(); ?>"
-             download>
-            Télécharger
-          </a>
+        <?php endif  ?>
 
-        </div>
-      <?php endif  ?>
+          <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
+            <a href="mailto:<?= $page->email() ?>"><?= $page->email() ?></a> </p>
+
+        <?php if ($page->downloadType() == "downloadable") :  ?>
+          <div id="dl-container">
+            <label id="conditions">
+              <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation
+            </label><br>
+            <a id="downloadButton" class="disabled" href="<?= $page->dossierfonte()->toFile() ?>"
+               download>
+                  <?php
+                    $filename_splitted = explode("/", $page->dossierfonte()->toFile());
+            ?>
+                  Télécharger <u><?= end($filename_splitted) ?></u>
+            </a>
+
+          </div>
+        <?php endif ?>
+
+      </div>
 
     </div>
 
   </div>
-</article>
+<!-- </article> -->
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
 
 <!-- Load js only on font template -->

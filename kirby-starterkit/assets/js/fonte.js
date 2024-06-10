@@ -1,4 +1,4 @@
-// slider for text size
+// slider for text sizejs
 // Get the elements
 const fontSlider = document.getElementById("fontSlider");
 const fontSizeDisplay = document.getElementById("fontSizeValue");
@@ -21,7 +21,7 @@ fontSlider.addEventListener("input", function () {
 // on met un try/catch pour le cas où il n'y a pas de bouton "Télécharger"
 try {
   const agreeCheckbox = document.getElementById("agreeCheckbox");
-  const downloadLink = document.getElementById("downloadLink");
+  const downloadLink = document.getElementById("downloadButton");
 
   // Enable download button only when checkbox is checked
   agreeCheckbox.addEventListener("change", function () {
