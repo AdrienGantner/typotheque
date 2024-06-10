@@ -65,6 +65,21 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
   } ?>">
           <div class="fontflex">
               <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
+                <div id="fontButtons">
+                  <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
+                <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
+                  <?php if(isset($font_file['fichier'][0])) :?>
+                    <button
+                      type="button"
+                      class="weightbutton weightbutton-active"
+                      data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
+                      onclick="changeFontHome(this)">
+                        <?= $font_file["graisse"] ?>
+                    </button>
+                  <?php endif ?>
+                <?php endforeach ?>
+
+              </div>
         <div class="font-designer">
           <?= $font->name(); ?>
         </div>
@@ -102,24 +117,6 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
 
       </style>
 
-          <div class="fontflex2">
-                <div id="fontButtons">
-                  <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
-                <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
-                  <?php if(isset($font_file['fichier'][0])) :?>
-                    <button
-                      type="button"
-                      class="weightbutton weightbutton-active"
-                      data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
-                      onclick="changeFontHome(this)">
-                        <?= $font_file["graisse"] ?>
-                    </button>
-                  <?php endif ?>
-                <?php endforeach ?>
-
-              </div>
-          </div>
-
           <a href="<?= $font->url(); ?>">
             <!-- TODO : Ajout des classes pour les filtres -->
             <h3
@@ -127,8 +124,8 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
               class="editabletxt "
               style="font-family: <?= $main_font ?>;">
           <?php
-          if (null != $font->content()->text1() && $font->content()->text1() != "") {
-              echo $font->content()->text1();
+          if (null != $font->content()->text2() && $font->content()->text2() != "") {
+              echo $font->content()->text2();
           } else {
               echo "un deux un deux test";
           }
