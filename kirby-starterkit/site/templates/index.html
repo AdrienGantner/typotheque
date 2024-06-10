@@ -4,335 +4,231 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-    <title>Typotes Club</title>
+    <title>Typothèque - Insolente</title>
 
 </head>
 <body>
 
-    <!-------------------------------------------- landing page ------------------------------------------------>
-<section id="fixed">
-    <header>
-        <div class="image-container">
-            <a href="index.html"><img id="logo" src="logo.svg"></a>
-        </div>
-        <input class="menu-btn" type="checkbox" id="menu-btn" />
-        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-        <ul class="menu">
-            <li><a target="_blank" href="https://lacambretypo.be/fr">La Cambre Typo</a></li>
-            <li><a href="#fontes">Fontes</a></li>
-            <li><a href="licences/index.html">Licences</a></li>
-            <li><a href="#apropos">À Propos</a></li>
-        </ul>
-    </header>
-</section>
+<!-------------------------------------------- header------------------------------------------------>
+<header class="header">
+    <ul id="menu">
+        <li><a href="../../index.html#moveable">Fontes</a></li>
+        <li><a href="../../licences/index.html">Licences</a></li>
+        <li><a href="#auhasard">À Propos</a></li>
+    </ul>
+</header>
+<div class="image-container">
+    <a href="../../index.html"><img id="logo" src="../../logo.svg"f></a>
+</div>
+<!-------------------------------------------- fonte ------------------------------------------------>
+<div id="container-titre">
+    <h1>insolente</h1>
+    <button type="button" class="tags">Fonte gothique Eugénie Bidaut 2023</button>
+    <button type="button" class="tags">Sérif</button>
+</div>
+<p id="description">Insolente est produite à partir de caractères que j’ai calligraphié d’après la Gothique Bastarde. Cette fonte est piquante, tranchante. Elle se veut incisive et déterminée à véhiculer des idées coriaces, engagées, queer-trans-féministe, intersectionnelles. Elle a été produite en partie pour mon projet de diplôme sur les archives des événements, des fêtes et des rencontres entre les personnes de la communauté gouin·es et queer. Elle contient un set de glyphes inclusifs qui permettent aux personnes qui l’utilisent de se raconter hors du langage binaire. De parler depuis les marges.</p>
+<div id="imageSection">
+    <img src="images/insolente1.jpg">
+    <img src="images/insolente2.jpg">
+    <img src="images/insolente3.jpg">
+    <img src="images/insolente4.jpg">
+    <img src="images/insolente5.jpg">
+</div>
+<!-------------------------------------------- editeur de texte ------------------------------------------------>
+<div id="font-title">
+    <h2>Insolente - Regular</h2>
+</div>
 
-
-    
-     <!-------------------------------------------- fontes ------------------------------------------------>
-<section id="fontes">
-    <div class="filter-flex">
-        <div class="custom-select select1">
-        <select>
-            <option value="0">Plus récent</option>
-            <option value="1">Plus ancien</option>
-            <option value="2">A-Z</option>
-            <option value="3">Z-A</option>
-        </select>
-        </div>
-    
-        <div class="custom-select select2">
-            <select>
-            <option value="0">Filtres</option>
-            <option value="1">1 style</option>
-            <option value="2" >Plusieurs styles</option>
-            <option value="3" class="border">variable</option>
-    
-            <option value="4">Serif</option>
-            <option value="5">Sans serif</option>
-            <option value="6">Mono</option>
-            <option value="7" class="border">Slab</option>
-    
-            <option value="8">Minuscules</option>
-            <option value="9">Majuscules</option>
-            <option value="10">Caractères spéciaux</option>
-            <option value="11">Glyphes inclusifs (QUNI)</option>
-            </select>
-        </div>
-    
-        <div class="custom-select select3">
-            <select>
-            <option value="0">Projets</option>
-            <option value="1">Fonte variable B3</option>
-            <option value="3">Gothique revival</option>
-            <option value="4">Infini moins 62</option>
-            </select>
-        </div>
+<div id="editable-container">
+    <!--Font size-->
+    <div id="slider-size" class="setting-flex">
+        <label for="fontSizeSlider">Aa</label>
+        <input type="range" min="20" max="350" value="90" class="slider" id="fontSizeSlider">
     </div>
-  
 
-    <div class="font-list" class="sticky" id="no-shadow">
-        <div class="fontflex">
-            <a href="fontes/insolente-download/index.html"><div class="font-name">Insolente</div></a>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-            <div class="font-designer">Marie Godefroy</div>
-        </div>
-   <!--      <div class="fontflex2" id="fontButtons">
-            
-        </div> -->
+    <!--Espacement-->
+    <div class="slider-hide setting-flex">
+        <label for="letterSpacingSlider">↔</label>
+        <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
+    </div>
         
-        <a href="fontes/insolente-download/index.html">
-            <!-- <div class="shadow"></div> -->
-        <p id="insolente" id="idname1" class="editabletxt" >révolution&nbsp;queer! révolution&nbsp;queer</p>
-       
-        </a>
+    <!--Interlignage-->
+    <div class="slider-hide setting-flex">
+        <label for="lineHeightSlider">↕</label><br>
+        <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
     </div>
 
-    <div class="font-list" class="sticky">
-        <div class="fontflex">
-            <a href="fontes/aerobik/index.html"><div class="font-name">Aerobik</div></a>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-            <div class="font-designer">Astride Etienne</div>
+    <!------ VARIABLES ------->
+    <!--variable 1-->
+    <div class="setting-flex">
+        <label for="variable1Slider">Variable 1:</label>
+        <input type="range" id="variable1Slider" class="slider" min="0" max="1000" step="1" value="500">
+    </div>
+    <!--variable 2-->
+    <div class="setting-flex">
+        <label for="variable2Slider">Variable 2:</label>
+        <input type="range" id="variable2Slider" class="slider" min="-10" max="0" step="1" value="0">
+    </div>
+    <div id="textContainer">
+        <div class="editabletxt" id="editableText" contenteditable="true" tag autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"> dans un wagon bleu, tout en mangeant cinq kiwis frais, vous jouez du xylophone</div>
+    </div>
+</div>
+
+
+
+
+<div id="glyphset-container">
+    <button type="button" id="glyphset-button">Glyphset</button>
+</div>
+<!-------------------------------------------- section télécharger --------------------------------------------->
+<!--download section-->
+<div class="flex-container">
+    <div class="flex-item" id="licence-txt">
+        <p>Insolente est sous licence&nbsp;<a target="_blank" href="../../licences/index.html#licence-ofl">OFL.</a><br>
+            Elle a été dessinée par Marie&nbsp;Godefroy en&nbsp;2023. </p>
+        <div id="contact">
+            <a target="_blank" href="https://www.adriengantner.com">Site</a>, <a target="_blank" href="mailto:mariegodefroy51@gmail.com">E-mail</a>, <a target="_blank" href="https://www.instagram.com/riemagodefroy/">Médias sociaux</a>
         </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-                
+    </div>
+    <div class="flex-item" id="links">
+        <div>
+            <!-- <button type="button">Spécimen</button> -->
+            <button type="button" class="collapsible links" id="specimen-button">Spécimen</button><br>
+            <button type="button" class="collapsible links" id="telecharger-button">Télécharger...</button>
+            <div class="content">
+            <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="../../licences/index.html"><u>OFL</u></a>.<br>
+                Vous pouvez utiliser la fonte pour un projet personnel.<br>
+                Vous ne pouvez pas l'utiliser pour un usage commercial. <br>Pour plus d'informations, contactez Marie&nbspGodefroy.</p>
+            <div id="contact2">
+                <a target="_blank" href="https://www.adriengantner.com">Site</a>, <a target="_blank" href="mailto:mariegodefroy51@gmail.com">E-mail</a>, <a target="_blank" href="https://www.instagram.com/riemagodefroy/">Médias sociaux</a>
+            </div>
+            <div id="dl-container">
+                <label id="conditions">
+                <input type="checkbox" id="agreeCheckbox">J'accepte les conditions d'utilisation.
+                </label><br>
+                <button id="downloadButton" disabled>Télécharger <u>insolente.zip</u></button>
+            </div> 
             </div>
         </div>
-        <a href="fontes/aerobik/index.html">
-        <p id="aerobik" id="idname1" class="editabletxt" >Aerobik, Waltz, Boxe, Kajukenbo et Mokomoko</p>
-        </a>
     </div>
+</div>
 
 
-
-
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/ouvrieres/index.html"><div class="font-name">Ouvrières</div></a>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Affamées</button>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Normales</button>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Rassasiées</button>
-            <div class="font-designer">Laure Azizi</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-                
-            </div>
-        </div>
-        
-        <a href="fontes/ouvrieres/index.html">
-        <p id="ouvrieres" id="idname1" class="editabletxt" >ouvrières&nbsp;fourmilières</p>
-        </a>
-        
-    </div>
-    
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/wildflower/index.html"><div class="font-name">Wildflower</div></a>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
-                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button>
-            <div class="font-designer">Clara Bougon</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-                
-            </div>
-        </div>
-        <a href="fontes/wildflower/index.html">
-        <p id="wildflower" id="idname1" class="editabletxt" >Let&nbsp;us&nbsp;propagate, please! Let us propagate, please! </p>
-        </a>
-    </div>
-
-    
-
-   
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/woven/index.html"><div class="font-name">Woven</div></a>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
-                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-                <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button>
-            <div class="font-designer">Anna Le Bec</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-                
-            </div>
-        </div>
-        <a href="fontes/woven/index.html">
-        <p id="woven" id="idname1" class="editabletxt" >cordes&nbsp;textiles&nbsp;soie</p>
-        </a>
-    </div>
-
-
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/zenith/index.html"><div class="font-name">Zénith</div></a>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Light</button>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith5'">Bold</button>
-            <div class="font-designer">Adrien Gantner</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-            </div>
-        </div>
-        <a href="fontes/zenith/index.html">
-        <p id="zenith" id="idname1" class="editabletxt" >Pénombre&nbsp;et&nbsp;crépuscule</p>
-        </a>
-    </div>
-
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/banana/index.html"><div class="font-name">Banana Single Line</div></a>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-            <div class="font-designer">Clara Bougon</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-            </div>
-        </div>
-        <a href="fontes/banana/index.html">
-        <p id="banana" id="idname1" class="editabletxt" >Let us propagate, please! Let us propagate, please! </p>
-        </a>
-    </div>
-    <div class="font-list sticky variableHover" >
-        <div class="fontflex">
-            <a href="fontes/ouvrieres/index.html"><div class="font-name">Osvwald</div></a> <p id="variableButton">variable</p>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-            <div class="font-designer">Prénom Nom</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">  
-            </div>
-        </div>
-        <a href="fontes/oswaldd/index.html">
-        <p id="oswald" id="variableTxt" id="idname1" class="editabletxt" >xerox, fax, scanner</p>
-        </a>
-    </div>
-
-
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/calice/index.html"><div class="font-name">Calice</div></a>
-            <button type="button" class="weightbutton" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith1'">Sans</button>
-                <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Serif</button>
-            <div class="font-designer">Adrien Gantner</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-            </div>
-        </div>
-        <a href="fontes/calice/index.html">
-        <p id="calice" id="idname1" class="editabletxt" >hémisphère&nbsp;cylindre</p>
-        </a>
-    </div>
-
-    <div class="font-list" class="sticky" >
-        <div class="fontflex">
-            <a href="fontes/superformula/index.html"><div class="font-name">Superformula Mono</div></a>
-            <button type="button" class="weightbutton weightbutton-active" onclick="document.getElementById('idname1').style.fontFamily = 'Zenith3'">Regular</button>
-            <div class="font-designer">Jérémie Claes</div>
-        </div>
-        <div class="fontflex2">
-            <div id="fontButtons">
-            </div>
-        </div>
-        <a href="fontes/superformula/index.html">
-        <p id="superformula" id="idname1" class="editabletxt" >Pizza&nbsp;Margahrita et Arancini alla Parmigiana</p>
-        </a>
-    </div>
-</section>
+<!----------functionning link blocks!------------>
+<button onclick="topFunction()" id="upButton" title="Go to top">↑</button>
 
 <footer>
-    <button onclick="topFunction()" id="upButton" title="Go to top">↑</button>
-</footer>
+    <!-- <p><a href="../../index.html">Typotes Club</a> créé par Adrien Gantner.<br>Développement: Adrien Gantner et Thomas Bris</p> -->
+   
 
-<!-- script for dropdown menus-->
+</footer>
+<!---------------------------------------------- SCRIPTS ------------------------------------------------>
+<!--animation collapsible-->
 <script>
-    var x, i, j, l, ll, selElmnt, a, b, c;
-    /*look for any elements with the class "custom-select":*/
-    x = document.getElementsByClassName("custom-select");
-    l = x.length;
-    for (i = 0; i < l; i++) {
-      selElmnt = x[i].getElementsByTagName("select")[0];
-      ll = selElmnt.length;
-      /*for each element, create a new DIV that will act as the selected item:*/
-      a = document.createElement("DIV");
-      a.setAttribute("class", "select-selected");
-      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-      x[i].appendChild(a);
-      /*for each element, create a new DIV that will contain the option list:*/
-      b = document.createElement("DIV");
-      b.setAttribute("class", "select-items select-hide");
-      for (j = 1; j < ll; j++) {
-        /*for each option in the original select element,
-        create a new DIV that will act as an option item:*/
-        c = document.createElement("DIV");
-        c.innerHTML = selElmnt.options[j].innerHTML;
-        c.addEventListener("click", function(e) {
-            /*when an item is clicked, update the original select box,
-            and the selected item:*/
-            var y, i, k, s, h, sl, yl;
-            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            sl = s.length;
-            h = this.parentNode.previousSibling;
-            for (i = 0; i < sl; i++) {
-              if (s.options[i].innerHTML == this.innerHTML) {
-                s.selectedIndex = i;
-                h.innerHTML = this.innerHTML;
-                y = this.parentNode.getElementsByClassName("same-as-selected");
-                yl = y.length;
-                for (k = 0; k < yl; k++) {
-                  y[k].removeAttribute("class");
-                }
-                this.setAttribute("class", "same-as-selected");
-                break;
-              }
-            }
-            h.click();
-        });
-        b.appendChild(c);
-      }
-      x[i].appendChild(b);
-      a.addEventListener("click", function(e) {
-          /*when the select box is clicked, close any other select boxes,
-          and open/close the current select box:*/
-          e.stopPropagation();
-          closeAllSelect(this);
-          this.nextSibling.classList.toggle("select-hide");
-          this.classList.toggle("select-arrow-active");
-        });
+document.addEventListener('DOMContentLoaded', function() {
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+    });
+  }
+});
+</script>
+
+
+<!------------------------------ scripts------------------------------>
+
+<!-- slider for text size -->
+<script>
+    // Get the elements
+    const editableText = document.getElementById('editableText');
+    const fontSizeSlider = document.getElementById('fontSizeSlider');
+    /* const fontSizeDisplay = document.getElementById('fontSizeValue'); */
+
+    // Add event listener to the slider
+    fontSizeSlider.addEventListener('input', function () {
+        // Update the font size of the editable text
+        editableText.style.fontSize = this.value + 'px';
+
+        // Update the font size display
+        /* fontSizeDisplay.textContent = this.value; */
+    });
+</script>
+
+
+<!-- script for line height slider -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const lineHeightSlider = document.getElementById('lineHeightSlider');
+    const textContainer = document.getElementById('textContainer');
+
+    // Update line height on slider change
+    lineHeightSlider.addEventListener('input', function () {
+        const newLineHeight = lineHeightSlider.value;
+        textContainer.style.lineHeight = newLineHeight;
+    });
+});
+</script>
+
+<!-- script for two variable sliders -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const variable1Slider = document.getElementById('variable1Slider');
+    const variable2Slider = document.getElementById('variable2Slider');
+    const letterSpacingSlider = document.getElementById('letterSpacingSlider');
+    const editableText = document.getElementById('editableText');
+
+    variable1Slider.addEventListener('input', function () {
+        const value = variable1Slider.value;
+        updateFontVariation();
+    });
+
+    variable2Slider.addEventListener('input', function () {
+        const value = variable2Slider.value;
+        updateFontVariation();
+    });
+
+    letterSpacingSlider.addEventListener('input', function () {
+        const value = letterSpacingSlider.value;
+        updateFontVariation();
+    });
+
+    function updateFontVariation() {
+        const variable1Value = variable1Slider.value;
+        const variable2Value = variable2Slider.value;
+        const letterSpacingValue = letterSpacingSlider.value;
+        editableText.style.fontVariationSettings = `'wght' ${variable1Value}, 'slnt' ${variable2Value}`;
+        editableText.style.letterSpacing = letterSpacingValue + 'em';
     }
-    function closeAllSelect(elmnt) {
-      /*a function that will close all select boxes in the document,
-      except the current select box:*/
-      var x, y, i, xl, yl, arrNo = [];
-      x = document.getElementsByClassName("select-items");
-      y = document.getElementsByClassName("select-selected");
-      xl = x.length;
-      yl = y.length;
-      for (i = 0; i < yl; i++) {
-        if (elmnt == y[i]) {
-          arrNo.push(i)
+});
+</script>
+<!-- script for download button -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const agreeCheckbox = document.getElementById('agreeCheckbox');
+    const downloadButton = document.getElementById('downloadButton');
+
+    // Enable download button only when checkbox is checked
+    agreeCheckbox.addEventListener('change', function () {
+        downloadButton.disabled = !agreeCheckbox.checked;
+    });
+
+    // Handle download button click
+    downloadButton.addEventListener('click', function () {
+        if (agreeCheckbox.checked) {
+            // Implement download logic here
+            /* alert('En téléchargement...'); */
         } else {
-          y[i].classList.remove("select-arrow-active");
+            alert('Veuillez accepter les conditions d\'utilisation avant de télécharger.');
         }
-      }
-      for (i = 0; i < xl; i++) {
-        if (arrNo.indexOf(i)) {
-          x[i].classList.add("select-hide");
-        }
-      }
-    }
-    /*if the user clicks anywhere outside the select box,
-    then close all select boxes:*/
-    document.addEventListener("click", closeAllSelect);
-    </script>
+    });
+});
+</script>
+
 
 <!--Script for button scroll to top-->
-
 <script>
     // Get the button
     let mybutton = document.getElementById("upButton");
