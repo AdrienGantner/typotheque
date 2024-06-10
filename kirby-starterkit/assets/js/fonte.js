@@ -4,14 +4,45 @@ const fontSlider = document.getElementById("fontSlider");
 const fontSizeDisplay = document.getElementById("fontSizeValue");
 const editable = document.getElementById("editableText");
 
-// Add event listener to the slider
-fontSlider.addEventListener("input", function () {
+// size slider
+function sizeSlider(el) {
+  const editable = el.parentElement.parentElement;
+  const text = editable.getElementsByClassName("editableText")[0];
+  const slider = editable.getElementsByClassName("fontSizeValue")[0];
+
   // Update the font size of the editable text
-  editable.style.fontSize = this.value + "px";
+  text.style.fontSize = el.value + "px";
 
   // Update the font size display
-  fontSizeDisplay.textContent = this.value;
-});
+  slider.textContent = el.value;
+}
+
+// letterspacing slider
+function letterSpacingSlider(el) {
+  const editable = el.parentElement.parentElement;
+  const text = editable.getElementsByClassName("editableText")[0];
+
+  // Update the font size of the editable text
+  text.style.letterSpacing = el.value + "em";
+}
+
+// lineHeight slider
+function lineHeightSlider(el) {
+  const editable = el.parentElement.parentElement;
+  const text = editable.getElementsByClassName("editableText")[0];
+
+  // Update the font size of the editable text
+  text.style.lineHeight = el.value;
+}
+
+// Add event listener to the slider
+// fontSlider.addEventListener("input", function () {
+//   // Update the font size of the editable text
+//   editable.style.fontSize = this.value + "px";
+//
+//   // Update the font size display
+//   fontSizeDisplay.textContent = this.value;
+// });
 
 // On peut faire ça + simplement (et + accesible) en HTML avec l'élément <form>
 // et une <input type="checkbox">, puis juste ajouter la condition pour que cocher
@@ -32,40 +63,47 @@ try {
 }
 
 // script for line height slider
-const letterSpacingSlider = document.getElementById("letterSpacingSlider");
-
-// Update line height on slider change
-letterSpacingSlider.addEventListener("input", function (e) {
-  console.log(e.target.value);
-  editable.style.letterSpacing = letterSpacingSlider.value + "em";
-});
-
-// script for line height slider
-const lineHeightSlider = document.getElementById("lineHeightSlider");
-
-// <!-- script for line height slider -->
-// Update line height on slider change
-lineHeightSlider.addEventListener("input", function (e) {
-  editable.style.lineHeight = lineHeightSlider.value;
-});
+// const letterSpacingSlider = document.getElementById("letterSpacingSlider");
+//
+// // Update line height on slider change
+// letterSpacingSlider.addEventListener("input", function (e) {
+//   console.log(e.target.value);
+//   editable.style.letterSpacing = letterSpacingSlider.value + "em";
+// });
+//
+// // script for line height slider
+// const lineHeightSlider = document.getElementById("lineHeightSlider");
+//
+// // <!-- script for line height slider -->
+// // Update line height on slider change
+// lineHeightSlider.addEventListener("input", function (e) {
+//   editable.style.lineHeight = lineHeightSlider.value;
+// });
+//
 
 // <!-- script for two variable sliders -->
+// const variable1Slider = document.getElementById("variable1Slider");
+// const variable2Slider = document.getElementById("variable2Slider");
+//
+// if (variable1Slider) {
+//   variable1Slider.addEventListener("input", function (e) {
+//     updateFontVariation(e);
+//   });
+// }
+//
+// if (variable2Slider) {
+//   variable2Slider.addEventListener("input", function (e) {
+//     updateFontVariation(e);
+//   });
+// }
+
 const variable1Slider = document.getElementById("variable1Slider");
 const variable2Slider = document.getElementById("variable2Slider");
 
-if (variable1Slider) {
-  variable1Slider.addEventListener("input", function (e) {
-    updateFontVariation(e);
-  });
-}
+function updateFontVariation(el) {
+  const parent = el.parentElement.parentElement;
+  const editable = parent.getElementsByClassName("editableText")[0];
 
-if (variable2Slider) {
-  variable2Slider.addEventListener("input", function (e) {
-    updateFontVariation(e);
-  });
-}
-
-function updateFontVariation(e) {
   const variable1Value = variable1Slider.value;
   const axis1 = variable1Slider.dataset.axis;
   try {

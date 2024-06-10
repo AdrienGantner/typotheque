@@ -85,25 +85,25 @@
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
 
         <div id="font-title">
-          <h2><?= Str::slug($font['graisse']) ?></h2>
+          <h2><?= $page->title() . " " . $font['graisse'] ?></h2>
         </div>
 
   <div class="editable-container">
       <div id="slider-size" class="setting-flex">
-        <div id="fontSizeDisplay"> <span id="fontSizeValue" class="txt">90</span>px</div>
-        <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider">
+        <div id="fontSizeDisplay"> <span class="fontSizeValue" class="txt">90</span>px</div>
+        <input type="range" min="10" max="150" value="90" class="slider txt" id="fontSlider" oninput="sizeSlider(this)">
       </div>
 
     <!--Espacement-->
-    <div class="slider-hide setting-flex">
+    <div class="slider-flex setting-flex">
         <label for="letterSpacingSlider">↔</label>
-        <input type="range" id="letterSpacingSlider" class="slider" min="-0.15" max="0.15" step="0.01" value="0">
+        <input type="range" class="letterSpacingSlider slider" txt" min="-0.15" max="0.15" step="0.01" value="0" oninput="letterSpacingSlider(this)">
     </div>
 
     <!--Interlignage-->
-      <div class="slider-hide setting-flex">
+      <div class="slider-flex setting-flex">
           <label for="lineHeightSlider">↕</label><br>
-          <input type="range" id="lineHeightSlider" class="slider" min="1" max="3" step="0.1" value="1.5">
+          <input type="range" class="lineHeightSlider slider" txt" min="1" max="3" step="0.1" value="1.5" oninput="lineHeightSlider(this)">
       </div>
 
       <!-- Check variable -->
@@ -121,6 +121,7 @@
             min="<?= $page->var1Min() ?>"
             max="<?= $page->var1Max() ?>"
             step="1"
+            oninput="updateFontVariation(this)"
             value="<?= $page->var1Min() ?>">
         </div>
 
@@ -134,9 +135,10 @@
               <input type="range"
                 id="variable2Slider"
                 class="slider"
-                  data-axis="<?= $page->variableAxis2() ?>"
+                data-axis="<?= $page->variableAxis2() ?>"
                 min="<?= $page->var2Min() ?>"
                 max="<?= $page->var2Max() ?>"
+                oninput="updateFontVariation(this)"
                 step="1"
                 value="<?= $page->var2Min() ?>">
             </div>
@@ -162,8 +164,6 @@
   </div>
 
 <div class="glyphset-container">
-    <!-- <h2 id="glyphset-button">Glyphset</h2> -->
-
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
       <?php if(isset($font['fichier'][0])) :?>
         <details class="font-url glyphset-button">
@@ -175,14 +175,15 @@
           </summary>
             <ul class="font-<?= $page->title()->slug(). "-" . Str::slug($font["graisse"]) ?>"></ul>
         </details>
+
       <?php endif ?>
+
     <?php endforeach ?>
 
 </div>
 
   <div class="flex-container">
-
-    <div class="flex-item" id="license-txt">
+    <div class="flex-item" id="licence-txt">
       <p>
         <?= $page->title() ?> est sous licence&nbsp;<u>
           <?php if ($page->licence() == "autre") : ?>
@@ -208,7 +209,7 @@
       </p>
             <div id="contact">
               <a target="_blank" rel="noopener" href="<?= $page->site() ?>">Site</a>,
-<a target="_blank" rel="noopener" href="<?= $page->email() ?>">E-mail</a>,
+              <a target="_blank" rel="noopener" href="mailto:<?= $page->email() ?>">E-mail</a>,
               <a target="_blank" rel="noopener" href="<?= $page->socials() ?>">Médias sociaux</a>
             </div>
     </div>
@@ -216,10 +217,10 @@
     <div class="flex-item" id="links">
       <!-- Check specimen -->
       <?php if ($page->specimen() == "SpecimenPDF") :  ?>
-        <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links collapsible" id="specimen-button">Specimen</a>
+        <a href='<?= $page->specimenPDF() ?>' target="_blank" class="links" id="specimen-button">Specimen</a>
 
       <?php elseif ($page->specimen() == "SpecimenURL") :  ?>
-        <a href='<?= $page->specimenURL() ?>' target="_blank" class="links collapsible" id="specimen-button">Specimen</a>
+        <a href='<?= $page->specimenURL() ?>' target="_blank" class="links" id="specimen-button">Specimen</a>
 
       <?php endif ?>
 

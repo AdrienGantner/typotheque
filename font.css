@@ -2,19 +2,9 @@ a {
   text-decoration: none;
 }
 
-/* Importer les fontes */
-@font-face {
-  font-family: "Karrik";
-  src: url("../fonts/Karrik-Regular.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "L10";
-  src: url("../fonts/L10-Regular.woff2") format("woff2");
-}
-
-body {
-  font-family: "L10";
+a:hover {
+  text-decoration: underline 1px solid;
+  text-underline-offset: 0.3em;
 }
 
 /******************************************** fonte *******************************************/
@@ -162,21 +152,18 @@ select {
   background-color: black;
   border: none;
 }
-
 label,
 #fontSizeDisplay {
   font-size: 18px;
   font-family: inherit;
   margin-right: 10px;
 }
-
-.fontSizeValue {
+#fontSizeValue {
   width: 50px;
   text-align: right;
   display: inline-block;
 }
-
-.fontSlider::-webkit-slider-thumb {
+#fontSlider::-webkit-slider-thumb {
   /* Customize the appearance of the slider thumb for webkit browsers (Chrome, Safari) */
   -webkit-appearance: none;
   width: 10px;
@@ -186,11 +173,13 @@ label,
   cursor: pointer;
   margin-top: -7px; /* Align the thumb with the slider track */
 }
-
 @media (max-width: 768px) {
   .setting-flex {
     flex-direction: column;
     text-align: center;
+    /*     margin-top: 2px; */
+    /*    margin: auto; */
+    /*     margin-bottom: 2px; */
     padding-bottom: 5px;
   }
   #description {
@@ -201,7 +190,6 @@ label,
   input[type="range"] {
     width: 80vw;
   }
-
   .slider-hide {
     display: none;
   }
@@ -239,18 +227,8 @@ button {
 
 .glyphset-container {
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
   margin: auto;
-  padding-top: 40px !important;
-  width: 100%;
-  max-width: 900px;
-  padding: 0 5vw;
-  box-sizing: border-box;
-}
-
-.glyphset-container details[open] {
-  width: 100%;
+  padding-top: 20px;
 }
 
 /**/
@@ -399,14 +377,11 @@ u {
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 70px;
-  width: 100%;
-  max-width: 900px;
+  padding-top: 30px;
 }
-
 #licence-txt {
   text-align: left;
 }
-
 .flex-item {
   /* flex: 1 1 50%; */ /* Equal width for both columns */
   /* Add any additional styling for your columns */
