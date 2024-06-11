@@ -57,7 +57,6 @@
   <ul class="menu">
     <?php snippet('main-menu') ?>
   </ul>
-
 </header>
 
   <!-- <article id="main"> -->
@@ -187,28 +186,20 @@
       <p>
         <?= $page->title() ?> est sous licence&nbsp;<u>
           <?php if ($page->licence() == "autre") : ?>
-                <a target="_blank" rel="noopener" href="<?= $page->lienLicence() ?>">
-                  <?= $page->licenceAutre() ?>
-                </a>
+          <a target="_blank" rel="noopener" href="<?= $page->lienLicence() ?>"><?= $page->licenceAutre() ?></a>
           <?php elseif ($page->licence() == "tous-droits") :  ?>
-                <a target="_blank" rel="noopener" href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html">
-                  tous droits réservés
-                </a>
-          <?php elseif ($page->licence() == "OFL") :  ?>
-                <a target="_blank" rel="noopener" href="https://openfontlicense.org/open-font-license-official-text/">
-                  OFL
-                </a>
+          <a target="_blank" rel="noopener" href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html">tous droits réservés</a>
+          <?php elseif ($page->licence() == "ofl") :  ?>
+          <a target="_blank" rel="noopener" href="https://openfontlicense.org/open-font-license-official-text/">OFL</a>
           <?php elseif ($page->licence() == "ccbyncsa") :  ?>
-                <a target="_blank" rel="noopener" href="https://creativecommons.org/licences/by-nc-sa/4.0/">
-                  CC-BY-NC-SA
-                </a>
+          <a target="_blank" rel="noopener" href="https://creativecommons.org/licences/by-nc-sa/4.0/">CC-BY-NC-SA</a>
           <?php endif ?>
 
         </u>.<br>
         Elle a été dessinée par <u><?= str_replace(" ", "&nbsp;", $page->name()) ?></u> en&nbsp;<u><?= $page->year()->toDate('Y') ?></u>.
       </p>
             <div id="contact">
-              <a target="_blank" rel="noopener" href="<?= $page->site() ?>">Site</a>,
+              <a target="_blank" rel="noopener" href="<?= $page->website() ?>">Site</a>,
               <a target="_blank" rel="noopener" href="mailto:<?= $page->email() ?>">E-mail</a>,
               <a target="_blank" rel="noopener" href="<?= $page->socials() ?>">Médias sociaux</a>
             </div>

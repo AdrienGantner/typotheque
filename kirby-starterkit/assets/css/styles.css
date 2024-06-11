@@ -619,7 +619,7 @@ li {
 .editabletxt {
   font-size: 110px;
   margin-top: -50px;
-  /* line-height: 250px; */
+  line-height: 250px;
   white-space: nowrap;
   overflow: auto;
   /*align text to the left or center*/
@@ -657,6 +657,36 @@ li {
   background-color: black;
   color: black;
   z-index: 9999;
+}
+
+#default {
+  margin: auto;
+  max-width: 900px;
+  width: 100%;
+  padding: 5vw;
+  padding-top: 0px;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+#default h1 {
+  margin-bottom: 3vw;
+}
+
+#default h2,
+#default h3,
+#default h4,
+#default h5,
+#default h6 {
+  margin-top: 1.5em;
+}
+
+#default li + li {
+  margin-top: 0.3em;
+}
+
+#default li::before {
+  content: "→ ";
 }
 
 /*footer*/

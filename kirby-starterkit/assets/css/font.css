@@ -56,7 +56,7 @@ h1 {
 }
 
 /******************************************** éditeur de texte *******************************************/
-.editabletxt {
+.editableText {
   font-size: 86px;
   text-align: center;
   min-width: 90vw;
@@ -70,9 +70,6 @@ h1 {
   word-wrap: break-word; /* Breaks long words */
   overflow-wrap: break-word; /* Ensures text will break within the div */
   overflow: hidden;
-}
-
-.editableText {
   line-height: 1.3;
 }
 

@@ -264,6 +264,6 @@ columns:
           socials:
             label: Médias sociaux
             type: url
-          site:
+          website:
             label: site personnel
             type: url

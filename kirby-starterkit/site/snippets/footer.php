@@ -11,6 +11,10 @@
 ?>
     <button onclick="topFunction()" id="upButton" title="Go to top">↑</button>
 
+    <footer>
+      <!-- <p><a href="../../index.html">Typotes Club</a> créé par Adrien Gantner.<br>Développement: Adrien Gantner et Thomas Bris</p> -->
+    </footer>
+
   <?= js([
     'assets/js/index.js',
     '@auto'
