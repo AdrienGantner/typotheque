@@ -103,7 +103,7 @@
       </div>
 
       <!-- Check variable -->
-      <?php if ($page->toggleVariable() != "false") : ?>
+      <?php if ($page->toggleVariable() != "false" && Str::lower($font['graisse']) == "variable") : ?>
 
         <div class="setting-flex">
         <label for="variable1Slider" class="txt">
@@ -122,7 +122,7 @@
         </div>
 
 
-        <?php if ($page->axesVariable() == "2axes") : ?>
+        <?php if ($page->axesVariable() == "2axes" && Str::lower($font['graisse']) == "variable") : ?>
 
           <div class="setting-flex">
           <label for="variable2Slider" class="txt">

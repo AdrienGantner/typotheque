@@ -217,6 +217,7 @@ columns:
             query: page.documents
           graisse:
             label: Le nom de la "graisse"
+            description: Doit être le mot "variable" pour une fonte variable
             type: text
             required: true
       #dossier de fonte
