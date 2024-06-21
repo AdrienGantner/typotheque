@@ -59,8 +59,6 @@
   </ul>
 </header>
 
-  <!-- <article id="main"> -->
-
     <!--   FONT NAME   -->
     <div id="container-titre">
       <h1 id="font-name"><?= $page->title()->esc() ?></h1>
@@ -82,8 +80,7 @@
   </div>
 
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
-
-        <div id="font-title">
+        <div class="font-title">
           <h2><?= $page->title() . " " . $font['graisse'] ?></h2>
         </div>
 
@@ -191,6 +188,8 @@
           <a target="_blank" rel="noopener" href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html">tous droits réservés</a>
           <?php elseif ($page->licence() == "ofl") :  ?>
           <a target="_blank" rel="noopener" href="https://openfontlicense.org/open-font-license-official-text/">OFL</a>
+          <?php elseif ($page->licence() == "cute") :  ?>
+          <a target="_blank" rel="noopener" href="https://genderfluid.space/documents/2024_BBB_CUTE_FR.pdf">CUTE</a>
           <?php elseif ($page->licence() == "ccbyncsa") :  ?>
           <a target="_blank" rel="noopener" href="https://creativecommons.org/licences/by-nc-sa/4.0/">CC-BY-NC-SA</a>
           <?php endif ?>
@@ -224,9 +223,9 @@
           <p>
             Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="https://openfontlicense.org/open-font-license-official-text/" target="_blank"><u>OFL</u></a>.<br />
             Vous pouvez utiliser la fonte pour un projet personnel.<br />
-            Vous ne pouvez pas l'utiliser pour un usage commercial. <br />Pour
-                plus d'informations, contactez <?= str_replace(" ", "&nbsp;", $page->name()) ?>.
-          </p>
+            Vous ne pouvez pas l'utiliser pour un usage commercial.
+        <?php elseif ($page->licence() == "cute") :  ?>
+        <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="https://genderfluid.space/documents/2024_BBB_CUTE_FR.pdf" target="_blank"><u>CUTE</u></a>.</p>
 
         <?php elseif ($page->licence() == "ccbyncsa") :  ?>
         <p>Cette fonte est téléchargeable sous&nbsp;la&nbsp;licence&nbsp;<a href="https://creativecommons.org/licences/by-nc-sa/4.0/" target="_blank"><u>CC-BY-NC-SA</u></a>.</p>
@@ -238,7 +237,7 @@
 
         <?php endif  ?>
 
-          <p>Pour plus d'informations, contactez <?= $page->name() ?> :</br>
+          <p>Pour plus d'informations, contactez <?= $page->name() ?>&thinsp;:</br>
             <a href="mailto:<?= $page->email() ?>"><?= $page->email() ?></a> </p>
 
         <?php if ($page->downloadType() == "downloadable") :  ?>
@@ -262,7 +261,6 @@
     </div>
 
   </div>
-<!-- </article> -->
 <script src="https://unpkg.com/opentype.js@1.3.4/dist/opentype.js"></script>
 
 <!-- Load js only on font template -->

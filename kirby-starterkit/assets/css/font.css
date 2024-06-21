@@ -26,11 +26,14 @@ h1 {
   margin-bottom: 10px;
 }
 
-#font-title {
-  border-top: 1px solid gray;
+.font-title {
   padding-bottom: 10px;
   height: 60px;
   text-align: center;
+}
+
+#imageSection ~ .font-title {
+	border-top: 1px solid gray;
 }
 
 #description {
@@ -56,7 +59,7 @@ h1 {
 }
 
 /******************************************** éditeur de texte *******************************************/
-.editableText {
+.editabletxt {
   font-size: 86px;
   text-align: center;
   min-width: 90vw;
@@ -70,6 +73,9 @@ h1 {
   word-wrap: break-word; /* Breaks long words */
   overflow-wrap: break-word; /* Ensures text will break within the div */
   overflow: hidden;
+}
+
+.editableText {
   line-height: 1.3;
 }
 
@@ -173,7 +179,7 @@ label,
   display: inline-block;
 }
 
-.fontSlider::-webkit-slider-thumb {
+#fontSlider::-webkit-slider-thumb {
   /* Customize the appearance of the slider thumb for webkit browsers (Chrome, Safari) */
   -webkit-appearance: none;
   width: 10px;
