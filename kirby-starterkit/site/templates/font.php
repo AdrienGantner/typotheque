@@ -198,9 +198,19 @@
         Elle a été dessinée par <u><?= str_replace(" ", "&nbsp;", $page->name()) ?></u> en&nbsp;<u><?= $page->year()->toDate('Y') ?></u>.
       </p>
             <div id="contact">
-              <a target="_blank" rel="noopener" href="<?= $page->website() ?>">Site</a>,
-              <a target="_blank" rel="noopener" href="mailto:<?= $page->email() ?>">E-mail</a>,
-              <a target="_blank" rel="noopener" href="<?= $page->socials() ?>">Médias sociaux</a>
+
+              <?php if (!$page->website()->isEmpty()) : ?>
+                <a target="_blank" rel="noopener" href="<?= $page->website() ?>">Site</a>,
+              <?php endif ?>
+
+              <?php if (!$page->email()->isEmpty()) : ?>
+                <a target="_blank" rel="noopener" href="mailto:<?= $page->email() ?>">E-mail</a>,
+              <?php endif ?>
+
+              <?php if (!$page->socials()->isEmpty()) : ?>
+                <a target="_blank" rel="noopener" href="<?= $page->socials() ?>">Médias sociaux</a>
+              <?php endif ?>
+
             </div>
     </div>
 

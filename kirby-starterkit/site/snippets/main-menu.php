@@ -7,7 +7,6 @@
 $items = $pages->listed();
 
 ?>
-<li><a target="_blank" rel="noopener" href="https://lacambretypo.be/fr">La Cambre Typo</a></li>
 <!-- Always show Fontes page -->
 <li><a<?php e($page->isOpen(), ' class="active"') ?> href="/#fontes">Fontes</a></li>
 
@@ -18,3 +17,4 @@ $items = $pages->listed();
     <?php endforeach ?>
 
 <?php endif ?>
+<li><a target="_blank" rel="noopener" href="https://lacambretypo.be/fr">La Cambre Typo</a></li>
