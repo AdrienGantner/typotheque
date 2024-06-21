@@ -18,3 +18,4 @@ sections:
     templates:
       - home
       - default
+      - licenses

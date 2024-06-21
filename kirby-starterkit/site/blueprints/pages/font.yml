@@ -180,6 +180,7 @@ columns:
           ofl: OFL
           ccbyncsa: CC-BY-NC-SA
           tous-droits: tous droits réservés
+          cute: CUTE
           autre: autre
       licenceAutre:
         label: Nom de la licence
