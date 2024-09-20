@@ -1,0 +1,508 @@
+body {
+  font-family: "L10", sans-serif;
+  background: rgb(245, 245, 245);
+  
+  /* remove browser font-smoothing */
+  -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+font-smooth: never;
+}
+@font-face {
+  font-family: "L10";
+  src: url(L10-Regular.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "L10";
+}
+
+.image-container {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 5%;
+  z-index: 9999; /* Ensure it's on top of everything */
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+a,a:hover{
+  text-decoration: underline 1px solid black;
+  color: black;
+  text-underline-offset: 6px;
+}
+
+/******************************************** section télécharger *******************************************/
+#licence-txt>p{
+    font-size: 25px;
+  line-height: 45px;
+  padding: 25px 0 0 0;
+  padding-left: 5vw;
+
+}
+#glyphset-container>p{
+  font-size: 25px;
+  margin:  0;
+  
+}
+
+@media(max-width: 768px){
+  #licence-txt>p{
+    font-size:22px;
+    line-height: 35px;
+  }
+  h3{
+    font-size: 24px;
+  }
+}
+
+button{
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+#glyphset-container{
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+}
+
+/**/
+/******************************** glyphset ********************************/
+ /* Style the button that is used to open and close the collapsible content */
+ .collapsible {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #F4F4F4;
+}
+
+
+/* Ensure parent container has relative positioning */
+.button-content-container {
+  position: relative;
+}
+
+/* Fixed positioning for the collapsible content */
+.content {
+  width: 100vw; /* Make it full viewport width */
+/*   height: 70vh; */
+  font-size: 24px;
+  text-align: center;
+  position: fixed; /* Change to fixed positioning */
+  top: auto; /* Adjust this value based on the button's position */
+  left: 0;
+  bottom: 1px;
+  display: none;
+  overflow: hidden;
+  z-index: 1000; /* Ensure it stays on top of other content */
+  
+  padding-bottom: 20px; /* Add padding for visual spacing */
+  filter: drop-shadow(0 -10px 10px rgba(0, 0, 0, 0.282));
+  overflow: auto;
+}
+.content>p{ 
+  margin-bottom: 0;
+}
+@media screen and (max-width: 900px) {
+  .content{
+bottom: 0;
+padding-bottom: 70px;
+  }
+}
+.collapsible.active + .content {
+  display: block; /* Display content when active */
+  animation: slideDown 0.5s ease-in-out forwards; /* Apply slide-down animation */
+}
+
+.collapsible:not(.active) + .content {
+  animation: slideUp 0.5s ease-in-out forwards; /* Apply slide-up animation */
+}
+
+@keyframes slideDown {
+  from {
+      max-height: 0;
+      opacity: 0;
+  }
+  to {
+      max-height: 90vh;
+      opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+      max-height: 90vh;
+      opacity: 1;
+  }
+  to {
+      max-height: 0;
+      opacity: 0;
+  }
+}
+
+
+
+
+#links{
+  text-align: right;
+  font-size: 25px;
+  /* margin-top: 50px;
+  padding-right: 100px; */
+  text-underline-offset: 6px;
+  align-self:center;
+  margin-left: auto;
+  margin-right: 5vw;
+}
+.links{
+  margin: auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
+text-decoration: underline 1px solid black;
+  font-size: inherit;
+}
+
+.specimen{
+  margin-bottom: 20px;
+}
+
+#agreeCheckbox{
+  margin-bottom: 20px;
+  font-size: 24px;
+  cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  
+}
+#conditions{
+  font-size: 20px;
+}
+.dl-container{
+  font-size: 30px;
+}
+.dl-container>*{
+  padding: 30px;
+}
+
+#downloadButton{
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  text-align: inherit;
+  font: inherit;
+  border-radius: 0;
+  appearance: none;
+}
+
+#downloadButton:hover{
+  text-decoration: underline 1px solid black;
+  text-underline-offset: 6px;
+}
+
+u{
+  text-underline-offset: 6px;
+}
+
+
+
+
+/***************** download section ********************/
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+#licence-txt{
+  text-align: left;
+}
+.flex-item {
+  /* flex: 1 1 50%; */ /* Equal width for both columns */
+  /* Add any additional styling for your columns */
+  flex-direction: row;
+}
+
+#contact, #contact2{
+  font-size: 21px;
+  text-decoration: none;
+}
+#contact{
+  text-align: left;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  padding-left: 5vw;
+  color: gray;
+}
+#contact>a{
+  text-decoration: none;
+  color: gray;
+}
+#contact2{
+  text-align: center;
+  padding-bottom: 10px;
+}
+#contact2>*{
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+#contact>*:hover{
+  color: black;
+}
+
+#contact2>*:hover{
+  color: black;
+  text-decoration: underline 1px solid black;
+  text-underline-offset: 4px;
+}
+.content>a{
+  color: black;
+}
+.content p a{
+  text-decoration: 1px solid black;
+  text-underline-offset: 4px;
+}
+@media (max-width: 768px){
+  #contact, #licence-txt>p{
+    padding-left: 0;
+  }
+  
+}
+
+@media screen and (max-width: 900px) {
+  .flex-container {
+    flex-direction: column; /* Stack columns vertically for smaller screens */
+    padding-bottom: 60px;
+  }
+  #licence-txt,#contact{
+    text-align: center;
+  }
+  #links{
+    padding: 0;
+    text-align: center;
+    
+    align-self:center;
+    margin: auto;
+  }
+  #glyphset-container{
+    display: none;
+  }
+}
+#container-titre{
+  text-align: center;
+}
+.tags{
+  background-color: rgb(245, 245, 245);
+  color: black;
+  border-radius: 25px;
+  font-size: 16px;
+  width: auto;
+	cursor: pointer;
+  border: 1px solid gray;
+  padding: 5px 8px 5px 8px;
+  margin: 5px;
+  text-decoration: none;
+  
+  margin-bottom: 30px;
+}
+
+.tags:hover,#glyphset-button:hover, #specimen-button:hover {
+  background-color: rgba(255, 227, 85, 0.687);
+}
+#glyphset-button, #specimen-button{
+  background-color: rgb(233, 233, 233);
+  color: black;
+  border-radius: 25px;
+  font-size: 24px;
+  width: 170px;
+	cursor: pointer;
+  border: 1px solid gray;
+  padding: 8px;
+  margin: 5px;
+  text-decoration: none;
+}
+#glyphset-button{
+  width: 150px;
+}
+
+#telecharger-button, #downloadButton{
+  background-color: rgb(37, 37, 37);
+  color: white;
+  border-radius: 25px;
+  width: 180px;
+  margin-top: 5px;
+  text-decoration: none;
+}
+#downloadButton{
+  padding: 10px;
+}
+
+/************************************************* footer **************************************************/
+
+
+#upButton {
+  display: none;
+  position: fixed;
+  text-align: center;
+  bottom: 20px;
+  right: 30px;
+  z-index: 999999;
+  font-family: inherit;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  /* padding: 15px; */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  #upButton {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 40px; /* 20% smaller */
+    height: 40px; /* 20% smaller */
+    font-size: 20px; /* Adjust font size if necessary */
+  }
+}
+
+
+/*********************/
+.grid-container {
+  display: grid;
+  position: sticky;
+  top: 0;
+  /* background-color: rgba(255, 227, 85, 0.97);
+  filter: drop-shadow(0 -10px 10px rgba(0, 0, 0, 0.282)); */
+  font-size: 20px;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: auto; /* Automatically size rows based on content */
+  padding: 2vh 5vw;
+  margin: 0; /* Ensure no margin */
+}
+#cute-p{
+  max-width: 750px;
+  margin: auto;
+}
+.licence-name {
+  grid-column: 1 / -1; /* Span the full width of the container */
+  margin: 0; /* Ensure no margin */
+  padding: 0; /* Ensure no padding */
+  text-align: center;
+  font-size: 30px;
+  padding-top: 17px;
+  padding-bottom: 10px;
+}
+
+.grid-left {
+  text-align: right;
+  padding-right: 20px;
+  margin: 0; /* Ensure no margin */
+  padding: 0; /* Ensure no padding */
+}
+
+.grid-right {
+  margin: 0; /* Ensure no margin */
+  padding: 20px; /* Ensure no padding */
+}
+.grid-left, .grid-right{
+  padding: 20px;
+  font-size: 22px;
+  text-align: left;
+}
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .grid-container {
+      grid-template-columns: 1fr; /* Change to single column */
+      grid-template-rows: auto;   /* Adjust rows to auto height */
+      position: relative;
+      font-size: 24px;
+  }
+  .grid-left, .grid-right {
+      grid-column: 1 / -1; /* Make each item take the full width */
+      text-align: left; /* Optional: adjust text alignment if needed */
+      padding: 12px; /* Reset padding */
+  }
+  .grid-left{
+    text-align: center;
+  }
+
+}
+
+/* Custom arrow as list point */
+.grid-right ul {
+  list-style: none; /* Remove default bullet points */
+  padding-left: 10px; /* Adjust as needed */
+}
+
+.grid-right ul li {
+ /*  margin-bottom: 10px; */ /* Adjust as needed for spacing between list items */
+  position: relative; /* Position relative to use ::before */
+  padding-left: 30px; /* Space for the arrow */
+}
+
+.grid-right ul li::before {
+  content: "\2192"; /* Unicode for right-pointing arrow */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: inherit; /* Inherit font size from parent */
+  line-height: inherit; /* Ensure line height matches text */
+}
+
+#cute>p{
+  grid-column: 1 / -1;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+
+}
+
+#info{
+  height: 450px;
+  /* background: rgb(245, 245, 245); */
+  background-image: url("../licence1.png");
+  background-size: auto;
+  max-width: 100%;
+  
+}
+#info>p{
+  text-align: center;
+}
+
+
+#tdr{
+  background-color:rgb(96, 221, 163);
+}
+#sil{
+  background-color: rgb(212, 255, 127);
+}
+#ccbyncsa{
+  background-color: rgb(195, 127, 255);
+}
+#cute{
+  background-color: rgb(50, 193, 241);
+}

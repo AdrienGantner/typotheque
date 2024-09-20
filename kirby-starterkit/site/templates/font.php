@@ -156,8 +156,8 @@
       </div>
     </div>
 
+        </div>
       <?php endforeach ?>
-  </div>
 
 <div class="glyphset-container">
     <?php foreach ($page->fontes()->yaml() as $font) : ?>

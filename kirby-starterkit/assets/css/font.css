@@ -27,8 +27,6 @@ h1 {
 }
 
 .font-title {
-  padding-bottom: 10px;
-  height: 60px;
   text-align: center;
 }
 
@@ -39,8 +37,7 @@ h1 {
 #description {
   max-width: 750px;
   margin: auto;
-  /* padding-right: 5vw; */
-  /* padding-top: 20px; */
+  padding-top: 20px;
   padding-bottom: 20px;
   font-size: 25px;
   line-height: 30px;
@@ -53,8 +50,7 @@ h1 {
 }
 
 #imageSection > img {
-  width: 90%;
-  max-width: 1000px;
+  max-height: 80vh;
   margin: 10px;
 }
 
@@ -493,8 +489,6 @@ u {
   padding: 5px 8px 5px 8px;
   margin: 5px;
   text-decoration: none;
-
-  margin-bottom: 30px;
 }
 .tags,
 .glyphset-button {

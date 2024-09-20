@@ -30,6 +30,7 @@ a {
   cursor: pointer;
   color: black;
 }
+
 /******** header ********/
 /***************** header, responsive hamburger menu *******************/
 a {
@@ -674,10 +675,26 @@ li {
   padding-top: 0px;
   margin-top: 10px;
   font-size: 25px;
+  margin-bottom: auto;
+}
+
+#default a {
+  text-decoration: underline;
+}
+
+#default a:hover,
+#default a:active,
+#default a:focus {
+  text-decoration: none;
 }
 
 #default h1 {
   margin-bottom: 3vw;
+}
+
+h1 {
+  font-size: 35px;
+  margin-top: 45px;
 }
 
 #default h2,
@@ -818,6 +835,11 @@ ul {
   margin: 0;
 }
 
+p {
+  font-size: 22px;
+  line-height: 28px;
+}
+
 #info {
   height: 450px;
   /* background: rgb(245, 245, 245); */
@@ -831,6 +853,16 @@ ul {
 }
 
 /*footer*/
+#default ~ footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+footer {
+  margin-top: auto;
+}
+
 #upButton {
   display: none;
   position: fixed;

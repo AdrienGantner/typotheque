@@ -67,7 +67,7 @@ columns:
           - text: category/chiffres
             value: chiffres
           - text: category/chspeciaux
-            value: charactères spéciaux
+            value: caractères spéciaux
           - text: category/inclusif
             value: glyphes inclusifs (QUNI)
       description:
