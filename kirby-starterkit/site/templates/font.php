@@ -73,8 +73,8 @@
   <!-- </section> -->
 
   <div id="imageSection">
-    <?php foreach ($page->images() as $image) : ?>
-    <?= $image ?>
+    <?php foreach ($page->content()->get('images')->toFiles() as $image) : ?>
+      <?= $image ?>
     <?php endforeach ?>
 
   </div>
