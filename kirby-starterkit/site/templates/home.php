@@ -58,7 +58,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <?php foreach ($page->children()->listed()->sortBy('year')->flip() as $i => $font) : ?>
     <?php $index++; ?>
 
-  <div id="no-shadow" data-order="<?= $index ?>" class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
+  <div id="no-shadow" data-order="<?= sprintf('%03d', $index); ?>" class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
       echo Str::slug($tag) . ' ';
   } ?>" data-category="<?php foreach (explode(",", $font->categories()) as $cat) {
       echo Str::slug($cat);
