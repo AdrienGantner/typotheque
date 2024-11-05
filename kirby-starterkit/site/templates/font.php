@@ -195,7 +195,7 @@
           <?php endif ?>
 
         </u>.<br>
-        Elle a été dessinée par <u><?= str_replace(" ", "&nbsp;", $page->name()) ?></u> en&nbsp;<u><?= $page->year()->toDate('Y') ?></u>.
+        Elle a été dessinée par <u><?= str_replace(" ", "&nbsp;", $page->name()) ?></u> en&nbsp;<u><?= $page->year() ?></u>.
       </p>
             <div id="contact">
 

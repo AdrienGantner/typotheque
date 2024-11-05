@@ -55,7 +55,7 @@ Renders all the fonts on the website. The homepage acts as an archive page for f
     <!-- Loop to display each font -->
     <!-- $index is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
     <?php $index = 0 ?>
-    <?php foreach ($page->children()->listed()->flip() as $i => $font) : ?>
+    <?php foreach ($page->children()->listed()->sortBy('year')->flip() as $i => $font) : ?>
     <?php $index++; ?>
 
   <div id="no-shadow" data-order="<?= $index ?>" class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
