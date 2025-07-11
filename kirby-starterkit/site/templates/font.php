@@ -161,7 +161,7 @@
 
 <div class="glyphset-container">
     <?php foreach ($page->fontes()->yaml() as $font) : ?>
-      <?php if(isset($font['fichier'][0])) :?>
+      <?php if (isset($font['fichier'][0])) :?>
         <details class="font-url glyphset-button">
           <summary
             data-font-url="<?= url($font["fichier"][0]) ?>"
@@ -185,7 +185,7 @@
           <?php if ($page->licence() == "autre") : ?>
           <a target="_blank" rel="noopener" href="<?= $page->lienLicence() ?>"><?= $page->licenceAutre() ?></a>
           <?php elseif ($page->licence() == "tous-droits") :  ?>
-          <a target="_blank" rel="noopener" href="https://www.tous-droits-reserves.com/utilite-mention-tous-droits-reserves-copyright.html">tous droits réservés</a>
+          <a target="_blank" rel="noopener" href="https://dejuristen.be/propriete-intellectuelle/le-sens-et-le-non-sens-de-tous-droits-reserves/?lang=fr">tous droits réservés</a>
           <?php elseif ($page->licence() == "ofl") :  ?>
           <a target="_blank" rel="noopener" href="https://openfontlicense.org/open-font-license-official-text/">OFL</a>
           <?php elseif ($page->licence() == "cute") :  ?>
