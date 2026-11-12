@@ -1,0 +1,194 @@
+@use "colors";
+
+/********************************************** fontes **********************************************/
+
+/* styling of dropdown menus*/
+
+#fonts {
+    z-index: 0;
+    background: colors.$grey;
+}
+
+.font-filters {
+    width: 100%;
+    background-color: colors.$grey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    --border-top-radius: 60px;
+    border-top-left-radius: var(--border-top-radius);
+    border-top-right-radius: var(--border-top-radius);
+
+    padding: 20px 0;
+    border: 1px solid rgb(119, 119, 119);
+    // outline: 1px solid rgb(119, 119, 119);
+    border-bottom: transparent;
+
+    position: relative;
+    max-height: 700px;
+    /* Example max height */
+    z-index: 9999;
+
+    gap: 20px;
+    font-size: 20px;
+    text-align: left;
+    margin: auto;
+    justify-content: center;
+
+    select {
+        /* display: none; */
+        appearance: none;
+        font-family: "L10";
+        font-size: 20px;
+        min-width: 220px;
+        background-color: rgb(245, 245, 245);
+        border-radius: 100px;
+        padding: 8px 14px;
+        cursor: pointer;
+        position: relative;
+        z-index: 100;
+        border: 1px solid black;
+
+        &:focus-visible {
+            outline: 1px solid black;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .font-filters {
+        flex-direction: column;
+        width: 100vw;
+        align-items: center;
+    }
+}
+
+#font-list {
+    .font-element {
+        height: 210px;
+        width: 100vw;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        text-align: center;
+        padding-top: 20px;
+        /*   background-color: rgba(0, 255, 242, 0.99); */
+        /*   background-color: rgba(255, 241, 119, 0.985); */
+        /*first orange*/
+        /*   background-color: rgba(255, 142, 85, 0.97); */
+        /*THE YUMMIEST YELLOW */
+        background-color: colors.$yellow-home;
+        // background-color: colors.$yellow;
+        /*   background-color: rgba(255, 221, 53, 0.97); */
+
+        overflow: hidden;
+        /*   border-top: 1px solid black; */
+        border: none;
+        margin-left: auto;
+        margin-right: auto;
+        transition: background-color 0.5s ease;
+        /* Compensate for the pseudo-element */
+
+        // filter: drop-shadow(0 -10px 10px rgba(0, 0, 0, 0.282));
+        // box-shadow: 0 -10px 10px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 0px 30px rgba(0, 0, 0, 0.25);
+
+        .font-info {
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 16px;
+            padding: 0 var(--padding-sides);
+            margin-bottom: 10px;
+
+            .left,
+            .right {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .left {
+                text-align: left;
+            }
+
+            .right {
+                text-align: left;
+            }
+
+            .font-styles {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 12px;
+
+                .font-style {
+                    user-select: none;
+                    font-family: inherit;
+                    font-size: 17px;
+                    color: rgba(0, 0, 0, 0.528);
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+
+                    &:hover {
+                        color: black;
+                    }
+
+                    &:active,
+                    &:focus {
+                        color: black;
+                    }
+                }
+            }
+
+            .font-name,
+            .font-designer {
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .new-font-tag {
+                background-color: white;
+                color: black;
+                padding: 3px 8px;
+                font-size: 13px;
+                margin-left: 8px;
+                border-radius: 100px;
+            }
+        }
+
+        .preview {
+            --compensation: 20%;
+            font-size: 110px;
+            // height: 100%;
+            height: 110%;
+            white-space: nowrap;
+            overflow-y: hidden;
+            overflow-x: auto;
+            margin-top: calc(-1 * var(--compensation));
+            padding: var(--compensation) var(--padding-sides);
+            font-weight: normal;
+            // hide scrollbar for MS Edge
+            text-overflow: initial;
+            -ms-text-overflow: none;
+            // hide scrollbar for Firefox
+            scrollbar-width: none;
+
+            // Hide scrollbar for Chromium, Safari and Opera
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+}
+
+// Compenser pour afficher le menu
+@media (max-width: 768px) {
+    #fonts {
+        margin-top: 130px;
+    }
+}

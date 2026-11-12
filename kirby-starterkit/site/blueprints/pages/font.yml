@@ -8,15 +8,15 @@ icon: 🗚
 # Custom descriptions for each page status depending on use case
 # More about page status: https://getkirby.com/docs/reference/panel/blueprints/page#statuses
 status:
-  draft:
-    label: Draft
-    text: The font is still in draft mode. It can only be seen by editors with panel access.
-  unlisted:
-    label: In Review
-    text: The font is online and can be visited with the direct URL. The team must still give the final go to publish it.
-  listed:
-    label: Published
-    text: The font is online and listed in the blog
+    draft:
+        label: Draft
+        text: The font is still in draft mode. It can only be seen by editors with panel access.
+    unlisted:
+        label: In Review
+        text: The font is online and can be visited with the direct URL. The team must still give the final go to publish it.
+    listed:
+        label: Published
+        text: The font is online and listed in the blog
 # Define the form layout with two columns
 # Columns are optional but help structure the form layout
 # More about columns: https://getkirby.com/docs/guide/blueprints/layout#defining-columns
@@ -24,248 +24,203 @@ columns:
   - width: 2/3
     # This columns only has a single field
     fields:
-      fonte:
-        label: Fonte(s)
-        type: headline
-        numbered: false
-      categories:
-        label: Catégories
-        type: tags
-        description: maximum 1 Catégorie
-        max: 1
-        default: projet
-        layout: list
-        options:
-          - text: type/projet
-            value: projet
-          - text: type/fonte-variable-b3
-            value: fonte variable b3
-          - text: type/gothique-revival
-            value: gothique revival
-          - text: type/infini-62
-            value: infini moins 62
-      tags:
-        label: Tags
-        type: tags
-        options:
-          - text: category/serif
-            value: serif
-          - text: category/sansserif
-            value: sans serif
-          - text: category/mono
-            value: mono
-          - text: category/1style
-            value: 1 style
-          - text: category/moreStyles
-            value: plusieurs styles
-          - text: category/variable
-            value: variable
-          - text: category/minuscules
-            value: minuscules
-          - text: category/majuscules
-            value: majuscules
-          - text: category/chiffres
-            value: chiffres
-          - text: category/chspeciaux
-            value: caractères spéciaux
-          - text: category/inclusif
-            value: glyphes inclusifs (QUNI)
-      description:
-        type: textarea
-        autofocus: true
-        label: Description de la fonte
-      text2:
-        label: "texte dans l'éditeur sur la page de fonte"
-        type: text
-        maxlength: 80
-        required: true
-        width: 2/3
-      #fonte variable ou non
-      toggleVariable:
-        label: fonte variable
-        type: toggle
-        # required: true → pas required sinon on est obligé·e de la cocher,
-        # même si on a pas de fonte variable
-        width: 1/2
-      gap1:
-        type: gap
-        width: 1/2
-        when:
-          toggleVariable: false
-      axesVariable:
-        label: Axes variables
-        type: radio
-        when:
-          toggleVariable: true
-        options:
-          1axe: 1 axe variable
-          2axes: 2 axes variables
-        required: true
-        width: 1/2
-      variableAxis1:
-        type: text
-        width: 1/3
-        when:
-          toggleVariable: true
-      var1Min:
-        label: Valeur min axe variable 1
-        type: number
-        placeholder: 0
-        width: 1/3
-        when:
-          toggleVariable: true
-      var1Max:
-        label: Valeur max axe variable 1
-        type: number
-        placeholder: 1000
-        width: 1/3
-        when:
-          toggleVariable: true
-      variableAxis2:
-        type: text
-        width: 1/3
-        when:
-          toggleVariable: true
-          axesVariable: 2axes
-      var2Min:
-        label: Valeur min axe variable 2
-        type: number
-        placeholder: 0
-        width: 1/3
-        when:
-          toggleVariable: true
-          axesVariable: 2axes
-      var2Max:
-        label: Valeur max axe variable 2
-        type: number
-        placeholder: 1000
-        width: 1/3
-        when:
-          toggleVariable: true
-          axesVariable: 2axes
-      #specimen ou non
-      specimen:
-        label: Spécimen
-        type: radio
-        width: 1/3
-        required: true
-        options:
-          noSpecimen: pas de spécimen
-          SpecimenPDF: Spécimen PDF
-          SpecimenURL: Spécimen site
-      gap2:
-        type: gap
-        width: 2/3
-        when:
-          Specimen: noSpecimen
-      specimenURL:
-        label: Spécimen lien URL
-        type: url
-        width: 2/3
-        when:
-          Specimen: SpecimenURL
-      specimenPDF:
-        label: Spécimen PDF
-        type: files
-        max: 1
-        width: 2/3
-        when:
-          Specimen: SpecimenPDF
-      licence:
-        label: licence
-        type: radio
-        width: 1/3
-        required: true
-        options:
-          ofl: OFL
-          ccbyncsa: CC-BY-NC-SA
-          tous-droits: tous droits réservés
-          cute: CUTE
-          autre: autre
-      licenceAutre:
-        label: Nom de la licence
-        type: text
-        width: 1/3
-        required: true
-        when:
-          licence: autre
-      lienLicence:
-        label: Lien de la licence
-        type: url
-        width: 1/3
-        required: true
-        when:
-          licence: autre
-      images:
-        type: files
-        label: "Images format paysage, largeur minimum 1200 pixels. 5 images max"
-        description: "Sélectionnez des images, PNG/JPG, largeur minimum 1200px. 5 images maximum"
-        min: 0
-        max: 5
-        query: page.images # Pour limiter la sélecion aux images
-      #fichier de fonte
-      fontes:
-        label: Fichiers de fonte
-        type: structure
-        fields:
-          fichier:
-            label: Le fichier de fonte (format woff ou ttf)
+        fonte:
+            label: Fonte(s)
+            type: headline
+            numbered: false
+        categories:
+            label: Catégories
+            width: 1/3
+            type: tags
+            description: maximum 1 Catégorie
+            max: 1
+            default: projet
+            layout: list
+            options:
+              - text: type/projet
+                value: projet
+              - text: type/fonte-variable-b3
+                value: fonte variable b3
+              - text: type/gothique-revival
+                value: gothique revival
+              - text: type/infini-62
+                value: infini moins 62
+        tags:
+            label: Tags
+            width: 2/3
+            type: tags
+            options:
+              - text: category/serif
+                value: serif
+              - text: category/sansserif
+                value: sans serif
+              - text: category/mono
+                value: mono
+              - text: category/1style
+                value: 1 style
+              - text: category/moreStyles
+                value: plusieurs styles
+              - text: category/variable
+                value: variable
+              - text: category/minuscules
+                value: minuscules
+              - text: category/majuscules
+                value: majuscules
+              - text: category/chiffres
+                value: chiffres
+              - text: category/chspeciaux
+                value: caractères spéciaux
+              - text: category/inclusif
+                value: glyphes inclusifs (QUNI)
+        description:
+            type: textarea
+            autofocus: true
+            label: Description du projet
+        text2:
+            label: "Texte affiché dans les testeurs de la page de projet"
+            type: text
+            maxlength: 80
+            required: true
+        #specimen ou non
+        specimen:
+            label: Spécimen
+            required: true
+            type: radio
+            default: noSpecimen
+            options:
+                noSpecimen: Pas de spécimen
+                SpecimenPDF: Spécimen PDF
+                SpecimenURL: Spécimen en ligne
+        specimenURL:
+            label: URL du spécimen
+            type: url
+            when:
+                Specimen: SpecimenURL
+        specimenPDF:
+            label: Fichier PDF du spécimen
             type: files
             max: 1
-            template: blocks/font
+            uploads: pdf
+            query: page.files.filterBy('extension', 'pdf')
+            when:
+                Specimen: SpecimenPDF
+        licence:
+            label: Licence
+            type: radio
             required: true
-            query: page.documents
-          graisse:
-            label: Le nom de la "graisse"
-            description: Doit être le mot "variable" pour une fonte variable
+            options:
+                ofl: OFL
+                ccbyncsa: CC-BY-NC-SA
+                tous-droits: tous droits réservés
+                cute: CUTE
+                autre: autre
+        licenceAutre:
+            label: Nom de la licence
             type: text
+            width: 1/3
             required: true
-      #dossier de fonte
-      dossierFonte:
-        label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
-        type: files
-        template: block/zip
-        query: page.files.filterBy('extension', 'zip')
+            when:
+                licence: autre
+        lienLicence:
+            label: Lien de la licence
+            type: url
+            width: 2/3
+            required: true
+            when:
+                licence: autre
+        images:
+            type: files
+            label: "Images format paysage, largeur minimum 1200 pixels. 5 images max"
+            description: "Sélectionnez des images, PNG/JPG, largeur minimum 1200px. 5 images maximum"
+            min: 0
+            max: 5
+            query: page.images # Pour limiter la sélecion aux images
+            uploads: image
+        # fontes:
+        #     label: Fichiers de fonte
+        #     type: structure
+        #     fields:
+        #         fichier:
+        #             label: Le fichier de fonte (format woff ou ttf)
+        #             type: files
+        #             max: 1
+        #             template: blocks/font
+        #             required: true
+        #             query: page.documents
+        #         graisse:
+        #             label: Le nom de la "graisse"
+        #             description: Doit être le mot "variable" pour une fonte variable
+        #             type: text
+        #             required: true
+        fonts:
+            label: Fichiers de fontes
+            width: 2/3
+            help: Télécharger de préférence des fichiers woff2 car c'est un format compressé très léger
+            type: files
+            required: true
+            query: page.files.filterBy('extension', 'in', ['woff2', 'woff2', 'otf', 'ttf'])
+            uploads: font
+        defaultFont:
+            label: Fonte par défaut
+            width: 1/3
+            help: La fonte par défaut est la première affichée sur la page d'accueil de la typothèque et dans le glyphset de la page de fonte. Si aucune fonte par défaut n'est définie, c'est la première fonte dans l'ordre de tri.
+            type: files
+            max: 1
+            # query: page.files.filterBy('extension', 'in', ['woff2', 'woff2', 'otf', 'ttf'])
+            query: page.content.fonts.toFiles
+            uploads: false
+        preserveFontsOrder:
+            label: Respecter l'ordre des fichiers de fontes
+            type: toggle
+            text:
+              - "Non, les fontes seront automatiquement triées dans l'ordre croissant par largeur puis par graisse"
+              - "Oui"
+            default: false
+        dossierFonte:
+            label: Fichier ZIP contenant la fonte, le fichier ReadMe et la licence.
+            type: files
+            uploads: zip
+            query: page.files.filterBy('extension', 'zip')
   - width: 1/3
     # This second column holds a fields section with multiple fields
     # More about fields sections: https://getkirby.com/docs/reference/panel/sections/fields
     sections:
-      meta:
-        type: fields
-        fields:
-          # If you need the same field in multiple locations, you can define them once and reuse whereever needed.
-          # Here we use a files field defined in `/site/blueprints/field/cover.yml`
-          # cover: fields/cover
-          infos:
-            label: Contact
-            type: headline
-            numbered: false
-          name:
-            label: Prénom Nom
-            type: text
-            maxlength: 40
-            required: true
-          year:
-            label: année
-            type: number
-            min: 2000
-            required: true
-          # Fields types can be added using the shortcut `fieldname: true`
-          # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
-          downloadType:
-            label: "Ma fonte est :"
-            required: true
-            type: radio
-            options:
-              downloadable: Téléchargeable directement sur la typothèque par bouton "Télécharger"
-              notDownloadable: Pas téléchargeable, mais accessible en me contactant par mail ou médias sociaux
-          email:
-            label: adresse email
-            type: text
-            required: true
-          socials:
-            label: Médias sociaux
-            type: url
-          website:
-            label: site personnel
-            type: url
+        meta:
+            type: fields
+            fields:
+                # If you need the same field in multiple locations, you can define them once and reuse whereever needed.
+                # Here we use a files field defined in `/site/blueprints/field/cover.yml`
+                # cover: fields/cover
+                infos:
+                    label: Contact
+                    type: headline
+                    numbered: false
+                name:
+                    label: Prénom Nom
+                    type: text
+                    maxlength: 40
+                    required: true
+                year:
+                    label: Année
+                    type: number
+                    min: 2000
+                    required: true
+                # Fields types can be added using the shortcut `fieldname: true`
+                # (however, you can only use a fieldname once per page and this only makes sense for simple fields without configuration)
+                downloadType:
+                    label: "Ma fonte est :"
+                    required: true
+                    type: radio
+                    options:
+                        downloadable: Téléchargeable directement sur la typothèque par bouton "Télécharger"
+                        notDownloadable: Pas téléchargeable, mais accessible en me contactant par mail ou médias sociaux
+                email:
+                    label: Adresse email
+                    type: text
+                    required: true
+                socials:
+                    label: Médias sociaux
+                    type: url
+                website:
+                    label: Site personnel
+                    type: url

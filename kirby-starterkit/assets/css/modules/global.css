@@ -1,0 +1,307 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  font-family: L10;
+  overflow-x: hidden;
+  background: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: never;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  min-height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  cursor: pointer;
+  color: black;
+}
+a:hover, a:focus, a:active {
+  color: inherit;
+}
+
+u {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+/******** header ********/
+/***************** header, responsive hamburger menu *******************/
+header {
+  z-index: -1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 14px var(--padding-sides);
+}
+header.sticky {
+  position: sticky;
+  top: 0;
+}
+header .logo-container {
+  z-index: 10002;
+  /* Ensure it's on top of everything */
+  display: flex;
+}
+header .logo-container a {
+  display: flex;
+}
+header .logo-container a #logo {
+  height: 80px;
+  animation: rotation 20s infinite linear;
+}
+header .menus {
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 22px;
+}
+header .menus div a {
+  font-size: 20px;
+}
+header .menu-icon {
+  cursor: pointer;
+  /* display: inline-block; */
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: 9999;
+}
+header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background 0.2s ease-out;
+  width: 18px;
+}
+header .menu-icon .navicon::before {
+  top: 5px;
+}
+header .menu-icon .navicon::after {
+  top: -5px;
+}
+header .menu-icon .navicon::before, header .menu-icon .navicon::after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+header .menu-btn {
+  display: none;
+}
+header .menu-btn:checked ~ .menu {
+  max-height: 100vh;
+  /* Make the menu cover the whole screen height */
+  position: fixed;
+  /* Ensure the menu is fixed */
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Ensure the menu is on top of other elements */
+  background: #f4f4f4;
+  overflow-y: auto;
+  /* Allow scrolling if the menu is too tall */
+  padding-bottom: 20px;
+  border-bottom: 1px solid black;
+}
+header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+header .menu-btn:checked ~ .menu-icon .navicon::before {
+  transform: rotate(-45deg);
+}
+header .menu-btn:checked ~ .menu-icon .navicon::after {
+  transform: rotate(45deg);
+}
+header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon::before, header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon::after {
+  top: 0;
+}
+header .menus div a:hover,
+header .menu-btn:hover {
+  -webkit-text-decoration: 1px solid black;
+          text-decoration: 1px solid black;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@media (max-width: 768px) {
+  header {
+    text-align: center;
+    background: transparent;
+    z-index: 10000;
+    /* Ensure header is on top */
+  }
+  header .menus div {
+    display: flex;
+    flex-direction: column;
+    padding-top: -20px;
+    background-color: #f4f4f4;
+    z-index: 10001;
+    /* Ensure the list items are on top */
+  }
+}
+@media (min-width: 768px) {
+  header {
+    z-index: 0;
+  }
+  header .menus {
+    clear: none;
+    float: right;
+    max-height: none;
+    position: relative;
+    top: auto;
+  }
+  header .menu-icon {
+    display: none;
+  }
+}
+article#default {
+  margin: 0 auto;
+  font-size: 25px;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 var(--padding-sides);
+}
+article#default p {
+  margin: 26px 0;
+}
+article#default a {
+  text-decoration: underline;
+}
+article#default a:hover, article#default a:active, article#default a:focus {
+  text-decoration: none;
+}
+article#default li + li {
+  margin-top: 0.3em;
+}
+article#default li::before {
+  content: "→ ";
+}
+
+p {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+#page-title {
+  text-align: center;
+  font-size: 40px;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+#intro {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 28px;
+}
+
+/************************************************* footer **************************************************/
+footer {
+  margin-top: auto;
+  background-color: rgb(255, 227, 85);
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.25);
+  height: 10px;
+  width: 100vw;
+  line-height: 16px;
+  text-align: right;
+}
+
+footer > a {
+  /* padding-right: 40px; */
+  font-size: 29px;
+}
+
+footer > p {
+  font-size: 15px;
+  line-height: 20px;
+  color: gray;
+}
+
+#default ~ footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#fonts ~ footer {
+  display: none;
+}
+
+#upButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: fixed;
+  text-align: center;
+  bottom: 35px;
+  right: 30px;
+  z-index: 999999;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  translate: 200% 0;
+  transition: all 0.2s ease-in-out;
+}
+#upButton.visible {
+  visibility: visible;
+  translate: 0 0;
+}
+#upButton:hover {
+  scale: 1.2;
+}
+#upButton:active {
+  scale: 0.85;
+}
+
+@media (max-width: 768px) {
+  #upButton {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 40px;
+    /* 20% smaller */
+    height: 40px;
+    /* 20% smaller */
+    font-size: 20px;
+    /* Adjust font size if necessary */
+  }
+}/*# sourceMappingURL=global.css.map */

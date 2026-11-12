@@ -1,0 +1,100 @@
+@charset "UTF-8";
+#licenses {
+  margin-top: 50px;
+}
+#licenses .license {
+  display: grid;
+  gap: 30px;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.25);
+  font-size: 20px;
+  grid-template-columns: 1fr 2fr;
+  grid-auto-rows: auto;
+  /* Automatically size rows based on content */
+  padding: 35px var(--padding-sides);
+  padding-bottom: 45px;
+}
+#licenses .license:nth-of-type(4n + 1) {
+  background-color: rgb(96, 221, 163);
+}
+#licenses .license:nth-of-type(4n + 2) {
+  background-color: rgb(212, 255, 127);
+}
+#licenses .license:nth-of-type(4n + 3) {
+  background-color: rgb(195, 127, 255);
+}
+#licenses .license:nth-of-type(4n + 4) {
+  background-color: rgb(50, 193, 241);
+}
+#licenses .license > p {
+  grid-column: 1/-1;
+  max-width: 750px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+#licenses .license .license-name {
+  grid-column: 1/-1;
+  /* Span the full width of the container */
+  text-align: center;
+  font-size: 30px;
+}
+#licenses .license .grid-left {
+  text-align: right;
+}
+#licenses .license .grid-right ul {
+  list-style: none;
+  /* Remove default bullet points */
+  padding-left: 10px;
+  /* Adjust as needed */
+}
+#licenses .license .grid-right ul li {
+  /*  margin-bottom: 10px; */
+  /* Adjust as needed for spacing between list items */
+  position: relative;
+  /* Position relative to use ::before */
+  padding-left: 30px;
+  /* Space for the arrow */
+  width: 100%;
+  /* Custom arrow as list point */
+}
+#licenses .license .grid-right ul li::before {
+  content: "→";
+  /* Unicode for right-pointing arrow */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: inherit;
+  /* Inherit font size from parent */
+  line-height: inherit;
+  /* Ensure line height matches text */
+}
+#licenses .license .grid-left,
+#licenses .license .grid-right {
+  font-size: 22px;
+}
+#licenses .license {
+  /* Responsive layout - makes a one column-layout instead of two-column layout */
+}
+@media (max-width: 800px) {
+  #licenses .license {
+    grid-template-columns: 1fr;
+    /* Change to single column */
+    grid-template-rows: auto;
+    /* Adjust rows to auto height */
+    position: relative;
+    font-size: 24px;
+  }
+  #licenses .license .grid-left,
+  #licenses .license .grid-right {
+    grid-column: 1/-1;
+    /* Make each item take the full width */
+    text-align: left;
+    /* Optional: adjust text alignment if needed */
+    padding: 12px;
+    /* Reset padding */
+  }
+  #licenses .license .grid-left {
+    text-align: center;
+  }
+}/*# sourceMappingURL=licenses-page.css.map */

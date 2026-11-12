@@ -1,154 +1,152 @@
-// Lightbox
-Array.from(document.querySelectorAll("[data-lightbox]")).forEach((element) => {
-  element.onclick = (e) => {
-    e.preventDefault();
-    basicLightbox.create(`<img src="${element.href}">`).show();
-  };
-});
+import { FontProjectController } from "./controllers.js";
 
-function changeFontHome(el) {
-  const fontName = el.dataset.fontName;
-  const text = document.getElementById(fontName.split("-")[0]);
-  text.style.fontFamily = fontName;
-}
-
-const coll = document.getElementsByClassName("collapsible");
-for (let i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    let filtresList = this.nextElementSibling;
-    if (filtresList.style.display === "block") {
-      filtresList.style.display = "none";
-    } else {
-      filtresList.style.display = "block";
-    }
-  });
-}
-
-const fonts = document.getElementsByClassName("font-list");
+const fonts = document.getElementsByClassName("font-element");
 
 function hideAll() {
-  for (const font of fonts) {
-    font.style.display = "none";
-  }
+    for (const font of fonts) {
+        font.style.display = "none";
+    }
 }
 
 function showAll(category) {
-  for (const font of fonts) {
-    if (
-      font.classList.contains(category) ||
-      font.dataset.category == category ||
-      category == "reset"
-    ) {
-      font.style.display = "block";
+    for (const font of fonts) {
+        if (
+            font.dataset.tags.split(" ").includes(category) ||
+            font.dataset.category == category ||
+            category == "reset"
+        ) {
+            font.style.display = "block";
+        }
     }
-  }
 }
 
 function sortFonts(e) {
-  const list = document.getElementsByClassName("font-list");
+    const list = document.getElementsByClassName("font-element");
 
-  switch (e.value) {
-    case "ancient":
-      recentSort(list, -1);
-      break;
+    switch (e.value) {
+        case "ancient":
+            recentSort(list, -1);
+            break;
 
-    case "recent":
-      recentSort(list, 1);
-      break;
+        case "recent":
+            recentSort(list, 1);
+            break;
 
-    case "alphabetic":
-      alphabeticSort(list, 1);
-      break;
+        case "alphabetic":
+            alphabeticSort(list, 1);
+            break;
 
-    case "reverse-alphabetic":
-      alphabeticSort(list, -1);
-      break;
-  }
+        case "reverse-alphabetic":
+            alphabeticSort(list, -1);
+            break;
+    }
 }
 
 // Changer le texte du bouton selon l'ordre affiché
 function recentSort(list, toggle) {
-  // Comparer l'ordre des fontes pour fair le tri.
-  // Par défaut, les fontes sont triées de la plus récente à la plus ancienne
+    // Comparer l'ordre des fontes pour fair le tri.
+    // Par défaut, les fontes sont triées de la plus récente à la plus ancienne
 
-  [...list]
-    .sort((a, b) =>
-      a.dataset.order > b.dataset.order ? 1 * toggle : -1 * toggle,
-    )
-    .forEach((node) => list[0].parentNode.appendChild(node));
+    [...list]
+        .sort((a, b) =>
+            a.dataset.order > b.dataset.order ? 1 * toggle : -1 * toggle,
+        )
+        .forEach((node) => list[0].parentNode.appendChild(node));
 }
 
 // Trier les éléments par leur nom
 function alphabeticSort(list, toggle) {
-  // Comparer les noms des fontes pour fair le tri.
-  [...list]
-    .sort((a, b) =>
-      a.querySelector(".font-name").innerText >
-      b.querySelector(".font-name").innerText
-        ? 1 * toggle
-        : -1 * toggle,
-    )
-    .forEach((node) => list[0].parentNode.appendChild(node));
+    // Comparer les noms des fontes pour faire le tri.
+    [...list]
+        .sort((a, b) =>
+            a.querySelector(".font-name").innerText >
+            b.querySelector(".font-name").innerText
+                ? 1 * toggle
+                : -1 * toggle,
+        )
+        .forEach((node) => list[0].parentNode.appendChild(node));
 }
 
-function filterFonts(e) {
-  const category = document.getElementById("categories-filter");
+function filterFonts() {
+    const tagsInput = document.getElementById("tags-filter");
+    const categoryInput = document.getElementById("categories-filter");
 
-  if (e.value == "reset") {
-    showAll(category.value);
-  } else {
-    hideAll();
-    const filteredFonts = document.getElementsByClassName(e.value);
-    for (const filteredFont of filteredFonts) {
-      if (
-        filteredFont.dataset.category == category.value ||
-        category.value == "reset"
-      ) {
-        filteredFont.style.display = "block";
-      }
-    }
-  }
-}
-
-function filterFontsByCategory(e) {
-  const tag = document.getElementById("tags-filter");
-
-  if (e.value == "reset") {
-    showAll(tag.value);
-  } else {
-    hideAll();
-
-    if (tag.value == "reset") {
-      showAll(e.value);
+    if (tagsInput.value == "reset") {
+        showAll(categoryInput.value);
     } else {
-      const filteredFonts = document.getElementsByClassName(tag.value);
-      for (const filteredFont of filteredFonts) {
-        if (filteredFont.dataset.category == e.value || tag.value == "reset") {
-          filteredFont.style.display = "block";
+        hideAll();
+        for (const font of fonts) {
+            if (
+                font.dataset.tags.split(" ").includes(tagsInput.value) &&
+                (font.dataset.category == categoryInput.value ||
+                    categoryInput.value == "reset")
+            ) {
+                font.style.display = "block";
+            }
         }
-      }
     }
-  }
 }
 
-// Get the button
-let mybutton = document.getElementById("upButton");
+function filterFontsByCategory(input) {
+    const tagsInput = document.getElementById("tags-filter");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-  scrollFunction();
-};
+    if (input.value == "reset") {
+        showAll(tagsInput.value);
+    } else {
+        hideAll();
+        // if (tagsInput.value == "reset") {
+        //     showAll(input.value);
+        // } else {
+        //     const filteredFonts = document.getElementsByClassName(
+        //         tagsInput.value,
+        //     );
+        //     for (const filteredFont of filteredFonts) {
+        //         if (
+        //             filteredFont.dataset.category == input.value ||
+        //             tagsInput.value == "reset"
+        //         ) {
+        //             filteredFont.style.display = "block";
+        //         }
+        //     }
+        // }
+        const filteredFonts = document.getElementsByClassName(tagsInput.value);
+        for (const filteredFont of filteredFonts) {
+            if (
+                filteredFont.dataset.category == input.value ||
+                tagsInput.value == "reset"
+            ) {
+                filteredFont.style.display = "block";
+            }
+        }
+    }
+}
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
+window.sortFonts = sortFonts;
+window.filterFonts = filterFonts;
+
+// Read font information
+document.addEventListener("DOMContentLoaded", async (event) => {
+    for (const [fontProjectID, fontProjectData] of Object.entries(
+        window.fontData,
+    )) {
+        var projectController = new FontProjectController(
+            fontProjectData.title,
+            fontProjectData.id,
+            fontProjectData.fonts,
+            fontProjectData.testString,
+            fontProjectData.defaultFont,
+            null,
+            null,
+            document.getElementById(`font-element_${fontProjectData.id}`),
+        );
+
+        await projectController.waitLoaded();
+
+        if (!fontProjectData.preserveFontsOrder) {
+            projectController.sortFontControllers();
+        }
+
+        // Build preview
+        projectController.previewController.build();
+    }
+});

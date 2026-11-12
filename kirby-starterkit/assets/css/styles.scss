@@ -1,0 +1,11 @@
+@use "modules/reset.scss"; // Reset default paddings, margins etc.
+@use "modules/fonts.scss"; // Import fonts
+@use "modules/variables.scss"; // Import variables (measurements...)
+@use "modules/colors.scss"; // Import color variables
+
+@use "modules/global.scss"; // Import global styles
+
+// Import page-specific styles
+@use "modules/home-page.scss"; // Font project page
+@use "modules/font-page.scss"; // Home page
+@use "modules/licenses-page.scss"; // Licenses page

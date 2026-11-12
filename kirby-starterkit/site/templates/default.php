@@ -20,24 +20,13 @@
 ?>
 <?php snippet('header') ?>
 
-<header class="header">
-        <div class="image-container">
-            <a href="/"><img id="logo" src="/assets/icons/logo.svg"></a>
-        </div>
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
-
-      <ul class="menu">
-        <?php snippet('main-menu') ?>
-      </ul>
-
-</header>
+<?php snippet('main-menu') ?>
 
 <article id="default">
-  <h1 class="h1"><?= $page->title()->esc() ?></h1>
-  <div class="text">
-    <?= $page->text()->kt() ?>
-  </div>
+    <h1 id="page-title"><?= $page->title()->esc() ?></h1>
+    <div class="text">
+        <?= $page->text()->kt() ?>
+    </div>
 </article>
 
 <?php snippet('footer') ?>

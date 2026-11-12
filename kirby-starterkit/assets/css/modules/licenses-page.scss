@@ -1,0 +1,113 @@
+#licenses {
+    margin-top: 50px;
+
+    .license {
+        display: grid;
+        gap: 30px;
+        position: sticky;
+        top: 0;
+        box-shadow: 0 0px 30px rgba(0, 0, 0, 0.25);
+        font-size: 20px;
+        grid-template-columns: 1fr 2fr;
+        grid-auto-rows: auto;
+        /* Automatically size rows based on content */
+        padding: 35px var(--padding-sides);
+        padding-bottom: 45px;
+
+        &:nth-of-type(4n + 1) {
+            background-color: rgb(96, 221, 163);
+        }
+
+        &:nth-of-type(4n + 2) {
+            background-color: rgb(212, 255, 127);
+        }
+
+        &:nth-of-type(4n + 3) {
+            background-color: rgb(195, 127, 255);
+        }
+
+        &:nth-of-type(4n + 4) {
+            background-color: rgb(50, 193, 241);
+        }
+
+        > p {
+            grid-column: 1 / -1;
+            max-width: 750px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+
+        .license-name {
+            grid-column: 1 / -1;
+            /* Span the full width of the container */
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .grid-left {
+            text-align: right;
+        }
+
+        .grid-right {
+            ul {
+                list-style: none;
+                /* Remove default bullet points */
+                padding-left: 10px;
+                /* Adjust as needed */
+
+                li {
+                    /*  margin-bottom: 10px; */
+                    /* Adjust as needed for spacing between list items */
+                    position: relative;
+                    /* Position relative to use ::before */
+                    padding-left: 30px;
+                    /* Space for the arrow */
+                    width: 100%;
+
+                    /* Custom arrow as list point */
+                    &::before {
+                        content: "\2192";
+                        /* Unicode for right-pointing arrow */
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: inherit;
+                        /* Inherit font size from parent */
+                        line-height: inherit;
+                        /* Ensure line height matches text */
+                    }
+                }
+            }
+        }
+
+        .grid-left,
+        .grid-right {
+            font-size: 22px;
+        }
+
+        /* Responsive layout - makes a one column-layout instead of two-column layout */
+
+        @media (max-width: 800px) {
+            grid-template-columns: 1fr;
+            /* Change to single column */
+            grid-template-rows: auto;
+            /* Adjust rows to auto height */
+            position: relative;
+            font-size: 24px;
+
+            .grid-left,
+            .grid-right {
+                grid-column: 1 / -1;
+                /* Make each item take the full width */
+                text-align: left;
+                /* Optional: adjust text alignment if needed */
+                padding: 12px;
+                /* Reset padding */
+            }
+
+            .grid-left {
+                text-align: center;
+            }
+        }
+    }
+}

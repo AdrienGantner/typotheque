@@ -6,17 +6,25 @@ icon: 🏠
 # Here we prevent changing the page status (the home page cannot be renamed or deleted by default)
 # More about page options: https://getkirby.com/docs/reference/panel/blueprints/page#options
 options:
-  changeStatus: false
+    changeStatus: false
 # Here we define an info section and a pages section (`photography`)
 sections:
-  content:
-    type: fields
-    fields:
-      headline:
-        type: text
-        width: 1/2
-      # gap:
-      #   width: 1/2
-      subheadline:
-        type: text
-        width: 1/2
+    content:
+        type: fields
+        fields:
+            headline:
+                type: text
+                width: 1/2
+            # gap:
+            #   width: 1/2
+            subheadline:
+                type: text
+                width: 1/2
+            # maintenance:
+            #     label: Mode maintenance
+            #     type: toggle
+            #     text:
+            #       - Site en ligne
+            #       - Site en maintenance
+            #     default: false
+            #     help: Montrer la page de maintenance aux visiteur·ice·s

@@ -1,0 +1,780 @@
+@charset "UTF-8";
+/******************************************** fonte *******************************************/
+#font-project #title-container {
+	padding: 0 var(--padding-sides);
+	margin-bottom: 40px;
+}
+#font-project #title-container #font-name {
+	text-align: center;
+	font-size: 40px;
+}
+#font-project #title-container #tags-container {
+	margin-top: 14px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+#font-project #title-container #tags-container .tag {
+	background-color: rgba(255, 227, 85, 0.6);
+	border-radius: 25px;
+	font-size: 16px;
+	width: -moz-fit-content;
+	width: fit-content;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: all 0.1s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#font-project #title-container #tags-container .tag:hover {
+	background-color: #ffe355;
+}
+#font-project #presentation {
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 40px;
+	height: -moz-fit-content;
+	height: fit-content;
+}
+#font-project #presentation:not(:has(.images-container)) {
+	max-width: 750px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#font-project #presentation:not(:has(.left .description)) {
+	padding-left: initial;
+}
+#font-project #presentation:not(:has(.left .description)) .images-container {
+	padding-left: initial !important;
+	border-left: initial !important;
+}
+#font-project
+	#presentation:not(:has(.left .description))
+	.images-container
+	.images {
+	padding-left: var(--padding-sides) !important;
+	scroll-padding-left: var(--padding-sides) !important;
+}
+#font-project #presentation:has(.images-container) {
+	padding-left: var(--padding-sides);
+	gap: 40px;
+}
+#font-project #presentation:has(.images-container) .left {
+	width: 470px;
+}
+#font-project #presentation:has(.images-container) .images-container {
+	width: 100%;
+}
+#font-project
+	#presentation:has(.images-container)
+	.images-container:not(:has(.images img:only-child)) {
+	border-left: 1px solid black;
+}
+#font-project #presentation:has(.images-container) .images-container .images {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	overflow-x: scroll;
+	gap: 14px;
+	padding-right: var(--padding-sides);
+	scroll-snap-type: x proximity;
+	position: sticky;
+	top: 30px;
+}
+#font-project
+	#presentation:has(.images-container)
+	.images-container
+	.images:not(:has(img:only-child)) {
+	padding-left: 30px;
+	scroll-padding-left: 30px;
+}
+#font-project
+	#presentation:has(.images-container)
+	.images-container
+	.images:not(:has(img:only-child))
+	img {
+	max-height: 80vh;
+	width: 100%;
+	height: 100%;
+	-o-object-fit: contain;
+	object-fit: contain;
+	scroll-snap-align: start;
+}
+#font-project
+	#presentation:has(.images-container)
+	.images-container
+	.images:has(img:only-child)
+	img:only-child {
+	width: 100%;
+	height: 100%;
+}
+#font-project #presentation .left {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 26px;
+}
+#font-project #presentation .left .description {
+	font-size: 25px;
+	line-height: 30px;
+}
+#font-project #presentation .left .document-links {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+#font-project #presentation .left .document-links .link {
+	padding: 3px 8px;
+	border-radius: 100px;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+#font-testers {
+	--open-extra-translateX: 200px;
+	display: flex;
+	flex-direction: column;
+	padding: 0 var(--padding-sides);
+}
+#font-testers .font-tester {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+	position: relative;
+}
+#font-testers .font-tester .header {
+	padding: 25px 0 24px;
+	z-index: 1;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 24px;
+	background: linear-gradient(
+		180deg,
+		#f4f4f4 0%,
+		#f4f4f4 78%,
+		rgba(244, 244, 244, 0) 100%
+	);
+}
+#font-testers .font-tester .header .font-title {
+	flex: 1;
+	font-size: 20px;
+	width: -moz-fit-content;
+	width: fit-content;
+	text-align: left;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#font-testers .font-tester .header .font-title.variable::after {
+	content: "variable";
+	padding: 4px 8px;
+	background-color: #ffe355;
+	color: black;
+	border-radius: 100px;
+	margin-left: 12px;
+	font-size: 16px;
+	position: relative;
+	bottom: -1.2px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#font-testers .font-tester .header .settings-container {
+	flex: 1;
+	display: flex;
+	flex-flow: row wrap;
+	gap: 24px;
+	width: -moz-fit-content;
+	width: fit-content;
+	align-items: center;
+	justify-content: flex-end;
+}
+#font-testers .font-tester .header .settings-container #extra-settings-button {
+	font-size: 16px;
+	cursor: pointer;
+	position: relative;
+}
+#font-testers
+	.font-tester
+	.header
+	.settings-container
+	#extra-settings-button
+	.icon {
+	font-size: 24px;
+	cursor: pointer;
+	position: relative;
+	bottom: 2px;
+	margin: 0;
+	transition: all 0.2s ease-in-out;
+	transform-origin: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#font-testers .font-tester .setting-flex {
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+}
+#font-testers .font-tester .setting-flex label {
+	font-size: inherit;
+	font-family: inherit;
+	margin-right: 10px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#font-testers .font-tester .setting-flex input[type="range"] {
+	width: 90px;
+	margin-top: 10px;
+	/* Customize the appearance of the slider track */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: 1px;
+	background-color: black;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+#font-testers
+	.font-tester
+	.setting-flex
+	input[type="range"]::-webkit-slider-thumb {
+	width: 10px;
+	/* Adjust the width as needed */
+	height: 10px;
+	/* Adjust the height as needed */
+	border-radius: 50%;
+	background-color: black;
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	-webkit-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+#font-testers
+	.font-tester
+	.setting-flex
+	input[type="range"]::-webkit-slider-thumb:hover {
+	scale: 1.4;
+}
+#font-testers
+	.font-tester
+	.setting-flex
+	input[type="range"]::-webkit-slider-thumb:active {
+	scale: 0.85;
+}
+#font-testers .font-tester .setting-flex input[type="range"]::-moz-range-thumb {
+	width: 10px;
+	/* Adjust the width as needed */
+	height: 10px;
+	/* Adjust the height as needed */
+	border-radius: 50%;
+	background-color: black;
+	cursor: pointer;
+	border: none;
+	-moz-transition: all 0.15s ease-in-out;
+	transition: all 0.15s ease-in-out;
+}
+#font-testers
+	.font-tester
+	.setting-flex
+	input[type="range"]::-moz-range-thumb:hover {
+	scale: 1.4;
+}
+#font-testers
+	.font-tester
+	.setting-flex
+	input[type="range"]::-moz-range-thumb:active {
+	scale: 0.85;
+}
+#font-testers .font-tester .setting-flex select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	padding: 6px 11px;
+	border-radius: 100px;
+	font-size: inherit;
+	width: 150px;
+	box-sizing: border-box;
+	border: 1px solid black;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: inherit;
+	z-index: 1;
+	/* Ensure the select element is above the icon */
+}
+#font-testers .font-tester .setting-flex select:focus-visible {
+	outline: 1px solid black;
+}
+#font-testers .font-tester .setting-flex.button {
+	cursor: pointer;
+	transition: all 0.1s ease-in-out;
+}
+#font-testers .font-tester .setting-flex.button img {
+	height: 18px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	pointer-events: none;
+}
+#font-testers .font-tester .setting-flex.button:active {
+	scale: 0.8;
+}
+#font-testers .font-tester .editable-text {
+	padding: 0 0 35px;
+	translate: 0 0;
+	white-space: normal;
+	/* Allows text to wrap */
+	word-wrap: break-word;
+	/* Breaks long words */
+	overflow-wrap: break-word;
+	/* Ensures text will break within the div */
+	overflow: hidden;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	transition: translate 0.2s ease-in-out;
+}
+#font-testers .font-tester .editable-text:focus-visible {
+	outline: initial;
+}
+#font-testers .font-tester:first-child {
+	border-top: 1px solid black;
+}
+#font-testers .font-tester:last-child {
+	border-bottom-color: black;
+}
+#font-testers .font-tester.open-extra #extra-settings-button .icon {
+	rotate: 45deg;
+}
+#font-testers .font-tester.open-extra #extra-settings {
+	translate: 0 0;
+	visibility: visible;
+}
+#font-testers .font-tester.open-extra .editable-text {
+	translate: calc(-1 * var(--open-extra-translateX)) 0;
+}
+#font-testers .font-tester #extra-settings {
+	overflow-y: scroll;
+	width: -moz-max-content;
+	width: max-content;
+	height: 100%;
+	translate: var(--open-extra-translateX) 0;
+	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	position: absolute;
+	top: 0;
+	right: calc(-1 * var(--padding-sides));
+	padding: 80px var(--padding-sides) 35px 0;
+	transform-origin: top right;
+	transition: all 0.2s ease-in-out;
+}
+#font-testers .font-tester #extra-settings .setting-flex {
+	width: 100%;
+	justify-content: space-between;
+}
+#font-testers .font-tester #extra-settings .setting-flex input[type="range"] {
+	width: 110px;
+}
+#font-testers .font-tester #extra-settings #axes-sliders {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 6px;
+}
+#font-testers .font-tester #extra-settings #axes-sliders label {
+	width: 100%;
+	text-align: right;
+}
+#font-testers .font-tester #extra-settings #feature-tags {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+}
+#font-testers .font-tester #extra-settings #feature-tags .tag {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+#font-testers .font-tester #extra-settings #feature-tags .tag .button {
+	font-size: 14px;
+	padding: 2px;
+	width: 48px;
+	text-align: center;
+	margin-right: 12px;
+	border-radius: 100px;
+	background-color: rgba(0, 0, 0, 0.08);
+	transition: all 0.1s ease-in-out;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
+#font-testers .font-tester #extra-settings #feature-tags .tag .button:hover {
+	background-color: rgba(0, 0, 0, 0.16);
+}
+#font-testers .font-tester #extra-settings #feature-tags .tag .button:active {
+	scale: 0.9;
+}
+#font-testers .font-tester #extra-settings #feature-tags .tag .button.active {
+	background-color: rgb(255, 227, 85);
+}
+#font-testers .font-tester #extra-settings #feature-tags .tag .label {
+	text-align: right;
+}
+
+#glyphset {
+	display: flex;
+	flex-direction: column;
+	margin: 0 var(--padding-sides);
+	padding: 44px 0;
+	border-bottom: 1px solid black;
+}
+#glyphset .settings-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 24px;
+}
+#glyphset .settings-container .style-select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	text-align: center;
+	padding: 6px 11px;
+	border-radius: 100px;
+	font-size: inherit;
+	box-sizing: border-box;
+	border: 1px solid black;
+	background-color: transparent;
+	cursor: pointer;
+	font-family: inherit;
+	z-index: 1;
+}
+#glyphset .settings-container .style-select:focus-visible {
+	outline: 1px solid black;
+}
+#glyphset .settings-container .style-select:disabled {
+	color: inherit;
+	opacity: 0.4;
+	cursor: initial;
+}
+#glyphset .glyphs-container {
+	--box-size: 4rem;
+	width: 100%;
+	display: grid;
+	gap: 4px;
+	grid-template-columns: repeat(auto-fit, minmax(var(--box-size), 1fr));
+}
+#glyphset .glyphs-container .glyph {
+	--hover-scale: 2.5;
+	--border-radius: 7px;
+	position: relative;
+	height: var(--box-size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: white;
+	border-radius: var(--border-radius);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	transition:
+		all 0.1s ease-in-out,
+		border-radius 0s;
+}
+#glyphset .glyphs-container .glyph:hover {
+	z-index: 1;
+	scale: var(--hover-scale);
+	background-color: black;
+	color: white;
+}
+#glyphset .glyphs-container .glyph:hover .info {
+	transition-duration: 0.2s;
+	transition-delay: 0.15s;
+	visibility: visible;
+	opacity: 1;
+	top: 90%;
+}
+#glyphset .glyphs-container .glyph:active {
+	scale: 2;
+}
+#glyphset .glyphs-container .glyph * {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#glyphset .glyphs-container .glyph .character {
+	font-family: var(--font-family);
+	font-size: 2rem;
+	width: -moz-fit-content;
+	width: fit-content;
+}
+#glyphset .glyphs-container .glyph .info {
+	transition: all 0.1s ease-in-out 0s;
+	z-index: -1;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	visibility: hidden;
+	opacity: 0;
+	background-color: black;
+	font-size: calc(16px / var(--hover-scale));
+	text-align: center;
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+	padding: 0 7px 7px;
+}
+#glyphset .glyphs-container .glyph .info .name {
+	word-break: break-word;
+}
+
+#info {
+	padding-top: 44px;
+	padding-bottom: 90px;
+	margin: 0 var(--padding-sides);
+	display: flex;
+	flex-flow: row wrap;
+}
+#info .left {
+	flex: 1;
+}
+#info .left p {
+	font-size: 25px;
+	margin-bottom: 12px;
+}
+#info .left .contact {
+	font-size: 20px;
+	margin-top: 22px;
+	display: flex;
+	flex-direction: row;
+}
+#info .left .contact a {
+	transition: all 0.1s ease-in-out;
+	opacity: 0.5;
+}
+#info .left .contact a:not(:first-child)::before {
+	transition: initial;
+	content: "•";
+	margin: 0 6px;
+}
+#info .left .contact a:hover {
+	opacity: 1;
+}
+#info .left .contact a:hover::before {
+	opacity: 0.5;
+}
+#info .right {
+	display: flex;
+	flex-direction: row;
+	gap: 14px;
+}
+#info .right #download-button {
+	width: -moz-fit-content;
+	width: fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+	z-index: 10;
+	--padding: 9px 17px;
+	position: relative;
+	background-color: black;
+	color: white;
+	border-radius: 100px;
+	font-size: 25px;
+}
+#info .right #download-button .container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	border-radius: inherit;
+	padding: var(--padding);
+	position: relative;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: pointer;
+	gap: 12px;
+}
+#info .right #download-button .container .text {
+	transition: all 0.1s ease-in-out;
+}
+#info .right #download-button .container .file-size {
+	padding: var(--padding);
+	padding-left: 20px;
+	transition: all 0.1s ease-in-out;
+	z-index: 1;
+	text-align: right;
+	width: -moz-fit-content;
+	width: fit-content;
+	position: absolute;
+	top: 0;
+	right: -100%;
+	background: linear-gradient(
+		-90deg,
+		rgb(0, 0, 0) 0%,
+		rgb(0, 0, 0) 85%,
+		rgba(0, 0, 0, 0) 100%
+	);
+}
+#info .right #download-button .container:hover .text {
+	opacity: 0.5;
+}
+#info .right #download-button .container:hover .file-size {
+	right: 0%;
+}
+#info .right #download-button .popup {
+	min-width: 360px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	z-index: 1;
+	position: absolute;
+	bottom: calc(100% + 10px);
+	right: 0;
+	background-color: rgb(255, 227, 85);
+	padding: 18px 24px;
+	border-radius: 20px;
+	color: black;
+	font-size: 20px;
+	visibility: hidden;
+	opacity: 0;
+	scale: 0.4;
+	transition: all 0.15s cubic-bezier(0.65, 0.05, 0.36, 1);
+	transform-origin: bottom right;
+}
+#info .right #download-button .popup.visible {
+	visibility: visible;
+	scale: 1;
+	opacity: 1;
+}
+#info .right #download-button .popup p {
+	font-size: inherit;
+	line-height: 120%;
+}
+#info .right #download-button .popup .download-section {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+#info .right #download-button .popup .download-section .conditions {
+	text-align: center;
+	font-size: 17px;
+	position: relative;
+}
+#info
+	.right
+	#download-button
+	.popup
+	.download-section
+	.conditions
+	input[type="checkbox"] {
+	--size: 17px;
+	accent-color: black;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	height: var(--size);
+	width: var(--size);
+	background-color: rgba(0, 0, 0, 0.16);
+	border-radius: calc(0.3 * var(--size));
+	position: relative;
+	bottom: -2.5px;
+	margin-right: 2px;
+	transition: all 0.1s ease-in-out;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+#info
+	.right
+	#download-button
+	.popup
+	.download-section
+	.conditions
+	input[type="checkbox"]:checked {
+	background-image: url(../icons/check.svg);
+	background-color: black;
+}
+#info .right #download-button .popup .download-section .conditions label {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#info .right #download-button .popup .download-section #popup-download-button {
+	background-color: black;
+	color: white;
+	border-radius: 100px;
+	padding: 8px 14px;
+	margin: 0 auto;
+	width: -moz-max-content;
+	width: max-content;
+	transition: all 0.1s ease-in-out;
+}
+#info
+	.right
+	#download-button
+	.popup
+	.download-section
+	#popup-download-button.disabled {
+	opacity: 0.25;
+	pointer-events: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+#info .right #specimen-button {
+	width: -moz-fit-content;
+	width: fit-content;
+	height: -moz-fit-content;
+	height: fit-content;
+	--padding: 9px 17px;
+	background-color: rgba(0, 0, 0, 0.08);
+	border-radius: 100px;
+	font-size: 25px;
+	padding: var(--padding);
+	transition: all 0.2s ease-in-out;
+}
+#info .right #specimen-button:hover {
+	background-color: rgba(0, 0, 0, 0.14);
+}
+
+/******************************************** éditeur de texte *******************************************/
+/*font slider*/
+@media (max-width: 768px) {
+	.setting-flex {
+		flex-direction: column;
+		text-align: center;
+		padding-bottom: 5px;
+	}
+	#description {
+		margin-left: 5vw;
+		margin-right: 5vw;
+	}
+	input[type="range"] {
+		width: 80vw;
+	}
+}
+@media (max-width: 768px) {
+	h3 {
+		font-size: 24px;
+	}
+} /*# sourceMappingURL=font-page.css.map */

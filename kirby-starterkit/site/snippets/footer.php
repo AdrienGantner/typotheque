@@ -9,16 +9,15 @@
   https://getkirby.com/docs/guide/templates/snippets
 */
 ?>
-    <button onclick="topFunction()" id="upButton" title="Go to top">↑</button>
+<div onclick="topFunction()" id="upButton" title="Go to top">↑</div>
 
-    <footer>
-      <!-- <p><a href="../../index.html">Typotes Club</a> créé par Adrien Gantner.<br>Développement: Adrien Gantner et Thomas Bris</p> -->
-    </footer>
+<footer></footer>
 
-  <?= js([
-    'assets/js/index.js',
+<?= js([
+    'assets/js/global.js',
     '@auto'
-  ]) ?>
+]) ?>
 
 </body>
+
 </html>

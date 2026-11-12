@@ -1,139 +1,162 @@
 <?php
-/*
-Renders all the fonts on the website. The homepage acts as an archive page for fonts, the only content type.
-*/
+
+// Renders all the fonts on the website. The homepage acts as an archive page for fonts, the only content type.
 
 ?>
+<?php snippet('font-functions') ?>
 <?php snippet('header') ?>
+<?php snippet('main-menu') ?>
 
-<section id="fixed">
-    <header class="header">
-        <div class="image-container">
-            <a href="/"><img id="logo" src="/assets/icons/logo.svg"></a>
-        </div>
-      <input class="menu-btn" type="checkbox" id="menu-btn" />
-      <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+<section id="fonts">
+    <div class="font-filters">
+        <select oninput="sortFonts(this)" id="sorting-mode">
+            <option value="recent">plus récente</option>
+            <option value="ancient">plus ancienne</option>
+            <option value="alphabetic">a-z</option>
+            <option value="reverse-alphabetic">z-a</option>
+        </select>
 
-      <ul class="menu">
-        <?php snippet('main-menu') ?>
-      </ul>
-
-    </header>
-</section>
-
-<section id="fontes">
-    <div class="filter-flex">
-        <div class="custom-select select1">
-          <select class="select-selected" onchange="sortFonts(this)">
-              <option value="recent">plus récente</option>
-              <option value="ancient">plus ancienne</option>
-              <option value="alphabetic">a-z</option>
-              <option value="reverse-alphabetic">z-a</option>
-          </select>
-        </div>
-
-        <div class="custom-select select2">
-            <select class="select-selected" onchange="filterFonts(this)" id="tags-filter">
-              <option value="reset">tous les tags</option>
-              <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
+        <select oninput="filterFonts()" id="tags-filter">
+            <option value="reset">tous les tags</option>
+            <?php foreach ($page->children()->listed()->pluck('tags', ',', true) as $tag) : ?>
                 <option value="<?= Str::slug($tag) ?>"><?= Str::lower($tag) ?></option>
-              <?php endforeach; ?>
-            </select>
+            <?php endforeach; ?>
+        </select>
 
-        </div>
-
-        <div class="custom-select select3">
-            <select class="select-selected" onchange="filterFontsByCategory(this)" id="categories-filter">
-              <option value="reset">toutes les catégories</option>
-              <?php foreach ($page->children()->listed()->pluck('categories', null, true) as $tag) : ?>
+        <select oninput="filterFonts()" id="categories-filter">
+            <option value="reset">toutes les catégories</option>
+            <?php foreach ($page->children()->listed()->pluck('categories', null, true) as $tag) : ?>
                 <option value="<?= Str::slug($tag) ?>"><?= Str::lower($tag) ?></option>
-              <?php endforeach; ?>
-            </select>
-        </div>
+            <?php endforeach; ?>
+        </select>
     </div>
 
-    <!-- Loop to display each font -->
-    <!-- $index is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
-    <?php $index = 0 ?>
-    <?php foreach ($page->children()->listed()->sortBy('year')->flip() as $i => $font) : ?>
-    <?php $index++; ?>
+    <div id="font-list">
+        <!-- Loop to display each font -->
+        <!-- $index is used as an index to add an incremental id to the font, so that they are targeted more easily with JS later -->
+        <?php $index = 0 ?>
+        <?php foreach ($page->children()->listed()->sortBy('year')->flip() as $font) : ?>
+            <?php $index++; ?>
 
-  <div id="no-shadow" data-order="<?= sprintf('%03d', $index); ?>" class="font-list sticky <?php foreach (explode(",", $font->tags()) as $tag) {
-      echo Str::slug($tag) . ' ';
-  } ?>" data-category="<?php foreach (explode(",", $font->categories()) as $cat) {
-      echo Str::slug($cat);
-  } ?>">
-          <div class="fontflex">
-              <a href="<?= $font->url(); ?>"><div class="font-name"><?= $font->title() ?></div></a>
-                <div id="fontButtons">
-                  <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
-                <!-- TODO : change this to account for various weights defined in the font page. Maybe a select instead of buttons ? -->
-                  <?php if(isset($font_file['fichier'][0])) :?>
-                    <button
-                      type="button"
-                      class="weightbutton weightbutton-active"
-                      data-font-name="<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>"
-                      onclick="changeFontHome(this)">
-                        <?= $font_file["graisse"] ?>
-                    </button>
-                  <?php endif ?>
-                <?php endforeach ?>
+            <div data-order="<?= sprintf('%03d', $index); ?>"
+                class="font-element"
+                data-tags="<?php foreach (explode(",", $font->tags()) as $tag) {
+                                echo Str::slug($tag) . ' ';
+                            } ?>"
+                data-category="<?php foreach (explode(",", $font->categories()) as $cat) {
+                                    echo Str::slug($cat);
+                                } ?>"
+                id="<?= "font-element_" . makeFontID($font) ?>">
 
-              </div>
-        <div class="font-designer">
-          <?= $font->name(); ?>
-        </div>
+                <div class="font-info">
+                    <div class="left"><a href="<?= $font->url(); ?>">
+                            <div class="font-name"><?= $font->title() ?></div>
+                        </a>
+                        <div class="font-styles"></div>
+                    </div>
 
-          </div>
+                    <div class="right">
+                        <div class="font-designer">
+                            <?= $font->name(); ?>
+                        </div>
+                        <div class="font-year">
+                            <?= $font->year(); ?>
+                        </div>
+                    </div>
 
-
-      <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
-
-      <?php
-    try {
-        $main_font = $font->title()->slug() . "-" . Str::slug($font->fontes()->yaml()[0]['graisse']);
-
-        // echo '<pre>'
-        // print_r($font->fontes()->yaml()[0]['graisse']);
-        // echo '</pre>';
+                </div>
 
 
-    } catch (Exception $ex) {
-        echo "Pas de fonte par ici";
-        $main_font = "nofont";
-    }
-        ?>
+                <!-- Récupère le nom de la première fonte pour l'affiher dans l'éditeur de texte -->
 
-        <!-- Ajout des styles de chaque graisse -->
-      <style>
-        <?php foreach ($font->fontes()->yaml() as $i => $font_file) : ?>
-          <?php if(isset($font_file['fichier'][0])) :?>
-            @font-face {
-              font-family: "<?= $font->title()->slug() . "-" . Str::slug($font_file['graisse']) ?>";
-              src: url("<?= url($font_file['fichier'][0]) ?>");
-            }
-          <?php endif ?>
+                <?php
+                try {
+                    $main_font = makeFontCSSName($font->fonts()->toFiles()->first());
+                } catch (Exception $ex) {
+                    echo "Pas de fonte par ici";
+                    $main_font = "nofont";
+                }
+                ?>
+
+                <!-- Ajout des styles de chaque graisse -->
+                <style>
+                    <?php foreach ($font->fonts()->toFiles() as $fontFile) : ?>@font-face {
+                        font-family: "<?= makeFontCSSName($fontFile) ?>";
+                        src: url("<?= $fontFile->url() ?>");
+                    }
+
+                    @keyframes variableFontAnimation {
+                        from {
+                            font-variation-settings: var(--start-font-variations);
+                        }
+
+                        to {
+                            font-variation-settings: var(--end-font-variations);
+                        }
+                    }
+
+                    .variable {
+                        /* --start-font-variations: "";
+                        --end-font-variations: ""; */
+                        animation: none;
+                    }
+
+                    .variable:hover {
+                        animation: 3s ease-in-out infinite alternate variableFontAnimation;
+                    }
+
+                    <?php endforeach ?>
+                </style>
+
+                <a href="<?= $font->url(); ?>">
+                    <!-- TODO : Ajout des classes pour les filtres -->
+                    <h3
+                        id="<?= "preview_" . $font->title()->slug() ?>"
+                        class="preview"
+                        style="font-family: <?= $main_font ?>;">
+                        <?php
+                        if (null != $font->content()->text2() && $font->content()->text2() != "") {
+                            echo $font->content()->text2();
+                        } else {
+                            echo "un deux un deux test";
+                        }
+                        ?>
+                    </h3>
+                </a>
+            </div>
         <?php endforeach ?>
-
-      </style>
-
-          <a href="<?= $font->url(); ?>">
-            <!-- TODO : Ajout des classes pour les filtres -->
-            <h3
-              id="<?= $font->title()->slug() ?>"
-              class="editabletxt "
-              style="font-family: <?= $main_font ?>;">
-          <?php
-          if (null != $font->content()->text2() && $font->content()->text2() != "") {
-              echo $font->content()->text2();
-          } else {
-              echo "un deux un deux test";
-          }
-        ?>
-            </h3>
-          </a>
-      </div>
-    <?php endforeach ?>
+    </div>
 </section>
+
+<!-- Store font data to be picked up by the JavaScript -->
+<script type="module">
+    window.fontData = {
+        <?php $index = 0 ?>
+        <?php foreach ($page->children()->listed()->sortBy('year')->flip() as $font) : ?>
+            <?php $index++; ?> "<?= makeFontID($font) ?>": {
+                id: "<?= makeFontID($font) ?>",
+                title: "<?= $font->title() ?>",
+                testString: <?= json_encode($font->text2()->value()) ?>,
+                fonts: {
+                    <?php foreach ($font->fonts()->toFiles() as $fontFile) : ?> "<?= makeFontCSSName($fontFile) ?>": {
+                            url: "<?= $fontFile->url() ?>"
+                        },
+                    <?php endforeach ?>
+                },
+                <?php if (!$font->defaultFont()->isEmpty()) : ?>
+                    defaultFont: "<?= $font->defaultFont()->toFile()->url() ?>",
+                <?php endif ?>
+                <?php if (!$font->preserveFontsOrder()->isEmpty()) : ?>
+                    preserveFontsOrder: <?= $font->preserveFontsOrder() ?>,
+                <?php endif ?>
+            },
+        <?php endforeach ?>
+    }
+</script>
+
+<!-- Load js only on home page -->
+<?= js([
+    'assets/js/index.js',
+], ['type' => 'module']) ?>
 
 <?php snippet('footer') ?>
